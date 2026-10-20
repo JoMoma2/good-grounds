@@ -1,0 +1,17 @@
+{
+  "name": "good-ground-local",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline dog training companion, packaged for iPhone",
+  "scripts": {
+    "test": "node --test tests/core.test.cjs",
+    "test:ui": "node tests/ui.cjs",
+    "preview": "python3 -m http.server 8765 --bind 127.0.0.1 --directory app/web",
+    "check": "node scripts/check.cjs",
+    "test:bridge": "node tests/native-bridge.cjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.11.1",
+    "playwright": "1.64.1"
+  }
+}
