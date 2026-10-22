@@ -1,6 +1,6 @@
 {
-  "version": 3,
-  "updated": "2026-10-21",
+  "version": 4,
+  "updated": "2026-10-22",
   "name": "Good Ground",
   "skills": [
     {
@@ -49,7 +49,7 @@
         {
           "id": "MARK-1",
           "title": "Pair the signal with food",
-          "teach": "Say a soft “yes,” then immediately give a tiny treat. Repeat with short pauses. Keep your hand still until after the word so the word predicts the reward. There is no action to ask for yet. If a click worries your dog, use a gentle word instead.",
+          "teach": "Use your chosen soft marker once: say “yes,” use a physical clicker, or tap the app’s Mark & reward button. Immediately give a tiny treat. Pause before another pairing, and keep your reward hand still until after the signal. There is no action to ask for yet. Use the same signal consistently; if a click worries your dog, choose a gentle spoken word instead.",
           "advance": "The signal produces relaxed reward anticipation in several pairings; no flinching or avoidance.",
           "easier": "Soften the sound, change the signal, or deliver the reward directly without a marker.",
           "deps": []
@@ -181,7 +181,7 @@
       "sheet": "Foundations",
       "goal": "Understand when a short requested position ends.",
       "cue": "Free",
-      "setup": "Start with a very easy one-second position.",
+      "setup": "Start with a very easy one-second position. Use any comfortable sit, stand or down your dog already offers; a finished sit lesson is not required.",
       "sources": "P16",
       "priority": "Core",
       "steps": [
@@ -191,12 +191,7 @@
           "teach": "After a very brief sit, stand, or down, say “free,” pause a beat, and toss a treat a small distance away. Let your dog move to it. On another repetition, reward the position first, then say “free” and invite movement.",
           "advance": "Usually moves after the release word rather than requiring the tossed treat to start moving.",
           "easier": "Use an easier position and a clear invitation to move; do not restrain the dog until released.",
-          "deps": [
-            [
-              "SIT-2",
-              2
-            ]
-          ]
+          "deps": []
         },
         {
           "id": "FREE-2",
@@ -2102,7 +2097,7 @@
           "easier": "Use a larger lower basket or put your receiving hand back over the opening.",
           "deps": [
             [
-              "FETCH-2",
+              "GIVE-2",
               3
             ]
           ]
@@ -2116,6 +2111,10 @@
           "deps": [
             [
               "BOX-1",
+              3
+            ],
+            [
+              "FETCH-2",
               3
             ]
           ]
@@ -2261,8 +2260,8 @@
     },
     {
       "code": "PULL",
-      "title": "Pull a designated rope",
-      "sheet": "Fridge task",
+      "title": "Tug a rope handle",
+      "sheet": "Play and jobs",
       "goal": "Gently pull one designated handle and release.",
       "cue": "Pull",
       "setup": "Large intact rope handle, supervised; no mouth pain or guarding. Remove ropes after practice.",
@@ -2272,7 +2271,7 @@
         {
           "id": "PULL-1",
           "title": "Take the rope handle",
-          "teach": "Offer a large intact rope handle at comfortable mouth height. Use the familiar take and give cues and reward. Mark a gentle grip; no chewing, jumping, or hard tug is needed. Use a handle that cannot catch feet or neck.",
+          "teach": "Offer a large intact rope handle at comfortable mouth height. Use the familiar take and drop cues and reward. Mark a gentle grip; no chewing, jumping, or hard tug is needed. Use a handle that cannot catch feet or neck.",
           "advance": "Willingly takes and releases this handle without chewing or tension.",
           "easier": "Try a softer suitable handle and shorter grips. If teeth or neck appear uncomfortable, skip pulling.",
           "deps": [
@@ -2317,7 +2316,7 @@
     {
       "code": "OPEN",
       "title": "Open this refrigerator",
-      "sheet": "Fridge task",
+      "sheet": "Clever companions",
       "goal": "Open one approved refrigerator gently, under supervision.",
       "cue": "Open",
       "setup": "Clear food access, non-slip footing, reachable handle; remove rope outside sessions. Skip a stiff seal.",
@@ -2368,7 +2367,7 @@
     {
       "code": "CLOSE",
       "title": "Nose-push a door closed",
-      "sheet": "Fridge task",
+      "sheet": "Clever companions",
       "goal": "Gently push an approved door using a nose target.",
       "cue": "Close",
       "setup": "A secure large target; no mouth pulling, pinching, slamming, or jumping.",
@@ -2378,12 +2377,12 @@
         {
           "id": "CLOSE-1",
           "title": "Transfer a nose target to a large pad",
-          "teach": "Hold a broad secure target pad near your familiar hand-target position. Reward a gentle nose touch to the pad, then gradually present only the pad. Keep the target too large to swallow and remove it if your dog tries to chew it.",
+          "teach": "Present the familiar broad target pad near a stationary approved lightweight door. Reward gentle nose contact while you hold it still. Attach the pad securely at a comfortable nose height, then reward the same touch without moving the door. Keep paws and tail clear; door motion is a separate next step.",
           "advance": "Touches the pad gently on 4 of 5 presentations across two sessions.",
           "easier": "Show the pad next to the hand again or reward a small nose approach.",
           "deps": [
             [
-              "TOUCH-2",
+              "OTARGET-2",
               3
             ]
           ]
@@ -2419,7 +2418,7 @@
     {
       "code": "SHELF",
       "title": "Retrieve a drink carrier from a shelf",
-      "sheet": "Fridge task",
+      "sheet": "Clever companions",
       "goal": "Retrieve a lightweight sealed prop by a suitable carry handle.",
       "cue": "Drink / fetch",
       "setup": "Sealed water bottle in a robust suitable carrier; never glass or a bare can in the mouth. No alcohol ingestion.",
@@ -2470,7 +2469,7 @@
     {
       "code": "DRINK",
       "title": "Complete the fridge drink chain",
-      "sheet": "Fridge task",
+      "sheet": "Clever companions",
       "goal": "Open, retrieve, deliver, and optionally return to close on a final cue.",
       "cue": "Fetch a drink (or your chosen word)",
       "setup": "All components comfortable and consistent in this setting; fully supervised.",
@@ -2529,216 +2528,6 @@
           "deps": [
             [
               "DRINK-3",
-              3
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "code": "NAMECTX",
-      "title": "Name response in new settings",
-      "sheet": "Practice elsewhere",
-      "goal": "Apply the already learned name response to specified easier new contexts.",
-      "cue": "Your dog’s name",
-      "setup": "Record each context separately; this does not change the original name-learning status.",
-      "sources": "P10; P07",
-      "priority": "Generalization",
-      "steps": [
-        {
-          "id": "NAMECTX-1",
-          "title": "Change rooms, keep everything easy",
-          "teach": "In a second quiet familiar room, let your dog look slightly away, say the name once, and reward the head turn. Start closer and with a smaller angle than the original lesson. If needed, do a few easy name–reward pairings before checking the response again.",
-          "advance": "Responds on 4 of 5 opportunities in two sessions in the named second room.",
-          "easier": "Return to immediate pairings or reduce the angle. Record this room, rather than claiming every new setting is covered.",
-          "deps": [
-            [
-              "NAME-2",
-              3
-            ]
-          ]
-        },
-        {
-          "id": "NAMECTX-2",
-          "title": "Try a quiet secure outdoor place",
-          "teach": "Use a quiet fenced yard or a secure leash/harness setup. Wait for a comfortable moment with little happening; say the name once and reward the turn. Keep rewards generous and sessions short. Let the dog return to sniffing after success.",
-          "advance": "Responds on 4 of 5 easy opportunities across two sessions in this specific outdoor setting.",
-          "easier": "Use a quieter spot, shorter distance, or return indoors. Do not repeat louder if they are worried.",
-          "deps": [
-            [
-              "NAMECTX-1",
-              3
-            ]
-          ]
-        },
-        {
-          "id": "NAMECTX-3",
-          "title": "Add one mild controlled distraction",
-          "teach": "In the successful setting, add an unimportant mild distraction, such as a familiar person moving slowly far away. Ask once while the dog is still comfortable and reward the turn. Increase only one variable on later sessions. Anxiety triggers should first have their own emotional-learning work.",
-          "advance": "Responds on 4 of 5 comfortable opportunities in two sessions at the recorded distraction level.",
-          "easier": "Remove the distraction or increase distance. High stress is not a required graduation test.",
-          "deps": [
-            [
-              "NAMECTX-2",
-              3
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "code": "RECALLCTX",
-      "title": "Recall in a new safe setting",
-      "sheet": "Practice elsewhere",
-      "goal": "Apply recall outdoors while retaining physical safety.",
-      "cue": "Come / here",
-      "setup": "Long line on a comfortable harness; secure area; no line wrapped around hands or neck.",
-      "sources": "P15",
-      "priority": "Generalization",
-      "steps": [
-        {
-          "id": "RECALLCTX-1",
-          "title": "Restart short in a quiet outdoor area",
-          "teach": "Begin much closer than your best indoor recall, with the line slack and the dog comfortable. Call once, step back invitingly, reward arrival generously, then let them explore again. Manage the line so it cannot snag or build up a fast hard stop.",
-          "advance": "Returns over the chosen short outdoor distance in 4 of 5 attempts across two sessions.",
-          "easier": "Return to a shorter distance or quieter enclosed area; do not reel the dog in as a training response.",
-          "deps": [
-            [
-              "RECALL-2",
-              3
-            ],
-            [
-              "HARNESS-3",
-              3
-            ]
-          ]
-        },
-        {
-          "id": "RECALLCTX-2",
-          "title": "Change distance or mild interest separately",
-          "teach": "Once the easy outdoor return is reliable, try a little more distance OR call from an ordinary mild sniff. Keep the other variable easy and reward generously. Do not use a known frightening trigger or a running animal as the next test. Maintain the line for safety.",
-          "advance": "Reliable comfortable returns in the exact recorded context across two sessions; physical management remains in place.",
-          "easier": "Reduce the chosen variable. A learned recall does not authorize off-leash exposure near roads or animals.",
-          "deps": [
-            [
-              "RECALLCTX-1",
-              3
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "code": "MATCTX",
-      "title": "Mat comfort in another place",
-      "sheet": "Practice elsewhere",
-      "goal": "Use the familiar mat and relaxation routine in a specified easier new setting.",
-      "cue": "Mat / settle",
-      "setup": "Start with a quiet room, not a busy cafe or trigger-filled park.",
-      "sources": "P02; P07",
-      "priority": "Generalization",
-      "steps": [
-        {
-          "id": "MATCTX-1",
-          "title": "Transfer the familiar mat",
-          "teach": "Move the familiar mat to another quiet room. Begin beside it, reward a voluntary approach, then use the known mat cue. Keep any stay very brief. If the dog needs help, teach the easy approach again without changing the original MAT progress.",
-          "advance": "Goes to the mat comfortably on the cue in the named new room on 4 of 5 attempts across two sessions.",
-          "easier": "Choose a more familiar room, shorten distance, or reward offered approaches.",
-          "deps": [
-            [
-              "MAT-2",
-              3
-            ],
-            [
-              "SETTLE-2",
-              3
-            ]
-          ]
-        },
-        {
-          "id": "MATCTX-2",
-          "title": "Rebuild a restful interval",
-          "teach": "Sit near the mat in this new quiet place and reward voluntary soft resting as in SETTLE. Begin with brief intervals and no other challenges. Later add one small ordinary household movement while shortening duration again. Record the actual setting and movement.",
-          "advance": "Shows comfortable voluntary rest for the selected short interval in two sessions; soft posture, not rigid waiting.",
-          "easier": "Remove movement or return to shorter resting periods. Do not station the dog where they need to retreat.",
-          "deps": [
-            [
-              "MATCTX-1",
-              3
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "code": "WALKCTX",
-      "title": "Loose walking in another place",
-      "sheet": "Practice elsewhere",
-      "goal": "Transfer comfortable leash skills to one new low-distraction location.",
-      "cue": "Let’s walk",
-      "setup": "Secure comfortable equipment; broad paths and exits.",
-      "sources": "P14; P04",
-      "priority": "Generalization",
-      "steps": [
-        {
-          "id": "WALKCTX-1",
-          "title": "Restart with one or two steps",
-          "teach": "Choose a quiet familiar-adjacent place, such as the yard edge. Reward the known side position, then one or two slack-leash steps. Allow sniff breaks and keep the route short. Treat the new location as a fresh easy version rather than demanding your longest indoor stretch.",
-          "advance": "Several short loose stretches are comfortable across two sessions in the recorded location.",
-          "easier": "Use fewer steps or a quieter place; separate fear-driven pulling from ordinary loose-leash practice.",
-          "deps": [
-            [
-              "LOOSE-3",
-              3
-            ],
-            [
-              "TURN-2",
-              2
-            ]
-          ]
-        },
-        {
-          "id": "WALKCTX-2",
-          "title": "Add ordinary variation carefully",
-          "teach": "Build a few more steps OR one mild ordinary environmental change, keeping the other variable easy. Reward early enough to prevent repeated tight-leash practice. If a trigger appears, use distance and your planned exit instead of holding position to finish the exercise.",
-          "advance": "Practical loose stretches are comfortable in the named context over two sessions, with easy sniff breaks.",
-          "easier": "Return to the previous step count or location. Record a different context separately.",
-          "deps": [
-            [
-              "WALKCTX-1",
-              3
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "code": "KEEP",
-      "title": "Maintain skills and review changes",
-      "sheet": "Practice elsewhere",
-      "goal": "Keep useful cues rewarding and adapt to changing comfort.",
-      "cue": "Use each skill’s cue",
-      "setup": "Select a few useful skills; do not retest everything in one session.",
-      "sources": "R13; R26; P06",
-      "priority": "Review",
-      "steps": [
-        {
-          "id": "KEEP-1",
-          "title": "Plan short enjoyable refreshers",
-          "teach": "Choose one familiar useful skill and one optional fun activity in an easy setting. Reward generously and finish after a few good repetitions. Alternate activities across days if desired. Mark known skills consistent after an easy confirmation rather than retraining all steps unnecessarily.",
-          "advance": "A manageable refresher routine is recorded and remains enjoyable; no mandatory daily quota.",
-          "easier": "Use a single easy success and rest. More repetitions are not automatically better.",
-          "deps": []
-        },
-        {
-          "id": "KEEP-2",
-          "title": "Review one trigger in comparable conditions",
-          "teach": "Use the session log to compare the same trigger and similar settings over time. Look at posture, comfort, and recovery, not just whether a cue was obeyed. If behavior worsens, reduce challenge, review health and environment, and seek help when needed.",
-          "advance": "A specific next adjustment is written from comparable observations; unanswered concerns have an appropriate follow-up.",
-          "easier": "Collect clearer observations at an easier level; leave unknown recovery values blank rather than entering zero.",
-          "deps": [
-            [
-              "KEEP-1",
               3
             ]
           ]
@@ -3245,6 +3034,216 @@
           "deps": [
             [
               "CARDS-2",
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "NAMECTX",
+      "title": "Name response in new settings",
+      "sheet": "Practice elsewhere",
+      "goal": "Apply the already learned name response to specified easier new contexts.",
+      "cue": "Your dog’s name",
+      "setup": "Record each context separately; this does not change the original name-learning status.",
+      "sources": "P10; P07",
+      "priority": "Generalization",
+      "steps": [
+        {
+          "id": "NAMECTX-1",
+          "title": "Change rooms, keep everything easy",
+          "teach": "In a second quiet familiar room, let your dog look slightly away, say the name once, and reward the head turn. Start closer and with a smaller angle than the original lesson. If needed, do a few easy name–reward pairings before checking the response again.",
+          "advance": "Responds on 4 of 5 opportunities in two sessions in the named second room.",
+          "easier": "Return to immediate pairings or reduce the angle. Record this room, rather than claiming every new setting is covered.",
+          "deps": [
+            [
+              "NAME-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "NAMECTX-2",
+          "title": "Try a quiet secure outdoor place",
+          "teach": "Use a quiet fenced yard or a secure leash/harness setup. Wait for a comfortable moment with little happening; say the name once and reward the turn. Keep rewards generous and sessions short. Let the dog return to sniffing after success.",
+          "advance": "Responds on 4 of 5 easy opportunities across two sessions in this specific outdoor setting.",
+          "easier": "Use a quieter spot, shorter distance, or return indoors. Do not repeat louder if they are worried.",
+          "deps": [
+            [
+              "NAMECTX-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "NAMECTX-3",
+          "title": "Add one mild controlled distraction",
+          "teach": "In the successful setting, add an unimportant mild distraction, such as a familiar person moving slowly far away. Ask once while the dog is still comfortable and reward the turn. Increase only one variable on later sessions. Anxiety triggers should first have their own emotional-learning work.",
+          "advance": "Responds on 4 of 5 comfortable opportunities in two sessions at the recorded distraction level.",
+          "easier": "Remove the distraction or increase distance. High stress is not a required graduation test.",
+          "deps": [
+            [
+              "NAMECTX-2",
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "RECALLCTX",
+      "title": "Recall in a new safe setting",
+      "sheet": "Practice elsewhere",
+      "goal": "Apply recall outdoors while retaining physical safety.",
+      "cue": "Come / here",
+      "setup": "Long line on a comfortable harness; secure area; no line wrapped around hands or neck.",
+      "sources": "P15",
+      "priority": "Generalization",
+      "steps": [
+        {
+          "id": "RECALLCTX-1",
+          "title": "Restart short in a quiet outdoor area",
+          "teach": "Begin much closer than your best indoor recall, with the line slack and the dog comfortable. Call once, step back invitingly, reward arrival generously, then let them explore again. Manage the line so it cannot snag or build up a fast hard stop.",
+          "advance": "Returns over the chosen short outdoor distance in 4 of 5 attempts across two sessions.",
+          "easier": "Return to a shorter distance or quieter enclosed area; do not reel the dog in as a training response.",
+          "deps": [
+            [
+              "RECALL-2",
+              3
+            ],
+            [
+              "HARNESS-3",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "RECALLCTX-2",
+          "title": "Change distance or mild interest separately",
+          "teach": "Once the easy outdoor return is reliable, try a little more distance OR call from an ordinary mild sniff. Keep the other variable easy and reward generously. Do not use a known frightening trigger or a running animal as the next test. Maintain the line for safety.",
+          "advance": "Reliable comfortable returns in the exact recorded context across two sessions; physical management remains in place.",
+          "easier": "Reduce the chosen variable. A learned recall does not authorize off-leash exposure near roads or animals.",
+          "deps": [
+            [
+              "RECALLCTX-1",
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "MATCTX",
+      "title": "Mat comfort in another place",
+      "sheet": "Practice elsewhere",
+      "goal": "Use the familiar mat and relaxation routine in a specified easier new setting.",
+      "cue": "Mat / settle",
+      "setup": "Start with a quiet room, not a busy cafe or trigger-filled park.",
+      "sources": "P02; P07",
+      "priority": "Generalization",
+      "steps": [
+        {
+          "id": "MATCTX-1",
+          "title": "Transfer the familiar mat",
+          "teach": "Move the familiar mat to another quiet room. Begin beside it, reward a voluntary approach, then use the known mat cue. Keep any stay very brief. If the dog needs help, teach the easy approach again without changing the original MAT progress.",
+          "advance": "Goes to the mat comfortably on the cue in the named new room on 4 of 5 attempts across two sessions.",
+          "easier": "Choose a more familiar room, shorten distance, or reward offered approaches.",
+          "deps": [
+            [
+              "MAT-2",
+              3
+            ],
+            [
+              "SETTLE-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "MATCTX-2",
+          "title": "Rebuild a restful interval",
+          "teach": "Sit near the mat in this new quiet place and reward voluntary soft resting as in SETTLE. Begin with brief intervals and no other challenges. Later add one small ordinary household movement while shortening duration again. Record the actual setting and movement.",
+          "advance": "Shows comfortable voluntary rest for the selected short interval in two sessions; soft posture, not rigid waiting.",
+          "easier": "Remove movement or return to shorter resting periods. Do not station the dog where they need to retreat.",
+          "deps": [
+            [
+              "MATCTX-1",
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "WALKCTX",
+      "title": "Loose walking in another place",
+      "sheet": "Practice elsewhere",
+      "goal": "Transfer comfortable leash skills to one new low-distraction location.",
+      "cue": "Let’s walk",
+      "setup": "Secure comfortable equipment; broad paths and exits.",
+      "sources": "P14; P04",
+      "priority": "Generalization",
+      "steps": [
+        {
+          "id": "WALKCTX-1",
+          "title": "Restart with one or two steps",
+          "teach": "Choose a quiet familiar-adjacent place, such as the yard edge. Reward the known side position, then one or two slack-leash steps. Allow sniff breaks and keep the route short. Treat the new location as a fresh easy version rather than demanding your longest indoor stretch.",
+          "advance": "Several short loose stretches are comfortable across two sessions in the recorded location.",
+          "easier": "Use fewer steps or a quieter place; separate fear-driven pulling from ordinary loose-leash practice.",
+          "deps": [
+            [
+              "LOOSE-3",
+              3
+            ],
+            [
+              "TURN-2",
+              2
+            ]
+          ]
+        },
+        {
+          "id": "WALKCTX-2",
+          "title": "Add ordinary variation carefully",
+          "teach": "Build a few more steps OR one mild ordinary environmental change, keeping the other variable easy. Reward early enough to prevent repeated tight-leash practice. If a trigger appears, use distance and your planned exit instead of holding position to finish the exercise.",
+          "advance": "Practical loose stretches are comfortable in the named context over two sessions, with easy sniff breaks.",
+          "easier": "Return to the previous step count or location. Record a different context separately.",
+          "deps": [
+            [
+              "WALKCTX-1",
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "KEEP",
+      "title": "Maintain skills and review changes",
+      "sheet": "Practice elsewhere",
+      "goal": "Keep useful cues rewarding and adapt to changing comfort.",
+      "cue": "Use each skill’s cue",
+      "setup": "Select a few useful skills; do not retest everything in one session.",
+      "sources": "R13; R26; P06",
+      "priority": "Review",
+      "steps": [
+        {
+          "id": "KEEP-1",
+          "title": "Plan short enjoyable refreshers",
+          "teach": "Choose one familiar useful skill and one optional fun activity in an easy setting. Reward generously and finish after a few good repetitions. Alternate activities across days if desired. Mark known skills consistent after an easy confirmation rather than retraining all steps unnecessarily.",
+          "advance": "A manageable refresher routine is recorded and remains enjoyable; no mandatory daily quota.",
+          "easier": "Use a single easy success and rest. More repetitions are not automatically better.",
+          "deps": []
+        },
+        {
+          "id": "KEEP-2",
+          "title": "Review one trigger in comparable conditions",
+          "teach": "Use the session log to compare the same trigger and similar settings over time. Look at posture, comfort, and recovery, not just whether a cue was obeyed. If behavior worsens, reduce challenge, review health and environment, and seek help when needed.",
+          "advance": "A specific next adjustment is written from comparable observations; unanswered concerns have an appropriate follow-up.",
+          "easier": "Collect clearer observations at an easier level; leave unknown recovery values blank rather than entering zero.",
+          "deps": [
+            [
+              "KEEP-1",
               3
             ]
           ]
@@ -4962,7 +4961,7 @@
     },
     {
       "title": "Optional advanced jobs",
-      "body": "Play and jobs and Fridge task are optional enrichment. The fridge chain begins with a light sealed water-bottle prop in a suitable carrier; do not let the dog carry glass or a bare can, open containers, ingest alcohol, strain against a stiff seal, or access the appliance unsupervised. A human-opened retrieve is a useful alternative."
+      "body": "Play and jobs and the fridge retrieve in Clever companions are optional enrichment. The fridge chain begins with a light sealed water-bottle prop in a suitable carrier; do not let the dog carry glass or a bare can, open containers, ingest alcohol, strain against a stiff seal, or access the appliance unsupervised. A human-opened retrieve is a useful alternative."
     },
     {
       "title": "After a difficult day",

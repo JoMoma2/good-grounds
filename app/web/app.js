@@ -12,7 +12,7 @@
     loadError=window.GOOD_GROUND_BOOT?.error||'';
   } catch {state=C.freshState();loadError='Your saved data could not be read. Import a backup before making new changes; the original saved data has been kept.';}
   if(loadError)saveStatus='Saved records need recovery';
-  let needsDogChoice=C.dogs(state).length>1,guideIndex=0,profileContinuation=null,breedTarget=null,breedQuery='',markerPointer=null;
+  let needsDogChoice=C.dogs(state).length>1,guideIndex=0,profileContinuation=null,breedTarget=null,breedQuery='',markerPointer=null,markerKey=null;
   const icons={
     home:'<path d="m3 11 9-8 9 8v9H6v-9M9 20v-7h6v7"/>',
     learn:'<path d="M4 4h6l2 2 2-2h6v16h-6l-2 2-2-2H4zM12 6v16"/>',
@@ -101,10 +101,11 @@
   function dogNotes(id) {
     return C.selectedDogs(state).map((dog,i)=>`<label class="field"><span class="${C.selectedDogs(state).length===1?'sr-only':''}">${C.selectedDogs(state).length===1?'Notes for this teaching step':E(dog.profile.name)+'’s notes'}</span><textarea ${i===0?'id="step-notes"':''} data-step-notes data-id="${E(id)}" data-dog-id="${E(dog.id)}" rows="3" maxlength="30000" placeholder="What made this comfortable? What helped?">${E(dog.progress[id]?.notes||'')}</textarea><small>Saved for ${E(dog.profile.name||'your dog')} when you leave this field.</small></label>`).join('');
   }
+  function defaultCue(skill,dog) {return ['NAME','NAMECTX'].includes(skill.code)&&dog.profile.name?dog.profile.name:skill.cue;}
   function cueFields(skill) {
     const chosen=C.selectedDogs(state);
     return chosen.map(d=>{
-      const cue=d.cues[skill.code]??skill.cue,custom=cue!==skill.cue;
+      const fallback=defaultCue(skill,d),cue=d.cues[skill.code]??fallback,custom=cue!==fallback;
       return `<div class="cue-row"><label class="cue-line"><span>${chosen.length>1?E(d.profile.name)+'’s cue':'Cue'}</span><input class="cue-input" data-cue-input data-skill="${E(skill.code)}" data-dog-id="${E(d.id)}" value="${E(cue)}" maxlength="200" aria-label="Cue for ${E(skill.title)}, ${E(d.profile.name||'your dog')}" autocomplete="off" spellcheck="false"></label><small class="custom-cue-note" ${custom?'':'hidden'}>${custom?'Use “'+E(cue)+'” where the guide suggests “'+E(skill.cue)+'”.':''}</small></div>`;
     }).join('');
   }
@@ -131,12 +132,17 @@
     const seed=[...C.dateToday()].reduce((sum,c)=>sum+c.charCodeAt(0),0),choice=play[seed%play.length];
     return `${section('Just for the joy of it',`<button class="text-button" data-action="fun-pick">Another idea ${icon('restore')}</button>`)}<div id="fun-suggestion">${lessonCard(choice.skill,choice.step,true)}</div>`;
   }
+  function trainingTools() {
+    return `<nav class="training-tools" aria-label="Training tools">${link('clicker',currentLesson,icon('sound')+'Clicker','button secondary')}${link('trends','',icon('chart')+'Trends','button secondary')}${link('plans','',icon('tune')+'Trigger plans','button secondary')}${link('practice','',icon('clock')+'Practice rhythm','button secondary')}</nav>`;
+  }
   function learnView() {
     return `<div class="page-title"><span class="eyebrow">THE LESSON LIBRARY</span><h1>Find your next<br>little breakthrough.</h1><p>${D.skills.length} skills. Clear teaching steps. Your dog’s pace.</p></div>
-    <label class="search-field">${icon('search')}<span class="sr-only">Search skills, goals, cues, or Step IDs</span><input id="learn-search" type="search" placeholder="Search skills, cues, or Step IDs" value="${E(learnQuery)}" autocomplete="off"></label>
+    ${trainingTools()}<label class="search-field">${icon('search')}<span class="sr-only">Search skills, goals, cues, or Step IDs</span><input id="learn-search" type="search" placeholder="Search skills, cues, or Step IDs" value="${E(learnQuery)}" autocomplete="off"></label>
     <div class="filter-row" aria-label="Filter lessons">${[['all','All lessons'],['available','Ready / practicing'],['favorites','Saved'],['complete','Learned']].map(([id,label])=>`<button data-action="learn-filter" data-value="${id}" class="filter-chip ${learnFilter===id?'selected':''}" aria-pressed="${learnFilter===id}">${label}</button>`).join('')}</div>
     <label class="field topic-select"><span class="sr-only">Choose a topic</span><select id="learn-topic">${selectOptions([...new Set(D.skills.map(s=>s.sheet))],learnTopic,'All topics')}</select></label><div id="learn-results">${learnResults()}</div>`;
   }
+  const collapsedTopics=new Set();
+  document.addEventListener('toggle',event=>{const el=event.target;if(el.matches('.training-group')&&!learnQuery){if(el.open)collapsedTopics.delete(el.dataset.topic);else collapsedTopics.add(el.dataset.topic);}},true);
   function learnResults() {
     const q=learnQuery.trim().toLowerCase(),exactStep=I.steps.get(q.toUpperCase());
     const skills=D.skills.filter(s=>(!learnTopic||s.sheet===learnTopic)&&(!exactStep||s.code===exactStep.skill.code)&&(!q||[s.title,s.goal,s.cue,...C.selectedDogs(state).map(d=>d.cues[s.code]||''),s.sheet,s.code,...s.steps.map(st=>st.id+' '+st.title)].join(' ').toLowerCase().includes(q)))
@@ -144,18 +150,24 @@
     if (!skills.length) return empty('Nothing here just yet','Try another search or switch to All lessons. Paused and prerequisite stages stay available to read.');
     let out=`<p class="result-count" aria-live="polite">${skills.length} ${skills.length===1?'skill':'skills'}</p>`;
     for (const topic of [...new Set(skills.map(s=>s.sheet))]) {
-      out+=section(E(topic));
-      out+='<div class="stack">'+skills.filter(s=>s.sheet===topic).map(s=>{
-        const st=exactStep?.step||s.steps.find(x=>['Continue','Ready to start'].includes(C.availability(x,training)))||s.steps.find(x=>C.status(training,x.id)!==C.STATUSES[3])||s.steps[0];
-        return lessonCard(s,st,true);
-      }).join('')+'</div>';
+      out+=`<details class="training-group" data-topic="${E(topic)}" ${q||!collapsedTopics.has(topic)?'open':''}><summary>${E(topic)} <small>${skills.filter(s=>s.sheet===topic).length} skills</small></summary>`;
+      out+=skillCards(skills.filter(s=>s.sheet===topic),{exactStep,compact:true,reveal:!!q})+'</details>';
     }
     return out;
   }
+  function skillCards(skills,{exactStep=null,compact=false,reveal=false}={}) {
+    const fridge=skills.filter(s=>['OPEN','CLOSE','SHELF','DRINK'].includes(s.code));
+    const card=skill=>{
+      const step=exactStep?.step||skill.steps.find(x=>['Continue','Ready to start'].includes(C.availability(x,training)))||skill.steps.find(x=>C.status(training,x.id)!==C.STATUSES[3])||skill.steps[0];
+      return lessonCard(skill,step,compact);
+    };
+    return '<div class="stack">'+skills.filter(s=>!fridge.includes(s)).map(card).join('')+(fridge.length?`<details class="fridge-chain" ${reveal?'open':''}><summary>Fridge retrieve · optional chain <small>${fridge.length} component skills</small></summary><div class="stack">${fridge.map(card).join('')}</div></details>`:'')+'</div>';
+  }
   function topicView(name) {
+    if(name==='Fridge task')name='Clever companions';
     const skills=D.skills.filter(s=>s.sheet===name);
     if(!skills.length)return notFound();
-    return `${backBar('learn','','All lessons')}<div class="page-title"><div class="topic-symbol large">${icon(topicIcon(name))}</div><h1>${E(name)}</h1><p>${topicSubtitle(name)}</p></div><div class="stack">${skills.map(s=>lessonCard(s,s.steps.find(st=>['Continue','Ready to start'].includes(C.availability(st,training)))||s.steps[0])).join('')}</div>`;
+    return `${backBar('learn','','All lessons')}<div class="page-title"><div class="topic-symbol large">${icon(topicIcon(name))}</div><h1>${E(name)}</h1><p>${topicSubtitle(name)}</p></div>${skillCards(skills)}`;
   }
   function backBar(type,id,label,extra='') {return `<div class="back-bar">${link(type,id,icon('back')+E(label),'back-link').replace('<a ','<a data-restore="true" ')}${extra}</div>`;}
   function lessonView(id) {
@@ -169,10 +181,9 @@
     return `${backBar('topic',skill.sheet,skill.sheet,`<button class="icon-button favorite ${state.favorites.includes(skill.code)?'active':''}" data-action="favorite" data-id="${E(skill.code)}" aria-label="${state.favorites.includes(skill.code)?'Unsave':'Save'} this skill" aria-pressed="${state.favorites.includes(skill.code)}">${icon('heart')}</button>`)}
     ${competentNote(id)}<div class="lesson-title"><div class="eyebrow">${E(skill.priority)} · ${E(id)}</div><h1>${E(skill.title)}</h1><p>${E(skill.goal)}</p><div class="card-meta">${badge(avail)}<button class="text-button" data-action="progress" data-id="${E(id)}">${E(statLabel(v))} ${icon('tune')}</button></div></div>
     <nav class="step-strip" aria-label="Teaching steps">${skill.steps.map((s,i)=>link('lesson',s.id,`<span>${C.status(training,s.id)===C.STATUSES[3]?icon('check'):i+1}</span><small>${E(s.title)}</small>`,`step-pill ${s.id===id?'current':''} ${C.status(training,s.id)===C.STATUSES[3]?'done':''}`)).join('')}</nav>
-    <section class="lesson-section setup"><div class="eyebrow">GET READY</div><p>${E(skill.setup)}</p>${cueFields(skill)}</section>${tailoredSetup(skill)}
+    <section class="lesson-section setup"><div class="eyebrow">GET READY</div><p>${E(skill.setup)}</p>${cueFields(skill)}</section>
     ${avail==='Build prerequisite'?`<div class="notice amber"><strong>Read ahead; build the earlier piece first.</strong><p>The prerequisite links below show what is missing. For anxiety, comfortable management and easy pairings do not require perfect obedience.</p></div>`:''}
-    ${state.settings.lessonMarker?`<div class="lesson-marker"><button class="button secondary" data-marker aria-label="Play marker sound">${icon('sound')}Mark & reward</button>${link('clicker',id,'Open clicker','text-link')}</div>`:''}
-    <section class="lesson-section teaching"><span class="eyebrow">STEP ${n+1} OF ${skill.steps.length}</span><h2>${E(step.title)}</h2><div class="teaching-copy">${E(step.teach).split(/\n\n+/).map(p=>`<p>${p}</p>`).join('')}</div></section>
+    <section class="lesson-section teaching"><span class="eyebrow">STEP ${n+1} OF ${skill.steps.length}</span><h2>${E(step.title)}</h2><div class="teaching-copy">${teachingCopy(skill,step)}</div></section>
     <section class="criterion"><div class="criterion-icon">${icon('check')}</div><div><span class="eyebrow">MOVE ON WHEN</span><p>${E(step.advance)}</p></div></section>
     ${practiceRecency(skill)}
     <section class="lesson-section easier"><h2>${icon('leaf')}Make it easier</h2><p>${E(step.easier)}</p></section>
@@ -180,29 +191,37 @@
     <section class="lesson-section"><h2>Your notes</h2>${dogNotes(id)}</section>
     <section class="lesson-section references"><details><summary>Why this approach? · Sources</summary><p>These references support the teaching approach. This specific step sequence is an original practical adaptation, not a promise of treatment success.</p>${sourceLinks(skill.sources)}</details></section>
     ${C.downstreamSkills(D,skill.code).length?`<details class="downstream-skills"><summary>Where this skill can lead</summary><p>This skill helps build the following lessons. Explore whenever you’re curious; their own prerequisites still apply.</p><ul>${C.downstreamSkills(D,skill.code).map(x=>`<li>${link('lesson',x.step.id,E(x.skill.title))}</li>`).join('')}</ul></details>`:''}
-    <div class="lesson-actions"><button class="button" data-action="progress" data-id="${E(id)}">${icon('check')}Set progress</button>${link('session',id,icon('plus')+'Log practice','button secondary')}</div>
+    <div class="lesson-actions" aria-label="Training controls">${state.settings.lessonMarker?`<div class="lesson-marker"><button class="button" data-marker aria-label="Play marker sound" aria-describedby="marker-feedback">${icon('sound')}<span data-marker-label>Mark & reward</span></button>${link('clicker',id,'Open clicker','text-link')}</div>`:link('clicker',id,icon('sound')+'Open clicker','button secondary')}<button class="button secondary" data-action="progress" data-id="${E(id)}">${icon('check')}Set progress</button>${state.settings.lessonMarker?'<p id="marker-feedback" class="marker-feedback" role="status" aria-live="polite" aria-atomic="true">Tap to mark, then reward.</p>':''}</div>
+    ${link('session',id,icon('plus')+'Log practice','button secondary full')}
     <nav class="step-navigation" aria-label="Previous and next teaching step">${n>0?link('lesson',skill.steps[n-1].id,icon('back')+'Previous','button ghost'):'<span></span>'}${n<skill.steps.length-1?link('lesson',skill.steps[n+1].id,'Next step'+icon('arrow'),'button ghost'):link('topic',skill.sheet,'More in this topic'+icon('arrow'),'button ghost')}</nav>
     <p class="fineprint">A recorded stage is a planning aid. Your dog’s comfort, health, and ability to leave always come first. ${link('basics','','Read the training essentials')}</p>`;
   }
   function clickerView(id) {
     const item=I.steps.get(id)||I.steps.get(currentLesson), sound=GroundMarker.sounds.find(s=>s.id===state.settings.markerSound);
     if(item)currentLesson=item.step.id;
-    return `<div class="page-title clicker-heading"><span class="eyebrow">RIGHT MOMENT. KIND REWARD.</span><h1>A little click.<br>A clear yes.</h1><p>Mark the moment you like, then give your dog a reward.</p></div>
-    ${C.selectedDogs(state).some(d=>d.tailoring.traits.includes('noise'))?`<p class="marker-sensitivity">${icon('leaf')}For the sound-sensitive dog you selected, a soft spoken “yes” may feel better. Quiet rewards work too.</p>`:''}<button class="marker-pad" data-marker aria-label="Play ${E(sound.name)} marker">${icon('sound')}<strong>Mark</strong><span>${E(sound.name)} · tap once, then reward</span></button>
-    <p id="marker-feedback" class="marker-feedback" role="status" aria-live="polite">Try quietly away from your dog first.</p>
+    return `${backBar('learn','','Lessons')}<div class="page-title clicker-heading"><span class="eyebrow">RIGHT MOMENT. KIND REWARD.</span><h1>A little click.<br>A clear yes.</h1><p>Mark the moment you like, then give your dog a reward.</p></div>
+    ${C.selectedDogs(state).some(d=>d.tailoring.traits.includes('noise'))?`<p class="marker-sensitivity">${icon('leaf')}For the sound-sensitive dog you selected, a soft spoken “yes” may feel better. Quiet rewards work too.</p>`:''}<button class="marker-pad" data-marker aria-describedby="marker-feedback" aria-label="Play ${E(sound.name)} marker">${icon('sound')}<strong data-marker-label>Mark</strong><span>${E(sound.name)} · tap once, then reward</span></button>
+    <p id="marker-feedback" class="marker-feedback" role="status" aria-live="polite" aria-atomic="true">Try quietly away from your dog first.</p>
     <div class="marker-controls">${selectField('Marker sound','markerSound',GroundMarker.sounds.map(s=>[s.id,s.name+' · '+s.description]),state.settings.markerSound)}<label class="field"><span>Marker volume · <output id="marker-volume-label">${state.settings.markerVolume}%</output></span><input id="marker-volume" type="range" min="0" max="100" step="5" value="${state.settings.markerVolume}" aria-label="Marker volume"><small>Your phone’s media volume also affects the sound.</small></label></div>
-    <details class="reading-card"><summary>Using a sound marker</summary><p>Start with a few easy pairings: make the sound once, then offer a small reward. When teaching, mark the action you wanted and follow each marker with a reward. The sound is a promise, not a cue to repeat or a way to interrupt barking.</p><p>If your dog startles or avoids the sound, stop and use a soft spoken “yes” instead. Choose a quiet setting and comfortable volume. A marker is optional; clear rewards still work without one.</p><p>On iPhone, check media volume and the Silent switch if you cannot hear it. Confirm playback before training.</p></details>
-    ${item?`<section class="reading-card marker-lesson"><span class="eyebrow">YOUR CURRENT STEP</span><h2>${E(item.skill.title)} · ${E(item.step.title)}</h2><p>${E(item.step.teach)}</p><details><summary>Move on when · make it easier</summary><p>${E(item.step.advance)}</p><p>${E(item.step.easier)}</p></details><div class="button-row">${link('lesson',item.step.id,'Return to lesson','button secondary')}${link('session',item.step.id,'Log practice','button secondary')}</div></section>`:`<p class="fineprint">Open any teaching step in Learn, then return here to keep its instructions beside the button.</p>`}
+    <details class="reading-card"><summary>Using a sound marker</summary><p>Start with a few easy pairings: make the sound once, then offer a small reward. When teaching, mark the action you wanted and follow each marker with a reward. The sound is a promise, not a cue to repeat or a way to interrupt barking.</p><p>If your dog startles or avoids the sound, stop and use a soft spoken “yes” instead. Choose a quiet setting and comfortable volume. A marker is optional; clear rewards still work without one.</p><p>On iPhone, check media volume and the Silent switch if you cannot hear it. Confirm playback before training.</p><p>${link('lesson','MARK-1','Teach the reward marker','text-link')}</p></details>
+    ${item?`<section class="reading-card marker-lesson"><span class="eyebrow">YOUR CURRENT STEP</span><h2>${E(item.skill.title)} · ${E(item.step.title)}</h2><div class="teaching-copy">${teachingCopy(item.skill,item.step)}</div><details><summary>Move on when</summary><p>${E(item.step.advance)}</p></details><details><summary>Make it easier</summary><p>${E(item.step.easier)}</p></details><div class="button-row">${link('lesson',item.step.id,'Return to lesson','button secondary')}${link('session',item.step.id,'Log practice','button secondary')}</div></section>`:`<p class="fineprint">Open any teaching step in Lessons, then return here to keep its instructions beside the button.</p>`}
     <label class="check-chip"><input id="lesson-marker-toggle" type="checkbox" ${state.settings.lessonMarker?'checked':''}><span>Also show a small marker button in lessons</span></label>`;
   }
+  const markerTimers=new WeakMap();
   async function playMarker(button) {
-    const feedback=$('#marker-feedback');
+    const feedback=$('#marker-feedback'),label=button.querySelector('[data-marker-label]');
+    clearTimeout(markerTimers.get(button));
+    button.classList.remove('sounded');button.classList.add('marker-pressed');
+    if(feedback){feedback.textContent='Starting sound…';feedback.classList.remove('sound-error');}
+    const original=button.classList.contains('marker-pad')?'Mark':'Mark & reward';
     try {
       if(state.settings.markerVolume===0)throw new Error('Marker volume is muted. Raise it before training.');
       await GroundMarker.play(state.settings.markerSound,state.settings.markerVolume/100);
-      button.classList.add('sounded');setTimeout(()=>button.classList.remove('sounded'),120);
-      if(feedback){feedback.textContent='Marked. Reward now.';feedback.classList.remove('sound-error');}
-    }catch(error){if(feedback){feedback.textContent=error.message;feedback.classList.add('sound-error');}else toast(error.message,true);}
+      button.classList.add('sounded');if(label)label.textContent='Marked!';
+      markerTimers.set(button,setTimeout(()=>{button.classList.remove('sounded');if(label)label.textContent=original;},600));
+      if(feedback){feedback.replaceChildren(document.createTextNode('Marked. Reward now.'));feedback.classList.remove('sound-error');}
+    }catch(error){if(label)label.textContent=original;if(feedback){feedback.textContent=error.message;feedback.classList.add('sound-error');}else toast(error.message,true);}
+    finally{button.classList.remove('marker-pressed');}
   }
   function practiceRecency(skill) {
     const record=C.practiceRecord(skill,training),has=!!record.lastPractice;
@@ -215,7 +234,7 @@
   }
   function practiceView() {
     const records=C.practiceRecords(D,state);
-    return `${backBar('more','','More')}<div class="page-title"><span class="eyebrow">KEEP THE FAMILIAR FEELING GOOD</span><h1>Your practice<br>rhythm.</h1><p>Comfortable refreshers for learned foundations and walk skills. Dates reflect your records, not a test of your dog’s memory.</p></div>${records.length?records.map(x=>`<section class="reading-card"><h2>${E(x.skill.title)}</h2>${C.dogs(state).length>1?`<p class="quiet">For ${E(x.dogName)}</p>`:''}<p>${x.lastPractice?'Last practice logged '+E(C.elapsedLabel(x.practiceDays).toLowerCase())+' · '+E(dateLabel(x.lastPractice)):'No practice logged yet. '+(x.learnedOn?'Consistency recorded '+E(dateLabel(x.learnedOn))+'.':'')}</p><div class="button-row"><button class="button secondary" data-action="quick-practice" data-id="${E(x.skill.steps[0].id)}" data-dog-id="${E(x.dogId)}">Practiced today</button>${link('lesson',x.skill.steps[0].id,'Review lesson','text-link')}</div></section>`).join(''):empty('Room for a rhythm','Once a foundation or walk skill is recorded as consistent, it appears here. You can still log practice from any lesson.')}<section class="reading-card"><h2>A reminder, not a deadline</h2><p>The weekly default is a practical nudge you can change or turn off. It does not predict forgetting. Keep practice short and rewarding, allow rest, and choose a comfortable setting. Fear and exposure programs are left out of these automatic refreshers.</p>${sourceLinks('R13; R27; P33')}${link('settings','','Change reminders','text-link')}</section>`;
+    return `${backBar('learn','','Lessons')}<div class="page-title"><span class="eyebrow">KEEP THE FAMILIAR FEELING GOOD</span><h1>Your practice<br>rhythm.</h1><p>Comfortable refreshers for learned foundations and walk skills. Dates reflect your records, not a test of your dog’s memory.</p></div>${records.length?records.map(x=>`<section class="reading-card"><h2>${E(x.skill.title)}</h2>${C.dogs(state).length>1?`<p class="quiet">For ${E(x.dogName)}</p>`:''}<p>${x.lastPractice?'Last practice logged '+E(C.elapsedLabel(x.practiceDays).toLowerCase())+' · '+E(dateLabel(x.lastPractice)):'No practice logged yet. '+(x.learnedOn?'Consistency recorded '+E(dateLabel(x.learnedOn))+'.':'')}</p><div class="button-row"><button class="button secondary" data-action="quick-practice" data-id="${E(x.skill.steps[0].id)}" data-dog-id="${E(x.dogId)}">Practiced today</button>${link('lesson',x.skill.steps[0].id,'Review lesson','text-link')}</div></section>`).join(''):empty('Room for a rhythm','Once a foundation or walk skill is recorded as consistent, it appears here. You can still log practice from any lesson.')}<p class="fineprint">${link('basics','','How practice reminders work')} · ${link('settings','','Change reminders')}</p>`;
   }
   function progressModal(id) {
     const {step}=I.steps.get(id);
@@ -224,7 +243,7 @@
   }
   function completionSuggestions(skill) {
     const {practical,fun}=C.nextChoices(D,C.trainingView(state),skill.code),complete=skill.steps.every(st=>C.status(training,st.id)===C.STATUSES[3]);
-    openModal(complete?'A little milestone.':'Step complete.',`<p>${complete?'You’ve recorded every step in this skill as consistent.':'This step is recorded as consistent.'} There’s no need to keep going today. If your dog is comfortable and interested, here are a few possibilities.</p><div class="completion-choices">${practical.map(x=>lessonCard(x.skill,x.step,true)).join('')||'<p class="quiet">Revisit a favorite or explore the library whenever you are ready.</p>'}</div><div class="completion-fun">${icon('star')}<div><strong>Give your dog a break. Try something fun.</strong>${fun?link('lesson',fun.step.id,E(fun.skill.title)+' '+icon('arrow'),'text-link'):'<p class="quiet">A relaxed sniff, familiar toy, or simply resting together counts too.</p>'}</div></div><button class="button secondary full" data-action="close-modal">Enough for today</button>`);
+    openModal(complete?'A little milestone.':'Step complete.',`<p>${complete?'You’ve recorded every step in this skill as consistent.':'This step is recorded as consistent.'} Celebrate what you’ve built together. Take a break, revisit a favorite, or try another skill if your dog is comfortable and interested.</p><div class="completion-choices">${practical.map(x=>lessonCard(x.skill,x.step,true)).join('')||'<p class="quiet">Revisit a favorite or explore the library whenever you are ready.</p>'}</div><div class="completion-fun">${icon('star')}<div><strong>Give your dog a break. Try something fun.</strong>${fun?link('lesson',fun.step.id,E(fun.skill.title)+' '+icon('arrow'),'text-link'):'<p class="quiet">A relaxed sniff, familiar toy, or simply resting together counts too.</p>'}</div></div><button class="button secondary full" data-action="close-modal">Enough for today</button>`);
   }
   function breedField(value='') {
     return `<div class="field breed-field"><span id="breed-label">Breed / mix · optional</span><input type="hidden" name="breed" value="${E(value)}"><button type="button" class="breed-picker" data-action="choose-breed" aria-labelledby="breed-label breed-value"><span id="breed-value" class="breed-value">${E(value||'Choose or search a breed')}</span>${icon('arrow')}</button><small>Mixed, unknown and unlisted dogs are welcome.</small></div>`;
@@ -247,13 +266,16 @@
     profileContinuation=continueProfile;
     openModal('Does this fit '+(dog.profile.name||'your dog')+'?',`<p>One Finnish owner survey reported more ${E(hint.topic)} in this breed than in some others. That describes a population, not ${E(dog.profile.name||'your dog')}.</p><div class="mini-criterion"><strong>${hint.trait==='noise'?'Do everyday sounds sometimes worry them?':'Do unfamiliar people, dogs or situations often worry them?'}</strong><p>If this fits, we can suggest quieter, more gradual setups. Their actual comfort still sets the pace.</p></div><p class="fineprint">Breed alone never changes training. The survey and an ancestry study both have important limits.</p><small>Research notes R09 and R08 are available in More → Source library.</small><div class="hint-actions"><button class="button full" data-action="confirm-support" data-dog-id="${E(dogId)}" data-trait="${hint.trait}">Yes, that fits</button><button class="button secondary full" data-action="close-modal">Doesn’t fit my dog</button><button class="text-button" data-action="close-modal">Not sure · keep the usual plan</button></div>`);
   }
-  function tailoredSetup(skill) {
-    const chosen=C.selectedDogs(state).filter(d=>d.tailoring.traits.length);if(!chosen.length)return '';
-    return `<details class="tailored-setup" ${chosen.length===1?'open':''}><summary>A gentler setup · ${E(chosen.map(d=>d.profile.name||'your dog').join(', '))}</summary>${chosen.map(d=>`<div><strong>${E(d.profile.name||'Your dog')}</strong>${d.tailoring.traits.map(id=>{const t=GroundTailoring.traits.find(t=>t.id===id);return `<p>${E(t.advice)}</p>`;}).join('')}</div>`).join('')}<small>These reflect your observations. Keep this lesson’s advancement criterion and stop sooner if needed.</small>${sourceLinks([...new Set(chosen.flatMap(d=>d.tailoring.traits.flatMap(id=>GroundTailoring.traits.find(t=>t.id===id).sources)))].join('; '))}</details>`;
+  function teachingCopy(skill,step) {
+    const original=E(step.teach).split(/\n\n+/).map(p=>`<p>${p}</p>`).join('');
+    const adapted=C.selectedDogs(state).map(d=>({dog:d,pieces:GroundTailoring.practicePieces(step.id,d.tailoring.traits)})).filter(x=>x.pieces.length);
+    if(!adapted.length)return original;
+    return `<div class="tailored-teaching">${adapted.map(({dog,pieces})=>`<div><span class="eyebrow">SMALLER PRACTICE STEPS${C.selectedDogs(state).length>1?' · '+E(dog.profile.name):''}</span><ol>${pieces.map(p=>`<li>${E(p)}</li>`).join('')}</ol></div>`).join('')}</div><details><summary>Full teaching guide</summary>${original}</details>`;
   }
   function tailoredToday() {
-    const chosen=C.selectedDogs(state).filter(d=>d.tailoring.traits.length);if(!chosen.length)return '';
-    return `<section class="tailored-today"><span class="eyebrow">BASED ON WHAT YOU’VE NOTICED</span><h2>A comfortable starting plan.</h2>${chosen.map(d=>`<div class="tailored-dog"><strong>For ${E(d.profile.name||'your dog')}</strong>${d.tailoring.traits.map(id=>{const t=GroundTailoring.traits.find(t=>t.id===id);return `<p>${E(t.title)}</p>`;}).join('')}<div class="tailored-links">${[...new Set(d.tailoring.traits.flatMap(id=>GroundTailoring.traits.find(t=>t.id===id).steps))].map(id=>{const item=I.steps.get(id);return link('lesson',id,E(item.skill.title),'text-link');}).join('')}</div></div>`).join('')}<small>Start with a familiar, comfortable version. Change these preferences in the dog’s profile anytime.</small></section>`;
+    const chosen=C.selectedDogs(state).map(d=>({dog:d,steps:[...new Set(d.tailoring.traits.flatMap(id=>GroundTailoring.traits.find(t=>t.id===id).steps))].filter(id=>C.status(C.dogState(state,d.id),id)!==C.STATUSES[3])})).filter(x=>x.steps.length);
+    if(!chosen.length)return '';
+    return `<details class="tailored-today"><summary>Starting points for your dog</summary>${chosen.map(({dog,steps})=>`<div class="tailored-dog"><strong>For ${E(dog.profile.name||'your dog')}</strong><div class="tailored-links">${steps.map(id=>{const item=I.steps.get(id);return link('lesson',id,E(item.skill.title),'button secondary');}).join('')}</div></div>`).join('')}</details>`;
   }
   function softProfileFields(p,{nameRequired=false,tailoring={traits:[]}}={}) {
     return `<label class="field"><span>Their name${nameRequired?' · required':''}</span><input name="name" value="${E(p.name)}" maxlength="100" autocomplete="off" ${nameRequired?'required':''}></label>${inputField('Age / life stage','age',p.age)}${breedField(p.breed)}${textField('Favorite rewards','rewards',p.rewards,'Food, play, sniffing, or something else they safely enjoy.')}${supportFields(tailoring)}<details class="profile-details"><summary>A little more about them · optional</summary>${textField('Their comfortable baseline','comfort',p.comfort)}${textField('Health, pain, movement, or veterinary directions','health',p.health)}${textField('Equipment and safe retreat','equipment',p.equipment)}${textField('History to share with your professional','history',p.history)}${textField('Your veterinary / behavior support','help',p.help)}<fieldset><legend>Current priorities · optional</legend><div class="choice-grid">${D.triggers.map(t=>`<label class="check-chip"><input type="checkbox" name="priority" value="${E(t.name)}" ${p.priorities.includes(t.name)?'checked':''}><span>${E(t.name)}</span></label>`).join('')}</div></fieldset></details>`;
@@ -337,7 +359,7 @@
   function trendsView() {
     const chosen=C.selectedDogs(state);if(!chosen.some(d=>d.id===trendDogId))trendDogId=chosen[0].id;
     const trendState=C.dogState(state,trendDogId),sum=C.summary(D,trendState),obs=C.observations(trendState,trendTrigger);
-    return `<div class="page-title"><span class="eyebrow">PROGRESS, WITH CONTEXT</span><h1>Look for<br>comfortable change.</h1><p>Learning a step and feeling less anxious are different things.</p></div>
+    return `${backBar('learn','','Lessons')}<div class="page-title"><span class="eyebrow">PROGRESS, WITH CONTEXT</span><h1>Look for<br>comfortable change.</h1><p>Learning a step and feeling less anxious are different things.</p></div>
     ${C.selectedDogs(state).length>1?selectField('Show one dog’s trends','trendDog',C.selectedDogs(state).map(d=>[d.id,d.profile.name]),trendDogId):''}<section class="progress-overview"><div class="progress-number">${sum.counts.complete}<span> / ${sum.counts.total}</span></div><h2>teaching steps marked consistent</h2><p>${sum.counts.skills} complete skills · this is not a percentage cure of anxiety.</p></section>
     ${section('Learning by topic')}<div class="topic-progress">${sum.topics.map(t=>link('topic',t.name,`<div class="progress-label"><strong>${E(t.name)}</strong><span>${t.complete} / ${t.total}</span></div><div class="progress-track"><span style="width:${100*t.complete/t.total}%"></span></div>`,'topic-progress-row')).join('')}</div>
     ${section('Trigger observations')}<label class="field"><span>Choose a trigger</span><select id="trend-trigger">${selectOptions(D.triggers.map(t=>t.name),trendTrigger)}</select></label><p class="fineprint">Compare similar contexts. Easier conditions can lower a response without showing comfort in harder conditions. These charts make no clinical judgment.</p>
@@ -345,12 +367,12 @@
     <div class="notice"><strong>Describe more than the number.</strong><p>Recovery means returning to their ordinary comfortable behavior after the event ends. The 0–4 description is a personal tracking aid. Keep the setup and body-language notes alongside it.</p></div>`;
   }
   function moreView() {
-    const rows=[['practice','clock','Practice rhythm','Gentle refreshers for learned skills'],['trends','chart','Trends','Learning and comfort observations'],['clicker','sound','Sound marker','A clicker when you need one'],['dogs','dog','Your dogs','Profiles and separate training records'],['tutorial','learn','A quick tour','Revisit the app guide'],['plans','tune','Trigger plans','Choose an easy starting version'],['basics','leaf','Training essentials','Comfort, timing, and when to simplify'],['evidence','book','Evidence & limitations','What research supports—and what it doesn’t'],['sources','search','Source library',D.sources.length+' saved reference summaries'],['backup','save','Backup & restore','Keep a separate copy of your progress'],['settings','tune','Settings','Themes, text size and gentle reminders'],['about','shield','About Good Ground','Privacy, build, and compatibility']];
+    const rows=[['settings','tune','Settings','Appearance, clicker, practice reminders and backups'],['sources','book','Source library','Training essentials, evidence and references'],['dogs','dog','Your dogs','Profiles and separate training records'],['about','shield','About Good Ground','Privacy, app guide and compatibility']];
     return `<div class="page-title"><span class="eyebrow">YOUR COMPANION TOOLKIT</span><h1>A little more<br>good ground.</h1><p>The useful details, all in one place.</p></div><div class="menu-list">${rows.map(([p,i,t,d])=>link(p,'',`<div class="menu-icon">${icon(i)}</div><span><strong>${E(t)}</strong><small>${E(d)}</small></span>${icon('arrow')}`,'menu-row')).join('')}</div><div class="local-card">${icon('shield')}<h2>At home on your phone.</h2><p>No account. No analytics. No app-run uploads. Your records stay local unless you choose to export them.</p><small data-save-indicator>${E(saveStatus)}</small></div>`;
   }
   function plansView() {
     const chosen=C.selectedDogs(state);if(!chosen.some(d=>d.id===planDogId))planDogId=chosen[0].id;const dog=C.dogState(state,planDogId);
-    return `${backBar('more','','More')}<div class="page-title"><span class="eyebrow">MAKE THE START MANAGEABLE</span><h1>Trigger plans.</h1><p>Use safe existing observations. Never provoke a reaction to measure a threshold. Change one feature at a time.</p></div>${C.selectedDogs(state).length>1?selectField('Plans for','planDog',C.selectedDogs(state).map(d=>[d.id,d.profile.name]),planDogId):''}<div class="stack">${D.triggers.map(t=>link('plan',t.name,`<div class="menu-icon">${icon(topicIcon(I.steps.get(t.step)?.skill.sheet))}</div><span><strong>${E(t.name)}</strong><small>${dog.plans[t.name]?.setup?'Your plan is started':E(t.example)}</small></span>${icon('arrow')}`,'menu-row')).join('')}</div>`;
+    return `${backBar('learn','','Lessons')}<div class="page-title"><span class="eyebrow">MAKE THE START MANAGEABLE</span><h1>Trigger plans.</h1><p>Use safe existing observations. Never provoke a reaction to measure a threshold. Change one feature at a time.</p></div>${C.selectedDogs(state).length>1?selectField('Plans for','planDog',C.selectedDogs(state).map(d=>[d.id,d.profile.name]),planDogId):''}<div class="stack">${D.triggers.map(t=>link('plan',t.name,`<div class="menu-icon">${icon(topicIcon(I.steps.get(t.step)?.skill.sheet))}</div><span><strong>${E(t.name)}</strong><small>${dog.plans[t.name]?.setup?'Your plan is started':E(t.example)}</small></span>${icon('arrow')}`,'menu-row')).join('')}</div>`;
   }
   function planView(name) {
     const t=D.triggers.find(x=>x.name===name);if(!t)return notFound();
@@ -360,14 +382,14 @@
     <form id="plan-form" data-dog-id="${E(planDogId)}" data-id="${E(name)}" class="form-card">${formError()}${textField('A version my dog can handle comfortably','setup',p.setup)}${textField('Their comfortable body language','baseline',p.baseline)}${textField('One small next change','next',p.next)}${textField('Exit, space, and management','exit',p.exit)}${textField('Notes and support','notes',p.notes)}<button type="submit" class="button">Save trigger plan</button></form>`;
   }
   function basicsView() {
-    return `${backBar('more','','More')}<div class="page-title"><span class="eyebrow">THE WAY WE PRACTICE</span><h1>Kindness is<br>part of the method.</h1><p>A useful cue and a comfortable emotional response are different learning goals.</p></div><div class="reading-stack">${D.intro.map(x=>`<section class="reading-card"><h2>${E(x.title)}</h2><p>${E(x.body)}</p></section>`).join('')}</div>
-    <section class="reading-card"><h2>Read the progress stages</h2><p>Practicing and Nearly there describe a step in its stated setting. Consistent means it meets the adjacent advancement criterion. Almost-consistent prerequisites permit easy parallel work where the lesson allows it; strict prerequisites need consistency. Paused blocks dependent steps.</p><p>The usual four-in-five rule is a practical planning aid, not a validated scientific cutoff. Comfort overrides every count and availability badge.</p></section>${link('evidence','','Read evidence & limitations '+icon('arrow'),'button secondary full')}`;
+    return `${backBar('sources','','Source library')}<div class="page-title"><span class="eyebrow">THE WAY WE PRACTICE</span><h1>Kindness is<br>part of the method.</h1><p>A useful cue and a comfortable emotional response are different learning goals.</p></div><div class="reading-stack">${D.intro.map(x=>`<section class="reading-card"><h2>${E(x.title)}</h2><p>${E(x.body)}</p></section>`).join('')}</div>
+    <section class="reading-card"><h2>Read the progress stages</h2><p>Practicing and Nearly there describe a step in its stated setting. Consistent means it meets the adjacent advancement criterion. Almost-consistent prerequisites permit easy parallel work where the lesson allows it; strict prerequisites need consistency. Paused blocks dependent steps.</p><p>The usual four-in-five rule is a practical planning aid, not a validated scientific cutoff. Comfort overrides every count and availability badge.</p></section><section class="reading-card" id="practice-rhythms"><h2>Practice rhythms</h2><p>Comfortable refreshers can help keep familiar skills rewarding. The weekly reminder is a practical nudge you can change or turn off. It does not predict forgetting. Keep practice short and rewarding, allow rest, and choose a comfortable setting.</p><p>Dates reflect linked skill-practice records. A missing log does not mean your dog has forgotten. Fear and exposure programs are left out of automatic refreshers.</p>${sourceLinks('R13; R27; P33')}${link('settings','','Change reminders','text-link')}</section>${link('evidence','','Read evidence & limitations '+icon('arrow'),'button secondary full')}`;
   }
   function evidenceView() {
-    return `${backBar('more','','More')}<div class="page-title"><span class="eyebrow">RESEARCH, WITHOUT THE OVERCLAIM</span><h1>Evidence &<br>limitations.</h1><p>A focused review with professional guidance, studies, and original teaching adaptations. It is not an exhaustive systematic review.</p></div><div class="reading-stack">${D.evidence.map(x=>`<section class="reading-card"><h2>${E(x.topic)}</h2><p>${E(x.conclusion)}</p><details><summary>Strength and limits</summary><p>${E(x.limits)}</p></details>${sourceLinks(x.sources)}</section>`).join('')}</div>`;
+    return `${backBar('sources','','Source library')}<div class="page-title"><span class="eyebrow">RESEARCH, WITHOUT THE OVERCLAIM</span><h1>Evidence &<br>limitations.</h1><p>A focused review with professional guidance, studies, and original teaching adaptations. It is not an exhaustive systematic review.</p></div><div class="reading-stack">${D.evidence.map(x=>`<section class="reading-card"><h2>${E(x.topic)}</h2><p>${E(x.conclusion)}</p><details><summary>Strength and limits</summary><p>${E(x.limits)}</p></details>${sourceLinks(x.sources)}</section>`).join('')}</div>`;
   }
   function sourcesView() {
-    return `${backBar('more','','More')}<div class="page-title"><span class="eyebrow">THE REFERENCE SHELF</span><h1>Read the<br>original thinking.</h1><p>Summaries work offline. Original websites require a connection and may have access restrictions.</p></div><label class="search-field">${icon('search')}<span class="sr-only">Search references</span><input id="source-search" type="search" placeholder="Search title, topic, or source ID"></label><div id="source-results" class="stack">${sourcesResults('')}</div>`;
+    return `${backBar('more','','More')}<div class="page-title"><span class="eyebrow">THE REFERENCE SHELF</span><h1>Read the<br>original thinking.</h1><p>Summaries work offline. Original websites require a connection and may have access restrictions.</p></div><nav class="training-tools" aria-label="Training resources">${link('basics','','Training essentials','button secondary')}${link('evidence','','Evidence & limitations','button secondary')}</nav><label class="search-field">${icon('search')}<span class="sr-only">Search references</span><input id="source-search" type="search" placeholder="Search title, topic, or source ID"></label><div id="source-results" class="stack">${sourcesResults('')}</div>`;
   }
   function sourcesResults(query) {
     const sources=D.sources.filter(s=>[s.id,s.title,s.author,s.finding].join(' ').toLowerCase().includes(query.toLowerCase()));
@@ -379,18 +401,19 @@
     return `${sourceContext?backBar(sourceContext.type,sourceContext.id,sourceContext.type==='lesson'?'Back to lesson':'Evidence & limitations'):backBar('sources','','Source library')}<div class="page-title"><span class="eyebrow">${E(s.id)} · ${E(s.type)}</span><h1 class="source-title">${E(s.title)}</h1><p>${E(s.author)} · ${E(s.year)}</p></div><div class="reading-stack">${[['Finding',s.finding],['Limits to keep in mind',s.limits],['What was reviewed',s.access],['Use in this guide',s.use]].map(([h,b])=>`<section class="reading-card"><h2>${E(h)}</h2><p>${E(b)}</p></section>`).join('')}</div>${safeURL?`<a class="button secondary full" href="${E(s.url)}" rel="noopener noreferrer">Open original website ↗</a><p class="fineprint">Opens your browser. This is the only part of the guide that needs the original website.</p>`:''}`;
   }
   function backupView() {
-    return `${backBar('more','','More')}<div class="page-title"><span class="eyebrow">KEEP WHAT YOU’VE LEARNED</span><h1>A copy of<br>your good work.</h1><p>Lessons come with the app. A backup keeps your personal progress, notes, profile, trigger plans, and journal.</p></div>
+    return `${backBar('settings','','Settings')}<div class="page-title"><span class="eyebrow">KEEP WHAT YOU’VE LEARNED</span><h1>A copy of<br>your good work.</h1><p>Lessons come with the app. A backup keeps your personal progress, notes, profile, trigger plans, and journal.</p></div>
     <section class="reading-card"><h2>Export a backup</h2><p>Save a JSON file in Files. Choose <strong>On My iPhone</strong> if you want that copy to stay on the phone. Keep a separate copy before replacing or removing the app or its LiveContainer data container.</p><button class="button" data-action="export">${icon('save')}Save backup to Files</button></section>
     <section class="reading-card"><h2>Restore a backup</h2><p>The file is validated first. You’ll see a summary and confirm before it replaces current records. Canceling leaves your records untouched.</p><button class="button secondary" data-action="import">${icon('restore')}Choose backup file</button></section>${native?'<section class="reading-card"><h2>Previous local save</h2><p>If a recent change or damaged file needs recovery, you can preview the previous local snapshot before deciding whether to restore it.</p><button class="button secondary" data-action="recover-previous">Preview previous save</button></section>':''}<p class="fineprint" data-save-indicator>${E(saveStatus)}</p>`;
   }
   function settingsView() {
-    return `${backBar('more','','More')}<div class="page-title"><span class="eyebrow">COMFORTABLE TO READ</span><h1>Make yourself<br>at home.</h1><p>Appearance changes never change your training records.</p></div><form id="settings-form" class="form-card">${selectField('Color theme','theme',[['light','Warm light'],['dark','Quiet dark'],['system','Follow iPhone appearance']],state.settings.theme)}${selectField('Text size','textSize',[['normal','Comfortable'],['large','Larger']],state.settings.textSize)}${selectField('Gentle refresher reminders','reminderDays',[[7,'After a week without a recent record'],[14,'After two weeks'],[30,'After a month'],[0,'Turn reminders off']].map(([v,t])=>[String(v),t]),String(state.settings.reminderDays))}<p class="fineprint">A practical nudge for learned foundations and walk skills, not a scientific forgetting deadline.</p><button class="button" type="submit">Save settings</button></form>`;
+    return `${backBar('more','','More')}<div class="page-title"><span class="eyebrow">COMFORTABLE TO READ</span><h1>Make yourself<br>at home.</h1><p>Appearance changes never change your training records.</p></div><form id="settings-form" class="form-card">${selectField('Color theme','theme',[['light','Warm light'],['dark','Quiet dark'],['system','Follow iPhone appearance']],state.settings.theme)}${selectField('Text size','textSize',[['normal','Comfortable'],['large','Larger']],state.settings.textSize)}${selectField('Gentle refresher reminders','reminderDays',[[7,'After a week without a recent record'],[14,'After two weeks'],[30,'After a month'],[0,'Turn reminders off']].map(([v,t])=>[String(v),t]),String(state.settings.reminderDays))}<p class="fineprint">A practical nudge for learned foundations and walk skills, not a scientific forgetting deadline.</p><label class="check-chip"><input name="lessonMarker" type="checkbox" ${state.settings.lessonMarker?'checked':''}><span>Show the marker button while reading lessons</span></label><p class="fineprint">Mark & reward stays within reach alongside Set progress. Choose a sound and volume in ${link('clicker','','Clicker')}.</p><button class="button" type="submit">Save settings</button></form>${link('backup','',icon('save')+'Backup & restore','button secondary full')}`;
   }
   function aboutView() {
-    return `${backBar('more','','More')}<div class="page-title"><span class="brand-kicker">GOOD GROUND</span><h1>Practice kindly.<br>Keep it local.</h1><p>A personal dog-training companion built around comfortable progress and useful teaching guides.</p></div><div class="reading-stack"><section class="reading-card"><h2>On this phone</h2><p>Version 1.1.0 · Curriculum ${D.version} · Updated ${E(D.updated)}.</p><p>${D.skills.length} skills and programs · ${I.steps.size} teaching steps · ${D.sources.length} reference records.</p><p>The installed app stores its records in its local data container. It has no analytics, remote fonts, advertising, API, or background data uploads. Automatic iCloud backup is excluded for the app’s progress folder; you control any exported files.</p></section><section class="reading-card"><h2>Built for real life</h2><p>The lessons are educational planning guides. Sudden changes, pain, severe panic, bites or redirection, and no comfortable starting setup deserve individual veterinary and behavior support. Secure equipment, barriers, and distance can help while arranging that care.</p></section><section class="reading-card"><h2>In LiveContainer</h2><p>Your records belong to the selected container. Keep using that same container for updates and export a backup before replacing it. File pickers depend on your LiveContainer setup; use its Fix File Picker setting if needed. Compatibility and physical-device behavior still need testing on your iPhone.</p></section></div>`;
+    return `${backBar('more','','More')}<div class="page-title"><span class="brand-kicker">GOOD GROUND</span><h1>Practice kindly.<br>Keep it local.</h1><p>A personal dog-training companion built around comfortable progress and useful teaching guides.</p></div>${link('tutorial','','A quick tour','button secondary full')}<div class="reading-stack"><section class="reading-card"><h2>On this phone</h2><p>Version 1.1.1 · Curriculum ${D.version} · Updated ${E(D.updated)}.</p><p>${D.skills.length} skills and programs · ${I.steps.size} teaching steps · ${D.sources.length} reference records.</p><p>The installed app stores its records in its local data container. It has no analytics, remote fonts, advertising, API, or background data uploads. Automatic iCloud backup is excluded for the app’s progress folder; you control any exported files.</p></section><section class="reading-card"><h2>Built for real life</h2><p>The lessons are educational planning guides. Sudden changes, pain, severe panic, bites or redirection, and no comfortable starting setup deserve individual veterinary and behavior support. Secure equipment, barriers, and distance can help while arranging that care.</p></section><section class="reading-card"><h2>In LiveContainer</h2><p>Your records belong to the selected container. Keep using that same container for updates and export a backup before replacing it. File pickers depend on your LiveContainer setup; use its Fix File Picker setting if needed. Compatibility and physical-device behavior still need testing on your iPhone.</p></section></div>`;
   }
   function notFound() {return empty('That page is not here','Return to the library to find the lesson you need.',link('learn','','Open the library','button'));}
-  function currentTab(type) {return ['lesson','topic','learn'].includes(type)?'learn':['journal','session','entry','edit-session'].includes(type)?'journal':type==='clicker'?'clicker':type==='today'?'today':'more';}
+  function currentTab(type) {return ['lesson','topic','learn','clicker','trends','plans','plan','practice'].includes(type)?'learn':['journal','session','entry','edit-session'].includes(type)?'journal':type==='today'?'today':'more';}
+  const navObserver=new ResizeObserver(entries=>{for(const entry of entries)document.documentElement.style.setProperty('--nav-height',entry.target.getBoundingClientRect().height+'px');});
   function render(options={}) {
     const previousY=scrollY;dirty=false;training=C.trainingView(state);
     const [part,raw='']=location.hash.replace(/^#\/?/,'').split('/');let type=part||'today';let id='';try{id=decodeURIComponent(raw);}catch{}
@@ -398,8 +421,9 @@
     const startup=['setup','tutorial','choose-dogs'].includes(type);
     route=type;renderedHash=location.hash||'#/today';
     const views={setup:setupView,tutorial:guideView,'choose-dogs':dogChooserView,'add-dog':addDogView,practice:practiceView,clicker:()=>clickerView(id),today:todayView,learn:learnView,topic:()=>topicView(id),lesson:()=>lessonView(id),journal:journalView,session:()=>sessionForm(id),entry:()=>entryView(id),'edit-session':()=>sessionForm(id,true),trends:trendsView,more:moreView,profile:()=>profileView(id),dogs:dogsView,plans:plansView,plan:()=>planView(id),basics:basicsView,evidence:evidenceView,sources:sourcesView,source:()=>sourceView(id),backup:backupView,settings:settingsView,about:aboutView};
-    $('#app').innerHTML=`<div class="app-shell"><div class="top-safe"></div><div id="save-warning" class="load-error" role="alert" ${saveStatus.includes('not')?'':'hidden'}><strong>This change could not be saved.</strong><p>Keep the app open. Retry, or export a backup to protect your work.</p><button class="button secondary" data-action="retry-save">Retry save</button> <button class="button secondary" data-action="export">Export backup</button></div>${loadError?`<div class="load-error" role="alert"><strong>Saved data needs attention.</strong><p>${E(loadError)}</p><button class="button secondary" data-action="import">Restore a backup</button></div>`:''}<main id="main" data-route="${E(type)}" data-page-id="${E(id)}" class="page ${type==='today'?'home-page':''}" tabindex="-1">${!startup?trainingContext():''}${(views[type]||notFound)()}</main><nav class="tab-bar" aria-label="Main navigation" ${startup?'hidden':''}>${[['today','home','Today'],['learn','learn','Learn'],['clicker','sound','Clicker'],['journal','journal','Journal'],['more','more','More']].map(([p,i,t])=>`<a href="${path(p)}" class="tab ${currentTab(type)===p?'active':''}" ${currentTab(type)===p?'aria-current="page"':''}>${icon(i)}<span>${t}</span></a>`).join('')}</nav></div>`;
+    $('#app').innerHTML=`<div class="app-shell"><div class="top-safe"></div><div id="save-warning" class="load-error" role="alert" ${saveStatus.includes('not')?'':'hidden'}><strong>This change could not be saved.</strong><p>Keep the app open. Retry, or export a backup to protect your work.</p><button class="button secondary" data-action="retry-save">Retry save</button> <button class="button secondary" data-action="export">Export backup</button></div>${loadError?`<div class="load-error" role="alert"><strong>Saved data needs attention.</strong><p>${E(loadError)}</p><button class="button secondary" data-action="import">Restore a backup</button></div>`:''}<main id="main" data-route="${E(type)}" data-page-id="${E(id)}" class="page ${type==='today'?'home-page':''}" tabindex="-1">${!startup?trainingContext():''}${(views[type]||notFound)()}</main><nav class="tab-bar" aria-label="Main navigation" ${startup?'hidden':''}>${[['today','home','Today'],['learn','learn','Lessons'],['journal','journal','Journal'],['more','more','More']].map(([p,i,t])=>`<a href="${path(p)}" class="tab ${currentTab(type)===p?'active':''}" ${currentTab(type)===p?'aria-current="page"':''}>${icon(i)}<span>${t}</span></a>`).join('')}</nav></div>`;
     applySettings();
+    navObserver.disconnect();const nav=$('.tab-bar');if(nav&&!startup)navObserver.observe(nav);
     document.title=(type==='lesson'?I.steps.get(id)?.skill.title||'Lesson':type.charAt(0).toUpperCase()+type.slice(1))+' · Good Ground';
     window.scrollTo(0,options.preserveScroll?previousY:0);
     if(type==='lesson')requestAnimationFrame(()=>{const strip=$('.step-strip'),active=$('.step-pill.current');if(strip&&active)strip.scrollLeft=Math.max(0,active.offsetLeft-strip.offsetLeft-12);});
@@ -412,11 +436,11 @@
       if(el.value!==(dog.progress[el.dataset.id]?.notes||''))next=C.updateDog(next,el.dataset.dogId,()=>C.setProgress(dog,el.dataset.id,C.status(dog,el.dataset.id),el.value));
     });
     document.querySelectorAll('[data-cue-input]').forEach(el=>{
-      const dog=C.dogState(next,el.dataset.dogId),skill=I.skills.get(el.dataset.skill),cue=el.value.trim()||skill.cue;
-      if(cue!==(dog.cues[skill.code]??skill.cue))next=C.updateDog(next,el.dataset.dogId,d=>{
-        const cues={...d.cues};if(cue===skill.cue)delete cues[skill.code];else cues[skill.code]=cue;return {...d,cues};
+      const dog=C.dogState(next,el.dataset.dogId),skill=I.skills.get(el.dataset.skill),fallback=defaultCue(skill,dog),cue=el.value.trim()||fallback;
+      if(cue!==(dog.cues[skill.code]??fallback))next=C.updateDog(next,el.dataset.dogId,d=>{
+        const cues={...d.cues};if(cue===fallback)delete cues[skill.code];else cues[skill.code]=cue;return {...d,cues};
       });
-      el.value=cue;const note=el.closest('.cue-row').querySelector('.custom-cue-note');note.hidden=cue===skill.cue;note.textContent=note.hidden?'':'Use “'+cue+'” where the guide suggests “'+skill.cue+'”.';
+      el.value=cue;const note=el.closest('.cue-row').querySelector('.custom-cue-note');note.hidden=cue===fallback;note.textContent=note.hidden?'':'Use “'+cue+'” where the guide suggests “'+skill.cue+'”.';
     });
     return next===state||commit(next);
   }
@@ -428,7 +452,9 @@
     } catch(error){toast(error.message,true);}
   }
   document.addEventListener('pointerdown',event=>{
-    const button=event.target.closest('[data-marker]');if(button&&event.isPrimary&&event.button===0){markerPointer={button,id:event.pointerId,releasedAt:null};playMarker(button);}
+    if(!event.isPrimary||event.button!==0)return;
+    const button=event.target.closest('[data-marker]');if(!button){markerPointer=null;return;}
+    markerPointer={button,id:event.pointerId,releasedAt:null};playMarker(button);
   });
   document.addEventListener('pointerup',event=>{
     if(markerPointer?.id!==event.pointerId)return;
@@ -436,8 +462,11 @@
     setTimeout(()=>{if(markerPointer===press)markerPointer=null;},500);
   });
   document.addEventListener('pointercancel',()=>{markerPointer=null;});
-  window.addEventListener('blur',()=>{markerPointer=null;});
+  window.addEventListener('blur',()=>{markerPointer=null;markerKey=null;});
   document.addEventListener('click',event=>{
+    // A status change can move this sticky control during a touch (WebKit).
+    // The release still belongs to the marker press, never to a link beneath it.
+    if(markerPointer&&!event.target.closest('[data-marker]')){event.preventDefault();markerPointer=null;return;}
     const marker=event.target.closest('[data-marker]');if(marker){const alreadyMarked=markerPointer?.button===marker;markerPointer=null;if(!alreadyMarked)playMarker(marker);return;}
     const control=event.target.closest('a[href^="#/"],[data-go],[data-action]');
     if(control&&!['export','close-modal'].includes(control.dataset.action)&&!stageNotes()){event.preventDefault();return;}
@@ -581,9 +610,9 @@
         const profile=readProfile(form),h=state.household,index=h.setupIndex,existing=C.dogs(state)[index];
         if(h.setupTarget>1&&!profile.name)throw new Error('A name keeps this dog’s progress separate. Please enter their name.');
         if(profile.name&&C.dogs(state).some(d=>d.id!==existing?.id&&d.profile.name.trim().toLocaleLowerCase()===profile.name.toLocaleLowerCase()))throw new Error('Use a distinct name or nickname for this dog.');
-        let next=existing?C.updateDog(state,existing.id,d=>({...d,profile,tailoring:{...d.tailoring,traits:f.getAll('trait')}})):C.addDog(state,profile);
+        let next=existing?C.updateDog(state,existing.id,d=>({...d,profile,tailoring:{...d.tailoring,traits:f.getAll('trait'),reviewedBreed:d.profile.breed===profile.breed?d.tailoring.reviewedBreed:''}})):C.addDog(state,profile);
         const dogId=C.dogs(next)[index].id;
-        if(!existing)next=C.updateDog(next,dogId,d=>({...d,tailoring:{...d.tailoring,traits:f.getAll('trait')}}));
+        if(!existing)next=C.updateDog(next,dogId,d=>({...d,tailoring:{...d.tailoring,traits:f.getAll('trait'),reviewedBreed:d.profile.breed===profile.breed?d.tailoring.reviewedBreed:''}}));
         if(commit(next)){dirty=false;maybeBreedHint(dogId,()=>{
           const finished=index+1>=h.setupTarget;
           if(commit(C.touch({...state,household:{...state.household,setupIndex:index+1,setupComplete:finished}}))){if(finished){guideIndex=0;needsDogChoice=C.dogs(state).length>1;}render();$('#main').focus();}
@@ -593,16 +622,16 @@
       }else if(form.id==='add-dog-form'){
         const profile=readProfile(form);if(!profile.name)throw new Error('Please enter this dog’s name.');
         if(form.dataset.renameFirst==='true'){
-          if(commit(C.updateDog(state,state.household.primaryId,d=>({...d,profile,tailoring:{...d.tailoring,traits:f.getAll('trait')}})))){dirty=false;maybeBreedHint(state.household.primaryId,()=>render());}
+          if(commit(C.updateDog(state,state.household.primaryId,d=>({...d,profile,tailoring:{...d.tailoring,traits:f.getAll('trait'),reviewedBreed:d.profile.breed===profile.breed?d.tailoring.reviewedBreed:''}})))){dirty=false;maybeBreedHint(state.household.primaryId,()=>render());}
         }else {
-          let next=C.addDog(state,profile);const dogId=C.dogs(next).at(-1).id;next=C.updateDog(next,dogId,d=>({...d,tailoring:{...d.tailoring,traits:f.getAll('trait')}}));
+          let next=C.addDog(state,profile);const dogId=C.dogs(next).at(-1).id;next=C.updateDog(next,dogId,d=>({...d,tailoring:{...d.tailoring,traits:f.getAll('trait'),reviewedBreed:d.profile.breed===profile.breed?d.tailoring.reviewedBreed:''}}));
           if(commit(next)){dirty=false;maybeBreedHint(dogId,()=>{needsDogChoice=true;navigate('today');});}
         }
       }else if(form.id==='profile-form'){
         const dog=C.dogState(state,form.dataset.dogId),profile={...dog.profile};for(const key of Object.keys(profile).filter(k=>k!=='priorities'))profile[key]=get(key);profile.priorities=f.getAll('priority');
         if(C.dogs(state).length>1&&!profile.name)throw new Error('Please give every dog a name.');
         if(profile.name&&C.dogs(state).some(d=>d.id!==form.dataset.dogId&&d.profile.name.trim().toLocaleLowerCase()===profile.name.toLocaleLowerCase()))throw new Error('Choose a distinct name or nickname for this dog.');
-        if(commit(C.updateDog(state,form.dataset.dogId,d=>({...d,profile,tailoring:{...d.tailoring,traits:f.getAll('trait')}})))){dirty=false;maybeBreedHint(form.dataset.dogId,()=>{navigate('today');toast('Profile saved.');});}
+        if(commit(C.updateDog(state,form.dataset.dogId,d=>({...d,profile,tailoring:{...d.tailoring,traits:f.getAll('trait'),reviewedBreed:d.profile.breed===profile.breed?d.tailoring.reviewedBreed:''}})))){dirty=false;maybeBreedHint(form.dataset.dogId,()=>{navigate('today');toast('Profile saved.');});}
       }else if(form.id==='plan-form'){
         const plan=Object.fromEntries(['setup','baseline','next','exit','notes'].map(k=>[k,get(k)]));
         if(commit(C.updateDog(state,form.dataset.dogId,d=>({...d,plans:{...d.plans,[form.dataset.id]:plan}})))){dirty=false;toast('Trigger plan saved.');}
@@ -618,11 +647,20 @@
         }
         if(commit(next)){dirty=false;navigate('entry',firstId);toast(ids.length>1?'Session saved separately for each checked dog.':'Session saved.');}
       }else if(form.id==='settings-form'){
-        if(commit(C.touch({...state,settings:{...state.settings,theme:get('theme'),textSize:get('textSize'),reminderDays:Number(get('reminderDays'))}}))){dirty=false;applySettings();toast('Settings saved.');}
+        if(commit(C.touch({...state,settings:{...state.settings,theme:get('theme'),textSize:get('textSize'),lessonMarker:f.has('lessonMarker'),reminderDays:Number(get('reminderDays'))}}))){dirty=false;applySettings();toast('Settings saved.');}
       }
     }catch(error){failForm(form,error.message);}
   });
+  document.addEventListener('keyup',event=>{
+    if(markerKey?.key===event.key){event.preventDefault();markerKey=null;}
+  });
   document.addEventListener('keydown',event=>{
+    const marker=event.target.closest('[data-marker]');
+    if(marker&&['Enter',' '].includes(event.key)&&!event.altKey&&!event.ctrlKey&&!event.metaKey){
+      event.preventDefault();
+      if(!event.repeat&&!markerKey){markerKey={key:event.key,button:marker};playMarker(marker);}
+      return;
+    }
     if(event.key==='Escape'&&$('#modal-root').children.length){event.preventDefault();closeModal();}
     if(event.key==='Tab'&&$('#modal-root').children.length){
       const focusable=[...$('#modal-root').querySelectorAll('button,a,input,select,textarea,[tabindex="0"]')].filter(x=>!x.disabled);

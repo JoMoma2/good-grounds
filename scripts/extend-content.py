@@ -5,8 +5,8 @@ ROOT=Path(__file__).resolve().parents[1]
 D=json.loads((ROOT/'research/base-data.json').read_text())
 D['sources']=[s for s in D['sources'] if not s['id'].startswith('T')]
 D['sources']+=json.loads((ROOT/'research/additional-sources.json').read_text())
-D['version']=3
-D['updated']='2026-10-21'
+D['version']=4
+D['updated']='2026-10-22'
 for x in D['intro']:
  x['body']=x['body'].replace('column','section').replace('Foundations records','Foundations covers').replace('Practice elsewhere records','Practice elsewhere covers')
 D['intro'].append({'title':'After a difficult day','body':'Several close-together challenges can leave a dog less able to cope. Offer predictable rest, space, and enjoyable low-demand activities. Return to planned exposure only when this dog is back at their ordinary comfortable baseline; there is no universal number of hours that certifies recovery.'})
@@ -179,6 +179,29 @@ add('SCALE','Comfort on a floor scale','Care and equipment','Choose to stand on 
  ('Explore the low surface','Let the dog investigate the secured scale while it is still and quiet. Reward comfortable looking or approaching from the floor. A large flat mat beside it can make the area familiar. Do not lure an uneasy dog onto a moving or slippery surface.','Approaches the stable scale with loose ordinary movement and freely moves away and returns.','Begin with an ordinary floor mat and ask the clinic about a broader non-slip surface.'),
  ('Choose a step on and off','Reward a voluntary front-foot step onto the wide low surface, then invite an easy step off. Build to all four feet only if the surface stays stable and the dog moves comfortably. Never lift paws or use the leash to position the body.','Chooses to step on and off the broad low scale with all feet comfortably supported.','Reward a smaller step or return to a flat mat. Stop for wobbling, hesitation, or pain.'),
  ('A brief weigh-in pause','Say “scale” before the familiar approach. Reward a short comfortable stand, then release off the scale before the dog needs to shift. Add just enough time for the reading while the person stays quiet. Other clinic handling is a separate cooperative-care lesson.','Voluntarily steps on and briefly stands long enough for a reading in two comfortable practice sessions.','Release sooner, reward entry only, or work with the clinic on an easier weighing setup.')],priority='Useful extra')
+
+# Curriculum review: expose reusable components and keep existing record IDs.
+by_code={s['code']:s for s in D['skills']}
+# Teach the same chosen signal whether it is spoken or played by the app.
+by_code['MARK']['steps'][0]['teach']='Use your chosen soft marker once: say “yes,” use a physical clicker, or tap the app’s Mark & reward button. Immediately give a tiny treat. Pause before another pairing, and keep your reward hand still until after the signal. There is no action to ask for yet. Use the same signal consistently; if a click worries your dog, choose a gentle spoken word instead.'
+by_code['PULL']['sheet']='Play and jobs'
+by_code['PULL']['title']='Tug a rope handle'
+for code in ['OPEN','CLOSE','SHELF','DRINK']:
+ by_code[code]['sheet']='Clever companions'
+# Teach pad contact once in Object target; door pushing builds on that component.
+by_code['CLOSE']['steps'][0]['deps']=[['OTARGET-2',3]]
+by_code['CLOSE']['steps'][0]['teach']='Present the familiar broad target pad near a stationary approved lightweight door. Reward gentle nose contact while you hold it still. Attach the pad securely at a comfortable nose height, then reward the same touch without moving the door. Keep paws and tail clear; door motion is a separate next step.'
+# Basket release can begin before the outward retrieve is fluent.
+by_code['BOX']['steps'][0]['deps']=[['GIVE-2',3]]
+by_code['BOX']['steps'][1]['deps']=[['BOX-1',3],['FETCH-2',3]]
+# An initial take does not require a completed give lesson.
+by_code['PULL']['steps'][0]['teach']=by_code['PULL']['steps'][0]['teach'].replace('take and give cues','take and drop cues')
+# Body positions can be taught independently; release is useful from any position.
+by_code['FREE']['steps'][0]['deps']=[]
+by_code['FREE']['setup']+=' Use any comfortable sit, stand or down your dog already offers; a finished sit lesson is not required.'
+for item in D['intro']:
+ if item['title']=='Optional advanced jobs':
+  item['body']=item['body'].replace('Play and jobs and Fridge task','Play and jobs and the fridge retrieve in Clever companions')
 
 # Preserve topic grouping while retaining every original skill and stable step ID.
 order=list(dict.fromkeys(s['sheet'] for s in D['skills']))

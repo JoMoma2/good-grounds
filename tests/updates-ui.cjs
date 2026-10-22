@@ -35,7 +35,7 @@ async function main(){
       const guidePages=await page.evaluate(()=>GROUND_GUIDE.pages.length);for(let i=0;i<guidePages-1;i++)await page.getByRole('button',{name:'Next',exact:true}).click();
       if(guidePages>1){await page.getByRole('button',{name:'Back',exact:true}).click();await page.getByRole('button',{name:'Next',exact:true}).click();}
       await page.getByRole('button',{name:'Let’s begin',exact:true}).click();await page.getByRole('heading',{name:'Small steps. Better days.'}).waitFor();
-      assert.equal((await state()).profile.name,'');assert.equal((await state()).household.tutorialSeenVersion,1);
+      assert.equal((await state()).profile.name,'');assert.equal((await state()).household.tutorialSeenVersion,await page.evaluate(()=>GROUND_GUIDE.version));
       await page.reload();assert.equal(await page.locator('.tour-symbol').count(),0);
       await page.screenshot({path:output+'/updated-today-'+report.engine+'.png',fullPage:true});
     });
@@ -51,8 +51,8 @@ async function main(){
       assert.equal((await state()).sessions.length,0);
     });
     await check('keyboard marker and lesson reference work; inline marker is optional',async()=>{
-      await go('#/lesson/NAME-1');assert.equal(await page.locator('.lesson-marker').count(),0);
-      await page.locator('.tab-bar').getByRole('link',{name:'Clicker',exact:true}).click();
+      await go('#/lesson/NAME-1');assert.equal(await page.locator('.lesson-marker').count(),1);
+      await page.locator('.lesson-marker').getByRole('link',{name:'Open clicker',exact:true}).click();
       assert.ok((await page.locator('.marker-lesson').textContent()).includes('Name recognition'));
       await page.locator('.marker-pad').focus();await page.keyboard.press('Space');await page.waitForFunction(()=>document.querySelector('#marker-feedback').textContent==='Marked. Reward now.');
       await page.locator('#lesson-marker-toggle').check();
@@ -62,7 +62,7 @@ async function main(){
     });
     await check('clicker is accessible and fits narrow screens with larger text',async()=>{
       await go('#/clicker');const a=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa']).analyze();
-      report.accessibility.push({page:'clicker',violations:a.violations.map(v=>v.id)});assert.equal(a.violations.length,0,JSON.stringify(a.violations.map(v=>v.id)));
+      report.accessibility.push({page:'clicker',violations:a.violations.map(v=>v.id)});assert.equal(a.violations.length,0,JSON.stringify(a.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))}))));
       for(const width of [320,390,430,768]){await page.setViewportSize({width,height:844});await page.evaluate(()=>document.documentElement.dataset.text='large');assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'overflow at '+width);}
       await page.setViewportSize({width:390,height:844});await page.screenshot({path:output+'/updated-clicker-'+report.engine+'.png',fullPage:true});
     });
@@ -76,7 +76,7 @@ async function main(){
       await page.getByRole('button',{name:'Set progress',exact:true}).click();await page.locator('[data-action="set-progress"][data-value="Consistent - move on"]').click();
       await page.getByRole('heading',{name:'A little milestone.',exact:true}).waitFor();
       assert.equal(await page.locator('.completion-choices .lesson-card').count(),3);assert.equal(await page.locator('.completion-fun a').count(),1);
-      const a=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa']).analyze();assert.equal(a.violations.length,0,JSON.stringify(a.violations.map(v=>v.id)));
+      const a=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa']).analyze();assert.equal(a.violations.length,0,JSON.stringify(a.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))}))));
       await page.getByRole('button',{name:'Enough for today',exact:true}).click();assert.equal(await page.getByRole('dialog').count(),0);
       await page.reload();assert.equal((await state()).progress['NAME-2'].status,C.STATUSES[3]);
     });
@@ -111,7 +111,7 @@ async function main(){
       await page.locator('[name="name"]').fill('Pip');await page.getByRole('button',{name:'Save & take a quick tour',exact:true}).click();await page.getByRole('button',{name:'Skip tour',exact:true}).click();
       await page.getByRole('heading',{name:'Who are you training today?'}).waitFor();
       const snapshot=await state();dogIDs=C.dogs(snapshot).map(d=>d.id);assert.deepEqual(C.dogs(snapshot).map(d=>d.profile.name),['Molly','Spot','Pip']);
-      const a=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa']).analyze();assert.equal(a.violations.length,0,JSON.stringify(a.violations.map(v=>v.id)));
+      const a=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa']).analyze();assert.equal(a.violations.length,0,JSON.stringify(a.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))}))));
       await page.locator('[name="dogId"][value="'+dogIDs[1]+'"]').check();await page.getByRole('button',{name:'Let’s practice',exact:true}).click();await page.locator('.home-heading').waitFor();
       assert.deepEqual((await state()).household.selectedIds,dogIDs.slice(0,2));
       await page.screenshot({path:output+'/updated-household-'+report.engine+'.png',fullPage:true});
@@ -181,7 +181,7 @@ async function main(){
     await check('searchable breeds invite optional checks without automatically assigning traits',async()=>{
       await nav('#/profile/'+dogIDs[0]);await chooseBreed('Lagotto','Lagotto Romagnolo');await page.getByRole('button',{name:'Save profile',exact:true}).click();
       await page.getByRole('heading',{name:'Does this fit Molly?',exact:true}).waitFor();let snapshot=await state();assert.equal(C.dogState(snapshot,dogIDs[0]).profile.breed,'Lagotto Romagnolo');assert.deepEqual(C.dogState(snapshot,dogIDs[0]).tailoring.traits,[]);
-      const a=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa']).analyze();assert.equal(a.violations.length,0,JSON.stringify(a.violations.map(v=>v.id)));
+      const a=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa']).analyze();assert.equal(a.violations.length,0,JSON.stringify(a.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))}))));
       await page.getByRole('button',{name:'Doesn’t fit my dog',exact:true}).click();await page.waitForURL('**/#/today');assert.deepEqual(C.dogState(await state(),dogIDs[0]).tailoring.traits,[]);
       await nav('#/profile/'+dogIDs[0]);await page.getByRole('button',{name:'Save profile',exact:true}).click();await page.waitForURL('**/#/today');assert.equal(await page.getByRole('dialog').count(),0);
     });
@@ -189,7 +189,7 @@ async function main(){
       await nav('#/profile/'+dogIDs[0]);await chooseBreed('Spanish Water','Spanish Water Dog');await page.getByRole('button',{name:'Save profile',exact:true}).click();await page.getByRole('button',{name:'Yes, that fits',exact:true}).click();await page.waitForURL('**/#/today');
       let snapshot=await state();assert.deepEqual(C.dogState(snapshot,dogIDs[0]).tailoring.traits,['novelty']);assert.deepEqual(C.dogState(snapshot,dogIDs[1]).tailoring.traits,[]);
       await page.locator('.tailored-today').waitFor();assert.ok((await page.locator('.tailored-today').textContent()).includes('For Molly'));
-      await nav('#/lesson/NAME-1');await page.locator('.tailored-setup').waitFor();assert.ok((await page.locator('.tailored-setup').textContent()).includes('Molly'));
+      await nav('#/lesson/NAME-1');assert.equal(await page.locator('.tailored-setup').count(),0);await nav('#/lesson/OBJECT-1');await page.locator('.tailored-teaching').waitFor();assert.ok((await page.locator('.tailored-teaching').textContent()).includes('Molly'));await nav('#/lesson/NAME-1');
       assert.ok((await page.locator('.criterion').textContent()).includes(D.skills.find(s=>s.code==='NAME').steps[0].advance));
       await nav('#/profile/'+dogIDs[0]);await page.locator('.support-fields summary').click();await page.locator('[name="trait"][value="novelty"]').uncheck();await page.getByRole('button',{name:'Save profile',exact:true}).click();await page.waitForURL('**/#/today');assert.deepEqual(C.dogState(await state(),dogIDs[0]).tailoring.traits,[]);
     });
@@ -201,7 +201,7 @@ async function main(){
     });
     await check('breed search accepts custom mixes and is accessible with keyboard navigation',async()=>{
       await nav('#/profile/'+dogIDs[1]);await page.locator('[data-action="choose-breed"]').click();await page.locator('#breed-search').fill('Collie / spaniel mix');
-      const a=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa']).analyze();assert.equal(a.violations.length,0,JSON.stringify(a.violations.map(v=>v.id)));
+      const a=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa']).analyze();assert.equal(a.violations.length,0,JSON.stringify(a.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))}))));
       await page.locator('[data-action="pick-breed"]').getByText('Use “Collie / spaniel mix”',{exact:true}).click();await page.getByRole('button',{name:'Save profile',exact:true}).click();await page.waitForURL('**/#/today');
       assert.equal(C.dogState(await state(),dogIDs[1]).profile.breed,'Collie / spaniel mix');
       await page.screenshot({path:output+'/updated-tailoring-'+report.engine+'.png',fullPage:true});

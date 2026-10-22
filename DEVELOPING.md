@@ -6,7 +6,7 @@ The app remains plain bundled HTML, CSS and JavaScript, inside the existing iPho
 
 Edit [app/web/guide.js](app/web/guide.js). Each page has a stable `id`, `icon`, `eyebrow`, `title`, `body` and `detail`. Optional `singleBody` / `singleDetail` variants explain the single-dog experience. Add, remove or reorder entries in `pages`; navigation and the page indicators follow the array automatically. Use plain text, not HTML. Icons come from the existing icon names near the top of `app.js`.
 
-Bump `GROUND_GUIDE.version` when changing the guide. A first-time user sees dog setup first, then the tour. An existing user's completed tour is not forcibly reopened after a version bump. More → A quick tour always replays the current content. The test reads the page count dynamically.
+Bump `GROUND_GUIDE.version` when changing the guide. A first-time user sees dog setup first, then the tour. An existing user's completed tour is not forcibly reopened after a version bump. More → About Good Ground → A quick tour always replays the current content. The test reads the page count dynamically.
 
 ## Dog records and progress
 
@@ -28,7 +28,7 @@ Backups now use format `version: 2`. The current parser accepts version 1 and 2,
 
 Practice recency uses dated linked **Skill practice** journal records. Note edits, marker presses, trigger-event entries and future dates do not establish practice. A consistency timestamp can start the initial reminder clock, but is labeled separately. Calendar-day calculations avoid daylight-saving offsets. The weekly default is a changeable product preference, not a forgetting deadline. Automatic maintenance excludes fear-exposure programs. Today/practice dates refresh after returning from the background; a household chooser returns after a break of 30 minutes or more, while unsaved forms are protected.
 
-[app/web/tailoring.js](app/web/tailoring.js) contains breed names, aliases, the four deliberately limited survey associations and the three optional support preferences. Mixes and unknown/unlisted names remain valid. Breed alone must never set traits or change criteria. Only confirmed observations can affect suggestions and gentler setup notes. Do not invent nutrition prescriptions, temperament ratings or extra required repetitions from breed. Research decisions and limits are in [research/IPHONE_UPDATE_RESEARCH.md](research/IPHONE_UPDATE_RESEARCH.md).
+[app/web/tailoring.js](app/web/tailoring.js) contains breed names, aliases, the four deliberately limited survey associations and the three optional support preferences. Mixes and unknown/unlisted names remain valid. Breed alone must never set traits or change criteria. Only confirmed observations can affect suggestions and the step-specific actions in `practicePieces`. Keep full teaching guides available and preserve advancement criteria. Profile breed changes clear the last reviewed breed; ordinary edits do not repeat rejected questions. Do not invent nutrition prescriptions, temperament ratings or extra required repetitions from breed. Research decisions and limits are in [research/IPHONE_UPDATE_RESEARCH.md](research/IPHONE_UPDATE_RESEARCH.md).
 
 ## Curriculum and checks
 
@@ -43,7 +43,10 @@ npx playwright install chromium webkit
 node tests/ui.cjs
 node tests/updates-ui.cjs
 node tests/edge-ui.cjs
+node tests/handoff-ui.cjs
 node tests/native-bridge.cjs
 ```
 
-Repeat the four browser scripts with `GG_BROWSER=webkit`. These tests use invented records in isolated browser/native-bridge simulations. `GG_WEB_ROOT` can target an extracted app's bundled web folder for artifact checks. Desktop engines do not substitute for a physical iPhone or Swift runtime test. The macOS build and simulator workflow remains available.
+Repeat the five browser scripts with `GG_BROWSER=webkit`. These tests use invented records in isolated browser/native-bridge simulations. `GG_WEB_ROOT` can target an extracted app's bundled web folder for artifact checks. Desktop engines do not substitute for a physical iPhone or Swift runtime test. The macOS build and simulator workflow remains available.
+
+Lesson controls use CSS sticky positioning and the measured navigation height. Keep visible feedback available in both the large clicker and the lesson marker. Never schedule a late marker after a failed or timed-out audio unlock. Text sizes use rem units so the root text-size preference affects labels and controls as well as teaching copy.

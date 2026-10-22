@@ -1,0 +1,45 @@
+{
+  "version": "1.1.1",
+  "build": "3",
+  "date": "2026-10-22",
+  "sourceBaseCommit": "739a5ce",
+  "unitTestsPassed": 49,
+  "browserChecksPassed": {
+    "chromium": {
+      "ui": 17,
+      "updates": 23,
+      "edge": 15,
+      "bridge": 8,
+      "handoff": 12
+    },
+    "webkit": {
+      "ui": 17,
+      "updates": 23,
+      "edge": 15,
+      "bridge": 8,
+      "handoff": 12
+    }
+  },
+  "totalBrowserChecksPassed": 150,
+  "content": {
+    "skills": 95,
+    "steps": 230,
+    "sources": 71,
+    "originalSkillAndStepIdsPreserved": true,
+    "acyclicPrerequisites": true,
+    "generatedBundlesMatch": true
+  },
+  "artifact": {
+    "path": "build/GoodGround-1.1.1-unsigned.ipa",
+    "bundledWebFilesMatchSource": true,
+    "nativeExecutableUnchanged": true,
+    "swiftSourceUnchanged": true,
+    "unsigned": true,
+    "published": false
+  },
+  "limitations": [
+    "Physical iPhone audio output, Silent-switch behavior and Bluetooth latency not tested",
+    "VoiceOver announcements not tested on device",
+    "Swift runtime and iOS installation not tested in this Linux environment"
+  ]
+}

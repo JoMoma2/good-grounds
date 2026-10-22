@@ -28,7 +28,7 @@ async function main(){
       await page.screenshot({path:output+'/today.png',fullPage:true});
     });
     await step('main tabs and both directions of library navigation work with one click',async()=>{
-      for(const [label,url] of [['Learn','learn'],['Journal','journal'],['Clicker','clicker'],['More','more'],['Today','today']]){
+      for(const [label,url] of [['Lessons','learn'],['Journal','journal'],['More','more'],['Today','today']]){
         await page.locator('.tab-bar').getByRole('link',{name:label,exact:true}).click();await page.waitForURL('**/#/'+url);assert.ok(await page.locator('main h1').count());
       }
       await page.getByRole('button',{name:'See all'}).click();await page.waitForURL('**/#/learn');await page.getByRole('button',{name:'All lessons',exact:true}).click();

@@ -19,7 +19,7 @@
     return Number.isFinite(+d) && d.toISOString().slice(0,10) === s && +s.slice(0,4) >= 1900 && +s.slice(0,4) <= 2100;
   }
   function freshState() {
-    return {schema:1,revision:0,createdAt:new Date().toISOString(),cues:{},tailoring:{traits:[],reviewedBreed:''},household:{primaryId:'dog-1',others:[],selectedIds:['dog-1'],setupComplete:false,setupTarget:0,setupIndex:0,tutorialSeenVersion:0},profile:{name:'',age:'',breed:'',health:'',comfort:'',rewards:'',equipment:'',history:'',help:'',priorities:[]},progress:{},favorites:[],sessions:[],plans:{},settings:{theme:'light',textSize:'normal',markerSound:'click',markerVolume:25,lessonMarker:false,reminderDays:7,remindersDismissedOn:''}};
+    return {schema:1,revision:0,createdAt:new Date().toISOString(),cues:{},tailoring:{traits:[],reviewedBreed:''},household:{primaryId:'dog-1',others:[],selectedIds:['dog-1'],setupComplete:false,setupTarget:0,setupIndex:0,tutorialSeenVersion:0},profile:{name:'',age:'',breed:'',health:'',comfort:'',rewards:'',equipment:'',history:'',help:'',priorities:[]},progress:{},favorites:[],sessions:[],plans:{},settings:{theme:'light',textSize:'normal',markerSound:'click',markerVolume:25,lessonMarker:true,reminderDays:7,remindersDismissedOn:''}};
   }
   // Schema 1 remains the native file envelope. Primary dog fields stay at the
   // root for lossless migration; household.others holds complete additional dogs.
@@ -266,7 +266,7 @@
       progress:Object.fromEntries(Object.entries(input.progress).filter(([k])=>k!==FORMAT_GUARD).map(([k,v])=>[k,{status:v.status,notes:v.notes,updatedAt:v.updatedAt,completedAt:text(v.completedAt,100)?v.completedAt:(v.status===STATUSES[3]?v.updatedAt:'')}])),
       favorites:input.favorites.slice(),sessions:input.sessions.map(s=>normalizeSession(s)),
       plans:Object.fromEntries(Object.entries(input.plans).map(([k,v])=>[k,Object.fromEntries(['setup','baseline','next','exit','notes'].map(n=>[n,v[n]??'']))])),
-      settings:{theme:input.settings.theme,textSize:input.settings.textSize,markerSound:['click','ding','pop','buzz'].includes(input.settings.markerSound)?input.settings.markerSound:'click',markerVolume:Number.isFinite(input.settings.markerVolume)?Math.max(0,Math.min(100,input.settings.markerVolume)):25,lessonMarker:input.settings.lessonMarker===true,reminderDays:[0,7,14,30].includes(input.settings.reminderDays)?input.settings.reminderDays:7,remindersDismissedOn:validDate(input.settings.remindersDismissedOn)?input.settings.remindersDismissedOn:''}
+      settings:{theme:input.settings.theme,textSize:input.settings.textSize,markerSound:['click','ding','pop','buzz'].includes(input.settings.markerSound)?input.settings.markerSound:'click',markerVolume:Number.isFinite(input.settings.markerVolume)?Math.max(0,Math.min(100,input.settings.markerVolume)):25,lessonMarker:input.settings.lessonMarker!==false,reminderDays:[0,7,14,30].includes(input.settings.reminderDays)?input.settings.reminderDays:7,remindersDismissedOn:validDate(input.settings.remindersDismissedOn)?input.settings.remindersDismissedOn:''}
     };
     const cueCopy=raw=>{
       if(raw===undefined)return {};

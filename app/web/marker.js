@@ -33,9 +33,15 @@
   async function play(id,volume=.25) {
     const Audio=globalThis.AudioContext||globalThis.webkitAudioContext;
     if(!Audio)throw new Error('Sound is unavailable here. Use a spoken marker or a physical clicker.');
-    if(!context||context.state==='closed'){context=new Audio();buffers=new Map();}
+    if(!context||context.state==='closed'){context=new Audio({latencyHint:'interactive'});buffers=new Map();}
     // Resume inside the user gesture, including after an iPhone locks or backgrounds.
-    if(context.state!=='running')await context.resume();
+    if(context.state!=='running'){
+      // Never play a delayed marker after an audio unlock stalls or the app hides.
+      let timeout;
+      try{await Promise.race([context.resume(),new Promise((_,reject)=>{timeout=setTimeout(()=>reject(new Error('Sound did not start in time. Try again before training.')),1000);})]);}
+      finally{clearTimeout(timeout);}
+    }
+    if(globalThis.document?.hidden)throw new Error('Return to the app and try the marker again.');
     if(context.state!=='running')throw new Error('Sound could not start. Check your phone volume and try again.');
     let buffer=buffers.get(id);
     if(!buffer){const pcm=samples(id,context.sampleRate);buffer=context.createBuffer(1,pcm.length,context.sampleRate);buffer.getChannelData(0).set(pcm);buffers.set(id,buffer);}
@@ -45,7 +51,8 @@
     // Avoid stacked loudness when several family members press rapidly.
     for(const voice of voices){try{voice.stop();}catch{}}
     voices.clear();voices.add(source);source.onended=()=>{voices.delete(source);source.disconnect();gain.disconnect();};
-    source.start();return true;
+    try{source.start();}catch(error){voices.delete(source);source.disconnect();gain.disconnect();throw error;}
+    return true;
   }
   return {sounds,samples,play};
 });

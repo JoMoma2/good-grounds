@@ -1,3 +1,15 @@
+# 1.1.1 development handoff preview — 22 October 2026
+
+- Marker feedback and persistent lesson controls, with touch and keyboard fixes and a Settings toggle.
+- Four-tab navigation; training tools under Lessons, reference material under Source library, backups and reminders in Settings.
+- Consistent larger text, collapsible groups, quieter starting suggestions and dog-name cues.
+- Step-specific gradual practice based on confirmed observations; profile updates refresh relevant support.
+- Reviewed all 95 skills; grouped the fridge chain under Clever companions and corrected selected component prerequisites without changing record IDs.
+
+See [HANDOFF_NOTES.md](HANDOFF_NOTES.md) for decisions, intentional limits and validation. The local unsigned preview preserves the native binary. No release was published; physical-device checks remain outstanding.
+
+---
+
 # Good Ground for iPhone 1.1
 
 Updated 21 October 2026. Android files were left untouched.

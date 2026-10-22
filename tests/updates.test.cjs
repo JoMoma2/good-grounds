@@ -17,7 +17,7 @@ test('marker preferences survive backup and old backups get gentle defaults',()=
   const s=C.freshState();s.settings.markerSound='ding';s.settings.markerVolume=15;s.settings.lessonMarker=true;
   assert.deepEqual(C.parseBackup(JSON.stringify(C.makeBackup(s,D))).settings,s.settings);
   delete s.settings.markerSound;delete s.settings.markerVolume;delete s.settings.lessonMarker;
-  const legacy=C.validateState(s);assert.equal(legacy.settings.markerVolume,25);assert.equal(legacy.settings.lessonMarker,false);
+  const legacy=C.validateState(s);assert.equal(legacy.settings.markerVolume,25);assert.equal(legacy.settings.lessonMarker,true);
 });
 test('completion ideas are distinct, available practical skills and one fun choice',()=>{
   let s=C.freshState();for(const st of D.skills.find(s=>s.code==='NAME').steps)s=C.setProgress(s,st.id,C.STATUSES[3]);
@@ -173,4 +173,35 @@ test('the original app refuses new native records instead of silently dropping e
   assert.deepEqual(C.validateState(wire),C.validateState(s));assert.equal(C.validateState(wire).progress[C.FORMAT_GUARD],undefined);
   assert.throws(()=>legacy.parseBackup(JSON.stringify(C.makeBackup(s,D))));
   assert.equal(C.dogs(C.parseBackup(JSON.stringify({format:'good-ground-backup',version:1,state:wire}))).length,3);
+});
+
+test('basket release can be learned before retrieval, but pickup still waits for its component',()=>{
+  const I=C.index(D),step=id=>I.steps.get(id).step;
+  let s=C.setProgress(C.freshState(),'GIVE-2',C.STATUSES[3]);
+  assert.equal(C.availability(step('BOX-1'),s),'Ready to start');
+  s=C.setProgress(s,'BOX-1',C.STATUSES[3]);
+  assert.equal(C.availability(step('BOX-2'),s),'Build prerequisite');
+  s=C.setProgress(s,'FETCH-2',C.STATUSES[3]);
+  assert.equal(C.availability(step('BOX-2'),s),'Ready to start');
+});
+test('release does not force a sit and door targeting builds on the independent object target',()=>{
+  const I=C.index(D),step=id=>I.steps.get(id).step;
+  let s=C.freshState();assert.equal(C.availability(step('FREE-1'),s),'Ready to start');
+  s=C.setProgress(s,'TOUCH-2',C.STATUSES[3]);assert.equal(C.availability(step('CLOSE-1'),s),'Build prerequisite');
+  s=C.setProgress(s,'OTARGET-2',C.STATUSES[3]);assert.equal(C.availability(step('CLOSE-1'),s),'Ready to start');
+});
+test('smaller practice actions are limited to real relevant steps and never selected by breed',()=>{
+  const T=require('../app/web/tailoring.js'),I=C.index(D);
+  for(const {step} of I.steps.values()){
+    assert.deepEqual(T.practicePieces(step.id,[]),[]);
+    const pieces=T.practicePieces(step.id,['noise','novelty','handling']);
+    if(pieces.length){assert.equal(pieces.length,3);assert.ok(pieces.every(p=>typeof p==='string'&&p.length>30));}
+  }
+  assert.deepEqual(T.practicePieces('SIT-1',['noise','novelty','handling']),[]);
+  const changed=T.practicePieces('SOUND-1',['noise']);changed.pop();
+  assert.equal(T.practicePieces('SOUND-1',['noise']).length,3);
+});
+test('an explicit hidden marker preference survives validation while missing preferences enable the shortcut',()=>{
+  const s=C.freshState();s.settings.lessonMarker=false;assert.equal(C.validateState(s).settings.lessonMarker,false);
+  delete s.settings.lessonMarker;assert.equal(C.validateState(s).settings.lessonMarker,true);
 });

@@ -1,3 +1,13 @@
+# 1.1.1 development handoff preview
+
+The latest local preview passed **49 unit tests and 150 browser acceptance checks**. All five browser suites ran in Chromium and WebKit against the web bundle extracted from the unsigned IPA. Reports, limitations and artifact hashes are in [validation/v1.1.1](validation/v1.1.1).
+
+The IPA contains version 1.1.1/build 3 with web assets matching source and the original native executable unchanged. Physical iPhone audio, VoiceOver, installation and the Swift runtime remain untested. No release was published.
+
+The sections below describe the earlier 1.1.0 release and are historical.
+
+---
+
 # What has actually been checked — iPhone 1.1
 
 The updated bundled interface is packaged inside the **unchanged existing native iPhone executable**. The Swift source is unchanged. This Ubuntu session does not compile Swift, sign the app, run an iPhone simulator or test a physical iPhone. The release includes an unsigned IPA; a fresh native build can still use the supplied macOS workflow.
