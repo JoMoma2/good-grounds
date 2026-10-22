@@ -2,7 +2,7 @@
 // by scripts/simulator-smoke.sh on a macOS runner; this is not a device test.
 const {chromium,webkit}=require('playwright');
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{pathToFileURL}=require('node:url');
-const C=require('../app/web/core.js'),D=require('../app/web/data.json');
+const web=process.env.GG_WEB_ROOT||path.resolve(__dirname,'../app/web'),C=require(web+'/core.js'),D=require(web+'/data.json');
 const root=path.resolve(__dirname,'..'),engineName=process.env.GG_BROWSER||'chromium';
 const result={engine:engineName,checks:[],errors:[],swiftRuntimeTested:false};
 async function main(){
@@ -20,6 +20,7 @@ async function main(){
     return null;
   };
   async function newSession(state){
+    if(!state){state=C.freshState();state.household.setupComplete=true;state.household.tutorialSeenVersion=1;}
     if(context)await context.close();
     context=await b.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
     await context.exposeBinding('mockNative',handleNative);
@@ -30,7 +31,7 @@ async function main(){
     p=await context.newPage();p.on('pageerror',e=>result.errors.push(e.message));
   }
   await newSession(null);
-  const file=pathToFileURL(root+'/app/web/index.html').href;
+  const file=pathToFileURL(web+'/index.html').href;
   const go=async hash=>{if(p.url().startsWith(file)){await p.evaluate(h=>location.hash=h,hash||'');await p.waitForTimeout(30);}else{await p.goto(file+(hash||''));await p.waitForFunction(()=>window.GoodGround?.ready);}};
   const check=async(name,fn)=>{await fn();result.checks.push(name);console.log('PASS '+name);};
   try{
@@ -55,7 +56,7 @@ async function main(){
     });
     await check('native export includes current records without requesting a web download',async()=>{await go('#/backup');await p.getByRole('button',{name:'Save backup to Files',exact:true}).click();await p.waitForTimeout(100);assert.ok(exported);assert.equal(exported.progress['NAME-1'].status,C.STATUSES[1]);});
     await check('native import confirms and restores at a newer save revision',async()=>{
-      const s=C.freshState();s.profile.name='Imported native test';s.revision=500;importFile=JSON.stringify(C.makeBackup(s,D));
+      const s=C.freshState();s.household.setupComplete=true;s.household.tutorialSeenVersion=1;s.profile.name='Imported native test';s.revision=500;importFile=JSON.stringify(C.makeBackup(s,D));
       await p.getByRole('button',{name:'Choose backup file',exact:true}).click();await p.getByRole('dialog').waitFor();assert.notEqual((await p.evaluate(()=>GoodGround.snapshot())).profile.name,s.profile.name);
       await p.getByRole('button',{name:'Restore backup',exact:true}).click();await p.waitForTimeout(100);assert.equal(saved.profile.name,s.profile.name);assert.ok(saved.revision>500);
     });

@@ -5,7 +5,8 @@ ROOT=Path(__file__).resolve().parents[1]
 D=json.loads((ROOT/'research/base-data.json').read_text())
 D['sources']=[s for s in D['sources'] if not s['id'].startswith('T')]
 D['sources']+=json.loads((ROOT/'research/additional-sources.json').read_text())
-D['version']=2
+D['version']=3
+D['updated']='2026-10-21'
 for x in D['intro']:
  x['body']=x['body'].replace('column','section').replace('Foundations records','Foundations covers').replace('Practice elsewhere records','Practice elsewhere covers')
 D['intro'].append({'title':'After a difficult day','body':'Several close-together challenges can leave a dog less able to cope. Offer predictable rest, space, and enjoyable low-demand activities. Return to planned exposure only when this dog is back at their ordinary comfortable baseline; there is no universal number of hours that certifies recovery.'})

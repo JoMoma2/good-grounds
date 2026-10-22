@@ -30,6 +30,8 @@ jobs:
           GG_BROWSER: ${{ matrix.browser }}
         run: |
           node tests/ui.cjs
+          node tests/updates-ui.cjs
+          node tests/edge-ui.cjs
           node tests/native-bridge.cjs
       - uses: actions/upload-artifact@v7
         if: always()
@@ -50,7 +52,8 @@ jobs:
       - name: Check content and behavior
         run: |
           node scripts/check.cjs
-          node --test tests/core.test.cjs
+          node tests/core.test.cjs
+          node tests/updates.test.cjs
       - name: Show the Apple toolchain
         run: |
           xcodebuild -version

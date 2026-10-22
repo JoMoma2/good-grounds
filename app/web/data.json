@@ -1,6 +1,6 @@
 {
-  "version": 2,
-  "updated": "2026-10-20",
+  "version": 3,
+  "updated": "2026-10-21",
   "name": "Good Ground",
   "skills": [
     {
@@ -4443,10 +4443,10 @@
       "year": "2022",
       "type": "Large genomic and owner-survey study",
       "url": "https://www.zoology.ubc.ca/~otto/veg/Readings/morrill2022ancestry.pdf",
-      "access": "Full text",
+      "access": "Public manuscript summary and individual prediction results rechecked 2026-10-21.",
       "finding": "Behavior varies substantially within breeds. Breed ancestry provides limited prediction of an individual dog's behavior, despite genetic and breed-associated tendencies.",
       "limits": "Survey-based factors; not a dog-bite risk assessment or a trial of anxiety treatments.",
-      "use": "Tailor to the individual pit bull/Staffy; do not infer a diagnosis from appearance."
+      "use": "Breed alone must not set a dog’s temperament, support preferences, or advancement requirements."
     },
     {
       "id": "R09",
@@ -4455,10 +4455,10 @@
       "year": "2020",
       "type": "Large cross-sectional owner survey",
       "url": "https://doi.org/10.1038/s41598-020-59837-z",
-      "access": "Abstract and university record; full text sought",
-      "finding": "Anxiety-like traits can co-occur and differ between sampled breeds.",
-      "limits": "Convenience sample and owner reports; not an intervention trial or an individual prognosis.",
-      "use": "Track several triggers and avoid assuming all reactivity has one cause."
+      "access": "Results, discussion and limitations rechecked in the public publisher PDF on 2026-10-21.",
+      "finding": "An owner survey found breed-associated differences in reported fear and sound sensitivity.",
+      "limits": "Self-selected Finnish owners; reported traits and breed-group age differences limit interpretation. Associations neither diagnose an individual nor validate a tailored treatment.",
+      "use": "Invite an optional question for four supported breed/trait associations. Adjust only after individual owner confirmation."
     },
     {
       "id": "R10",
@@ -4503,10 +4503,10 @@
       "year": "2011",
       "type": "Experimental learning study; 44 laboratory Beagles",
       "url": "https://doi.org/10.1016/j.applanim.2011.05.010",
-      "access": "Publisher-indexed abstract",
-      "finding": "Session spacing and length affected acquisition for the studied task; more consecutive sessions were not automatically better.",
-      "limits": "One task, one laboratory population; better acquisition per session does not necessarily mean fewer calendar days. No universal ideal schedule established.",
-      "use": "Short sessions with rest; numerical session lengths in the guide are practical starting points."
+      "access": "Publisher-indexed abstract and conclusion snippets rechecked 2026-10-21; full paper not reviewed in this update.",
+      "finding": "For one obedience task, 44 laboratory dogs retained learning at a four-week test. Session spacing and duration affected acquisition.",
+      "limits": "One laboratory population and task. Retention at four weeks does not establish a forgetting date or an ideal refresher interval for other skills.",
+      "use": "Do not describe the weekly reminder as memory decay. Note edits never reset logged practice dates."
     },
     {
       "id": "R14",
@@ -4665,6 +4665,54 @@
       "use": "Parallel practice is offered for convenience and component compatibility, not as a proven superior learning schedule."
     },
     {
+      "id": "R27",
+      "title": "Impact of variations in training schedules on dogs’ acquisition and retention of an odor detection task",
+      "author": "Jordan G. Smith, Sarah Krichbaum, Bart Rogers, Paul Waggoner, Jeffrey S. Katz, Lucia Lazarowski",
+      "year": "2025",
+      "type": "Experimental learning study; 48 purpose-bred detection dogs",
+      "url": "https://doi.org/10.1016/j.applanim.2024.106474",
+      "access": "Publisher-indexed abstract and highlights reviewed 2026-10-21; full paper not reviewed.",
+      "finding": "A detection task showed different scheduling effects from the earlier obedience study; breaks and individual traits also mattered.",
+      "limits": "Working-dog acquisition and a one-week retention test do not establish pet-dog maintenance deadlines.",
+      "use": "Support a flexible reminder rather than a universal required practice frequency."
+    },
+    {
+      "id": "P33",
+      "title": "How to train your dog: top training tips",
+      "author": "RSPCA",
+      "year": "Checked 2026-10-21",
+      "type": "Professional welfare and training guidance",
+      "url": "https://www.rspca.org.uk/adviceandwelfare/pets/dogs/training",
+      "access": "Public training guidance reviewed.",
+      "finding": "Recommends reward-based teaching in brief, regular sessions, with patience for individual learning rates.",
+      "limits": "General guidance gives no measured forgetting interval or mandatory weekly refresher rule.",
+      "use": "Keep reminders gentle, easy to dismiss, and focused on comfortable, rewarded practice."
+    },
+    {
+      "id": "P34",
+      "title": "Why dogs get scared or frustrated and how to help them",
+      "author": "Dogs Trust behaviour team",
+      "year": "Checked 2026-10-21",
+      "type": "Professional welfare and behaviour guidance",
+      "url": "https://www.dogstrust.org.uk/dog-advice/understanding-your-dog/signs-your-dog-may-be-stressed",
+      "access": "Public guidance on space, choice, gradual introductions and veterinary support reviewed.",
+      "finding": "Supports comfortable conditions, voluntary retreat and individual assessment when a dog struggles.",
+      "limits": "General support guidance is not an individual treatment plan.",
+      "use": "Gentler setup notes only after owner-confirmed observations."
+    },
+    {
+      "id": "P35",
+      "title": "Dog breeds directory",
+      "author": "American Kennel Club",
+      "year": "Checked 2026-10-21",
+      "type": "Breed-name directory; not treatment evidence",
+      "url": "https://www.akc.org/dog-breeds/",
+      "access": "Public directory consulted for terminology. The app uses a convenience catalog of factual common names, not a complete registry export.",
+      "finding": "Breed names and varieties can be recorded as profile information.",
+      "limits": "A breed directory does not establish this individual dog’s behaviour. Mixes, unknown and unlisted names remain valid.",
+      "use": "Searchable profile labels only; directory temperament descriptions and ratings are not copied."
+    },
+    {
       "id": "A01",
       "title": "AVSAB 2025 Board Statement reaffirming Humane Dog Training",
       "author": "American Veterinary Society of Animal Behavior",
@@ -4817,8 +4865,8 @@
       "sources": "R20; R22"
     },
     {
-      "topic": "Breed tailoring",
-      "conclusion": "Choose equipment, rewards, practice conditions, and professional support for the individual pit bull/Staffy.",
+      "topic": "Individual tailoring",
+      "conclusion": "Choose equipment, rewards, practice conditions, and professional support for the individual dog, using their observed preferences, health, and comfort.",
       "limits": "Large survey/genomic work shows substantial individual variation; breed-associated tendencies and genetics can still matter. The review did not identify a breed-specific anxiety-treatment trial. Breed is not an individual risk diagnosis.",
       "sources": "R08; R09; P01; P18"
     },
@@ -4851,6 +4899,18 @@
       "conclusion": "Study protocols without results are not outcome evidence. Access limits, conflicts, and external validity matter.",
       "limits": "R23 was deliberately retained as an example of a proposed study, excluded from completed-results claims. Human fear-of-dogs material, unsupported blog statistics, and forced-greeting advice were not adopted. A03’s “reading” title is not treated as evidence of literacy; spoken words, gestures and place cues may explain the game.",
       "sources": "R23; research log"
+    },
+    {
+      "topic": "Practice reminders and memory",
+      "conclusion": "Practice dates show recorded activity. A missing log is not evidence that a dog has forgotten a skill. Short, rewarding refreshers can be useful when the dog is comfortable.",
+      "limits": "The default seven-day reminder is a product choice, not a research-established retention threshold. Controlled studies differ by task and population. Set a different interval or turn reminders off. Fear and exposure programs are not automatically scheduled.",
+      "sources": "R13; R27; P33"
+    },
+    {
+      "topic": "Owner-confirmed support preferences",
+      "conclusion": "Use the owner’s observations to offer a quieter setting, more choice around novelty, or voluntary handling starts. Breed selection alone changes nothing.",
+      "limits": "Only four survey-supported breed/trait pairs invite questions. These are not diagnoses or validated treatment algorithms. Adjustments do not lower comfort requirements, automatically complete steps, or prescribe additional repetitions, nutrition or medication.",
+      "sources": "R08; R09; P34; P26; R17"
     },
     {
       "topic": "Clever games without inflated claims",
@@ -4897,8 +4957,8 @@
       "body": "A bite or attempted bite, redirection toward the handler, severe panic, no comfortable starting setup, sudden worsening, or pain signs calls for an individualized plan. A veterinarian can assess health and medication needs; a veterinary behaviorist or experienced reward-based behavior consultant can help. Use barriers and safe distance while arranging help. No dosing advice is provided here."
     },
     {
-      "title": "Pit bulls / Staffies",
-      "body": "Tailor to the individual dog’s observed behavior, health, preferences, and handling needs. Strong dogs need secure comfortable equipment and appropriate handler support; broad head shape makes individual basket-muzzle fit important. No breed-specific anxiety intervention trial was identified here. Breed alone does not determine this dog’s needs or justify harsher methods."
+      "title": "The individual in front of you",
+      "body": "Tailor practice to your dog’s observed behavior, health, preferences, and handling needs. Choose secure, comfortable equipment that fits this dog. Adjust the setting and rewards to what helps them feel safe and enjoy learning. No breed label determines an individual dog’s needs or justifies harsher methods."
     },
     {
       "title": "Optional advanced jobs",

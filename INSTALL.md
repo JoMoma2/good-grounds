@@ -1,8 +1,10 @@
 # Get Good Ground onto your iPhone
 
-You already have SideStore and LiveContainer. Keep that setup. The missing piece is compiling this source into the IPA; GitHub’s Mac does that for you.
+The release includes an updated unsigned `GoodGround-unsigned.ipa`. Use that IPA with your existing SideStore or LiveContainer setup. Export a backup from the old app first and keep the same app/container identity. The update preserves the native shell and replaces its bundled interface.
 
-**Do not import the source ZIP into SideStore or LiveContainer.** You will download a separate build artifact containing `GoodGround-unsigned.ipa` after the workflow passes.
+If you already have the release IPA, go directly to section 3A or 3B. Sections 1–2 are an optional way to compile a fresh shell from source on GitHub’s Mac.
+
+**Import the `.ipa`, not the source ZIP.** A source build produces the same IPA filename after the workflow passes.
 
 ## 1. Upload the app source to GitHub
 
@@ -32,7 +34,7 @@ The build is designed to publish no app release and requires no App Store submis
 1. Put `GoodGround-unsigned.ipa` somewhere accessible in your iPhone’s Files app.
 2. Open SideStore and use its add/import IPA control.
 3. Choose that IPA and let your existing setup sign and install it.
-4. Open **Good Ground**. Add your dog’s optional profile or browse lessons immediately.
+4. Open **Good Ground**. First use asks how many dogs you have, offers profile setup, then a skippable tour. A single profile can be skipped; multiple dogs require names. Existing saved records migrate without forcing first-use setup.
 
 Use your existing refresh routine. Keep the same app identity for updates. Export a Good Ground backup before changing installation methods or deleting the app.
 
@@ -47,12 +49,15 @@ If the app’s backup/import picker fails to open, check LiveContainer’s per-a
 
 ## 4. A quick first-use check
 
+- Check the Clicker tab quietly away from your dog: choose a sound, confirm media volume, tap once and verify audible output. A sound press must not add a journal entry. Silent-switch and Bluetooth behavior need confirmation on your phone.
+- With multiple dogs, choose a subset and check their names in the Training button. Close/reopen and confirm the household choice and saved records.
+
 1. Open **Learn**, search `NAME-2`, and open **Reward the head turn**. You should see the actual step, even if its prerequisite is unrecorded.
 2. Tap its prerequisite to open `NAME-1`. If appropriate after checking your dog’s behavior, set a stage and confirm that the next step’s availability updates.
 3. Add a short test note, leave the field, close and reopen the app, and check that it is still there. Remove the test note afterward.
 4. Export a backup through **More → Backup & restore** and verify that Files offers a save location. You do not need to restore it merely to test export.
 
-Progress is a planning record. Marking a criterion consistent should reflect the dog’s actual performance and comfort, not this installation check.
+Progress is a planning record. Marking a criterion consistent should reflect the dog’s actual performance and comfort. Completing a step now navigates to its next step automatically. New backups use format version 2; older version 1 apps cannot restore them. The updated app continues to accept old version 1 backups.
 
 ## If a build or installation fails
 

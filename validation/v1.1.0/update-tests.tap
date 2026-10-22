@@ -1,0 +1,142 @@
+TAP version 13
+# Subtest: original sound waveforms are finite, bounded, and fade to silence
+ok 1 - original sound waveforms are finite, bounded, and fade to silence
+  ---
+  duration_ms: 14.460086
+  type: 'test'
+  ...
+# Subtest: marker preferences survive backup and old backups get gentle defaults
+ok 2 - marker preferences survive backup and old backups get gentle defaults
+  ---
+  duration_ms: 2.016379
+  type: 'test'
+  ...
+# Subtest: completion ideas are distinct, available practical skills and one fun choice
+ok 3 - completion ideas are distinct, available practical skills and one fun choice
+  ---
+  duration_ms: 1.012943
+  type: 'test'
+  ...
+# Subtest: editing notes does not reset the consistency timestamp
+ok 4 - editing notes does not reset the consistency timestamp
+  ---
+  duration_ms: 0.327358
+  type: 'test'
+  ...
+# Subtest: maintenance uses real practice, ignores note edits and future or unrelated logs
+ok 5 - maintenance uses real practice, ignores note edits and future or unrelated logs
+  ---
+  duration_ms: 3.595586
+  type: 'test'
+  ...
+# Subtest: maintenance excludes incomplete, paused and fear exposure programs
+ok 6 - maintenance excludes incomplete, paused and fear exposure programs
+  ---
+  duration_ms: 0.263102
+  type: 'test'
+  ...
+# Subtest: calendar elapsed days handle leap years, daylight saving and unknown dates
+ok 7 - calendar elapsed days handle leap years, daylight saving and unknown dates
+  ---
+  duration_ms: 0.21561
+  type: 'test'
+  ...
+# Subtest: legacy saves migrate without losing profile, progress, notes or session IDs
+ok 8 - legacy saves migrate without losing profile, progress, notes or session IDs
+  ---
+  duration_ms: 0.269676
+  type: 'test'
+  ...
+# Subtest: each dog keeps independent progress, notes and practice history
+ok 9 - each dog keeps independent progress, notes and practice history
+  ---
+  duration_ms: 0.794649
+  type: 'test'
+  ...
+# Subtest: training two of three dogs excludes the unselected dog and follows the earliest gap
+ok 10 - training two of three dogs excludes the unselected dog and follows the earliest gap
+  ---
+  duration_ms: 1.240066
+  type: 'test'
+  ...
+# Subtest: a paused dog blocks group practice of that step without erasing others’ progress
+ok 11 - a paused dog blocks group practice of that step without erasing others’ progress
+  ---
+  duration_ms: 0.48205
+  type: 'test'
+  ...
+# Subtest: multi-dog backups round trip all dogs, selected subset and cues
+ok 12 - multi-dog backups round trip all dogs, selected subset and cues
+  ---
+  duration_ms: 0.890745
+  type: 'test'
+  ...
+# Subtest: invalid household names, IDs, selections and duplicate journal IDs are rejected
+ok 13 - invalid household names, IDs, selections and duplicate journal IDs are rejected
+  ---
+  duration_ms: 1.004497
+  type: 'test'
+  ...
+# Subtest: all reverse links target a real prerequisite edge without duplicates
+ok 14 - all reverse links target a real prerequisite edge without duplicates
+  ---
+  duration_ms: 2.423332
+  type: 'test'
+  ...
+# Subtest: the breed catalog is searchable, accepts aliases and never assigns traits
+ok 15 - the breed catalog is searchable, accepts aliases and never assigns traits
+  ---
+  duration_ms: 5.704766
+  type: 'test'
+  ...
+# Subtest: confirmed observations adapt suggestions; breed alone never changes advancement
+ok 16 - confirmed observations adapt suggestions; breed alone never changes advancement
+  ---
+  duration_ms: 2.046958
+  type: 'test'
+  ...
+# Subtest: individual tailoring survives multi-dog backup and rejects unknown settings
+ok 17 - individual tailoring survives multi-dog backup and rejects unknown settings
+  ---
+  duration_ms: 0.573758
+  type: 'test'
+  ...
+# Subtest: all combinations of three dogs’ stages preserve the least advanced or paused group stage
+ok 18 - all combinations of three dogs’ stages preserve the least advanced or paused group stage
+  ---
+  duration_ms: 3.845543
+  type: 'test'
+  ...
+# Subtest: hundreds of varied group updates cannot modify an unselected dog’s records
+ok 19 - hundreds of varied group updates cannot modify an unselected dog’s records
+  ---
+  duration_ms: 117.488572
+  type: 'test'
+  ...
+# Subtest: individual support and refresher dates never leak from unselected dogs
+ok 20 - individual support and refresher dates never leak from unselected dogs
+  ---
+  duration_ms: 0.645247
+  type: 'test'
+  ...
+# Subtest: recovery of the final setup snapshot opens the tour without creating an extra dog
+ok 21 - recovery of the final setup snapshot opens the tour without creating an extra dog
+  ---
+  duration_ms: 0.237643
+  type: 'test'
+  ...
+# Subtest: the original app refuses new native records instead of silently dropping extra dogs
+ok 22 - the original app refuses new native records instead of silently dropping extra dogs
+  ---
+  duration_ms: 1.068922
+  type: 'test'
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 22
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 171.047504

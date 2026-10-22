@@ -1,0 +1,15 @@
+{
+  "checkedAtUTC": "2026-10-22T01:47:38.731208+00:00",
+  "allIPACopiesMatch": true,
+  "deliveryZIPMatches": true,
+  "explodedBundleMatches": true,
+  "allBundledWebFilesMatchTestedSource": true,
+  "webFileCount": 10,
+  "metadataAndFilePermissionsValid": true,
+  "nativeExecutableUnchanged": true,
+  "swiftSourceUnchanged": true,
+  "originalSkillsAndProceduresUnchanged": true,
+  "sourceAndIPAChecksumsValid": true,
+  "acceptanceReportsPassed": 126,
+  "physicalIPhoneTested": false
+}

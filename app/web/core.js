@@ -19,7 +19,74 @@
     return Number.isFinite(+d) && d.toISOString().slice(0,10) === s && +s.slice(0,4) >= 1900 && +s.slice(0,4) <= 2100;
   }
   function freshState() {
-    return {schema:1,revision:0,createdAt:new Date().toISOString(),profile:{name:'',age:'',health:'',comfort:'',rewards:'',equipment:'',history:'',help:'',priorities:[]},progress:{},favorites:[],sessions:[],plans:{},settings:{theme:'light',textSize:'normal'}};
+    return {schema:1,revision:0,createdAt:new Date().toISOString(),cues:{},tailoring:{traits:[],reviewedBreed:''},household:{primaryId:'dog-1',others:[],selectedIds:['dog-1'],setupComplete:false,setupTarget:0,setupIndex:0,tutorialSeenVersion:0},profile:{name:'',age:'',breed:'',health:'',comfort:'',rewards:'',equipment:'',history:'',help:'',priorities:[]},progress:{},favorites:[],sessions:[],plans:{},settings:{theme:'light',textSize:'normal',markerSound:'click',markerVolume:25,lessonMarker:false,reminderDays:7,remindersDismissedOn:''}};
+  }
+  // Schema 1 remains the native file envelope. Primary dog fields stay at the
+  // root for lossless migration; household.others holds complete additional dogs.
+  // trainingView is a temporary projection: never save/export it. All dog writes
+  // must name their owner through updateDog/setDogProgress. Backups use version 2
+  // so older apps reject household records rather than silently dropping dogs.
+  const DOG_FIELDS=['profile','progress','sessions','plans','cues','tailoring'];
+  function dogs(state) {
+    const first={id:state.household.primaryId,...Object.fromEntries(DOG_FIELDS.map(k=>[k,state[k]]))};
+    return [first,...state.household.others];
+  }
+  function selectedDogs(state) {const ids=new Set(state.household.selectedIds);return dogs(state).filter(d=>ids.has(d.id));}
+  function dogState(state,id) {const dog=dogs(state).find(d=>d.id===id);if(!dog)throw new Error('Choose an existing dog.');return {...state,...dog};}
+  function updateDog(state,id,update) {
+    const dog=dogs(state).find(d=>d.id===id);if(!dog)throw new Error('Choose an existing dog.');
+    const next=update(dog),fields=Object.fromEntries(DOG_FIELDS.map(k=>[k,next[k]]));
+    if(id===state.household.primaryId)return touch({...state,...fields});
+    return touch({...state,household:{...state.household,others:state.household.others.map(d=>d.id===id?{id,...fields}:d)}});
+  }
+  function addDog(state,profile) {
+    if(dogs(state).length>=50)throw new Error('This household already has 50 profiles.');
+    const name=String(profile.name||'').trim();
+    if(!name||dogs(state).some(d=>!d.profile.name.trim()))throw new Error('Every dog needs a name when there is more than one.');
+    if(dogs(state).some(d=>d.profile.name.trim().toLocaleLowerCase()===name.toLocaleLowerCase()))throw new Error('Use a distinct name or nickname so each dog’s records are easy to recognize.');
+    const blank=freshState(),dog={id:uid(),profile:{...blank.profile,...profile,name},progress:{},sessions:[],plans:{},cues:{},tailoring:{traits:[],reviewedBreed:''}};
+    return touch({...state,household:{...state.household,others:[...state.household.others,dog]}});
+  }
+  function selectDogs(state,ids) {
+    const known=new Set(dogs(state).map(d=>d.id));
+    if(!Array.isArray(ids)||!ids.length||new Set(ids).size!==ids.length||ids.some(id=>!known.has(id)))throw new Error('Choose at least one dog to train.');
+    return touch({...state,household:{...state.household,selectedIds:ids.slice()}});
+  }
+  function trainingView(state) {
+    const chosen=selectedDogs(state);
+    if(chosen.length===1)return dogState(state,chosen[0].id);
+    const progress={};
+    for(const id of new Set(chosen.flatMap(d=>Object.keys(d.progress)))){
+      const records=chosen.map(d=>d.progress[id]||{status:STATUSES[0],notes:'',updatedAt:'',completedAt:''});
+      const least=records.find(r=>r.status===STATUSES[4])||records.reduce((a,b)=>rank(a.status)<=rank(b.status)?a:b);
+      progress[id]={...least,notes:''};
+    }
+    const profile={...chosen[0].profile,name:chosen.map(d=>d.profile.name||'Your dog').join(' & '),priorities:[...new Set(chosen.flatMap(d=>d.profile.priorities))]};
+    return {...state,profile,progress,sessions:chosen.flatMap(d=>d.sessions.map(s=>({...s,dogId:d.id,dogName:d.profile.name}))),plans:{},cues:{},tailoring:{traits:[...new Set(chosen.flatMap(d=>d.tailoring.traits))],reviewedBreed:''}};
+  }
+  function trainingAvailable(data,state) {
+    const choices=available(data,trainingView(state));
+    if(selectedDogs(state).length===1)return choices;
+    // Group recommendations follow the earliest available gap, rather than a later
+    // dog's practiced skill outranking another dog's untouched foundation.
+    const order=new Map(data.skills.flatMap(s=>s.steps).map((s,i)=>[s.id,i]));
+    return choices.sort((a,b)=>order.get(a.step.id)-order.get(b.step.id));
+  }
+  function setDogProgress(state,dogIds,id,value) {
+    let next=state;
+    for(const dogId of dogIds)next=updateDog(next,dogId,()=>{
+      const view=setProgress(dogState(next,dogId),id,value);return view;
+    });
+    return next;
+  }
+  function practiceRecords(data,state,now=new Date()) {
+    return selectedDogs(state).flatMap(d=>maintenance(data,dogState(state,d.id),now).map(r=>({...r,dogId:d.id,dogName:d.profile.name}))).sort((a,b)=>(b.days??-1)-(a.days??-1));
+  }
+  const FORMAT_GUARD='GOOD_GROUND_FORMAT_V2',FORMAT_STATUS='Requires Good Ground 1.1';
+  // The unchanged native shell requires schema 1. This reserved wire-only entry
+  // makes an older JS validator stop safely instead of overwriting extra dogs.
+  function storageState(state) {
+    return {...state,progress:{...state.progress,[FORMAT_GUARD]:{status:FORMAT_STATUS,notes:'Open these records with Good Ground 1.1 or later.',updatedAt:'format-v2'}}};
   }
   function index(data) {
     const skills = new Map(), steps = new Map();
@@ -56,7 +123,9 @@
   function touch(state) { return {...state,revision:state.revision+1,lastSavedAt:new Date().toISOString()}; }
   function setProgress(state,id,value,notes) {
     if (!STATUSES.includes(value)) throw new Error('Choose a valid progress stage.');
-    return touch({...state,progress:{...state.progress,[id]:{status:value,notes:String(notes ?? state.progress[id]?.notes ?? ''),updatedAt:new Date().toISOString()}}});
+    const old=state.progress[id],now=new Date().toISOString();
+    const completedAt=value===STATUSES[3]?(old?.status===value?(old.completedAt||old.updatedAt):now):(old?.completedAt||'');
+    return touch({...state,progress:{...state.progress,[id]:{status:value,notes:String(notes ?? old?.notes ?? ''),updatedAt:now,completedAt}}});
   }
   function summary(data,state) {
     const counts = {total:0,complete:0,practicing:0,ready:0,paused:0,skills:0};
@@ -85,12 +154,55 @@
       const skill=data.skills.find(s=>s.steps.some(st=>st.id===trigger?.step));
       if (skill) {triggerTopics.add(skill.sheet);triggerSkills.add(skill.code);}
     }
+    const supportSkills=new Set((state.tailoring?.traits||[]).flatMap(t=>({noise:['SAFE','SOUND','STORM'],novelty:['SAFE','OBJECT'],handling:['CHIN','HARNESS']}[t]||[])));
     return data.skills.flatMap(skill => skill.steps.map(step=>({skill,step,available:availability(step,state)})))
       .filter(x=>['Continue','Ready to start'].includes(x.available))
       .sort((a,b)=> {
-        const score=x=>(x.available==='Continue'?100:0)+(state.favorites.includes(x.skill.code)?40:0)+(triggerSkills.has(x.skill.code)?45:triggerTopics.has(x.skill.sheet)?25:0)+(x.skill.priority==='Core'?10:0);
+        const score=x=>(x.available==='Continue'?100:0)+(state.favorites.includes(x.skill.code)?40:0)+(triggerSkills.has(x.skill.code)?45:triggerTopics.has(x.skill.sheet)?25:0)+(x.skill.priority==='Core'?10:0)+(supportSkills.has(x.skill.code)?30:0);
         return score(b)-score(a);
       });
+  }
+  function nextChoices(data,state,finishedCode) {
+    const finished=data.skills.find(s=>s.code===finishedCode),seen=new Set();
+    const choices=available(data,state).filter(x=>x.skill.code!==finishedCode).filter(x=>{if(seen.has(x.skill.code))return false;seen.add(x.skill.code);return true;});
+    const fun=choices.find(x=>['Enrichment','Optional trick'].includes(x.skill.priority));
+    const practical=choices.filter(x=>!['Enrichment','Optional trick','Optional advanced'].includes(x.skill.priority))
+      .sort((a,b)=>{
+        const score=x=>(x.step.deps.some(([key])=>finished?.steps.some(s=>s.id===key))?30:0)+(x.skill.sheet===finished?.sheet?10:0)+(x.skill.priority==='Core'?5:0);
+        return score(b)-score(a);
+      }).slice(0,3);
+    return {practical,fun};
+  }
+  function downstreamSkills(data,code) {
+    const original=data.skills.find(s=>s.code===code);if(!original)return [];
+    const ids=new Set(original.steps.map(s=>s.id));
+    return data.skills.filter(s=>s.code!==code).map(skill=>({skill,step:skill.steps.find(st=>st.deps.some(([id])=>ids.has(id)))})).filter(x=>x.step);
+  }
+  const MAINTENANCE_CODES=new Set(['NAME','TOUCH','SIT','DOWN','STAND','FREE','DROP','LEAVE','WAIT','RECALL','OTARGET','MAT','SETTLE','CHECK','LOOSE','TURN','FIND','SIDE','CHIN','NAMECTX','RECALLCTX','MATCTX','WALKCTX']);
+  function daysBetween(earlier,later) {
+    if(!validDate(earlier)||!validDate(later))return null;
+    return Math.floor((Date.parse(later+'T12:00:00Z')-Date.parse(earlier+'T12:00:00Z'))/86400000);
+  }
+  function practiceRecord(skill,state,now=new Date()) {
+    const today=dateToday(now),ids=new Set(skill.steps.map(s=>s.id));
+    const sessions=state.sessions.filter(s=>s.type==='Skill practice'&&ids.has(s.stepId)&&validDate(s.date)&&s.date<=today).sort((a,b)=>b.date.localeCompare(a.date)||b.createdAt.localeCompare(a.createdAt));
+    const learned=skill.steps.every(st=>status(state,st.id)===STATUSES[3]);
+    const dates=learned?skill.steps.map(st=>state.progress[st.id]?.completedAt||state.progress[st.id]?.updatedAt).filter(v=>v&&Number.isFinite(+new Date(v))).map(v=>dateToday(new Date(v))).filter(d=>d<=today).sort():[];
+    const learnedOn=dates.at(-1)||'',lastPractice=sessions[0]?.date||'';
+    // Consistency starts the reminder clock, but is never presented as a practice log.
+    const basisDate=[lastPractice,learnedOn].filter(Boolean).sort().at(-1)||'';
+    return {skill,learned,lastPractice,learnedOn,basisDate,days:daysBetween(basisDate,today),practiceDays:daysBetween(lastPractice,today)};
+  }
+  function maintenance(data,state,now=new Date()) {
+    return data.skills.filter(s=>MAINTENANCE_CODES.has(s.code)).map(s=>practiceRecord(s,state,now))
+      .filter(x=>x.learned).sort((a,b)=>(b.days??-1)-(a.days??-1));
+  }
+  function elapsedLabel(days) {
+    if(days===null)return 'No practice logged yet';
+    if(days===0)return 'Today';if(days===1)return '1 day ago';
+    if(days<14)return days+' days ago';
+    if(days<60)return Math.floor(days/7)+' weeks ago';
+    return Math.floor(days/30)+' months ago';
   }
   function normalizeSession(input) {
     const text = key => String(input[key] ?? '').trim();
@@ -126,11 +238,12 @@
     if (!plain(input)||input.schema!==1||!Number.isSafeInteger(input.revision)||input.revision<0||input.revision>1e12||!plain(input.profile)||!plain(input.progress)||!plain(input.plans)||!plain(input.settings)||!Array.isArray(input.sessions)||!Array.isArray(input.favorites)) fail();
     const text=(v,max=30000)=>typeof v==='string'&&v.length<=max;
     const base=freshState();
-    for (const key of Object.keys(base.profile).filter(k=>k!=='priorities')) if (!text(input.profile[key])) fail();
+    for (const key of Object.keys(base.profile).filter(k=>k!=='priorities')) if (!(key==='breed'&&input.profile[key]===undefined)&&!text(input.profile[key])) fail();
     if (!Array.isArray(input.profile.priorities)||input.profile.priorities.length>50||input.profile.priorities.some(x=>!text(x,150))) fail();
     if (!['light','dark','system'].includes(input.settings.theme)||!['normal','large'].includes(input.settings.textSize)) fail();
     if (input.favorites.length>10000||input.favorites.some(x=>!text(x,150))) fail();
     for (const [key,v] of Object.entries(input.progress)) {
+      if(key===FORMAT_GUARD){if(!plain(v)||v.status!==FORMAT_STATUS||!text(v.notes)||!text(v.updatedAt,100))fail();continue;}
       if (!/^[A-Z0-9_-]{1,100}$/.test(key)||!plain(v)||!STATUSES.includes(v.status)||!text(v.notes)||!text(v.updatedAt,100)) fail();
     }
     for (const [key,v] of Object.entries(input.plans)) {
@@ -146,22 +259,60 @@
       normalizeSession(s);sessionIDs.add(s.id);
     }
     // Copy only defined schema fields. Untrusted keys never become application properties.
-    return {
+    const result={
       schema:1,revision:input.revision,createdAt:text(input.createdAt,100)?input.createdAt:base.createdAt,
       lastSavedAt:text(input.lastSavedAt,100)?input.lastSavedAt:'',
-      profile:Object.fromEntries(Object.keys(base.profile).map(k=>[k,k==='priorities'?input.profile[k].slice():input.profile[k]])),
-      progress:Object.fromEntries(Object.entries(input.progress).map(([k,v])=>[k,{status:v.status,notes:v.notes,updatedAt:v.updatedAt}])),
+      profile:Object.fromEntries(Object.keys(base.profile).map(k=>[k,k==='priorities'?input.profile[k].slice():k==='breed'?(input.profile[k]??''):input.profile[k]])),
+      progress:Object.fromEntries(Object.entries(input.progress).filter(([k])=>k!==FORMAT_GUARD).map(([k,v])=>[k,{status:v.status,notes:v.notes,updatedAt:v.updatedAt,completedAt:text(v.completedAt,100)?v.completedAt:(v.status===STATUSES[3]?v.updatedAt:'')}])),
       favorites:input.favorites.slice(),sessions:input.sessions.map(s=>normalizeSession(s)),
       plans:Object.fromEntries(Object.entries(input.plans).map(([k,v])=>[k,Object.fromEntries(['setup','baseline','next','exit','notes'].map(n=>[n,v[n]??'']))])),
-      settings:{theme:input.settings.theme,textSize:input.settings.textSize}
+      settings:{theme:input.settings.theme,textSize:input.settings.textSize,markerSound:['click','ding','pop','buzz'].includes(input.settings.markerSound)?input.settings.markerSound:'click',markerVolume:Number.isFinite(input.settings.markerVolume)?Math.max(0,Math.min(100,input.settings.markerVolume)):25,lessonMarker:input.settings.lessonMarker===true,reminderDays:[0,7,14,30].includes(input.settings.reminderDays)?input.settings.reminderDays:7,remindersDismissedOn:validDate(input.settings.remindersDismissedOn)?input.settings.remindersDismissedOn:''}
     };
+    const cueCopy=raw=>{
+      if(raw===undefined)return {};
+      if(!plain(raw)||Object.keys(raw).length>10000)fail();
+      for(const [key,value] of Object.entries(raw))if(!/^[A-Z0-9_-]{1,100}$/.test(key)||!text(value,200))fail();
+      return Object.fromEntries(Object.entries(raw));
+    };
+    result.cues=cueCopy(input.cues);
+    if(input.tailoring===undefined)result.tailoring={traits:[],reviewedBreed:''};
+    else {
+      const t=input.tailoring;
+      if(!plain(t)||!Array.isArray(t.traits)||t.traits.length>3||new Set(t.traits).size!==t.traits.length||t.traits.some(x=>!['noise','novelty','handling'].includes(x))||!text(t.reviewedBreed,200))fail();
+      result.tailoring={traits:t.traits.slice(),reviewedBreed:t.reviewedBreed};
+    }
+    if(input.household===undefined){
+      // An existing single-dog save is already in use. Keep it intact and do not
+      // force setup or the first-launch guide over a migrated user's work.
+      result.household={...base.household,setupComplete:true,tutorialSeenVersion:1};
+    }else{
+      const h=input.household,idOK=v=>typeof v==='string'&&/^[A-Za-z0-9][A-Za-z0-9_-]{0,99}$/.test(v);
+      if(!plain(h)||!idOK(h.primaryId)||!Array.isArray(h.others)||h.others.length>49||!Array.isArray(h.selectedIds)||!h.selectedIds.length||h.selectedIds.length>50||typeof h.setupComplete!=='boolean'||!Number.isInteger(h.setupTarget)||h.setupTarget<0||h.setupTarget>50||!Number.isInteger(h.setupIndex)||h.setupIndex<0||h.setupIndex>h.setupTarget||!Number.isInteger(h.tutorialSeenVersion)||h.tutorialSeenVersion<0||h.tutorialSeenVersion>10000)fail();
+      const ids=new Set([h.primaryId]),sessionIDs=new Set(result.sessions.map(s=>s.id)),others=[];
+      for(const dog of h.others){
+        if(!plain(dog)||!idOK(dog.id)||ids.has(dog.id))fail();ids.add(dog.id);
+        const copy=validateState({schema:1,revision:0,createdAt:result.createdAt,profile:dog.profile,progress:dog.progress,sessions:dog.sessions,plans:dog.plans,cues:dog.cues,tailoring:dog.tailoring,settings:base.settings,favorites:[]});
+        for(const entry of copy.sessions){if(sessionIDs.has(entry.id))fail();sessionIDs.add(entry.id);}
+        others.push({id:dog.id,...Object.fromEntries(DOG_FIELDS.map(k=>[k,copy[k]]))});
+      }
+      if(h.selectedIds.some(id=>!ids.has(id))||new Set(h.selectedIds).size!==h.selectedIds.length)fail();
+      const profiles=[result.profile,...others.map(d=>d.profile)];
+      if(h.setupIndex>profiles.length||(h.setupComplete&&h.setupTarget>0&&h.setupIndex!==h.setupTarget))fail();
+      if(h.setupTarget>1&&h.setupIndex){const names=profiles.slice(0,h.setupIndex).map(p=>p.name.trim().toLocaleLowerCase());if(names.some(n=>!n)||new Set(names).size!==names.length)fail();}
+      // A previous native snapshot can fall between the old final index write and
+      // completion write. All profiles exist: resume at the tour, not an extra dog.
+      const setupComplete=h.setupComplete||(h.setupTarget>0&&h.setupIndex===h.setupTarget);
+      if(h.others.length&&setupComplete){const names=[result.profile.name,...others.map(d=>d.profile.name)].map(n=>n.trim().toLocaleLowerCase());if(names.some(n=>!n)||new Set(names).size!==names.length)fail();}
+      result.household={primaryId:h.primaryId,others,selectedIds:h.selectedIds.slice(),setupComplete,setupTarget:h.setupTarget,setupIndex:h.setupIndex,tutorialSeenVersion:h.tutorialSeenVersion};
+    }
+    return result;
   }
-  const makeBackup = (state,data) => ({format:'good-ground-backup',version:1,exportedAt:new Date().toISOString(),curriculumVersion:data.version,state:validateState(state)});
+  const makeBackup = (state,data) => ({format:'good-ground-backup',version:2,exportedAt:new Date().toISOString(),curriculumVersion:data.version,state:validateState(state)});
   function parseBackup(text) {
     if (typeof text!=='string'||new TextEncoder().encode(text).length>5*1024*1024) throw new Error('Choose a Good Ground backup smaller than 5 MB.');
     let b; try {b=JSON.parse(text);} catch {throw new Error('This file is not valid JSON. Your current data has not been changed.');}
-    if (!plain(b)||b.format!=='good-ground-backup'||b.version!==1) throw new Error('Choose a Good Ground backup file (version 1).');
+    if (!plain(b)||b.format!=='good-ground-backup'||![1,2].includes(b.version)) throw new Error('Choose a Good Ground backup file (version 1 or 2).');
     return validateState(b.state);
   }
-  return {STORAGE_BYTES,withinStorageLimit,STATUSES,LABELS,rank,esc,uid,dateToday,validDate,freshState,index,status,availability,stageLabel,touch,setProgress,summary,available,normalizeSession,sessionGuidance,observations,validateState,makeBackup,parseBackup};
+  return {STORAGE_BYTES,withinStorageLimit,STATUSES,LABELS,rank,esc,uid,dateToday,validDate,freshState,storageState,FORMAT_GUARD,dogs,selectedDogs,dogState,updateDog,addDog,selectDogs,trainingView,trainingAvailable,setDogProgress,practiceRecords,index,status,availability,stageLabel,touch,setProgress,summary,available,nextChoices,downstreamSkills,daysBetween,practiceRecord,maintenance,elapsedLabel,MAINTENANCE_CODES,normalizeSession,sessionGuidance,observations,validateState,makeBackup,parseBackup};
 });

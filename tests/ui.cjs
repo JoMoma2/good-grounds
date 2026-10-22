@@ -1,7 +1,7 @@
 const {chromium,webkit}=require('playwright');
 const {AxeBuilder}=require('@axe-core/playwright');
 const assert=require('node:assert/strict'),fs=require('node:fs'),http=require('node:http'),path=require('node:path');
-const root=path.resolve(__dirname,'..'),webRoot=root+'/app/web',C=require(webRoot+'/core.js'),D=JSON.parse(fs.readFileSync(webRoot+'/data.json','utf8'));
+const root=path.resolve(__dirname,'..'),webRoot=process.env.GG_WEB_ROOT||root+'/app/web',C=require(webRoot+'/core.js'),D=JSON.parse(fs.readFileSync(webRoot+'/data.json','utf8'));
 const output=root+'/test-results';fs.mkdirSync(output,{recursive:true});
 const report={checks:[],errors:[],externalRequests:[],accessibility:[],engine:process.env.GG_BROWSER||'chromium'};
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.png':'image/png'};
@@ -15,6 +15,8 @@ async function main(){
   const engine=report.engine==='webkit'?webkit:chromium;
   const browser=await engine.launch({headless:true});
   const context=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:1,hasTouch:true,isMobile:true});
+  const settled=C.freshState();settled.household.setupComplete=true;settled.household.tutorialSeenVersion=1;
+  await context.addInitScript(s=>{if(!localStorage.getItem('good-ground-state-v1'))localStorage.setItem('good-ground-state-v1',JSON.stringify(s));},settled);
   const page=await context.newPage();page.on('pageerror',e=>report.errors.push(e.message));
   await page.route('**/*',route=>{if(route.request().url().startsWith(origin))return route.continue();report.externalRequests.push(route.request().url());return route.abort();});
   const go=async fragment=>{await page.goto(origin+'/'+fragment);await page.waitForFunction(()=>window.GoodGround?.ready);};
@@ -26,7 +28,7 @@ async function main(){
       await page.screenshot({path:output+'/today.png',fullPage:true});
     });
     await step('main tabs and both directions of library navigation work with one click',async()=>{
-      for(const [label,url] of [['Learn','learn'],['Journal','journal'],['Trends','trends'],['More','more'],['Today','today']]){
+      for(const [label,url] of [['Learn','learn'],['Journal','journal'],['Clicker','clicker'],['More','more'],['Today','today']]){
         await page.locator('.tab-bar').getByRole('link',{name:label,exact:true}).click();await page.waitForURL('**/#/'+url);assert.ok(await page.locator('main h1').count());
       }
       await page.getByRole('button',{name:'See all'}).click();await page.waitForURL('**/#/learn');await page.getByRole('button',{name:'All lessons',exact:true}).click();
@@ -35,7 +37,7 @@ async function main(){
       await go('#/lesson/NAME-2');await page.getByText('Build prerequisite',{exact:true}).waitFor();
       await page.locator('.dependency').first().click();await page.waitForURL('**/#/lesson/NAME-1');
       await page.getByRole('button',{name:'Set progress',exact:true}).click();await page.locator('[data-action="set-progress"][data-value="Consistent - move on"]').click();
-      await page.getByRole('link',{name:'Next step',exact:true}).click();await page.waitForURL('**/#/lesson/NAME-2');await page.getByText('Ready to start',{exact:true}).waitFor();
+      await page.waitForURL('**/#/lesson/NAME-2');await page.getByText('Ready to start',{exact:true}).waitFor();
       await page.reload();await page.getByText('Ready to start',{exact:true}).waitFor();
       await page.screenshot({path:output+'/lesson.png',fullPage:true});
     });
@@ -111,10 +113,10 @@ async function main(){
           await go(hash);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),width+' '+hash);
         }
       }
-      await page.setViewportSize({width:390,height:844});await go('#/settings');await page.locator('[name="theme"]').selectOption('dark');await page.locator('[name="textSize"]').selectOption('large');await page.getByRole('button',{name:'Save appearance'}).click();await go('#/lesson/DOG-1');assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');await page.screenshot({path:output+'/dark-large.png',fullPage:true});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+      await page.setViewportSize({width:390,height:844});await go('#/settings');await page.locator('[name="theme"]').selectOption('dark');await page.locator('[name="textSize"]').selectOption('large');await page.getByRole('button',{name:'Save settings'}).click();await go('#/lesson/DOG-1');assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');await page.screenshot({path:output+'/dark-large.png',fullPage:true});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
     });
     await step('accessibility checks cover navigation, lessons, forms and research',async()=>{
-      await go('#/settings');await page.locator('[name="theme"]').selectOption('light');await page.locator('[name="textSize"]').selectOption('normal');await page.getByRole('button',{name:'Save appearance'}).click();
+      await go('#/settings');await page.locator('[name="theme"]').selectOption('light');await page.locator('[name="textSize"]').selectOption('normal');await page.getByRole('button',{name:'Save settings'}).click();
       for(const hash of ['#/today','#/learn','#/lesson/DOG-1','#/session','#/more','#/evidence']){
         await go(hash);const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze();report.accessibility.push({route:hash,violations:result.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>n.target)}))});assert.equal(result.violations.length,0,hash+' '+JSON.stringify(result.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)}))));
       }
