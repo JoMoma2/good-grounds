@@ -1,10 +1,10 @@
 {
   "name": "good-ground-local",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "private": true,
   "description": "Offline dog training companion, packaged for iPhone",
   "scripts": {
-    "test": "node tests/core.test.cjs && node tests/updates.test.cjs && node tests/marker.test.cjs",
+    "test": "node tests/core.test.cjs && node tests/updates.test.cjs && node tests/marker.test.cjs && node tests/projects-history.test.cjs",
     "test:ui": "node tests/ui.cjs",
     "preview": "python3 -m http.server 8765 --bind 127.0.0.1 --directory app/web",
     "check": "node scripts/check.cjs",

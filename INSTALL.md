@@ -1,6 +1,6 @@
 # Get Good Ground onto your iPhone
 
-The release includes an updated unsigned `GoodGround-unsigned.ipa`. Use that IPA with your existing SideStore or LiveContainer setup. Export a backup from the old app first and keep the same app/container identity. The update preserves the native shell and replaces its bundled interface.
+The local preview includes `GoodGround-1.2.0-unsigned.ipa` (a fresh source build uses `GoodGround-unsigned.ipa`). Use that IPA with your existing SideStore or LiveContainer setup. Export a backup from the old app first and keep the same app/container identity. The update preserves the native shell and replaces its bundled interface.
 
 If you already have the release IPA, go directly to section 3A or 3B. Sections 1–2 are an optional way to compile a fresh shell from source on GitHub’s Mac.
 
@@ -57,7 +57,7 @@ If the app’s backup/import picker fails to open, check LiveContainer’s per-a
 3. Add a short test note, leave the field, close and reopen the app, and check that it is still there. Remove the test note afterward.
 4. Export a backup through **More → Backup & restore** and verify that Files offers a save location. You do not need to restore it merely to test export.
 
-Progress is a planning record. Marking a criterion consistent should reflect the dog’s actual performance and comfort. Completing a step now navigates to its next step automatically. New backups use format version 2; older version 1 apps cannot restore them. The updated app continues to accept old version 1 backups.
+Progress is a planning record. Marking a criterion consistent should reflect the dog’s actual performance and comfort. Completing a step now navigates to its next step automatically. New backups use format version 3; older apps cannot restore them. This update accepts version 1 and 2 backups as well. New progress history begins at the first observation in this version.
 
 ## If a build or installation fails
 
@@ -75,3 +75,5 @@ Useful official documentation:
 ## A prompt you can give ChatGPT
 
 > I have the Good Ground iPhone app source ZIP and INSTALL.md. I use Ubuntu, SideStore and LiveContainer. Walk me through uploading the source contents to a new GitHub repository, including `.github/workflows/build-iphone.yml`, running “Build iPhone app”, downloading its GoodGround-iPhone artifact, extracting GoodGround-unsigned.ipa, and importing it into my existing sideloading setup. No App Store submission or Apple credentials in GitHub are needed. Start with the GitHub upload and give me one short stage at a time. If there is an error, help me identify the failing step before changing anything.
+
+The clicker requests Silent-mode playback on iOS 17 and later, with no extra permission prompt. Verify the sound on your phone before training. iOS 16 can still require Silent mode off; the asset-only package does not add a native audio-session fallback.

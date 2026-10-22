@@ -18,7 +18,7 @@ Bump `GROUND_GUIDE.version` when changing the guide. A first-time user sees dog 
 - Notes and cues always belong to an explicit dog. Journal edits/deletes and trigger plans must retain their owner. Trends intentionally show one dog at a time.
 - First-run setup saves each completed profile so interruption can resume. A single dog's profile can be skipped; multiple dogs require distinct names or nicknames.
 
-Backups now use format `version: 2`. The current parser accepts version 1 and 2, and migrates old single-dog saves without erasing their records or forcing setup. Older apps reject version 2; this prevents them from silently discarding extra dogs or new preferences. Keep an old backup before updating, and use the new app to restore new exports.
+Backups now use format `version: 3`. The current parser accepts versions 1, 2 and 3, and migrates old single-dog saves without erasing their records or forcing setup. Older apps reject version 3; this prevents them from silently discarding extra dogs or progress history. Keep an old backup before updating, and use the new app to restore new exports.
 
 `storageState` adds a reserved wire-only progress entry when saving to the native file or browser storage. The current validator removes it from the canonical model. The original validator refuses that entry safely, preventing an older app from rewriting a new household as only its first dog. The native schema remains 1 because the unchanged Swift shell requires it. Keep this compatibility guard when extending storage; do not count it as a lesson.
 
@@ -32,7 +32,7 @@ Practice recency uses dated linked **Skill practice** journal records. Note edit
 
 ## Curriculum and checks
 
-Edit curriculum inputs in `research/base-data.json`, `research/additional-sources.json`, or `scripts/extend-content.py`, then run `python3 scripts/extend-content.py`. It regenerates the JSON and JavaScript bundles; do not edit only one output. Keep existing skill and step IDs stable, including prerequisite edges. The reverse links are derived from those edges and need no separate list.
+Edit curriculum inputs in `research/base-data.json`, `research/additional-sources.json`, `scripts/advanced-content.py`, or `scripts/extend-content.py`, then run `python3 scripts/extend-content.py`. It regenerates the JSON and JavaScript bundles; do not edit only one output. Keep existing skill and step IDs stable, including prerequisite edges. The reverse links are derived from those edges and need no separate list.
 
 ```bash
 node scripts/check.cjs
@@ -50,3 +50,11 @@ node tests/native-bridge.cjs
 Repeat the five browser scripts with `GG_BROWSER=webkit`. These tests use invented records in isolated browser/native-bridge simulations. `GG_WEB_ROOT` can target an extracted app's bundled web folder for artifact checks. Desktop engines do not substitute for a physical iPhone or Swift runtime test. The macOS build and simulator workflow remains available.
 
 Lesson controls use CSS sticky positioning and the measured navigation height. Keep visible feedback available in both the large clicker and the lesson marker. Never schedule a late marker after a failed or timed-out audio unlock. Text sizes use rem units so the root text-size preference affects labels and controls as well as teaching copy.
+
+## Completion history and component projects
+
+`observeProgress` records actual per-dog daily category skill counts, including a first-observed baseline. It must run on canonical state, never `trainingView`. Same-day observations replace that date; unchanged counts and note edits do not create history. Counts and denominators are frozen with a curriculum version. `history.js` renders calendar-spaced step lines and an accessible values table. Do not reconstruct prior percentages from current progress timestamps. Backups keep all valid observations.
+
+Fridge component metadata retains OPEN/CLOSE/SHELF/DRINK cue keys inside one DRINK skill. A step's component determines setup and cue fields. Preserve all old step IDs and consult `HANDOFF_1_2.md` before changing compatibility. The 1.2 wire guard rejects writes from 1.1.x code that would drop history.
+
+Run `npm test` for all unit suites, including immutable 1.1.1 compatibility fixtures. Keep those fixtures portable; do not depend on a local Git checkout for source-archive tests. The focused handoff suite measures real desktop audio graph output; this is not physical speaker verification. It also supports `GG_BROWSER=firefox` for local-file checks.

@@ -29,8 +29,19 @@
     }
     return data;
   }
+  // Set the audio policy before creating/resuming Web Audio. Supported by iOS
+  // 17+; older engines retain ordinary playback and may obey Silent mode.
+  function requestPlayback() {
+    try {
+      const session=globalThis.navigator?.audioSession;
+      if(!session)return false;
+      if(session.type!=='playback')session.type='playback';
+      return session.type==='playback';
+    } catch {return false;}
+  }
   let context=null, buffers=new Map(), voices=new Set();
   async function play(id,volume=.25) {
+    requestPlayback();
     const Audio=globalThis.AudioContext||globalThis.webkitAudioContext;
     if(!Audio)throw new Error('Sound is unavailable here. Use a spoken marker or a physical clicker.');
     if(!context||context.state==='closed'){context=new Audio({latencyHint:'interactive'});buffers=new Map();}
@@ -54,5 +65,5 @@
     try{source.start();}catch(error){voices.delete(source);source.disconnect();gain.disconnect();throw error;}
     return true;
   }
-  return {sounds,samples,play};
+  return {sounds,samples,play,requestPlayback};
 });

@@ -51,3 +51,13 @@ body{overflow-wrap:anywhere}.field>span,.field small,.practice-recency>small,.ta
 
 /* Two compact rows leave more of the teaching copy visible. */
 .lesson-actions{row-gap:4px}.lesson-actions .lesson-marker{display:contents}.lesson-marker>.button{grid-row:1;grid-column:1}.lesson-marker>.text-link{grid-row:2;grid-column:1;justify-content:start;min-height:28px;font-size:.75rem;padding:2px 0}.lesson-actions>[data-action=progress]{grid-row:1;grid-column:2}.lesson-actions .marker-feedback{grid-row:2;grid-column:2;text-align:left;font-size:.75rem;align-self:center;overflow-wrap:anywhere}
+
+.lesson-actions.without-marker{grid-template-columns:1fr}.lesson-actions.without-marker>[data-action=progress]{grid-column:1/-1}
+
+/* iOS may zoom focused controls below 16px. Preserve ordinary pinch zoom. */
+.search-field input{font-size:1rem}.trouble-spots>.stack{padding:0 0 16px}
+
+/* Category colors are shared by current bars and the dated completion lines. */
+.completion-history{margin:28px 0}.completion-history h2{font-size:1.25rem}.completion-history svg{display:block;width:100%;height:auto;overflow:visible}.completion-history svg text{font-size:.6875rem;fill:var(--muted)}
+.history-key{border:0;padding:0;margin:14px 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 12px}.history-key legend{font-size:.8125rem;font-weight:650;margin-bottom:10px}.history-key label{display:flex;align-items:center;gap:7px;min-height:44px;font-size:.75rem;cursor:pointer}.history-key input{width:18px;height:18px;flex-shrink:0;accent-color:var(--green)}.history-swatch{width:22px;border-top:3px solid;flex-shrink:0}.history-table{overflow-x:auto;max-height:420px}.history-table th,.history-table td{padding:10px 7px;font-size:.75rem;text-align:left;vertical-align:top}.history-table th{position:sticky;top:0;background:var(--surface)}
+:root[data-theme=dark]{--topic-0:#8acaab!important;--topic-1:#e0b77d!important;--topic-2:#8ab9ee!important;--topic-3:#eea2bb!important;--topic-4:#b8a6ed!important;--topic-5:#d6b387!important;--topic-6:#81c6ce!important;--topic-7:#f0a482!important;--topic-8:#b5d28e!important;--topic-9:#c9a7dc!important;--topic-10:#93bade!important;--topic-11:#e7cc80!important;--topic-12:#f09c9c!important;--topic-13:#8bd2c0!important;--topic-14:#b8b3ed!important}

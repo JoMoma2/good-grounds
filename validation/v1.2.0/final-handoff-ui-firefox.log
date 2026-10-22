@@ -1,0 +1,16 @@
+PASS lesson marker gives immediate visible and readable feedback, exactly once per activation
+PASS a real audio graph carries a nonzero ding signal after the marker gain
+PASS holding Enter or Space marks on keydown once, without marking while typing in fields
+PASS marker and Set progress stay above navigation and settle at their normal location
+PASS Settings can hide and restore the lesson marker, preserving the preference through backup
+PASS muted and unavailable audio show an error rather than false success or practice
+PASS clicker current-step criteria expand separately and training tools live under Lessons
+PASS larger text scales headings, labels, controls and body text throughout the app
+PASS dog names update default name cues while explicit custom cues survive renames
+PASS profile changes update relevant practice pieces; completed starting points disappear
+PASS changing breed through Unknown reopens a relevant check while unrelated edits do not
+PASS four advanced projects appear last; legacy fridge routes and component cues survive
+PASS foundations stay first while separate trouble-spot suggestions refresh with profile edits
+PASS breed search uses at least 16px without restricting viewport zoom; practice link focuses its section
+PASS historical category lines use real dated snapshots, allow overlapping 100%, and provide a usable legend
+PASS lesson actions, clicker, settings and grouped library remain accessible at large text

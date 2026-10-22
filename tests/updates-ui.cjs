@@ -57,11 +57,11 @@ async function main(){
       await page.locator('.marker-pad').focus();await page.keyboard.press('Space');await page.waitForFunction(()=>document.querySelector('#marker-feedback').textContent==='Marked. Reward now.');
       await page.locator('#lesson-marker-toggle').check();
       await page.getByRole('link',{name:'Return to lesson',exact:true}).click();await page.locator('.lesson-marker').waitFor();assert.equal(await page.locator('.lesson-marker').count(),1);
-      await page.locator('.lesson-marker').getByRole('link',{name:'Open clicker'}).click();await page.locator('#lesson-marker-toggle').uncheck();
+      await page.locator('.lesson-marker').getByRole('link',{name:'Open clicker'}).click();await page.locator('#lesson-marker-toggle').click();await page.getByRole('heading',{name:'Clicker hidden.',exact:true}).waitFor();assert.equal((await state()).settings.lessonMarker,false);
       await page.getByRole('link',{name:'Return to lesson',exact:true}).click();await page.waitForURL('**/#/lesson/NAME-1');await page.locator('.lesson-title').waitFor();assert.equal(await page.locator('.lesson-marker').count(),0);
     });
     await check('clicker is accessible and fits narrow screens with larger text',async()=>{
-      await go('#/clicker');const a=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa']).analyze();
+      await go('#/settings');await page.locator('[name=lessonMarker]').check();await page.getByRole('button',{name:'Save settings',exact:true}).click();await go('#/clicker');const a=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa']).analyze();
       report.accessibility.push({page:'clicker',violations:a.violations.map(v=>v.id)});assert.equal(a.violations.length,0,JSON.stringify(a.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))}))));
       for(const width of [320,390,430,768]){await page.setViewportSize({width,height:844});await page.evaluate(()=>document.documentElement.dataset.text='large');assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'overflow at '+width);}
       await page.setViewportSize({width:390,height:844});await page.screenshot({path:output+'/updated-clicker-'+report.engine+'.png',fullPage:true});

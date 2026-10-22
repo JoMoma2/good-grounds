@@ -1,0 +1,8 @@
+{
+  "archive": "GoodGround-1.2.0-Source.zip",
+  "zipIntegrity": true,
+  "contentCheckPassed": true,
+  "unitTestsPassed": 62,
+  "curriculumRegenerationIdentical": true,
+  "gitOrNodeModulesRequiredForUnitTests": false
+}

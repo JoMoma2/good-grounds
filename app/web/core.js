@@ -19,14 +19,14 @@
     return Number.isFinite(+d) && d.toISOString().slice(0,10) === s && +s.slice(0,4) >= 1900 && +s.slice(0,4) <= 2100;
   }
   function freshState() {
-    return {schema:1,revision:0,createdAt:new Date().toISOString(),cues:{},tailoring:{traits:[],reviewedBreed:''},household:{primaryId:'dog-1',others:[],selectedIds:['dog-1'],setupComplete:false,setupTarget:0,setupIndex:0,tutorialSeenVersion:0},profile:{name:'',age:'',breed:'',health:'',comfort:'',rewards:'',equipment:'',history:'',help:'',priorities:[]},progress:{},favorites:[],sessions:[],plans:{},settings:{theme:'light',textSize:'normal',markerSound:'click',markerVolume:25,lessonMarker:true,reminderDays:7,remindersDismissedOn:''}};
+    return {schema:1,revision:0,createdAt:new Date().toISOString(),cues:{},progressHistory:[],tailoring:{traits:[],reviewedBreed:''},household:{primaryId:'dog-1',others:[],selectedIds:['dog-1'],setupComplete:false,setupTarget:0,setupIndex:0,tutorialSeenVersion:0},profile:{name:'',age:'',breed:'',health:'',comfort:'',rewards:'',equipment:'',history:'',help:'',priorities:[]},progress:{},favorites:[],sessions:[],plans:{},settings:{theme:'light',textSize:'normal',markerSound:'click',markerVolume:25,lessonMarker:true,reminderDays:7,remindersDismissedOn:''}};
   }
   // Schema 1 remains the native file envelope. Primary dog fields stay at the
   // root for lossless migration; household.others holds complete additional dogs.
   // trainingView is a temporary projection: never save/export it. All dog writes
-  // must name their owner through updateDog/setDogProgress. Backups use version 2
-  // so older apps reject household records rather than silently dropping dogs.
-  const DOG_FIELDS=['profile','progress','sessions','plans','cues','tailoring'];
+  // must name their owner through updateDog/setDogProgress. Backups use version 3
+  // so older apps reject records rather than silently dropping dogs or history.
+  const DOG_FIELDS=['profile','progress','sessions','plans','cues','tailoring','progressHistory'];
   function dogs(state) {
     const first={id:state.household.primaryId,...Object.fromEntries(DOG_FIELDS.map(k=>[k,state[k]]))};
     return [first,...state.household.others];
@@ -44,7 +44,7 @@
     const name=String(profile.name||'').trim();
     if(!name||dogs(state).some(d=>!d.profile.name.trim()))throw new Error('Every dog needs a name when there is more than one.');
     if(dogs(state).some(d=>d.profile.name.trim().toLocaleLowerCase()===name.toLocaleLowerCase()))throw new Error('Use a distinct name or nickname so each dog’s records are easy to recognize.');
-    const blank=freshState(),dog={id:uid(),profile:{...blank.profile,...profile,name},progress:{},sessions:[],plans:{},cues:{},tailoring:{traits:[],reviewedBreed:''}};
+    const blank=freshState(),dog={id:uid(),profile:{...blank.profile,...profile,name},progress:{},sessions:[],plans:{},cues:{},progressHistory:[],tailoring:{traits:[],reviewedBreed:''}};
     return touch({...state,household:{...state.household,others:[...state.household.others,dog]}});
   }
   function selectDogs(state,ids) {
@@ -72,6 +72,21 @@
     const order=new Map(data.skills.flatMap(s=>s.steps).map((s,i)=>[s.id,i]));
     return choices.sort((a,b)=>order.get(a.step.id)-order.get(b.step.id));
   }
+  function startingAvailable(data,state) {
+    const view=trainingView(state);
+    const neutral={...view,profile:{...view.profile,priorities:[]},tailoring:{...view.tailoring,traits:[]}};
+    const choices=available(data,neutral);
+    if(selectedDogs(state).length===1)return choices;
+    const order=new Map(data.skills.flatMap(s=>s.steps).map((s,i)=>[s.id,i]));
+    return choices.sort((a,b)=>order.get(a.step.id)-order.get(b.step.id));
+  }
+  function personalizedAvailable(data,state) {
+    const view=trainingView(state),codes=new Set();
+    for(const name of view.profile.priorities){const trigger=data.triggers.find(t=>t.name===name);const skill=data.skills.find(s=>s.steps.some(st=>st.id===trigger?.step));if(skill)codes.add(skill.code);}
+    for(const trait of view.tailoring.traits)for(const code of ({noise:['SAFE','SOUND','STORM'],novelty:['SAFE','OBJECT'],handling:['CHIN','HARNESS']}[trait]||[]))codes.add(code);
+    const seen=new Set();
+    return trainingAvailable(data,state).filter(x=>codes.has(x.skill.code)).filter(x=>{if(seen.has(x.skill.code))return false;seen.add(x.skill.code);return true;});
+  }
   function setDogProgress(state,dogIds,id,value) {
     let next=state;
     for(const dogId of dogIds)next=updateDog(next,dogId,()=>{
@@ -82,11 +97,11 @@
   function practiceRecords(data,state,now=new Date()) {
     return selectedDogs(state).flatMap(d=>maintenance(data,dogState(state,d.id),now).map(r=>({...r,dogId:d.id,dogName:d.profile.name}))).sort((a,b)=>(b.days??-1)-(a.days??-1));
   }
-  const FORMAT_GUARD='GOOD_GROUND_FORMAT_V2',FORMAT_STATUS='Requires Good Ground 1.1';
+  const FORMAT_GUARD='GOOD_GROUND_FORMAT_V2',FORMAT_STATUS='Requires Good Ground 1.2';
   // The unchanged native shell requires schema 1. This reserved wire-only entry
   // makes an older JS validator stop safely instead of overwriting extra dogs.
   function storageState(state) {
-    return {...state,progress:{...state.progress,[FORMAT_GUARD]:{status:FORMAT_STATUS,notes:'Open these records with Good Ground 1.1 or later.',updatedAt:'format-v2'}}};
+    return {...state,progress:{...state.progress,[FORMAT_GUARD]:{status:FORMAT_STATUS,notes:'Open these records with Good Ground 1.2 or later.',updatedAt:'format-v3'}}};
   }
   function index(data) {
     const skills = new Map(), steps = new Map();
@@ -146,6 +161,30 @@
       topics.push(t);
     }
     return {counts,topics};
+  }
+  // Daily observations, never reconstructed from today's completion timestamps.
+  // Store counts AND denominator so later curriculum changes cannot rewrite history.
+  function completionSnapshot(data,state,now=new Date()) {
+    const topics={};
+    for(const skill of data.skills){
+      const t=topics[skill.sheet]||(topics[skill.sheet]=[0,0]);t[1]++;
+      if(skill.steps.every(st=>status(state,st.id)===STATUSES[3]))t[0]++;
+    }
+    return {date:dateToday(now),curriculum:data.version,topics};
+  }
+  function observeProgress(data,state,now=new Date()) {
+    let next=state;
+    for(const dog of dogs(state)){
+      const row=completionSnapshot(data,dog,now),history=dog.progressHistory||[];
+      const previous=history.filter(r=>r.date<=row.date).at(-1);
+      if(previous&&previous.curriculum===row.curriculum&&JSON.stringify(previous.topics)===JSON.stringify(row.topics))continue;
+      const rows=history.filter(r=>r.date!==row.date).concat(row).sort((a,b)=>a.date.localeCompare(b.date));
+      if(rows.length>10000)throw new Error('Progress history is full. Export a backup before recording more changes.');
+      next=updateDog(next,dog.id,d=>({...d,progressHistory:rows}));
+    }
+    const favorites=[...new Set(next.favorites.map(code=>['OPEN','CLOSE','SHELF'].includes(code)&&data.skills.some(s=>s.code==='DRINK'&&s.components)?'DRINK':code))];
+    if(JSON.stringify(favorites)!==JSON.stringify(next.favorites))next=touch({...next,favorites});
+    return next;
   }
   function available(data,state) {
     const triggerTopics = new Set(), triggerSkills = new Set();
@@ -243,7 +282,7 @@
     if (!['light','dark','system'].includes(input.settings.theme)||!['normal','large'].includes(input.settings.textSize)) fail();
     if (input.favorites.length>10000||input.favorites.some(x=>!text(x,150))) fail();
     for (const [key,v] of Object.entries(input.progress)) {
-      if(key===FORMAT_GUARD){if(!plain(v)||v.status!==FORMAT_STATUS||!text(v.notes)||!text(v.updatedAt,100))fail();continue;}
+      if(key===FORMAT_GUARD){if(!plain(v)||![FORMAT_STATUS,'Requires Good Ground 1.1'].includes(v.status)||!text(v.notes)||!text(v.updatedAt,100))fail();continue;}
       if (!/^[A-Z0-9_-]{1,100}$/.test(key)||!plain(v)||!STATUSES.includes(v.status)||!text(v.notes)||!text(v.updatedAt,100)) fail();
     }
     for (const [key,v] of Object.entries(input.plans)) {
@@ -268,6 +307,15 @@
       plans:Object.fromEntries(Object.entries(input.plans).map(([k,v])=>[k,Object.fromEntries(['setup','baseline','next','exit','notes'].map(n=>[n,v[n]??'']))])),
       settings:{theme:input.settings.theme,textSize:input.settings.textSize,markerSound:['click','ding','pop','buzz'].includes(input.settings.markerSound)?input.settings.markerSound:'click',markerVolume:Number.isFinite(input.settings.markerVolume)?Math.max(0,Math.min(100,input.settings.markerVolume)):25,lessonMarker:input.settings.lessonMarker!==false,reminderDays:[0,7,14,30].includes(input.settings.reminderDays)?input.settings.reminderDays:7,remindersDismissedOn:validDate(input.settings.remindersDismissedOn)?input.settings.remindersDismissedOn:''}
     };
+    const history=input.progressHistory===undefined?[]:input.progressHistory;
+    if(!Array.isArray(history)||history.length>10000)fail();
+    let lastDate='';
+    result.progressHistory=history.map(row=>{
+      if(!plain(row)||!validDate(row.date)||row.date<=lastDate||!Number.isSafeInteger(row.curriculum)||row.curriculum<1||row.curriculum>1000000||!plain(row.topics)||Object.keys(row.topics).length<1||Object.keys(row.topics).length>100)fail();
+      lastDate=row.date;
+      for(const [name,pair] of Object.entries(row.topics))if(!text(name,150)||!name||['__proto__','constructor','prototype'].includes(name)||!Array.isArray(pair)||pair.length!==2||pair.some(n=>!Number.isSafeInteger(n))||pair[0]<0||pair[1]<1||pair[0]>pair[1]||pair[1]>100000)fail();
+      return {date:row.date,curriculum:row.curriculum,topics:Object.fromEntries(Object.entries(row.topics).map(([name,pair])=>[name,pair.slice()]))};
+    });
     const cueCopy=raw=>{
       if(raw===undefined)return {};
       if(!plain(raw)||Object.keys(raw).length>10000)fail();
@@ -291,7 +339,7 @@
       const ids=new Set([h.primaryId]),sessionIDs=new Set(result.sessions.map(s=>s.id)),others=[];
       for(const dog of h.others){
         if(!plain(dog)||!idOK(dog.id)||ids.has(dog.id))fail();ids.add(dog.id);
-        const copy=validateState({schema:1,revision:0,createdAt:result.createdAt,profile:dog.profile,progress:dog.progress,sessions:dog.sessions,plans:dog.plans,cues:dog.cues,tailoring:dog.tailoring,settings:base.settings,favorites:[]});
+        const copy=validateState({schema:1,revision:0,createdAt:result.createdAt,profile:dog.profile,progress:dog.progress,sessions:dog.sessions,plans:dog.plans,cues:dog.cues,tailoring:dog.tailoring,progressHistory:dog.progressHistory,settings:base.settings,favorites:[]});
         for(const entry of copy.sessions){if(sessionIDs.has(entry.id))fail();sessionIDs.add(entry.id);}
         others.push({id:dog.id,...Object.fromEntries(DOG_FIELDS.map(k=>[k,copy[k]]))});
       }
@@ -307,12 +355,12 @@
     }
     return result;
   }
-  const makeBackup = (state,data) => ({format:'good-ground-backup',version:2,exportedAt:new Date().toISOString(),curriculumVersion:data.version,state:validateState(state)});
+  const makeBackup = (state,data) => ({format:'good-ground-backup',version:3,exportedAt:new Date().toISOString(),curriculumVersion:data.version,state:validateState(state)});
   function parseBackup(text) {
     if (typeof text!=='string'||new TextEncoder().encode(text).length>5*1024*1024) throw new Error('Choose a Good Ground backup smaller than 5 MB.');
     let b; try {b=JSON.parse(text);} catch {throw new Error('This file is not valid JSON. Your current data has not been changed.');}
-    if (!plain(b)||b.format!=='good-ground-backup'||![1,2].includes(b.version)) throw new Error('Choose a Good Ground backup file (version 1 or 2).');
+    if (!plain(b)||b.format!=='good-ground-backup'||![1,2,3].includes(b.version)) throw new Error('Choose a Good Ground backup file (version 1, 2 or 3).');
     return validateState(b.state);
   }
-  return {STORAGE_BYTES,withinStorageLimit,STATUSES,LABELS,rank,esc,uid,dateToday,validDate,freshState,storageState,FORMAT_GUARD,dogs,selectedDogs,dogState,updateDog,addDog,selectDogs,trainingView,trainingAvailable,setDogProgress,practiceRecords,index,status,availability,stageLabel,touch,setProgress,summary,available,nextChoices,downstreamSkills,daysBetween,practiceRecord,maintenance,elapsedLabel,MAINTENANCE_CODES,normalizeSession,sessionGuidance,observations,validateState,makeBackup,parseBackup};
+  return {STORAGE_BYTES,withinStorageLimit,STATUSES,LABELS,rank,esc,uid,dateToday,validDate,freshState,storageState,FORMAT_GUARD,dogs,selectedDogs,dogState,updateDog,addDog,selectDogs,trainingView,trainingAvailable,startingAvailable,personalizedAvailable,setDogProgress,practiceRecords,index,status,availability,stageLabel,touch,setProgress,summary,completionSnapshot,observeProgress,available,nextChoices,downstreamSkills,daysBetween,practiceRecord,maintenance,elapsedLabel,MAINTENANCE_CODES,normalizeSession,sessionGuidance,observations,validateState,makeBackup,parseBackup};
 });

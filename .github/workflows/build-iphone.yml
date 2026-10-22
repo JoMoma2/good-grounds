@@ -33,6 +33,7 @@ jobs:
           node tests/updates-ui.cjs
           node tests/edge-ui.cjs
           node tests/native-bridge.cjs
+          node tests/handoff-ui.cjs
       - uses: actions/upload-artifact@v7
         if: always()
         with:
@@ -52,8 +53,7 @@ jobs:
       - name: Check content and behavior
         run: |
           node scripts/check.cjs
-          node tests/core.test.cjs
-          node tests/updates.test.cjs
+          npm test
       - name: Show the Apple toolchain
         run: |
           xcodebuild -version

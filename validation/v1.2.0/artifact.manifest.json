@@ -1,0 +1,20 @@
+{
+  "version": "1.2.0",
+  "build": "4",
+  "method": "Bundled interface update; existing native executable unchanged; unsigned",
+  "nativeExecutableSHA256": "1392b54929df9f6a1bcd324c4c15135e1c7612fd06e13c21ea78e36d54a66e7e",
+  "ipaSHA256": "9c83c0a19b5ea0c1e977dc14d2d11d583352bd62561db6eb2cc90812cf7785e5",
+  "webFiles": {
+    "app.js": "331c82277edf24e00d2bfcd46413414f03224d7248920bbde2dc9db82545ef6e",
+    "core.js": "313985141a098483363d831ae08a5f0c1d13af8af6910ca6ef21e8e1aab5bc63",
+    "data.js": "d8af0f462a6e00bcf24d3629b8d5e878285d34501da883cc78f256395f9b9ffe",
+    "data.json": "beb5c57526038b2cd57d880a12b5d21f18311948a9036b40038a11d1fd2aebc0",
+    "guide.js": "16555aed7725d92fd63b27febada8befbce3c8a094e70ab17e814e77537f561b",
+    "history.js": "2aae1a7c553c35b5ba1e4000f54ee02bd4732a1986bb77812d2cbd2d547783b7",
+    "index.html": "61ad334d0c1a4393d391ac75e4335b95c60e659ff28c4a423317601caba694ca",
+    "mark.svg": "5b54ac99b3517cd3e573d920c2ab7aafe2350df1bd2544c45731a7e07af71a86",
+    "marker.js": "c116bb5bf49b9ecea8572fa0e1b9c295e0ec0a7491a1ee18c5dfeaa1b618de98",
+    "styles.css": "c89cd6f7c1a7b4488f232f3f6c169d822b825bf43421151bf1312fc305cc80e4",
+    "tailoring.js": "26c1dd8e499512e3b5f6a69efa8eec65e1bdc19f72c7795ba80ab205ec8dab29"
+  }
+}

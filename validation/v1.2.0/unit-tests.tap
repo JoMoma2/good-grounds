@@ -1,0 +1,416 @@
+
+> good-ground-local@1.2.0 test
+> node tests/core.test.cjs && node tests/updates.test.cjs && node tests/marker.test.cjs && node tests/projects-history.test.cjs
+
+TAP version 13
+# Subtest: all content has unique IDs, valid prerequisites and no prerequisite cycles
+ok 1 - all content has unique IDs, valid prerequisites and no prerequisite cycles
+  ---
+  duration_ms: 1.259794
+  type: 'test'
+  ...
+# Subtest: name acquisition remains two steps; transfer is a separate skill
+ok 2 - name acquisition remains two steps; transfer is a separate skill
+  ---
+  duration_ms: 0.175543
+  type: 'test'
+  ...
+# Subtest: strict prerequisite blocks until consistent
+ok 3 - strict prerequisite blocks until consistent
+  ---
+  duration_ms: 0.496958
+  type: 'test'
+  ...
+# Subtest: parallel prerequisites permit nearly-consistent components, strict transfer waits
+ok 4 - parallel prerequisites permit nearly-consistent components, strict transfer waits
+  ---
+  duration_ms: 0.143179
+  type: 'test'
+  ...
+# Subtest: paused stages block dependencies and stay paused themselves
+ok 5 - paused stages block dependencies and stay paused themselves
+  ---
+  duration_ms: 0.144111
+  type: 'test'
+  ...
+# Subtest: progress updates preserve previous state and notes
+ok 6 - progress updates preserve previous state and notes
+  ---
+  duration_ms: 0.126317
+  type: 'test'
+  ...
+# Subtest: starting counts have no fabricated progress or journal history
+ok 7 - starting counts have no fabricated progress or journal history
+  ---
+  duration_ms: 0.717828
+  type: 'test'
+  ...
+# Subtest: complete counts agree across stages, skills, and topic totals
+ok 8 - complete counts agree across stages, skills, and topic totals
+  ---
+  duration_ms: 4.676623
+  type: 'test'
+  ...
+# Subtest: Today prioritizes practice, saved skills, and chosen trigger topics
+ok 9 - Today prioritizes practice, saved skills, and chosen trigger topics
+  ---
+  duration_ms: 1.306236
+  type: 'test'
+  ...
+# Subtest: unknown observations remain null; recorded zero stays zero
+ok 10 - unknown observations remain null; recorded zero stays zero
+  ---
+  duration_ms: 3.335309
+  type: 'test'
+  ...
+# Subtest: session validation rejects impossible dates and counts
+ok 11 - session validation rejects impossible dates and counts
+  ---
+  duration_ms: 0.671969
+  type: 'test'
+  ...
+# Subtest: distress guidance overrides a high success percentage
+ok 12 - distress guidance overrides a high success percentage
+  ---
+  duration_ms: 0.229497
+  type: 'test'
+  ...
+# Subtest: high percentages still require the lesson criterion
+ok 13 - high percentages still require the lesson criterion
+  ---
+  duration_ms: 0.127719
+  type: 'test'
+  ...
+# Subtest: observations filter triggers and omit unknown or unrecovered recovery
+ok 14 - observations filter triggers and omit unknown or unrecovered recovery
+  ---
+  duration_ms: 4.330278
+  type: 'test'
+  ...
+# Subtest: a complete backup round trip preserves all personal records
+ok 15 - a complete backup round trip preserves all personal records
+  ---
+  duration_ms: 2.192362
+  type: 'test'
+  ...
+# Subtest: bad, future, duplicate-session, and oversized backups are rejected
+ok 16 - bad, future, duplicate-session, and oversized backups are rejected
+  ---
+  duration_ms: 4.55716
+  type: 'test'
+  ...
+# Subtest: restore validation does not mutate the current records
+ok 17 - restore validation does not mutate the current records
+  ---
+  duration_ms: 0.142508
+  type: 'test'
+  ...
+# Subtest: HTML strings are escaped, including profile and observation content
+ok 18 - HTML strings are escaped, including profile and observation content
+  ---
+  duration_ms: 0.146074
+  type: 'test'
+  ...
+# Subtest: unsafe progress keys and prototype pollution are rejected
+ok 19 - unsafe progress keys and prototype pollution are rejected
+  ---
+  duration_ms: 0.221462
+  type: 'test'
+  ...
+# Subtest: an exact chosen trigger ranks its own program before other programs in the topic
+ok 20 - an exact chosen trigger ranks its own program before other programs in the topic
+  ---
+  duration_ms: 0.478292
+  type: 'test'
+  ...
+# Subtest: storage allowance leaves room for a compact restorable backup
+ok 21 - storage allowance leaves room for a compact restorable backup
+  ---
+  duration_ms: 21.152848
+  type: 'test'
+  ...
+1..21
+# tests 21
+# suites 0
+# pass 21
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 59.425947
+TAP version 13
+# Subtest: original sound waveforms are finite, bounded, and fade to silence
+ok 1 - original sound waveforms are finite, bounded, and fade to silence
+  ---
+  duration_ms: 14.669345
+  type: 'test'
+  ...
+# Subtest: marker preferences survive backup and old backups get gentle defaults
+ok 2 - marker preferences survive backup and old backups get gentle defaults
+  ---
+  duration_ms: 2.000087
+  type: 'test'
+  ...
+# Subtest: completion ideas are distinct, available practical skills and one fun choice
+ok 3 - completion ideas are distinct, available practical skills and one fun choice
+  ---
+  duration_ms: 1.040768
+  type: 'test'
+  ...
+# Subtest: editing notes does not reset the consistency timestamp
+ok 4 - editing notes does not reset the consistency timestamp
+  ---
+  duration_ms: 0.304052
+  type: 'test'
+  ...
+# Subtest: maintenance uses real practice, ignores note edits and future or unrelated logs
+ok 5 - maintenance uses real practice, ignores note edits and future or unrelated logs
+  ---
+  duration_ms: 3.472957
+  type: 'test'
+  ...
+# Subtest: maintenance excludes incomplete, paused and fear exposure programs
+ok 6 - maintenance excludes incomplete, paused and fear exposure programs
+  ---
+  duration_ms: 0.237052
+  type: 'test'
+  ...
+# Subtest: calendar elapsed days handle leap years, daylight saving and unknown dates
+ok 7 - calendar elapsed days handle leap years, daylight saving and unknown dates
+  ---
+  duration_ms: 0.205811
+  type: 'test'
+  ...
+# Subtest: legacy saves migrate without losing profile, progress, notes or session IDs
+ok 8 - legacy saves migrate without losing profile, progress, notes or session IDs
+  ---
+  duration_ms: 0.271609
+  type: 'test'
+  ...
+# Subtest: each dog keeps independent progress, notes and practice history
+ok 9 - each dog keeps independent progress, notes and practice history
+  ---
+  duration_ms: 1.004187
+  type: 'test'
+  ...
+# Subtest: training two of three dogs excludes the unselected dog and follows the earliest gap
+ok 10 - training two of three dogs excludes the unselected dog and follows the earliest gap
+  ---
+  duration_ms: 1.052551
+  type: 'test'
+  ...
+# Subtest: a paused dog blocks group practice of that step without erasing others’ progress
+ok 11 - a paused dog blocks group practice of that step without erasing others’ progress
+  ---
+  duration_ms: 0.530283
+  type: 'test'
+  ...
+# Subtest: multi-dog backups round trip all dogs, selected subset and cues
+ok 12 - multi-dog backups round trip all dogs, selected subset and cues
+  ---
+  duration_ms: 0.926856
+  type: 'test'
+  ...
+# Subtest: invalid household names, IDs, selections and duplicate journal IDs are rejected
+ok 13 - invalid household names, IDs, selections and duplicate journal IDs are rejected
+  ---
+  duration_ms: 0.984107
+  type: 'test'
+  ...
+# Subtest: all reverse links target a real prerequisite edge without duplicates
+ok 14 - all reverse links target a real prerequisite edge without duplicates
+  ---
+  duration_ms: 2.835566
+  type: 'test'
+  ...
+# Subtest: the breed catalog is searchable, accepts aliases and never assigns traits
+ok 15 - the breed catalog is searchable, accepts aliases and never assigns traits
+  ---
+  duration_ms: 5.411755
+  type: 'test'
+  ...
+# Subtest: confirmed observations adapt suggestions; breed alone never changes advancement
+ok 16 - confirmed observations adapt suggestions; breed alone never changes advancement
+  ---
+  duration_ms: 2.007472
+  type: 'test'
+  ...
+# Subtest: individual tailoring survives multi-dog backup and rejects unknown settings
+ok 17 - individual tailoring survives multi-dog backup and rejects unknown settings
+  ---
+  duration_ms: 0.527979
+  type: 'test'
+  ...
+# Subtest: all combinations of three dogs’ stages preserve the least advanced or paused group stage
+ok 18 - all combinations of three dogs’ stages preserve the least advanced or paused group stage
+  ---
+  duration_ms: 3.89539
+  type: 'test'
+  ...
+# Subtest: hundreds of varied group updates cannot modify an unselected dog’s records
+ok 19 - hundreds of varied group updates cannot modify an unselected dog’s records
+  ---
+  duration_ms: 123.353785
+  type: 'test'
+  ...
+# Subtest: individual support and refresher dates never leak from unselected dogs
+ok 20 - individual support and refresher dates never leak from unselected dogs
+  ---
+  duration_ms: 0.852882
+  type: 'test'
+  ...
+# Subtest: recovery of the final setup snapshot opens the tour without creating an extra dog
+ok 21 - recovery of the final setup snapshot opens the tour without creating an extra dog
+  ---
+  duration_ms: 0.317429
+  type: 'test'
+  ...
+# Subtest: the original app refuses new native records instead of silently dropping extra dogs
+ok 22 - the original app refuses new native records instead of silently dropping extra dogs
+  ---
+  duration_ms: 1.264344
+  type: 'test'
+  ...
+# Subtest: basket release can be learned before retrieval, but pickup still waits for its component
+ok 23 - basket release can be learned before retrieval, but pickup still waits for its component
+  ---
+  duration_ms: 0.639065
+  type: 'test'
+  ...
+# Subtest: release does not force a sit and door targeting builds on the independent object target
+ok 24 - release does not force a sit and door targeting builds on the independent object target
+  ---
+  duration_ms: 0.394519
+  type: 'test'
+  ...
+# Subtest: smaller practice actions are limited to real relevant steps and never selected by breed
+ok 25 - smaller practice actions are limited to real relevant steps and never selected by breed
+  ---
+  duration_ms: 0.712318
+  type: 'test'
+  ...
+# Subtest: an explicit hidden marker preference survives validation while missing preferences enable the shortcut
+ok 26 - an explicit hidden marker preference survives validation while missing preferences enable the shortcut
+  ---
+  duration_ms: 0.127378
+  type: 'test'
+  ...
+1..26
+# tests 26
+# suites 0
+# pass 26
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 181.439099
+TAP version 13
+# Subtest: an audio unlock timeout cannot schedule a stale marker after resume eventually succeeds
+ok 1 - an audio unlock timeout cannot schedule a stale marker after resume eventually succeeds
+  ---
+  duration_ms: 3.656344
+  type: 'test'
+  ...
+# Subtest: backgrounding during audio unlock cannot play an unattended marker
+ok 2 - backgrounding during audio unlock cannot play an unattended marker
+  ---
+  duration_ms: 19.513464
+  type: 'test'
+  ...
+# Subtest: Silent-mode playback is requested before constructing the audio context
+ok 3 - Silent-mode playback is requested before constructing the audio context
+  ---
+  duration_ms: 19.243307
+  type: 'test'
+  ...
+# Subtest: unsupported or rejected audio-session policies do not prevent ordinary playback
+ok 4 - unsupported or rejected audio-session policies do not prevent ordinary playback
+  ---
+  duration_ms: 0.909623
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 50.481337
+TAP version 13
+# Subtest: new anxiety observations do not replace the three initial foundational recommendations
+ok 1 - new anxiety observations do not replace the three initial foundational recommendations
+  ---
+  duration_ms: 4.160578
+  type: 'test'
+  ...
+# Subtest: all legacy steps survive the fridge consolidation with independent component cues
+ok 2 - all legacy steps survive the fridge consolidation with independent component cues
+  ---
+  duration_ms: 0.815719
+  type: 'test'
+  ...
+# Subtest: Brainiacs is last and contains four substantial acyclic projects tied to component skills
+ok 3 - Brainiacs is last and contains four substantial acyclic projects tied to component skills
+  ---
+  duration_ms: 0.192886
+  type: 'test'
+  ...
+# Subtest: baseline starts at the observed date and never infers a past curve from completion timestamps
+ok 4 - baseline starts at the observed date and never infers a past curve from completion timestamps
+  ---
+  duration_ms: 0.31332
+  type: 'test'
+  ...
+# Subtest: daily skill percentages accumulate, remain at 100%, and can reflect deliberate progress rollback
+ok 5 - daily skill percentages accumulate, remain at 100%, and can reflect deliberate progress rollback
+  ---
+  duration_ms: 4.517412
+  type: 'test'
+  ...
+# Subtest: partial steps and notes do not count as completed skills or introduce extra history
+ok 6 - partial steps and notes do not count as completed skills or introduce extra history
+  ---
+  duration_ms: 0.408796
+  type: 'test'
+  ...
+# Subtest: catalog changes freeze past denominators and new categories begin at their first real observation
+ok 7 - catalog changes freeze past denominators and new categories begin at their first real observation
+  ---
+  duration_ms: 0.325614
+  type: 'test'
+  ...
+# Subtest: calendar spacing uses days, and future-dated records are excluded from the current chart
+ok 8 - calendar spacing uses days, and future-dated records are excluded from the current chart
+  ---
+  duration_ms: 0.17972
+  type: 'test'
+  ...
+# Subtest: history is per dog, survives backups, and old formats migrate without losing existing records
+ok 9 - history is per dog, survives backups, and old formats migrate without losing existing records
+  ---
+  duration_ms: 6.020993
+  type: 'test'
+  ...
+# Subtest: malformed or duplicate history is rejected before replacing saved data
+ok 10 - malformed or duplicate history is rejected before replacing saved data
+  ---
+  duration_ms: 0.956213
+  type: 'test'
+  ...
+# Subtest: removed categories stop at their actual last observation on the shared date axis
+ok 11 - removed categories stop at their actual last observation on the shared date axis
+  ---
+  duration_ms: 0.196573
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 27.16329

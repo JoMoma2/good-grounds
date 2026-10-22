@@ -1,3 +1,15 @@
+# Current verification — 1.2.0/build 4
+
+**62 unit tests and 174 browser acceptance checks passed.** Five suites ran in Chromium and WebKit against the web assets extracted from the final unsigned IPA; the focused local-file suite also ran in Firefox. The route sweep includes every one of the 266 lesson steps, 14 categories and 71 references per main engine. Raw reports and final-run logs are in [validation/v1.2.0](validation/v1.2.0).
+
+Audio checks measured a nonzero ding signal after the real marker gain, verified one activation per press and covered unsupported audio, timeouts, backgrounding and hidden controls. This is digital graph verification, **not physical iPhone speaker or Silent-switch verification**. Desktop engines did not expose the iPhone audio-session API; a separate unit harness checks playback-policy ordering and fallback. iOS 17+ Silent playback still needs a device test, and iOS 16 can still obey Silent mode.
+
+History checks cover actual first-observed baselines, daily replacement, full-skill percentages, calendar spacing, overlapping 100% lines, progress rollback, frozen catalog denominators, new/removed categories, future dates, per-dog isolation, backups and rejection by old app code. Every original step ID is retained. Profile-refresh behavior and the separate foundational/support recommendations passed UI checks. Breed search computes to at least 16px without disabling zoom; actual iPhone keyboard behavior remains untested.
+
+The unsigned IPA has 11 web files matching source and its native executable is unchanged. An independently extracted source ZIP passes content checks and all unit tests. Physical iPhone, VoiceOver, native Swift/Files and installation checks remain pending. No cloud sync, publication or remote repository changes occurred. Earlier reports below are historical.
+
+---
+
 # 1.1.1 development handoff preview
 
 The latest local preview passed **49 unit tests and 150 browser acceptance checks**. All five browser suites ran in Chromium and WebKit against the web bundle extracted from the unsigned IPA. Reports, limitations and artifact hashes are in [validation/v1.1.1](validation/v1.1.1).

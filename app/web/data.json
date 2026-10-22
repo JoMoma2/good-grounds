@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "updated": "2026-10-22",
   "name": "Good Ground",
   "skills": [
@@ -2314,50 +2314,50 @@
       ]
     },
     {
-      "code": "OPEN",
-      "title": "Open this refrigerator",
-      "sheet": "Clever companions",
-      "goal": "Open one approved refrigerator gently, under supervision.",
-      "cue": "Open",
-      "setup": "Clear food access, non-slip footing, reachable handle; remove rope outside sessions. Skip a stiff seal.",
-      "sources": "P05; P22",
-      "priority": "Optional advanced",
+      "code": "NAMECTX",
+      "title": "Name response in new settings",
+      "sheet": "Practice elsewhere",
+      "goal": "Apply the already learned name response to specified easier new contexts.",
+      "cue": "Your dog’s name",
+      "setup": "Record each context separately; this does not change the original name-learning status.",
+      "sources": "P10; P07",
+      "priority": "Generalization",
       "steps": [
         {
-          "id": "OPEN-1",
-          "title": "Make refrigerator movement comfortable",
-          "teach": "Without any pulling task, stand at a comfortable distance from the closed fridge. Open it a tiny amount, then feed your dog and close gently. Separately pair any light/compressor sounds that matter. Allow retreat. Do not train pulling while door movement itself worries the dog.",
-          "advance": "Comfortable with gentle opening, light, and sound in several observations across two sessions.",
-          "easier": "Use smaller movement or more distance. Continue with a human-opened retrieval if the appliance is unsuitable.",
+          "id": "NAMECTX-1",
+          "title": "Change rooms, keep everything easy",
+          "teach": "In a second quiet familiar room, let your dog look slightly away, say the name once, and reward the head turn. Start closer and with a smaller angle than the original lesson. If needed, do a few easy name–reward pairings before checking the response again.",
+          "advance": "Responds on 4 of 5 opportunities in two sessions in the named second room.",
+          "easier": "Return to immediate pairings or reduce the angle. Record this room, rather than claiming every new setting is covered.",
           "deps": [
             [
-              "PULL-3",
+              "NAME-2",
               3
             ]
           ]
         },
         {
-          "id": "OPEN-2",
-          "title": "Use the rope with the door already ajar",
-          "teach": "Attach the familiar handle securely where it cannot catch the dog. Begin with the fridge door a little ajar so almost no force is needed. Cue pull; reward the smallest useful opening and a release. Stand ready to control the door’s swing without trapping the dog.",
-          "advance": "Can open the ajar door gently and release the rope on 4 of 5 attempts across two sessions.",
-          "easier": "Increase the starting gap or return to the lightweight prop. Do not reward hard jerks or chewing.",
+          "id": "NAMECTX-2",
+          "title": "Try a quiet secure outdoor place",
+          "teach": "Use a quiet fenced yard or a secure leash/harness setup. Wait for a comfortable moment with little happening; say the name once and reward the turn. Keep rewards generous and sessions short. Let the dog return to sniffing after success.",
+          "advance": "Responds on 4 of 5 easy opportunities across two sessions in this specific outdoor setting.",
+          "easier": "Use a quieter spot, shorter distance, or return indoors. Do not repeat louder if they are worried.",
           "deps": [
             [
-              "OPEN-1",
+              "NAMECTX-1",
               3
             ]
           ]
         },
         {
-          "id": "OPEN-3",
-          "title": "Reduce the starting gap carefully",
-          "teach": "Decrease the initial gap slightly on an easy repetition, keeping the pull gentle. Alternate with ajar starts. Attempt the actual closed seal only if it releases easily with this gentle motion; otherwise stop at a human-opened door. Add “open” before the known pull when predictable.",
-          "advance": "Opens this approved easy door from the chosen start on 4 of 5 attempts in two sessions, without strain.",
-          "easier": "Restore an ajar start or have the human open it. This does not authorize opening other household doors.",
+          "id": "NAMECTX-3",
+          "title": "Add one mild controlled distraction",
+          "teach": "In the successful setting, add an unimportant mild distraction, such as a familiar person moving slowly far away. Ask once while the dog is still comfortable and reward the turn. Increase only one variable on later sessions. Anxiety triggers should first have their own emotional-learning work.",
+          "advance": "Responds on 4 of 5 comfortable opportunities in two sessions at the recorded distraction level.",
+          "easier": "Remove the distraction or increase distance. High stress is not a required graduation test.",
           "deps": [
             [
-              "OPEN-2",
+              "NAMECTX-2",
               3
             ]
           ]
@@ -2365,169 +2365,158 @@
       ]
     },
     {
-      "code": "CLOSE",
-      "title": "Nose-push a door closed",
-      "sheet": "Clever companions",
-      "goal": "Gently push an approved door using a nose target.",
-      "cue": "Close",
-      "setup": "A secure large target; no mouth pulling, pinching, slamming, or jumping.",
-      "sources": "P11; P22",
-      "priority": "Optional advanced",
+      "code": "RECALLCTX",
+      "title": "Recall in a new safe setting",
+      "sheet": "Practice elsewhere",
+      "goal": "Apply recall outdoors while retaining physical safety.",
+      "cue": "Come / here",
+      "setup": "Long line on a comfortable harness; secure area; no line wrapped around hands or neck.",
+      "sources": "P15",
+      "priority": "Generalization",
       "steps": [
         {
-          "id": "CLOSE-1",
-          "title": "Transfer a nose target to a large pad",
-          "teach": "Present the familiar broad target pad near a stationary approved lightweight door. Reward gentle nose contact while you hold it still. Attach the pad securely at a comfortable nose height, then reward the same touch without moving the door. Keep paws and tail clear; door motion is a separate next step.",
-          "advance": "Touches the pad gently on 4 of 5 presentations across two sessions.",
-          "easier": "Show the pad next to the hand again or reward a small nose approach.",
+          "id": "RECALLCTX-1",
+          "title": "Restart short in a quiet outdoor area",
+          "teach": "Begin much closer than your best indoor recall, with the line slack and the dog comfortable. Call once, step back invitingly, reward arrival generously, then let them explore again. Manage the line so it cannot snag or build up a fast hard stop.",
+          "advance": "Returns over the chosen short outdoor distance in 4 of 5 attempts across two sessions.",
+          "easier": "Return to a shorter distance or quieter enclosed area; do not reel the dog in as a training response.",
           "deps": [
             [
-              "OTARGET-2",
-              3
-            ]
-          ]
-        },
-        {
-          "id": "CLOSE-2",
-          "title": "Add a tiny moving-door push",
-          "teach": "Put the secure target at nose height on an easy lightweight door, with your hand controlling motion. Start almost closed. Reward a nose touch that moves it only an inch; protect paws and tail. Gradually ask for just enough push to close softly.",
-          "advance": "Can gently close the lightweight practice door on most attempts without pawing or slamming.",
-          "easier": "Reduce the gap and support the door more. Stop if motion or sound is worrying.",
-          "deps": [
-            [
-              "CLOSE-1",
-              3
-            ]
-          ]
-        },
-        {
-          "id": "CLOSE-3",
-          "title": "Transfer to this fridge and fade the pad",
-          "teach": "On the approved fridge, start almost closed and use the same secure nose target with your hand controlling the swing. Reward soft closure. Add “close” before the touch, then make the pad smaller across sessions if safe. Check the seal yourself; never put the dog inside or between door and cabinet.",
-          "advance": "Softly closes this fridge from the chosen small gap on 4 of 5 attempts in two sessions; a human confirms closure.",
-          "easier": "Keep the larger target or smaller gap. Human closure is a valid simpler alternative.",
-          "deps": [
-            [
-              "CLOSE-2",
-              3
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "code": "SHELF",
-      "title": "Retrieve a drink carrier from a shelf",
-      "sheet": "Clever companions",
-      "goal": "Retrieve a lightweight sealed prop by a suitable carry handle.",
-      "cue": "Drink / fetch",
-      "setup": "Sealed water bottle in a robust suitable carrier; never glass or a bare can in the mouth. No alcohol ingestion.",
-      "sources": "P20; P25",
-      "priority": "Optional advanced",
-      "steps": [
-        {
-          "id": "SHELF-1",
-          "title": "Practice the actual carrier near you",
-          "teach": "Use a lightweight sealed water-bottle prop inside a robust suitable carrier with a safe grasping handle. Ask for the known take, brief hold, and give, rewarding each delivery. Inspect for chewing or punctures. A beer-style routine uses the same action; the dog never opens or drinks the contents.",
-          "advance": "Takes and delivers the protected prop gently on most easy attempts; no chewing or damage.",
-          "easier": "Use an empty lighter carrier or ordinary toy. If the dog crushes, punctures, or guards it, skip this module.",
-          "deps": [
-            [
-              "FETCH-2",
-              3
-            ]
-          ]
-        },
-        {
-          "id": "SHELF-2",
-          "title": "Pick up from an easy mock shelf",
-          "teach": "Place the carrier on a stable low surface at a natural mouth height, directly next to you. Cue fetch, receive with give, and reward. Gradually add a step of carrying. The dog keeps all paws on the floor; no jumping, climbing, or stretching into a deep shelf.",
-          "advance": "Picks up from this reachable surface and delivers gently on 4 of 5 attempts in two sessions.",
-          "easier": "Move the carrier nearer the shelf edge or use a lower stable surface.",
-          "deps": [
-            [
-              "SHELF-1",
-              3
-            ]
-          ]
-        },
-        {
-          "id": "SHELF-3",
-          "title": "Transfer to the already-open fridge",
-          "teach": "Have a human hold the fridge door safely open. Remove other reachable food and place only the carrier on an easy reachable shelf. Stand close, cue the known pickup, receive, and reward. Add a few delivery steps gradually; keep opening and closing out of this lesson.",
-          "advance": "Retrieves from the open approved fridge and delivers gently on 4 of 5 attempts in two sessions.",
-          "easier": "Return to the mock shelf or an empty carrier. Use supervision and prevent unsupervised appliance access.",
-          "deps": [
-            [
-              "SHELF-2",
-              3
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "code": "DRINK",
-      "title": "Complete the fridge drink chain",
-      "sheet": "Clever companions",
-      "goal": "Open, retrieve, deliver, and optionally return to close on a final cue.",
-      "cue": "Fetch a drink (or your chosen word)",
-      "setup": "All components comfortable and consistent in this setting; fully supervised.",
-      "sources": "P20; P22; P25",
-      "priority": "Optional advanced",
-      "steps": [
-        {
-          "id": "DRINK-1",
-          "title": "Start with the easy ending",
-          "teach": "Rehearse an easy delivery from the open fridge with you one step away. Reward the give generously. On separate repetitions have the dog give a carrier already held near you. This keeps the final delivery fluent and rewarding before adding earlier links.",
-          "advance": "Easy deliveries remain reliable and enjoyable with gentle handling on 4 of 5 repetitions.",
-          "easier": "Shorten the carry and return to isolated give; do not add opening while delivery is uncertain.",
-          "deps": [
-            [
-              "OPEN-3",
+              "RECALL-2",
               3
             ],
             [
-              "SHELF-3",
+              "HARNESS-3",
               3
             ]
           ]
         },
         {
-          "id": "DRINK-2",
-          "title": "Add opening before pickup",
-          "teach": "Begin beside the approved fridge. Cue open, then the familiar pickup from its shelf, then give. Initially reward the opening component and the final delivery; over sessions reduce the intermediate food while continuing to cue and generously reward the complete easy chain.",
-          "advance": "Open → shelf pickup → delivery works gently with the familiar component cues on 4 of 5 attempts across two sessions.",
-          "easier": "Practice the broken link alone, then rejoin an easier two-link sequence. Avoid withholding all rewards to force a full chain.",
+          "id": "RECALLCTX-2",
+          "title": "Change distance or mild interest separately",
+          "teach": "Once the easy outdoor return is reliable, try a little more distance OR call from an ordinary mild sniff. Keep the other variable easy and reward generously. Do not use a known frightening trigger or a running animal as the next test. Maintain the line for safety.",
+          "advance": "Reliable comfortable returns in the exact recorded context across two sessions; physical management remains in place.",
+          "easier": "Reduce the chosen variable. A learned recall does not authorize off-leash exposure near roads or animals.",
           "deps": [
             [
-              "DRINK-1",
+              "RECALLCTX-1",
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "MATCTX",
+      "title": "Mat comfort in another place",
+      "sheet": "Practice elsewhere",
+      "goal": "Use the familiar mat and relaxation routine in a specified easier new setting.",
+      "cue": "Mat / settle",
+      "setup": "Start with a quiet room, not a busy cafe or trigger-filled park.",
+      "sources": "P02; P07",
+      "priority": "Generalization",
+      "steps": [
+        {
+          "id": "MATCTX-1",
+          "title": "Transfer the familiar mat",
+          "teach": "Move the familiar mat to another quiet room. Begin beside it, reward a voluntary approach, then use the known mat cue. Keep any stay very brief. If the dog needs help, teach the easy approach again without changing the original MAT progress.",
+          "advance": "Goes to the mat comfortably on the cue in the named new room on 4 of 5 attempts across two sessions.",
+          "easier": "Choose a more familiar room, shorten distance, or reward offered approaches.",
+          "deps": [
+            [
+              "MAT-2",
+              3
+            ],
+            [
+              "SETTLE-2",
               3
             ]
           ]
         },
         {
-          "id": "DRINK-3",
-          "title": "Add the optional return and close",
-          "teach": "For dog closure, first complete CLOSE-3; otherwise choose human closure and keep that as your final routine. After give, reward, then cue return → close and reward at the door. Rehearse this ending with a human-opened fridge before joining it to retrieval. Always check the seal yourself.",
-          "advance": "The chosen full sequence, with or without dog closure, is comfortable and reliable in two sessions.",
-          "easier": "Have a human close, or practice return/close separately. Keep your body clear of the dog’s path.",
+          "id": "MATCTX-2",
+          "title": "Rebuild a restful interval",
+          "teach": "Sit near the mat in this new quiet place and reward voluntary soft resting as in SETTLE. Begin with brief intervals and no other challenges. Later add one small ordinary household movement while shortening duration again. Record the actual setting and movement.",
+          "advance": "Shows comfortable voluntary rest for the selected short interval in two sessions; soft posture, not rigid waiting.",
+          "easier": "Remove movement or return to shorter resting periods. Do not station the dog where they need to retreat.",
           "deps": [
             [
-              "DRINK-2",
+              "MATCTX-1",
               3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "WALKCTX",
+      "title": "Loose walking in another place",
+      "sheet": "Practice elsewhere",
+      "goal": "Transfer comfortable leash skills to one new low-distraction location.",
+      "cue": "Let’s walk",
+      "setup": "Secure comfortable equipment; broad paths and exits.",
+      "sources": "P14; P04",
+      "priority": "Generalization",
+      "steps": [
+        {
+          "id": "WALKCTX-1",
+          "title": "Restart with one or two steps",
+          "teach": "Choose a quiet familiar-adjacent place, such as the yard edge. Reward the known side position, then one or two slack-leash steps. Allow sniff breaks and keep the route short. Treat the new location as a fresh easy version rather than demanding your longest indoor stretch.",
+          "advance": "Several short loose stretches are comfortable across two sessions in the recorded location.",
+          "easier": "Use fewer steps or a quieter place; separate fear-driven pulling from ordinary loose-leash practice.",
+          "deps": [
+            [
+              "LOOSE-3",
+              3
+            ],
+            [
+              "TURN-2",
+              2
             ]
           ]
         },
         {
-          "id": "DRINK-4",
-          "title": "Introduce one final request",
-          "teach": "Say the final request just before the familiar sequence, then provide component cues as needed. Across successful repetitions pause briefly before each extra cue so the next action can occur on its own. Fade one prompt at a time; reward completion and supervise. Remove rope and block access afterward.",
-          "advance": "Completes the chosen safe sequence on the final request with little or no extra prompting on 4 of 5 attempts in two sessions.",
-          "easier": "Restore the component cue at the difficult link, shorten starting distance, or omit closing. Keep contents protected and inspect the carrier each use.",
+          "id": "WALKCTX-2",
+          "title": "Add ordinary variation carefully",
+          "teach": "Build a few more steps OR one mild ordinary environmental change, keeping the other variable easy. Reward early enough to prevent repeated tight-leash practice. If a trigger appears, use distance and your planned exit instead of holding position to finish the exercise.",
+          "advance": "Practical loose stretches are comfortable in the named context over two sessions, with easy sniff breaks.",
+          "easier": "Return to the previous step count or location. Record a different context separately.",
           "deps": [
             [
-              "DRINK-3",
+              "WALKCTX-1",
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "KEEP",
+      "title": "Maintain skills and review changes",
+      "sheet": "Practice elsewhere",
+      "goal": "Keep useful cues rewarding and adapt to changing comfort.",
+      "cue": "Use each skill’s cue",
+      "setup": "Select a few useful skills; do not retest everything in one session.",
+      "sources": "R13; R26; P06",
+      "priority": "Review",
+      "steps": [
+        {
+          "id": "KEEP-1",
+          "title": "Plan short enjoyable refreshers",
+          "teach": "Choose one familiar useful skill and one optional fun activity in an easy setting. Reward generously and finish after a few good repetitions. Alternate activities across days if desired. Mark known skills consistent after an easy confirmation rather than retraining all steps unnecessarily.",
+          "advance": "A manageable refresher routine is recorded and remains enjoyable; no mandatory daily quota.",
+          "easier": "Use a single easy success and rest. More repetitions are not automatically better.",
+          "deps": []
+        },
+        {
+          "id": "KEEP-2",
+          "title": "Review one trigger in comparable conditions",
+          "teach": "Use the session log to compare the same trigger and similar settings over time. Look at posture, comfort, and recovery, not just whether a cue was obeyed. If behavior worsens, reduce challenge, review health and environment, and seek help when needed.",
+          "advance": "A specific next adjustment is written from comparable observations; unanswered concerns have an appropriate follow-up.",
+          "easier": "Collect clearer observations at an easier level; leave unknown recovery values blank rather than entering zero.",
+          "deps": [
+            [
+              "KEEP-1",
               3
             ]
           ]
@@ -3034,216 +3023,6 @@
           "deps": [
             [
               "CARDS-2",
-              3
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "code": "NAMECTX",
-      "title": "Name response in new settings",
-      "sheet": "Practice elsewhere",
-      "goal": "Apply the already learned name response to specified easier new contexts.",
-      "cue": "Your dog’s name",
-      "setup": "Record each context separately; this does not change the original name-learning status.",
-      "sources": "P10; P07",
-      "priority": "Generalization",
-      "steps": [
-        {
-          "id": "NAMECTX-1",
-          "title": "Change rooms, keep everything easy",
-          "teach": "In a second quiet familiar room, let your dog look slightly away, say the name once, and reward the head turn. Start closer and with a smaller angle than the original lesson. If needed, do a few easy name–reward pairings before checking the response again.",
-          "advance": "Responds on 4 of 5 opportunities in two sessions in the named second room.",
-          "easier": "Return to immediate pairings or reduce the angle. Record this room, rather than claiming every new setting is covered.",
-          "deps": [
-            [
-              "NAME-2",
-              3
-            ]
-          ]
-        },
-        {
-          "id": "NAMECTX-2",
-          "title": "Try a quiet secure outdoor place",
-          "teach": "Use a quiet fenced yard or a secure leash/harness setup. Wait for a comfortable moment with little happening; say the name once and reward the turn. Keep rewards generous and sessions short. Let the dog return to sniffing after success.",
-          "advance": "Responds on 4 of 5 easy opportunities across two sessions in this specific outdoor setting.",
-          "easier": "Use a quieter spot, shorter distance, or return indoors. Do not repeat louder if they are worried.",
-          "deps": [
-            [
-              "NAMECTX-1",
-              3
-            ]
-          ]
-        },
-        {
-          "id": "NAMECTX-3",
-          "title": "Add one mild controlled distraction",
-          "teach": "In the successful setting, add an unimportant mild distraction, such as a familiar person moving slowly far away. Ask once while the dog is still comfortable and reward the turn. Increase only one variable on later sessions. Anxiety triggers should first have their own emotional-learning work.",
-          "advance": "Responds on 4 of 5 comfortable opportunities in two sessions at the recorded distraction level.",
-          "easier": "Remove the distraction or increase distance. High stress is not a required graduation test.",
-          "deps": [
-            [
-              "NAMECTX-2",
-              3
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "code": "RECALLCTX",
-      "title": "Recall in a new safe setting",
-      "sheet": "Practice elsewhere",
-      "goal": "Apply recall outdoors while retaining physical safety.",
-      "cue": "Come / here",
-      "setup": "Long line on a comfortable harness; secure area; no line wrapped around hands or neck.",
-      "sources": "P15",
-      "priority": "Generalization",
-      "steps": [
-        {
-          "id": "RECALLCTX-1",
-          "title": "Restart short in a quiet outdoor area",
-          "teach": "Begin much closer than your best indoor recall, with the line slack and the dog comfortable. Call once, step back invitingly, reward arrival generously, then let them explore again. Manage the line so it cannot snag or build up a fast hard stop.",
-          "advance": "Returns over the chosen short outdoor distance in 4 of 5 attempts across two sessions.",
-          "easier": "Return to a shorter distance or quieter enclosed area; do not reel the dog in as a training response.",
-          "deps": [
-            [
-              "RECALL-2",
-              3
-            ],
-            [
-              "HARNESS-3",
-              3
-            ]
-          ]
-        },
-        {
-          "id": "RECALLCTX-2",
-          "title": "Change distance or mild interest separately",
-          "teach": "Once the easy outdoor return is reliable, try a little more distance OR call from an ordinary mild sniff. Keep the other variable easy and reward generously. Do not use a known frightening trigger or a running animal as the next test. Maintain the line for safety.",
-          "advance": "Reliable comfortable returns in the exact recorded context across two sessions; physical management remains in place.",
-          "easier": "Reduce the chosen variable. A learned recall does not authorize off-leash exposure near roads or animals.",
-          "deps": [
-            [
-              "RECALLCTX-1",
-              3
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "code": "MATCTX",
-      "title": "Mat comfort in another place",
-      "sheet": "Practice elsewhere",
-      "goal": "Use the familiar mat and relaxation routine in a specified easier new setting.",
-      "cue": "Mat / settle",
-      "setup": "Start with a quiet room, not a busy cafe or trigger-filled park.",
-      "sources": "P02; P07",
-      "priority": "Generalization",
-      "steps": [
-        {
-          "id": "MATCTX-1",
-          "title": "Transfer the familiar mat",
-          "teach": "Move the familiar mat to another quiet room. Begin beside it, reward a voluntary approach, then use the known mat cue. Keep any stay very brief. If the dog needs help, teach the easy approach again without changing the original MAT progress.",
-          "advance": "Goes to the mat comfortably on the cue in the named new room on 4 of 5 attempts across two sessions.",
-          "easier": "Choose a more familiar room, shorten distance, or reward offered approaches.",
-          "deps": [
-            [
-              "MAT-2",
-              3
-            ],
-            [
-              "SETTLE-2",
-              3
-            ]
-          ]
-        },
-        {
-          "id": "MATCTX-2",
-          "title": "Rebuild a restful interval",
-          "teach": "Sit near the mat in this new quiet place and reward voluntary soft resting as in SETTLE. Begin with brief intervals and no other challenges. Later add one small ordinary household movement while shortening duration again. Record the actual setting and movement.",
-          "advance": "Shows comfortable voluntary rest for the selected short interval in two sessions; soft posture, not rigid waiting.",
-          "easier": "Remove movement or return to shorter resting periods. Do not station the dog where they need to retreat.",
-          "deps": [
-            [
-              "MATCTX-1",
-              3
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "code": "WALKCTX",
-      "title": "Loose walking in another place",
-      "sheet": "Practice elsewhere",
-      "goal": "Transfer comfortable leash skills to one new low-distraction location.",
-      "cue": "Let’s walk",
-      "setup": "Secure comfortable equipment; broad paths and exits.",
-      "sources": "P14; P04",
-      "priority": "Generalization",
-      "steps": [
-        {
-          "id": "WALKCTX-1",
-          "title": "Restart with one or two steps",
-          "teach": "Choose a quiet familiar-adjacent place, such as the yard edge. Reward the known side position, then one or two slack-leash steps. Allow sniff breaks and keep the route short. Treat the new location as a fresh easy version rather than demanding your longest indoor stretch.",
-          "advance": "Several short loose stretches are comfortable across two sessions in the recorded location.",
-          "easier": "Use fewer steps or a quieter place; separate fear-driven pulling from ordinary loose-leash practice.",
-          "deps": [
-            [
-              "LOOSE-3",
-              3
-            ],
-            [
-              "TURN-2",
-              2
-            ]
-          ]
-        },
-        {
-          "id": "WALKCTX-2",
-          "title": "Add ordinary variation carefully",
-          "teach": "Build a few more steps OR one mild ordinary environmental change, keeping the other variable easy. Reward early enough to prevent repeated tight-leash practice. If a trigger appears, use distance and your planned exit instead of holding position to finish the exercise.",
-          "advance": "Practical loose stretches are comfortable in the named context over two sessions, with easy sniff breaks.",
-          "easier": "Return to the previous step count or location. Record a different context separately.",
-          "deps": [
-            [
-              "WALKCTX-1",
-              3
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "code": "KEEP",
-      "title": "Maintain skills and review changes",
-      "sheet": "Practice elsewhere",
-      "goal": "Keep useful cues rewarding and adapt to changing comfort.",
-      "cue": "Use each skill’s cue",
-      "setup": "Select a few useful skills; do not retest everything in one session.",
-      "sources": "R13; R26; P06",
-      "priority": "Review",
-      "steps": [
-        {
-          "id": "KEEP-1",
-          "title": "Plan short enjoyable refreshers",
-          "teach": "Choose one familiar useful skill and one optional fun activity in an easy setting. Reward generously and finish after a few good repetitions. Alternate activities across days if desired. Mark known skills consistent after an easy confirmation rather than retraining all steps unnecessarily.",
-          "advance": "A manageable refresher routine is recorded and remains enjoyable; no mandatory daily quota.",
-          "easier": "Use a single easy success and rest. More repetitions are not automatically better.",
-          "deps": []
-        },
-        {
-          "id": "KEEP-2",
-          "title": "Review one trigger in comparable conditions",
-          "teach": "Use the session log to compare the same trigger and similar settings over time. Look at posture, comfort, and recovery, not just whether a cue was obeyed. If behavior worsens, reduce challenge, review health and environment, and seek help when needed.",
-          "advance": "A specific next adjustment is written from comparable observations; unanswered concerns have an appropriate follow-up.",
-          "easier": "Collect clearer observations at an easier level; leave unknown recovery values blank rather than entering zero.",
-          "deps": [
-            [
-              "KEEP-1",
               3
             ]
           ]
@@ -3959,6 +3738,761 @@
           "deps": [
             [
               "HIDESEEK-2",
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "DRINK",
+      "title": "Getting a drink from the fridge",
+      "sheet": "Brainiacs",
+      "goal": "Build a supervised open, retrieve and deliver routine, with a choice of human or dog closure.",
+      "cue": "Fetch a drink (or your chosen word)",
+      "setup": "All components comfortable and consistent in this setting; fully supervised.",
+      "sources": "P05; P11; P20; P22; P25",
+      "priority": "Optional advanced",
+      "steps": [
+        {
+          "id": "OPEN-1",
+          "title": "Make refrigerator movement comfortable",
+          "teach": "Without any pulling task, stand at a comfortable distance from the closed fridge. Open it a tiny amount, then feed your dog and close gently. Separately pair any light/compressor sounds that matter. Allow retreat. Do not train pulling while door movement itself worries the dog.",
+          "advance": "Comfortable with gentle opening, light, and sound in several observations across two sessions.",
+          "easier": "Use smaller movement or more distance. Continue with a human-opened retrieval if the appliance is unsuitable.",
+          "deps": [],
+          "component": "OPEN"
+        },
+        {
+          "id": "OPEN-2",
+          "title": "Use the rope with the door already ajar",
+          "teach": "Attach the familiar handle securely where it cannot catch the dog. Begin with the fridge door a little ajar so almost no force is needed. Cue pull; reward the smallest useful opening and a release. Stand ready to control the door’s swing without trapping the dog.",
+          "advance": "Can open the ajar door gently and release the rope on 4 of 5 attempts across two sessions.",
+          "easier": "Increase the starting gap or return to the lightweight prop. Do not reward hard jerks or chewing.",
+          "deps": [
+            [
+              "OPEN-1",
+              3
+            ],
+            [
+              "PULL-3",
+              3
+            ]
+          ],
+          "component": "OPEN"
+        },
+        {
+          "id": "OPEN-3",
+          "title": "Reduce the starting gap carefully",
+          "teach": "Decrease the initial gap slightly on an easy repetition, keeping the pull gentle. Alternate with ajar starts. Attempt the actual closed seal only if it releases easily with this gentle motion; otherwise stop at a human-opened door. Add “open” before the known pull when predictable.",
+          "advance": "Opens this approved easy door from the chosen start on 4 of 5 attempts in two sessions, without strain.",
+          "easier": "Restore an ajar start or have the human open it. This does not authorize opening other household doors.",
+          "deps": [
+            [
+              "OPEN-2",
+              3
+            ]
+          ],
+          "component": "OPEN"
+        },
+        {
+          "id": "SHELF-1",
+          "title": "Practice the actual carrier near you",
+          "teach": "Use a lightweight sealed water-bottle prop inside a robust suitable carrier with a safe grasping handle. Ask for the known take, brief hold, and give, rewarding each delivery. Inspect for chewing or punctures. A beer-style routine uses the same action; the dog never opens or drinks the contents.",
+          "advance": "Takes and delivers the protected prop gently on most easy attempts; no chewing or damage.",
+          "easier": "Use an empty lighter carrier or ordinary toy. If the dog crushes, punctures, or guards it, skip this module.",
+          "deps": [
+            [
+              "FETCH-2",
+              3
+            ]
+          ],
+          "component": "SHELF"
+        },
+        {
+          "id": "SHELF-2",
+          "title": "Pick up from an easy mock shelf",
+          "teach": "Place the carrier on a stable low surface at a natural mouth height, directly next to you. Cue fetch, receive with give, and reward. Gradually add a step of carrying. The dog keeps all paws on the floor; no jumping, climbing, or stretching into a deep shelf.",
+          "advance": "Picks up from this reachable surface and delivers gently on 4 of 5 attempts in two sessions.",
+          "easier": "Move the carrier nearer the shelf edge or use a lower stable surface.",
+          "deps": [
+            [
+              "SHELF-1",
+              3
+            ]
+          ],
+          "component": "SHELF"
+        },
+        {
+          "id": "SHELF-3",
+          "title": "Transfer to the already-open fridge",
+          "teach": "Have a human hold the fridge door safely open. Remove other reachable food and place only the carrier on an easy reachable shelf. Stand close, cue the known pickup, receive, and reward. Add a few delivery steps gradually; keep opening and closing out of this lesson.",
+          "advance": "Retrieves from the open approved fridge and delivers gently on 4 of 5 attempts in two sessions.",
+          "easier": "Return to the mock shelf or an empty carrier. Use supervision and prevent unsupervised appliance access.",
+          "deps": [
+            [
+              "SHELF-2",
+              3
+            ],
+            [
+              "OPEN-1",
+              3
+            ]
+          ],
+          "component": "SHELF"
+        },
+        {
+          "id": "DRINK-1",
+          "title": "Start with the easy ending",
+          "teach": "Rehearse an easy delivery from the open fridge with you one step away. Reward the give generously. On separate repetitions have the dog give a carrier already held near you. This keeps the final delivery fluent and rewarding before adding earlier links.",
+          "advance": "Easy deliveries remain reliable and enjoyable with gentle handling on 4 of 5 repetitions.",
+          "easier": "Shorten the carry and return to isolated give; do not add opening while delivery is uncertain.",
+          "deps": [
+            [
+              "SHELF-3",
+              3
+            ]
+          ],
+          "component": "DRINK"
+        },
+        {
+          "id": "DRINK-2",
+          "title": "Add opening before pickup",
+          "teach": "Begin beside the approved fridge. Cue open, then the familiar pickup from its shelf, then give. Initially reward the opening component and the final delivery; over sessions reduce the intermediate food while continuing to cue and generously reward the complete easy chain.",
+          "advance": "Open → shelf pickup → delivery works gently with the familiar component cues on 4 of 5 attempts across two sessions.",
+          "easier": "Practice the broken link alone, then rejoin an easier two-link sequence. Avoid withholding all rewards to force a full chain.",
+          "deps": [
+            [
+              "DRINK-1",
+              3
+            ],
+            [
+              "OPEN-3",
+              3
+            ]
+          ],
+          "component": "DRINK"
+        },
+        {
+          "id": "CLOSE-1",
+          "title": "Transfer a nose target to a large pad",
+          "teach": "Present the familiar broad target pad near a stationary approved lightweight door. Reward gentle nose contact while you hold it still. Attach the pad securely at a comfortable nose height, then reward the same touch without moving the door. Keep paws and tail clear; door motion is a separate next step.",
+          "advance": "Touches the pad gently on 4 of 5 presentations across two sessions.",
+          "easier": "Show the pad next to the hand again or reward a small nose approach.",
+          "deps": [
+            [
+              "OTARGET-2",
+              3
+            ]
+          ],
+          "component": "CLOSE"
+        },
+        {
+          "id": "CLOSE-2",
+          "title": "Add a tiny moving-door push",
+          "teach": "Put the secure target at nose height on an easy lightweight door, with your hand controlling motion. Start almost closed. Reward a nose touch that moves it only an inch; protect paws and tail. Gradually ask for just enough push to close softly.",
+          "advance": "Can gently close the lightweight practice door on most attempts without pawing or slamming.",
+          "easier": "Reduce the gap and support the door more. Stop if motion or sound is worrying.",
+          "deps": [
+            [
+              "CLOSE-1",
+              3
+            ]
+          ],
+          "component": "CLOSE"
+        },
+        {
+          "id": "CLOSE-3",
+          "title": "Transfer to this fridge and fade the pad",
+          "teach": "On the approved fridge, start almost closed and use the same secure nose target with your hand controlling the swing. Reward soft closure. Add “close” before the touch, then make the pad smaller across sessions if safe. Check the seal yourself; never put the dog inside or between door and cabinet.",
+          "advance": "Softly closes this fridge from the chosen small gap on 4 of 5 attempts in two sessions; a human confirms closure.",
+          "easier": "Keep the larger target or smaller gap. Human closure is a valid simpler alternative.",
+          "deps": [
+            [
+              "CLOSE-2",
+              3
+            ],
+            [
+              "OPEN-1",
+              3
+            ]
+          ],
+          "component": "CLOSE"
+        },
+        {
+          "id": "DRINK-3",
+          "title": "Add the optional return and close",
+          "teach": "For dog closure, first complete CLOSE-3; otherwise choose human closure and keep that as your final routine. After give, reward, then cue return → close and reward at the door. Rehearse this ending with a human-opened fridge before joining it to retrieval. Always check the seal yourself.",
+          "advance": "The chosen full sequence, with or without dog closure, is comfortable and reliable in two sessions.",
+          "easier": "Have a human close, or practice return/close separately. Keep your body clear of the dog’s path.",
+          "deps": [
+            [
+              "DRINK-2",
+              3
+            ]
+          ],
+          "component": "DRINK"
+        },
+        {
+          "id": "DRINK-4",
+          "title": "Introduce one final request",
+          "teach": "Say the final request just before the familiar sequence, then provide component cues as needed. Across successful repetitions pause briefly before each extra cue so the next action can occur on its own. Fade one prompt at a time; reward completion and supervise. Remove rope and block access afterward.",
+          "advance": "Completes the chosen safe sequence on the final request with little or no extra prompting on 4 of 5 attempts in two sessions.",
+          "easier": "Restore the component cue at the difficult link, shorten starting distance, or omit closing. Keep contents protected and inspect the carrier each use.",
+          "deps": [
+            [
+              "DRINK-3",
+              3
+            ]
+          ],
+          "component": "DRINK"
+        }
+      ],
+      "components": [
+        {
+          "code": "OPEN",
+          "title": "Open this refrigerator",
+          "cue": "Open",
+          "setup": "Clear food access, non-slip footing, reachable handle; remove rope outside sessions. Skip a stiff seal.",
+          "sources": "P05; P22"
+        },
+        {
+          "code": "SHELF",
+          "title": "Retrieve a drink carrier from a shelf",
+          "cue": "Drink / fetch",
+          "setup": "Sealed water bottle in a robust suitable carrier; never glass or a bare can in the mouth. No alcohol ingestion.",
+          "sources": "P20; P25"
+        },
+        {
+          "code": "CLOSE",
+          "title": "Nose-push a door closed",
+          "cue": "Close",
+          "setup": "A secure large target; no mouth pulling, pinching, slamming, or jumping.",
+          "sources": "P11; P22"
+        },
+        {
+          "code": "DRINK",
+          "title": "Complete the fridge drink chain",
+          "cue": "Fetch a drink (or your chosen word)",
+          "setup": "All components comfortable and consistent in this setting; fully supervised.",
+          "sources": "P20; P22; P25"
+        }
+      ]
+    },
+    {
+      "code": "NAMEDFIND",
+      "title": "Find and deliver a named toy",
+      "sheet": "Brainiacs",
+      "goal": "Choose a requested familiar toy, search for it nearby, and deliver it gently.",
+      "cue": "Your two familiar toy labels, then Find",
+      "setup": "Two large safe toys with established labels; a clear room and accessible floor-level hiding places. This is optional label learning, not an intelligence test.",
+      "sources": "A07; A08; P20; P32",
+      "priority": "Optional advanced",
+      "steps": [
+        {
+          "id": "NAMEDFIND-1",
+          "title": "Connect a named choice to delivery",
+          "teach": "Begin with the two familiar toys visible nearby. Request one label with neutral hands, then use the known give cue when the dog brings it. Reward generously and switch the requested toy across separate easy turns. Do not add hiding yet.",
+          "advance": "Chooses each requested toy and delivers comfortably in two short mixed-order sessions.",
+          "easier": "Return to separate toy-label play or a one-object retrieve if choices look like guessing.",
+          "deps": [
+            [
+              "TWOOBJECT-3",
+              3
+            ],
+            [
+              "LOSTTOY-2",
+              3
+            ],
+            [
+              "GIVE-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "NAMEDFIND-2",
+          "title": "Carry the choice a little farther",
+          "teach": "Keep both toys obvious and equally accessible. Stand one step farther away before requesting a toy. Reward correct selection and a gentle delivery separately if needed. Change only the return distance, keeping your hands and gaze from pointing toward a toy.",
+          "advance": "Maintains comfortable choices and delivery over a short clear return route.",
+          "easier": "Shorten the return route and reward the first step of carrying toward you.",
+          "deps": [
+            [
+              "NAMEDFIND-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "NAMEDFIND-3",
+          "title": "Search for one visible toy",
+          "teach": "Use only one named toy for this step. Let the dog see you place it beyond a wide doorway while it stays visible from the starting point. Give its label and the search invitation, then receive and reward the return.",
+          "advance": "Willingly crosses the nearby open doorway, locates the single toy and returns.",
+          "easier": "Put the toy on the near side of the doorway. Skip this project if brief visual separation worries the dog.",
+          "deps": [
+            [
+              "NAMEDFIND-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "NAMEDFIND-4",
+          "title": "Search for a partly concealed toy",
+          "teach": "With only one toy present, let the dog watch you place it partly behind a broad safe object. Keep the route open and most of the toy visible. Invite the familiar search, then reward the return with food or a game.",
+          "advance": "Finds and returns either toy separately from several easy partly concealed spots.",
+          "easier": "Expose more of the toy and keep the search within a few steps.",
+          "deps": [
+            [
+              "NAMEDFIND-3",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "NAMEDFIND-5",
+          "title": "Bridge a moment out of sight",
+          "teach": "Place the single toy just behind the same broad object while the dog watches from beside you. Invite a search immediately. Remain available and help by showing more of the toy before searching becomes frantic or discouraging.",
+          "advance": "Comfortably retrieves the single toy from the familiar briefly out-of-view placement.",
+          "easier": "Use partial concealment again. There is no need for a long hidden search or a forced wait.",
+          "deps": [
+            [
+              "NAMEDFIND-4",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "NAMEDFIND-6",
+          "title": "Choose between two visible placements",
+          "teach": "Return to both toys in full view, now at different easy floor locations. Request each label in a varied order. Alternate their locations so a particular side or doorway does not predict which toy earns a reward.",
+          "advance": "The requested label, rather than location or pointing, usually guides choices in two short sessions.",
+          "easier": "Put both toys closer and revisit mixed-position two-toy choices before adding concealment.",
+          "deps": [
+            [
+              "NAMEDFIND-5",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "NAMEDFIND-7",
+          "title": "Add a little concealment to one choice",
+          "teach": "Keep one toy fully visible and the other partly behind the familiar object. Request the partly concealed toy on an easy turn, then reset and request the visible one. Exchange their roles rather than repeatedly requesting the hidden object.",
+          "advance": "Can return either requested toy without always choosing the easiest visible object.",
+          "easier": "Expose both toys and reward reliable choices again. Avoid repeated tests after errors.",
+          "deps": [
+            [
+              "NAMEDFIND-6",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "NAMEDFIND-8",
+          "title": "Use two easy search spots",
+          "teach": "Put each toy partly behind a different broad object with open access and space to turn. Request one familiar label, then invite the search. Stay neutral but help promptly if the dog loses the task; reward each gentle return.",
+          "advance": "Searches the small area and returns the requested toy from either familiar spot.",
+          "easier": "Return to one partly concealed toy and one visible toy, or use a smaller area.",
+          "deps": [
+            [
+              "NAMEDFIND-7",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "NAMEDFIND-9",
+          "title": "Separate placing from requesting",
+          "teach": "Let a familiar helper place both toys while your dog is comfortably occupied beside you, without restraint. Start with partial visibility again. Request one label without knowing its location if possible; reward the choice and return without steering the search.",
+          "advance": "Comfortably finds the requested toy when your body position does not reveal its location.",
+          "easier": "Have the dog watch placements again. This game need not become a test of unseen hides.",
+          "deps": [
+            [
+              "NAMEDFIND-8",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "NAMEDFIND-10",
+          "title": "Change one search location",
+          "teach": "Move just one toy to a new obvious accessible floor spot, leaving the other in a familiar place. Request an easy choice first, then the moved toy. Keep all other features unchanged and return to old spots between new placements.",
+          "advance": "Transfers the small search to several nearby safe spots with ordinary comfortable searching.",
+          "easier": "Make the new spot visible, reduce the area, or return to the familiar pair of locations.",
+          "deps": [
+            [
+              "NAMEDFIND-9",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "NAMEDFIND-11",
+          "title": "Build one clear request",
+          "teach": "Say the chosen toy label before the familiar search invitation, then pause briefly to allow the whole locate-and-return sequence. Keep the extra search or give cue whenever helpful. Fade one prompt at a time and reward the final delivery generously.",
+          "advance": "Finds and delivers either requested toy with little additional prompting in two brief sessions.",
+          "easier": "Restore the helpful component cue or accept a shorter visible-choice game.",
+          "deps": [
+            [
+              "NAMEDFIND-10",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "NAMEDFIND-12",
+          "title": "Finish with a predictable reset",
+          "teach": "Run one easy requested search, receive the toy, reward, and give a familiar finished cue. Put props away yourself and offer rest or ordinary play. On another day change only one feature, such as the starting point, and keep the first search easy.",
+          "advance": "Enjoys a short complete search-and-deliver game, finishes comfortably and returns willingly another day.",
+          "easier": "Keep the familiar room and easy placements. Stop for guarding, chewing, frustration or separation distress.",
+          "deps": [
+            [
+              "NAMEDFIND-11",
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "SORT",
+      "title": "Two-toy tidy-up",
+      "sheet": "Brainiacs",
+      "goal": "Learn a particular basket for each of two familiar toys, then tidy a small mixed set.",
+      "cue": "Tidy (with familiar toy and basket cues as needed)",
+      "setup": "Two broad low baskets, visually distinct large floor markers and two safe toys. No lids, sharp rims, small labels or objects likely to be swallowed.",
+      "sources": "P11; P20; P21; A07; A08",
+      "priority": "Optional advanced",
+      "steps": [
+        {
+          "id": "SORT-1",
+          "title": "Give the first basket a clear identity",
+          "teach": "Put one broad basket on a large distinctive floor marker. Use just one familiar toy. Begin with the known short carry and drop into this basket, reward, and reset. Keep the basket still so successful deposits are easy and comfortable.",
+          "advance": "Makes several gentle deposits into this basket without chewing the toy or basket.",
+          "easier": "Use a wider low basket or hold the toy just above the rim again.",
+          "deps": [
+            [
+              "BOX-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "SORT-2",
+          "title": "Add a destination cue",
+          "teach": "Say a short basket cue before the known deposit. Begin beside the basket and reward inside the destination, then release away. Increase the approach by one small step while leaving the marker and basket in their familiar position.",
+          "advance": "Approaches the familiar marked basket and deposits from a short distance on its cue.",
+          "easier": "Keep the original drop cue and move closer. The basket cue can remain a helpful prompt.",
+          "deps": [
+            [
+              "SORT-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "SORT-3",
+          "title": "Teach the second destination separately",
+          "teach": "Remove the first basket. Use the second toy and a different basket on its own distinctive marker. Repeat easy deposits with a different destination cue, rewarding promptly. Work separately until this new setup is as comfortable as the original one.",
+          "advance": "Deposits the second toy into its own marked basket comfortably across short sessions.",
+          "easier": "Return to a close drop above the rim and use clearly different large markers.",
+          "deps": [
+            [
+              "SORT-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "SORT-4",
+          "title": "Pair each toy with its basket",
+          "teach": "In separate short turns, present one toy and only its matching basket. Invite pickup and deposit, then reward. Alternate which pair is practiced first on different occasions. This establishes two predictable routines before asking the dog to choose a destination.",
+          "advance": "Both toy-to-basket routines work from nearby without searching for an absent basket.",
+          "easier": "Practice the less familiar pair alone and shorten the carry.",
+          "deps": [
+            [
+              "SORT-3",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "SORT-5",
+          "title": "Introduce the unused basket at a distance",
+          "teach": "Work the first familiar toy-to-basket routine while the other basket is far away. Give the usual destination cue and reward the correct deposit. If the extra basket attracts mistakes, move it farther away rather than blocking or correcting the dog.",
+          "advance": "Completes the first routine comfortably with the other basket present but well separated.",
+          "easier": "Remove the extra basket, regain an easy deposit, then reintroduce it farther away.",
+          "deps": [
+            [
+              "SORT-4",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "SORT-6",
+          "title": "Practice the other pair with both baskets",
+          "teach": "Switch to the second toy, keeping its marked basket near and the unused basket well away. Cue the familiar destination and reward. Change which routine you practice across separate turns so neither basket becomes the only place that earns rewards.",
+          "advance": "Can use either familiar routine while the unused basket is also present.",
+          "easier": "Return to each pair separately. Use more space between destinations and shorter carries.",
+          "deps": [
+            [
+              "SORT-5",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "SORT-7",
+          "title": "Offer an equal-distance destination choice",
+          "teach": "Place the two marked baskets several steps apart and equally close to the starting point. Offer only one toy. Give its destination cue with neutral hands and gaze. Reward the correct deposit; after a mistake reset to an easier nearby matching basket.",
+          "advance": "Usually selects the cued destination for either toy without pointing or physical steering.",
+          "easier": "Bring the matching basket nearer again and keep the other one farther away.",
+          "deps": [
+            [
+              "SORT-6",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "SORT-8",
+          "title": "Fade the extra destination prompt",
+          "teach": "Present one familiar toy and say the tidy cue before the known basket cue. Pause briefly to let the dog begin the familiar route. Reward a correct independent deposit, while continuing to help promptly whenever the choice is uncertain.",
+          "advance": "The toy and tidy invitation begin to predict its usual destination with fewer extra prompts.",
+          "easier": "Keep both destination cues as part of the game; independent sorting is optional.",
+          "deps": [
+            [
+              "SORT-7",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "SORT-9",
+          "title": "Swap basket locations with their markers",
+          "teach": "Move each basket together with its own distinctive marker to the opposite side. Start with the toy very close to its matching destination and use its cue. Gradually return to an equal-distance start without pointing to the destination.",
+          "advance": "Can follow each marked destination after a side swap rather than always taking the old route.",
+          "easier": "Use smaller moves, wider separation, or the original positions. Recheck whether side preference explains earlier choices.",
+          "deps": [
+            [
+              "SORT-8",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "SORT-10",
+          "title": "Pick one toy from the floor",
+          "teach": "Put just one toy on the clear floor near the starting point instead of handing it over. Invite the familiar pickup and tidy routine, rewarding the correct deposit. Practice either toy separately before putting both toys on the floor together.",
+          "advance": "Picks up either single floor toy and places it in its usual marked basket.",
+          "easier": "Offer the toy from your hand again or place it closer to its basket.",
+          "deps": [
+            [
+              "SORT-9",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "SORT-11",
+          "title": "Make two separately rewarded deposits",
+          "teach": "Place the two familiar toys a little apart on the floor. Invite tidying one, reward the deposit, then give a fresh invitation for the remaining toy. Let the dog choose the order; the aim is two correct destinations, not speed.",
+          "advance": "Makes two comfortable, separately rewarded deposits to the corresponding destinations in two short sessions.",
+          "easier": "Put only one toy down at a time and keep extra basket cues.",
+          "deps": [
+            [
+              "SORT-10",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "SORT-12",
+          "title": "Complete a little tidy-up routine",
+          "teach": "Use the familiar two-toy layout, invite tidy, and support either order with component cues as needed. Reward each deposit, then give a clear finished cue and put away the props. Keep future variations small; new toys require their own learning.",
+          "advance": "Enjoys the complete two-deposit routine across varied easy basket positions without frantic repetition.",
+          "easier": "Keep a single destination game or explicit basket cues. This is optional discrimination practice, not a measure of intelligence.",
+          "deps": [
+            [
+              "SORT-11",
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "POST",
+      "title": "A two-person delivery round",
+      "sheet": "Brainiacs",
+      "goal": "Collect a safe message pouch, deliver to a familiar person and return to a starting station.",
+      "cue": "Post (plus familiar person, give and station cues as needed)",
+      "setup": "Two trusted willing adults, a large robust safe pouch with no loose ties and a flat non-slip starting mat. Short clear indoor paths; skip for guarding or separation distress.",
+      "sources": "P11; P20; P21; P32",
+      "priority": "Optional advanced",
+      "steps": [
+        {
+          "id": "POST-1",
+          "title": "Make a clear delivery station",
+          "teach": "Place a familiar flat mat near the sender. Invite an easy mat approach, reward, and release. Separately rehearse one comfortable pouch handover to the nearby receiver. Both adults stay quiet and available; no one holds the dog in place.",
+          "advance": "Voluntarily returns to the starting mat and enjoys a nearby pouch handover.",
+          "easier": "Use a floor marker instead of a mat or return to ordinary messenger practice.",
+          "deps": [
+            [
+              "MESSENGER-3",
+              3
+            ],
+            [
+              "POUCH-3",
+              3
+            ],
+            [
+              "MAT-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "POST-2",
+          "title": "Collect from a low tray",
+          "teach": "Put the familiar empty pouch on a broad stable open tray at an easy natural mouth height. Stand beside it and invite the known pickup, then receive and reward. Keep the tray still and avoid any stretching, climbing or paw placement.",
+          "advance": "Picks up the pouch gently from the tray in several easy attempts.",
+          "easier": "Offer the pouch from your hand or lower the tray onto a safe clear floor.",
+          "deps": [
+            [
+              "POST-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "POST-3",
+          "title": "Carry from tray to receiver",
+          "teach": "Position the receiver only a step from the tray. Invite pickup and the known delivery, then let the receiver ask for give and reward. Reset together before another turn. Keep the sender visible and the path unobstructed.",
+          "advance": "Collects from the tray and delivers gently to the nearby receiver.",
+          "easier": "Hand the pouch over at the starting point or bring the receiver closer.",
+          "deps": [
+            [
+              "POST-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "POST-4",
+          "title": "Teach the empty return separately",
+          "teach": "With no pouch present, let the receiver release the dog toward the nearby familiar starting mat. The sender invites the mat approach and rewards there. Both people remain visible, and the dog can opt out rather than being repeatedly called between them.",
+          "advance": "Comfortably returns empty to the sender’s mat on a simple invitation.",
+          "easier": "Place the mat closer or practice its approach with just the sender present.",
+          "deps": [
+            [
+              "POST-3",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "POST-5",
+          "title": "Join handover and return",
+          "teach": "Begin with a very short pouch delivery. The receiver asks for give, rewards, then invites the familiar empty return. Reward arrival at the mat as well. Keep rewards at both ends while the two actions become a predictable pleasant sequence.",
+          "advance": "Delivers, releases the pouch and returns to the mat willingly in two short sessions.",
+          "easier": "Practice empty returns and deliveries separately. Avoid repeated calling if the dog wants to stay.",
+          "deps": [
+            [
+              "POST-4",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "POST-6",
+          "title": "Add collection at the start",
+          "teach": "From beside the mat, invite tray pickup, a short delivery, give and the empty return. Use each familiar component cue and reward both the handover and the return. Rehearse just one round before a break rather than building a rapid shuttle.",
+          "advance": "Collects, delivers and returns with the familiar component cues and comfortable movement.",
+          "easier": "Start with the pouch in your hand again or shorten the receiver’s distance.",
+          "deps": [
+            [
+              "POST-5",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "POST-7",
+          "title": "Introduce the round cue",
+          "teach": "Say “post” once before the familiar pickup invitation. Guide the same easy round with the known component cues and rewards. Across successful turns pause briefly after the round cue, allowing pickup to start without the extra prompt when the dog is ready.",
+          "advance": "The round cue begins to start the familiar collection-and-delivery routine.",
+          "easier": "Keep the pickup cue. Do not repeat the new word or withhold help to force a response.",
+          "deps": [
+            [
+              "POST-6",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "POST-8",
+          "title": "Lengthen one clear route",
+          "teach": "Move the receiver one step farther away while keeping them visible. Use the easy collection and return pattern, rewarding at both ends. Alternate this slightly longer round with a close one, changing distance without also moving the tray or mat.",
+          "advance": "Completes a short clear delivery route and comfortable empty return without rushing.",
+          "easier": "Bring the receiver closer. Long distances are unnecessary for a satisfying delivery job.",
+          "deps": [
+            [
+              "POST-7",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "POST-9",
+          "title": "Deliver through an open doorway",
+          "teach": "Put the receiver beside a wide familiar open doorway, still visible. Practice the easy round, then move them just across the threshold on another turn. Keep exits clear, the sender available and the dog’s path away from door swings.",
+          "advance": "Willingly delivers across the open threshold and returns with ordinary relaxed movement.",
+          "easier": "Keep both people in the same room. Skip doorway work for hesitation or separation worry.",
+          "deps": [
+            [
+              "POST-8",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "POST-10",
+          "title": "Handle a small receiver movement",
+          "teach": "Before starting a round, have the receiver stand a little to one side of the familiar destination. Keep them visible and use the known delivery invitation. Reward the handover and return. Change position only between rounds, never chase a moving recipient.",
+          "advance": "Finds the visible receiver in several nearby positions without dropping or frantic searching.",
+          "easier": "Restore the familiar standing place and shorten the path.",
+          "deps": [
+            [
+              "POST-9",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "POST-11",
+          "title": "Change human roles carefully",
+          "teach": "Swap sender and receiver while keeping the route short. Begin with isolated pouch handovers and empty mat returns, then join the familiar round again. Keep the mat with the sender so the return destination stays clear when the people change roles.",
+          "advance": "Can enjoy a short delivery round with either familiar adult as receiver.",
+          "easier": "Use the original roles or practice the unfamiliar handover alone. Social choice takes priority over finishing.",
+          "deps": [
+            [
+              "POST-10",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "POST-12",
+          "title": "Finish a purposeful round",
+          "teach": "Place one light protected note inside the familiar pouch and invite a single easy round. The receiver removes it only after give, rewards, then releases an empty return. Reward at the mat, say finished and remove the pouch and tray yourself.",
+          "advance": "Completes the chosen short collection, handover and return routine with little prompting in two sessions.",
+          "easier": "Keep the pouch empty, retain component cues or use the original one-way messenger game. Inspect props each time and stop for chewing or guarding.",
+          "deps": [
+            [
+              "POST-11",
               3
             ]
           ]
@@ -4961,7 +5495,7 @@
     },
     {
       "title": "Optional advanced jobs",
-      "body": "Play and jobs and the fridge retrieve in Clever companions are optional enrichment. The fridge chain begins with a light sealed water-bottle prop in a suitable carrier; do not let the dog carry glass or a bare can, open containers, ingest alcohol, strain against a stiff seal, or access the appliance unsupervised. A human-opened retrieve is a useful alternative."
+      "body": "Play and jobs and the optional multi-stage projects in Brainiacs are optional enrichment. The fridge chain begins with a light sealed water-bottle prop in a suitable carrier; do not let the dog carry glass or a bare can, open containers, ingest alcohol, strain against a stiff seal, or access the appliance unsupervised. A human-opened retrieve is a useful alternative."
     },
     {
       "title": "After a difficult day",

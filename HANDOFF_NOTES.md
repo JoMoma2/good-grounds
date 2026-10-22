@@ -1,3 +1,9 @@
+# Current handoff
+
+See [the 1.2.0 handoff](HANDOFF_1_2.md) for the current implementation. The earlier handoff below is historical; its clicker visibility, fridge grouping and backup-format descriptions were superseded in 1.2.0.
+
+---
+
 # Development handoff — 22 October 2026
 
 This is a source update in `good-ground-iphone-github`, based on commit `739a5ce`. Version 1.1.1 (build 3) is packaged as a separate local unsigned preview at `build/GoodGround-1.1.1-unsigned.ipa`. No release was published. The existing Swift executable is reused unchanged; only metadata and bundled web assets are updated. Native storage and backup formats remain unchanged.

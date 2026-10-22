@@ -1,3 +1,18 @@
+# 1.2.0 — clicker, advanced projects and history
+
+- Request the iOS 17+ playback session for Silent-mode marking; retain ordinary playback on unsupported engines. Physical iPhone verification is still required.
+- Hide all clicker entry points when disabled and expand Set progress to the full row.
+- Correct the breed-search input size and Practice Reminders section link.
+- Preserve foundational starting suggestions and put live profile-based recommendations in a separate optional section.
+- Add Brainiacs at the bottom: one 13-step fridge project preserving old records, plus three 12-step projects.
+- Keep current progress bars and add real dated category completion lines. History begins at the first observation with this update, not an invented past curve.
+- Export backup version 3, accepting versions 1 and 2; protect new history from older app code.
+- Defer true shared training pending a backend, access model and conflict-safe offline synchronization.
+
+See [implementation decisions and limits](HANDOFF_1_2.md), [validation](VALIDATION.md), and [installation](INSTALL.md). Earlier notes below are historical.
+
+---
+
 # 1.1.1 development handoff preview — 22 October 2026
 
 - Marker feedback and persistent lesson controls, with touch and keyboard fixes and a Settings toggle.

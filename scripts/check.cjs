@@ -14,9 +14,9 @@ for(const s of D.skills){
 }
 for(const t of D.triggers)assert.ok(I.steps.has(t.step),t.name+' bad trigger link');
 for(const s of D.sources)assert.match(s.url,/^https?:\/\//);
-for(const f of ['index.html','styles.css','app.js','core.js','data.js','marker.js','guide.js','tailoring.js'])assert.ok(fs.existsSync(root+'/app/web/'+f));
+for(const f of ['index.html','styles.css','app.js','core.js','data.js','marker.js','guide.js','tailoring.js','history.js'])assert.ok(fs.existsSync(root+'/app/web/'+f));
 const html=fs.readFileSync(root+'/app/web/index.html','utf8');assert.ok(html.includes("connect-src 'none'"));
-for(const f of ['app.js','core.js','marker.js','guide.js','tailoring.js','styles.css']){
+for(const f of ['app.js','core.js','marker.js','guide.js','tailoring.js','history.js','styles.css']){
   const content=fs.readFileSync(root+'/app/web/'+f,'utf8');assert.ok(!/https?:\/\//.test(content),'Unexpected remote code/resource in '+f);
 }
 console.log(`PASS: ${I.skills.size} skills, ${I.steps.size} real teaching steps, ${sources.size} source records, valid prerequisites, bundled offline resources.`);
