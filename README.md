@@ -1,12 +1,12 @@
 # Good Ground for iPhone
 
-A personal, offline dog-training companion. Version **1.2.0** includes **95 skills, 266 teaching steps and 71 research/reference records**. Training is for individual dogs of any breed or mix.
+A personal, offline dog-training companion. Version **1.3.0** includes **104 skills, 264 active teaching steps and 71 research/reference records**. Training is for individual dogs of any breed or mix.
 
 The release provides an updated unsigned `GoodGround-unsigned.ipa` alongside this source archive. The interface was updated inside the existing iPhone shell; the native executable and Swift source are unchanged. Install through the existing SideStore or LiveContainer setup. The source folder itself is not an IPA. A fresh native build remains available through the supplied macOS workflow.
 
 Read [UPDATE_NOTES.md](UPDATE_NOTES.md) for this release and [INSTALL.md](INSTALL.md) for installation. Android was outside this update and its files were not changed.
 
-The development handoff is described in [HANDOFF_NOTES.md](HANDOFF_NOTES.md). A separate unsigned preview is available at `build/GoodGround-1.2.0-unsigned.ipa`; it reuses the unchanged native executable. No release has been published.
+The development handoff is described in [HANDOFF_NOTES.md](HANDOFF_NOTES.md). A separate unsigned preview is available at `build/GoodGround-1.3.0-unsigned.ipa`; it reuses the unchanged native executable. No release has been published.
 
 ## In the app
 
@@ -18,7 +18,7 @@ The development handoff is described in [HANDOFF_NOTES.md](HANDOFF_NOTES.md). A 
 
 On first use, choose how many dogs you have and meet them one at a time. One dog's profile can be skipped. Multiple dogs need distinct names; other fields are optional. A short tour follows. At later openings, choose any subset to train; a longer background break also returns to that choice. Progress, notes, cues, sessions and plans remain separate for each dog.
 
-Completing a step opens its next step. Finishing the last step offers optional practical suggestions, something fun and an option to stop. When training a group, unfinished or paused dogs keep their own stage until explicitly changed. Reading, navigating and swiping never mark progress.
+Completing a step opens a ready next step, including earlier parallel work. Only completing every active step in a skill offers its milestone and optional next suggestions. When training a group, unfinished or paused dogs keep their own stage until explicitly changed. Reading, navigating and swiping never mark progress.
 
 Profiles can record a searchable breed or a custom mix. A few supported associations invite an optional question about the individual dog. Only confirmed observations select smaller practice actions in relevant lessons and separate trouble-spot suggestions. Foundational starting suggestions remain available. Breed alone does not change criteria, diagnose temperament or prescribe nutrition.
 
@@ -28,7 +28,7 @@ The usual four-in-five advancement rule is a practical planning aid, not a valid
 
 Practice timers reflect linked Skill practice journal entries. Reminders for learned foundations/walk skills default to a week, with two weeks, a month or off available in Settings. A missing log is not proof of forgetting. Note edits and clicker presses do not reset practice dates, and fear-exposure programs are excluded from automatic refreshers.
 
-[research/IPHONE_UPDATE_RESEARCH.md](research/IPHONE_UPDATE_RESEARCH.md) records the reminder and tailoring decisions and their limits. [research/APP_REVIEW.md](research/APP_REVIEW.md) retains the earlier content review. Brainiacs adds three advanced projects and combines the fridge routine into one skill while retaining all original step IDs. See [the current handoff](HANDOFF_1_2.md).
+[research/IPHONE_UPDATE_RESEARCH.md](research/IPHONE_UPDATE_RESEARCH.md) records the reminder and tailoring decisions and their limits. [research/APP_REVIEW.md](research/APP_REVIEW.md) retains the earlier content review. Brainiacs now combines independent components into four projects: fridge retrieval, three-destination sorting, named-person Courier and a complete pre-walk routine. Project maps expose expandable step groups and reusable foundations. Earlier overlong guides were shortened, with all 36 old pages and their records preserved. See [the curriculum rework](CURRICULUM_REWORK.md) and [the full prerequisite audit](research/PREREQUISITE_AUDIT.md).
 
 The Trends page adds daily observed category completion history alongside the current progress bars. It starts when this version first observes the dog; earlier history is not invented. Categories share a color key, and their historical totals stay fixed. Shared training between devices is not available; [the assessment](research/SYNC_ASSESSMENT.md) explains what it requires.
 
@@ -64,6 +64,7 @@ npm run test:updates
 npm run test:edges
 npm run test:bridge
 npm run test:handoff
+npm run test:curriculum
 ```
 
 Repeat browser scripts with `GG_BROWSER=webkit`. [VALIDATION.md](VALIDATION.md) distinguishes actual checks from pending native/device checks.

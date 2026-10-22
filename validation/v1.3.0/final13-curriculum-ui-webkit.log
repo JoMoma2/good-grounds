@@ -1,0 +1,8 @@
+PASS Brainiacs has four distinct project overviews and a working component dropdown for every step
+PASS rope pulling is linked explicitly; independent retrieval remains available; pausing blocks door pulling
+PASS finishing a parallel branch opens a ready gap and cannot announce an incomplete skill as complete
+PASS completion of a supporting skill links back to its full project
+PASS shortened guides credit only completed groups and retain editable original notes on earlier pages
+PASS editing an old journal entry and exporting preserves its original step link and all notes
+PASS project progress follows the selected dogs and does not credit an untrained companion
+PASS all preserved earlier pages resolve, and project maps stay accessible at narrow widths and large text

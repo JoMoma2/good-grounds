@@ -1,3 +1,18 @@
+# 1.3.0 — independent components and a Brainiacs rework
+
+- Restore independent fridge opening, shelf retrieval and closing, with a direct rope prerequisite where the routine uses it.
+- Add project overviews with expandable component and foundation steps; preserve real parallel practice and sequential gates.
+- Curate Brainiacs to fridge retrieval, three-destination toy sorting, named-person Courier and Ready for a Walk.
+- Shorten the three previous long guides to four steps each in ordinary categories; preserve all old instructions, records and URLs.
+- Conservatively transfer earned grades without erasing original notes, pauses or per-dog records.
+- Audit every skill against three historical versions, correct missing pickup/equipment/participation gates and remove artificial sibling ordering.
+- Navigate to ready steps and celebrate only a complete skill.
+- Remove verified generated duplicate extractions and caches; preserve uncertain files and all personal records.
+
+See [the complete report](CURRICULUM_REWORK.md), [prerequisite audit](research/PREREQUISITE_AUDIT.md), [validation](VALIDATION.md) and [installation](INSTALL.md). Earlier release notes below are historical.
+
+---
+
 # 1.2.0 — clicker, advanced projects and history
 
 - Request the iOS 17+ playback session for Silent-mode marking; retain ordinary playback on unsupported engines. Physical iPhone verification is still required.

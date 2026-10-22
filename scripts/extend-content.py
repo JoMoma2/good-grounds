@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[1]
 D=json.loads((ROOT/'research/base-data.json').read_text())
 D['sources']=[s for s in D['sources'] if not s['id'].startswith('T')]
 D['sources']+=json.loads((ROOT/'research/additional-sources.json').read_text())
-D['version']=5
+D['version']=6
 D['updated']='2026-10-22'
 for x in D['intro']:
  x['body']=x['body'].replace('column','section').replace('Foundations records','Foundations covers').replace('Practice elsewhere records','Practice elsewhere covers')
@@ -209,7 +209,9 @@ for item in D['intro']:
  if item['title']=='Optional advanced jobs':item['body']=item['body'].replace('the fridge retrieve in Clever companions','the optional multi-stage projects in Brainiacs')
 
 # Preserve topic grouping while retaining every original step ID.
-order=[name for name in dict.fromkeys(s['sheet'] for s in D['skills']) if name!='Brainiacs']+['Brainiacs']
+order=['Foundations','Calm at home','Walk skills','Other dogs','People and door','Sounds and novelty','Care and equipment','Play and jobs','Practice elsewhere','Clever companions','Body awareness','Useful little jobs','Scent adventures']
+order+=[name for name in dict.fromkeys(s['sheet'] for s in D['skills']) if name not in order and name!='Brainiacs']
+order+=['Brainiacs']
 D['skills'].sort(key=lambda s:order.index(s['sheet']))
 (ROOT/'app/web/data.json').write_text(json.dumps(D,ensure_ascii=False,indent=2)+'\n')
 (ROOT/'app/web/data.js').write_text('window.GOOD_GROUND_DATA = '+json.dumps(D,ensure_ascii=False,separators=(',',':'))+';\n')

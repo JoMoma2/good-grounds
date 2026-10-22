@@ -9,16 +9,17 @@ test('new anxiety observations do not replace the three initial foundational rec
  const tailored=C.personalizedAvailable(D,s);assert.ok(tailored.some(x=>x.skill.sheet==='Other dogs'));assert.ok(tailored.some(x=>x.skill.code==='SOUND'));
  s.profile.priorities=[];s.tailoring.traits=[];assert.deepEqual(C.personalizedAvailable(D,s),[]);
 });
-test('all legacy steps survive the fridge consolidation with independent component cues',()=>{
+test('all original fridge steps and cues survive as independent skills',()=>{
  for(const id of require('./fixtures/1.1.1-step-ids.json'))assert.ok(I.steps.has(id),id);
- const fridge=I.skills.get('DRINK');assert.equal(fridge.steps.length,13);assert.equal(fridge.sheet,'Brainiacs');
- assert.deepEqual(fridge.components.map(c=>c.code),['OPEN','SHELF','CLOSE','DRINK']);
+ const fridge=I.skills.get('DRINK');assert.equal(fridge.steps.length,4);assert.equal(fridge.sheet,'Brainiacs');
+ assert.deepEqual(fridge.project.modules.map(c=>c.code),['OPEN','SHELF','CLOSE','DRINK']);
+ assert.equal(C.projectPlan(D,C.freshState(),'DRINK').modules.flatMap(m=>m.steps).length,13);
  const s=C.freshState();s.cues={OPEN:'Fridge',CLOSE:'Shut',SHELF:'Bottle',DRINK:'A drink'};s.favorites=['OPEN','SHELF'];s.progress['OPEN-1']={status:C.STATUSES[3],notes:'Kept',updatedAt:'2026-10-20'};
- const upgraded=C.observeProgress(D,s,now('2026-10-22'));assert.deepEqual(upgraded.favorites,['DRINK']);assert.deepEqual(upgraded.cues,s.cues);assert.deepEqual(upgraded.progress,s.progress);
+ const upgraded=C.observeProgress(D,s,now('2026-10-22'));assert.deepEqual(upgraded.favorites,['OPEN','SHELF']);assert.deepEqual(upgraded.cues,s.cues);assert.deepEqual(upgraded.progress,s.progress);
 });
 test('Brainiacs is last and contains four substantial acyclic projects tied to component skills',()=>{
  assert.equal(D.skills.at(-1).sheet,'Brainiacs');const projects=D.skills.filter(s=>s.sheet==='Brainiacs');assert.equal(projects.length,4);
- for(const skill of projects){assert.ok(skill.steps.length>=10&&skill.steps.length<=20);assert.ok(skill.steps.some(st=>st.deps.some(([id])=>I.steps.get(id).skill!==skill)));}
+ for(const skill of projects){const stages=C.projectPlan(D,C.freshState(),skill.code).modules.flatMap(m=>m.steps);assert.equal(new Set(stages.map(x=>x.step.id)).size,stages.length);assert.ok(stages.length>skill.steps.length);assert.ok(skill.steps.some(st=>st.deps.some(([id])=>I.steps.get(id).skill!==skill)));}
  assert.equal(C.availability(I.steps.get('OPEN-1').step,C.freshState()),'Ready to start');
  assert.equal(C.availability(I.steps.get('OPEN-2').step,C.freshState()),'Build prerequisite');
 });

@@ -34,6 +34,7 @@ jobs:
           node tests/edge-ui.cjs
           node tests/native-bridge.cjs
           node tests/handoff-ui.cjs
+          node tests/curriculum-ui.cjs
       - uses: actions/upload-artifact@v7
         if: always()
         with:
@@ -52,7 +53,7 @@ jobs:
           node-version: '22'
       - name: Check content and behavior
         run: |
-          node scripts/check.cjs
+          npm run check
           npm test
       - name: Show the Apple toolchain
         run: |

@@ -1,3 +1,17 @@
+# Current verification — 1.3.0/build 5
+
+**77 unit tests and 198 browser acceptance checks passed.** Six suites ran in Chromium and WebKit against the final unsigned IPA's extracted web bundle, plus the focused handoff and curriculum suites in Firefox. The main route sweep covers 264 active lessons, 14 categories and 71 references per main engine; the new suite also opens all 36 preserved earlier pages in each of the three engines. Raw reports and final-run logs are in [validation/v1.3.0](validation/v1.3.0).
+
+The full prerequisite audit compares versions 1.1.0, 1.1.1 and 1.2.0. It permits no undocumented edge change, missing old step or broken current lesson reference; the active graph is acyclic. Behavior tests cover independent components, strict combination gates, pauses, actual floor-pickup/equipment/participation dependencies, ready-next-step navigation and no celebration for partial skills. Earlier grades receive credit only for fully covered replacement criteria; explicit grades, per-dog ownership, old notes/journal links, backups and old historical percentages are preserved.
+
+The project maps and their dropdowns pass scoped automated WCAG A/AA scans at narrow width, larger text and dark theme. All checked interface scenarios record zero JavaScript errors and external requests. The unchanged audio tests verify a nonzero signal in a real desktop graph, not physical iPhone output.
+
+The installer has 11 web assets matching source and the unchanged native executable, with version 1.3.0/build 5 metadata. The generator is reproducible; an independently extracted source ZIP passes the content/prerequisite audit and all 77 unit tests without Git. Cleanup removed 174 verified generated duplicate files and four bytecode caches; uncertain files and personal stores were retained.
+
+**Not verified:** real training outcomes with dogs; physical iPhone sound/Silent mode, keyboard behavior, VoiceOver, native Files, installation/LiveContainer, Swift runtime or simulator. The existing iOS 17+ playback implementation is unchanged; iOS 16 Silent output remains limited. No remote release was published. Earlier release evidence below is historical.
+
+---
+
 # Current verification — 1.2.0/build 4
 
 **62 unit tests and 174 browser acceptance checks passed.** Five suites ran in Chromium and WebKit against the web assets extracted from the final unsigned IPA; the focused local-file suite also ran in Firefox. The route sweep includes every one of the 266 lesson steps, 14 categories and 71 references per main engine. Raw reports and final-run logs are in [validation/v1.2.0](validation/v1.2.0).

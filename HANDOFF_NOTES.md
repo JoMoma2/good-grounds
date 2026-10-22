@@ -1,6 +1,6 @@
 # Current handoff
 
-See [the 1.2.0 handoff](HANDOFF_1_2.md) for the current implementation. The earlier handoff below is historical; its clicker visibility, fridge grouping and backup-format descriptions were superseded in 1.2.0.
+See [the 1.3.0 curriculum rework](CURRICULUM_REWORK.md) for the current implementation, and [the 1.2.0 handoff](HANDOFF_1_2.md) for the previous release. The earlier handoff below is historical; its clicker visibility, fridge grouping and backup-format descriptions were superseded in 1.2.0.
 
 ---
 

@@ -45,9 +45,10 @@ node tests/updates-ui.cjs
 node tests/edge-ui.cjs
 node tests/handoff-ui.cjs
 node tests/native-bridge.cjs
+node tests/curriculum-ui.cjs
 ```
 
-Repeat the five browser scripts with `GG_BROWSER=webkit`. These tests use invented records in isolated browser/native-bridge simulations. `GG_WEB_ROOT` can target an extracted app's bundled web folder for artifact checks. Desktop engines do not substitute for a physical iPhone or Swift runtime test. The macOS build and simulator workflow remains available.
+Repeat the six browser scripts with `GG_BROWSER=webkit`. These tests use invented records in isolated browser/native-bridge simulations. `GG_WEB_ROOT` can target an extracted app's bundled web folder for artifact checks. Desktop engines do not substitute for a physical iPhone or Swift runtime test. The macOS build and simulator workflow remains available.
 
 Lesson controls use CSS sticky positioning and the measured navigation height. Keep visible feedback available in both the large clicker and the lesson marker. Never schedule a late marker after a failed or timed-out audio unlock. Text sizes use rem units so the root text-size preference affects labels and controls as well as teaching copy.
 
@@ -55,6 +56,12 @@ Lesson controls use CSS sticky positioning and the measured navigation height. K
 
 `observeProgress` records actual per-dog daily category skill counts, including a first-observed baseline. It must run on canonical state, never `trainingView`. Same-day observations replace that date; unchanged counts and note edits do not create history. Counts and denominators are frozen with a curriculum version. `history.js` renders calendar-spaced step lines and an accessible values table. Do not reconstruct prior percentages from current progress timestamps. Backups keep all valid observations.
 
-Fridge component metadata retains OPEN/CLOSE/SHELF/DRINK cue keys inside one DRINK skill. A step's component determines setup and cue fields. Preserve all old step IDs and consult `HANDOFF_1_2.md` before changing compatibility. The 1.2 wire guard rejects writes from 1.1.x code that would drop history.
+Projects use `skill.project.modules` and `foundations` referencing ordinary skills. There is no second copy of their progress. OPEN/SHELF/CLOSE are independent again; DRINK contains only assembly. `projectPlan` exposes module readiness. `relatedProjects` links foundations and modules back to their projects. `nextTeachingStep` chooses actual ready/continuing steps; never celebrate a partial or paused skill.
+
+`archivedSkills` preserves the original 1.2.0 long guides. `index().archivedSteps` is distinct from active `steps`, so summary and history do not count retired steps. `step.replaces` maps conservative consistency credit to a new ID; `creditReplacements` preserves original records, pauses and explicit replacement grades separately for every dog. `observeProgress` applies that migration before recording current counts. Archived journal links remain selectable when editing their existing sessions. Do not reuse an old step ID for a broader criterion.
+
+`research/prerequisite-baselines.json` holds exact historical graph baselines; `npm run check` runs the full audit. Every changed historical edge needs a written reason, all current references must resolve, and every retired ID must have an original page plus a replacement mapping. `research/previous-project-guides.json` is curriculum content, not disposable test data.
 
 Run `npm test` for all unit suites, including immutable 1.1.1 compatibility fixtures. Keep those fixtures portable; do not depend on a local Git checkout for source-archive tests. The focused handoff suite measures real desktop audio graph output; this is not physical speaker verification. It also supports `GG_BROWSER=firefox` for local-file checks.
+
+The 1.3.0 implementation, deferred trick decisions and safe-cleanup record are in [CURRICULUM_REWORK.md](CURRICULUM_REWORK.md). Keep step-count tests focused on meaningful component relationships; do not enforce a quota that encourages padded projects.

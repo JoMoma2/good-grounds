@@ -125,7 +125,19 @@
       active.delete(id); visited.add(id);
     }
     for (const id of steps.keys()) visit(id);
-    return {skills,steps};
+    const archivedSteps=new Map();
+    for(const skill of data.archivedSkills||[])for(const step of skill.steps){
+      if(steps.has(step.id)||archivedSteps.has(step.id))throw new Error('Duplicate archived teaching step: '+step.id);
+      archivedSteps.set(step.id,{skill,step,archived:true});
+    }
+    for(const skill of data.skills){
+      for(const step of skill.steps)for(const old of step.replaces||[])if(!archivedSteps.has(old))throw new Error('Missing earlier guide: '+old);
+      if(!skill.project)continue;
+      const modules=skill.project.modules.map(m=>m.code);
+      if(new Set(modules).size!==modules.length||!modules.includes(skill.code))throw new Error('Invalid project modules: '+skill.code);
+      for(const code of [...modules,...skill.project.foundations])if(!skills.has(code)||skills.get(code).project&&code!==skill.code)throw new Error('Invalid project component: '+code);
+    }
+    return {skills,steps,archivedSteps};
   }
   const status = (state, id) => state.progress[id]?.status || STATUSES[0];
   function availability(step,state) {
@@ -173,8 +185,8 @@
     return {date:dateToday(now),curriculum:data.version,topics};
   }
   function observeProgress(data,state,now=new Date()) {
-    let next=state;
-    for(const dog of dogs(state)){
+    let next=creditReplacements(data,state);
+    for(const dog of dogs(next)){
       const row=completionSnapshot(data,dog,now),history=dog.progressHistory||[];
       const previous=history.filter(r=>r.date<=row.date).at(-1);
       if(previous&&previous.curriculum===row.curriculum&&JSON.stringify(previous.topics)===JSON.stringify(row.topics))continue;
@@ -182,9 +194,37 @@
       if(rows.length>10000)throw new Error('Progress history is full. Export a backup before recording more changes.');
       next=updateDog(next,dog.id,d=>({...d,progressHistory:rows}));
     }
-    const favorites=[...new Set(next.favorites.map(code=>['OPEN','CLOSE','SHELF'].includes(code)&&data.skills.some(s=>s.code==='DRINK'&&s.components)?'DRINK':code))];
-    if(JSON.stringify(favorites)!==JSON.stringify(next.favorites))next=touch({...next,favorites});
     return next;
+  }
+  function creditReplacements(data,state) {
+    let next=state;
+    for(const dog of dogs(state)){
+      const progress={...dog.progress};let changed=false;
+      for(const skill of data.skills)for(const step of skill.steps){
+        if(!step.replaces?.length||Object.hasOwn(progress,step.id))continue;
+        const records=step.replaces.map(id=>dog.progress[id]);
+        const paused=records.find(r=>r?.status===STATUSES[4]);
+        if(!paused&&!records.every(r=>r?.status===STATUSES[3]))continue;
+        const at=records.filter(Boolean).map(r=>r.completedAt||r.updatedAt).filter(d=>d&&Number.isFinite(+new Date(d))).sort((a,b)=>+new Date(a)-+new Date(b)).at(-1)||'';
+        progress[step.id]={status:paused?STATUSES[4]:STATUSES[3],notes:'',updatedAt:at,completedAt:paused?'':at};changed=true;
+      }
+      if(changed)next=updateDog(next,dog.id,d=>({...d,progress}));
+    }
+    return next;
+  }
+  function relatedProjects(data,code) {return data.skills.filter(s=>s.project&&(s.project.modules.some(m=>m.code===code)||s.project.foundations.includes(code)));}
+  function projectPlan(data,state,code) {
+    const skill=data.skills.find(s=>s.code===code);if(!skill?.project)return null;
+    const modules=skill.project.modules.map(m=>{
+      const component=data.skills.find(s=>s.code===m.code);
+      return {...m,skill:component,steps:component.steps.map(step=>({step,available:availability(step,state)}))};
+    });
+    const required=modules.filter(m=>!m.optional).flatMap(m=>m.steps);
+    return {skill,modules,total:required.length,complete:required.filter(x=>status(state,x.step.id)===STATUSES[3]).length};
+  }
+  function nextTeachingStep(skill,state,afterId) {
+    const at=skill.steps.findIndex(s=>s.id===afterId),ordered=[...skill.steps.slice(at+1),...skill.steps.slice(0,at)];
+    return ordered.find(step=>['Ready to start','Continue'].includes(availability(step,state)))||null;
   }
   function available(data,state) {
     const triggerTopics = new Set(), triggerSkills = new Set();
@@ -362,5 +402,5 @@
     if (!plain(b)||b.format!=='good-ground-backup'||![1,2,3].includes(b.version)) throw new Error('Choose a Good Ground backup file (version 1, 2 or 3).');
     return validateState(b.state);
   }
-  return {STORAGE_BYTES,withinStorageLimit,STATUSES,LABELS,rank,esc,uid,dateToday,validDate,freshState,storageState,FORMAT_GUARD,dogs,selectedDogs,dogState,updateDog,addDog,selectDogs,trainingView,trainingAvailable,startingAvailable,personalizedAvailable,setDogProgress,practiceRecords,index,status,availability,stageLabel,touch,setProgress,summary,completionSnapshot,observeProgress,available,nextChoices,downstreamSkills,daysBetween,practiceRecord,maintenance,elapsedLabel,MAINTENANCE_CODES,normalizeSession,sessionGuidance,observations,validateState,makeBackup,parseBackup};
+  return {STORAGE_BYTES,withinStorageLimit,STATUSES,LABELS,rank,esc,uid,dateToday,validDate,freshState,storageState,FORMAT_GUARD,dogs,selectedDogs,dogState,updateDog,addDog,selectDogs,trainingView,trainingAvailable,startingAvailable,personalizedAvailable,setDogProgress,practiceRecords,index,status,availability,stageLabel,touch,setProgress,summary,completionSnapshot,observeProgress,creditReplacements,relatedProjects,projectPlan,nextTeachingStep,available,nextChoices,downstreamSkills,daysBetween,practiceRecord,maintenance,elapsedLabel,MAINTENANCE_CODES,normalizeSession,sessionGuidance,observations,validateState,makeBackup,parseBackup};
 });
