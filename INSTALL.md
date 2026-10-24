@@ -1,6 +1,6 @@
 # Get Good Ground onto your iPhone
 
-The local preview includes `GoodGround-1.3.0-unsigned.ipa` (a fresh source build uses `GoodGround-unsigned.ipa`). Use that IPA with your existing SideStore or LiveContainer setup. Export a backup from the old app first and keep the same app/container identity. The update preserves the native shell and replaces its bundled interface.
+The local preview includes `GoodGround-1.4.1-unsigned.ipa` (a fresh source build uses `GoodGround-unsigned.ipa`). Use that IPA with your existing SideStore or LiveContainer setup. Export a backup from the old app first and keep the same app/container identity. The update preserves the native shell and replaces its bundled interface.
 
 If you already have the release IPA, go directly to section 3A or 3B. Sections 1–2 are an optional way to compile a fresh shell from source on GitHub’s Mac.
 
@@ -78,4 +78,4 @@ Useful official documentation:
 
 The clicker requests Silent-mode playback on iOS 17 and later, with no extra permission prompt. Verify the sound on your phone before training. iOS 16 can still require Silent mode off; the asset-only package does not add a native audio-session fallback.
 
-Version 1.3.0 preserves original records while restoring independent project components. The three shortened guides keep their earlier pages, notes and journal links. New replacement steps receive credit only where every mapped earlier criterion was recorded consistent; explicit new grades and pauses are preserved.
+Version 1.4.1 preserves original records while restoring independent project components. The three shortened guides keep their earlier pages, notes and journal links. New replacement steps receive credit only where every mapped earlier criterion was recorded consistent; explicit new grades and pauses are preserved.

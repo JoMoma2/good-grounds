@@ -273,8 +273,29 @@
     return {skill,learned,lastPractice,learnedOn,basisDate,days:daysBetween(basisDate,today),practiceDays:daysBetween(lastPractice,today)};
   }
   function maintenance(data,state,now=new Date()) {
-    return data.skills.filter(s=>MAINTENANCE_CODES.has(s.code)).map(s=>practiceRecord(s,state,now))
+    return data.skills.filter(s=>s.maintenance||MAINTENANCE_CODES.has(s.code)).map(s=>practiceRecord(s,state,now))
       .filter(x=>x.learned).sort((a,b)=>(b.days??-1)-(a.days??-1));
+  }
+  // Per-dog completion and local calendar dates; never use the group projection.
+  function dailyPractice(data,state,now=new Date()) {
+    const records=practiceRecords(data,state,now),today=dateToday(now);
+    const pending=records.filter(r=>r.lastPractice!==today).sort((a,b)=>
+      (a.lastPractice||'').localeCompare(b.lastPractice||'')||a.skill.title.localeCompare(b.skill.title)||a.dogId.localeCompare(b.dogId));
+    return {records,pending,practiced:records.length-pending.length,today};
+  }
+  function logPracticeToday(data,state,dogIds,stepId,now=new Date()) {
+    const item=index(data).steps.get(stepId);
+    if(!item)throw new Error('Choose a current teaching step to log practice.');
+    if(!Array.isArray(dogIds)||!dogIds.length||new Set(dogIds).size!==dogIds.length)throw new Error('Choose who practiced.');
+    const today=dateToday(now);let next=state,added=0;
+    for(const dogId of dogIds){
+      const dog=dogState(next,dogId);
+      if(practiceRecord(item.skill,dog,now).lastPractice===today)continue;
+      if(dog.sessions.length>=10000)throw new Error('A dog’s journal is full. Export a backup before removing older entries.');
+      const session=normalizeSession({date:today,stepId,type:'Skill practice',setup:'Quick practice log',observations:'Counts and comfort observations were not recorded.',createdAt:now.toISOString()});
+      next=updateDog(next,dogId,d=>({...d,sessions:[...d.sessions,session]}));added++;
+    }
+    return {state:next,added};
   }
   function elapsedLabel(days) {
     if(days===null)return 'No practice logged yet';
@@ -402,5 +423,5 @@
     if (!plain(b)||b.format!=='good-ground-backup'||![1,2,3].includes(b.version)) throw new Error('Choose a Good Ground backup file (version 1, 2 or 3).');
     return validateState(b.state);
   }
-  return {STORAGE_BYTES,withinStorageLimit,STATUSES,LABELS,rank,esc,uid,dateToday,validDate,freshState,storageState,FORMAT_GUARD,dogs,selectedDogs,dogState,updateDog,addDog,selectDogs,trainingView,trainingAvailable,startingAvailable,personalizedAvailable,setDogProgress,practiceRecords,index,status,availability,stageLabel,touch,setProgress,summary,completionSnapshot,observeProgress,creditReplacements,relatedProjects,projectPlan,nextTeachingStep,available,nextChoices,downstreamSkills,daysBetween,practiceRecord,maintenance,elapsedLabel,MAINTENANCE_CODES,normalizeSession,sessionGuidance,observations,validateState,makeBackup,parseBackup};
+  return {STORAGE_BYTES,withinStorageLimit,STATUSES,LABELS,rank,esc,uid,dateToday,validDate,freshState,storageState,FORMAT_GUARD,dogs,selectedDogs,dogState,updateDog,addDog,selectDogs,trainingView,trainingAvailable,startingAvailable,personalizedAvailable,setDogProgress,practiceRecords,dailyPractice,logPracticeToday,index,status,availability,stageLabel,touch,setProgress,summary,completionSnapshot,observeProgress,creditReplacements,relatedProjects,projectPlan,nextTeachingStep,available,nextChoices,downstreamSkills,daysBetween,practiceRecord,maintenance,elapsedLabel,MAINTENANCE_CODES,normalizeSession,sessionGuidance,observations,validateState,makeBackup,parseBackup};
 });

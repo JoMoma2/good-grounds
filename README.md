@@ -1,12 +1,14 @@
 # Good Ground for iPhone
 
-A personal, offline dog-training companion. Version **1.3.0** includes **104 skills, 264 active teaching steps and 71 research/reference records**. Training is for individual dogs of any breed or mix.
+A personal, offline dog-training companion. Version **1.4.1** includes **154 skills, 384 active teaching steps and 77 research/reference records**. Training is for individual dogs of any breed or mix.
 
 The release provides an updated unsigned `GoodGround-unsigned.ipa` alongside this source archive. The interface was updated inside the existing iPhone shell; the native executable and Swift source are unchanged. Install through the existing SideStore or LiveContainer setup. The source folder itself is not an IPA. A fresh native build remains available through the supplied macOS workflow.
 
-Read [UPDATE_NOTES.md](UPDATE_NOTES.md) for this release and [INSTALL.md](INSTALL.md) for installation. Android was outside this update and its files were not changed.
+Read [UPDATE_NOTES.md](UPDATE_NOTES.md) for this release and [INSTALL.md](INSTALL.md) for installation. Both active platform projects were updated together for 1.4.1.
 
-The development handoff is described in [HANDOFF_NOTES.md](HANDOFF_NOTES.md). A separate unsigned preview is available at `build/GoodGround-1.3.0-unsigned.ipa`; it reuses the unchanged native executable. No release has been published.
+The development handoff is described in [HANDOFF_NOTES.md](docs/archive/HANDOFF_NOTES.md). A separate unsigned preview is available at `build/GoodGround-1.4.1-unsigned.ipa`; it reuses the unchanged native executable. No release has been published.
+
+Lessons now opens with 14 topics, global search and filters. Topics and filtered/search results use compact skill rows with at most 12 per page. Search within a topic, by a custom cue, or by an exact Step ID. Read [UPDATE_NOTES.md](UPDATE_NOTES.md) for this release; the [1.4.0 report](docs/archive/DEVELOPMENT_REPORT_1.4.0.md) documents the earlier 50-skill expansion.
 
 ## In the app
 
@@ -28,7 +30,7 @@ The usual four-in-five advancement rule is a practical planning aid, not a valid
 
 Practice timers reflect linked Skill practice journal entries. Reminders for learned foundations/walk skills default to a week, with two weeks, a month or off available in Settings. A missing log is not proof of forgetting. Note edits and clicker presses do not reset practice dates, and fear-exposure programs are excluded from automatic refreshers.
 
-[research/IPHONE_UPDATE_RESEARCH.md](research/IPHONE_UPDATE_RESEARCH.md) records the reminder and tailoring decisions and their limits. [research/APP_REVIEW.md](research/APP_REVIEW.md) retains the earlier content review. Brainiacs now combines independent components into four projects: fridge retrieval, three-destination sorting, named-person Courier and a complete pre-walk routine. Project maps expose expandable step groups and reusable foundations. Earlier overlong guides were shortened, with all 36 old pages and their records preserved. See [the curriculum rework](CURRICULUM_REWORK.md) and [the full prerequisite audit](research/PREREQUISITE_AUDIT.md).
+[research/IPHONE_UPDATE_RESEARCH.md](research/IPHONE_UPDATE_RESEARCH.md) records the reminder and tailoring decisions and their limits. [research/APP_REVIEW.md](research/APP_REVIEW.md) retains the earlier content review. Brainiacs combines independent components into eight projects, including the existing fridge retrieval, sorting, Courier and pre-walk routines plus rally, a floor circuit, scent reporting and a short trick routine. Project maps expose expandable step groups and reusable foundations. Earlier overlong guides were shortened, with all 36 old pages and their records preserved. See [the curriculum rework](docs/archive/CURRICULUM_REWORK.md) and [the full prerequisite audit](research/PREREQUISITE_AUDIT.md).
 
 The Trends page adds daily observed category completion history alongside the current progress bars. It starts when this version first observes the dog; earlier history is not invented. Categories share a color key, and their historical totals stay fixed. Shared training between devices is not available; [the assessment](research/SYNC_ASSESSMENT.md) explains what it requires.
 

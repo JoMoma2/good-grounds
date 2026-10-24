@@ -15,6 +15,13 @@
   if(extend&&points.length&&points.at(-1).date<end)d+='H'+x(end);
   return {d,dots:points.map(p=>({...p,x:x(p.date),y:y(p.value)}))};
  }
+ function catalogChanges(rows){
+  return rows.flatMap((row,i)=>{
+   const previous=rows[i-1],names=[...new Set([...Object.keys(previous?.topics||{}),...Object.keys(row.topics)])];
+   const changes=names.filter(name=>previous?.topics[name]?.[1]!==row.topics[name]?.[1]).map(name=>({name,before:previous?.topics[name]?.[1]??null,after:row.topics[name]?.[1]??null}));
+   return !previous||previous.curriculum!==row.curriculum||changes.length?[{...row,baseline:!previous,changes}]:[];
+  });
+ }
  function render(history,today,esc,formatDate,topicIndex){
   const rows=history.filter(r=>r.date<=today),lines=series(rows,today);
   if(!rows.length)return '<section class="chart-card"><h2>Skills over time</h2><p>No dated progress observations are available yet.</p></section>';
@@ -28,7 +35,9 @@
   <text x="40" y="268">${esc(formatDate(start))}</text>${end!==start?`<text x="344" y="268" text-anchor="end">${esc(formatDate(end))}</text>`:''}<text x="192" y="290" text-anchor="middle">Date</text></svg>
   <fieldset class="history-key"><legend>Show categories</legend>${lines.map(line=>`<label><input type="checkbox" data-history-toggle="${esc(line.name)}" checked><span class="history-swatch" style="border-color:${color(line.name)};border-top-style:${['solid','dashed','dotted'][line.index%3]}"></span><span>${esc(line.name)}${line.active?'':' (previous catalog)'}</span></label>`).join('')}</fieldset>
   <p class="fineprint">History starts ${esc(formatDate(start))}. Earlier changes were not logged. Each point is the last observed state on that date; flat lines carry the latest recorded value forward. A skill is complete when all its steps are consistent. Changes within one day share one point.</p>
-  <details><summary>Recorded values and catalog changes</summary><p class="fineprint">Showing the latest 30 observation dates; backups keep the full history. Each observation keeps its original counts and catalog version. Moving or adding lessons can change a category’s percentage at the next observation. Older values stay unchanged. Future-dated records are kept in backups and shown when their date arrives.</p><div class="history-table"><table><thead><tr><th>Date</th><th>Category</th><th>Skills</th><th>Complete</th><th>Catalog</th></tr></thead><tbody>${rows.slice(-30).reverse().flatMap(row=>Object.entries(row.topics).map(([name,[complete,total]])=>`<tr><td>${esc(formatDate(row.date))}</td><td>${esc(name)}</td><td>${complete}/${total}</td><td>${Math.round(1000*complete/total)/10}%</td><td>${row.curriculum}</td></tr>`)).join('')}</tbody></table></div></details></section>`;
+  <details><summary>Recorded values and catalog changes</summary><p class="fineprint">Each observation keeps its original counts and catalog version. Adding or moving lessons can change current percentages; older values stay unchanged. Future dates appear when their date arrives. Tables scroll sideways when needed; words and numbers stay readable.</p>
+  <h3>Recorded values</h3><p class="fineprint">Latest 30 observation dates; backups keep the full history.</p><div class="history-table" role="region" aria-label="Recorded values, scroll horizontally" tabindex="0"><table><caption class="sr-only">Recorded category completion values</caption><thead><tr><th scope="col">Date</th><th scope="col">Category</th><th scope="col">Skills</th><th scope="col">Complete</th><th scope="col">Catalog</th></tr></thead><tbody>${rows.slice(-30).reverse().flatMap(row=>Object.entries(row.topics).map(([name,[complete,total]])=>`<tr><td class="history-date">${esc(formatDate(row.date))}</td><th scope="row" class="history-category">${esc(name)}</th><td class="history-number">${complete}/${total}</td><td class="history-number">${Math.round(1000*complete/total)/10}%</td><td class="history-number">${row.curriculum}</td></tr>`)).join('')}</tbody></table></div>
+  <h3>Catalog changes</h3><p class="fineprint">Observed catalog revisions and category sizes, independent of progress. Latest 30 changes.</p><div class="history-table catalog-table" role="region" aria-label="Catalog changes, scroll horizontally" tabindex="0"><table><caption class="sr-only">Observed catalog revisions</caption><thead><tr><th scope="col">Date</th><th scope="col">Catalog</th><th scope="col">Category sizes</th></tr></thead><tbody>${catalogChanges(rows).slice(-30).reverse().flatMap(row=>(row.changes.length?row.changes:[null]).map(c=>`<tr><td class="history-date">${esc(formatDate(row.date))}</td><td class="history-number">${row.curriculum}${row.baseline?' (baseline)':''}</td><td class="catalog-description">${c?`${esc(c.name)}: ${row.baseline?'baseline':c.before===null?'new':c.before} → ${c.after===null?'retired':c.after+' skills'}`:'Category sizes unchanged.'}</td></tr>`)).join('')}</tbody></table></div></details></section>`;
  }
- return {palette,series,geometry,render};
+ return {palette,series,geometry,catalogChanges,render};
 });

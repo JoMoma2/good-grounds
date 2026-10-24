@@ -1,3 +1,23 @@
+# Version 1.4.1 — October 24, 2026
+
+Lessons opens a compact directory of 14 topics. Global search stays near the top; Ready / practicing, Saved and Learned filters narrow the catalog. Opening a topic shows short skill rows and a search limited to that topic. Longer results use pages of at most 12 rows, with counts and keyboard/screen-reader focus after page changes. Exact titles rank first, multiword and punctuation-insensitive search works, and custom cues and exact current/archived Step IDs remain searchable. Projects still open their component overview.
+
+The catalog remains 154 skills / 384 active steps, curriculum 7. No training content, progress IDs, dog records or storage/backup formats changed. The six-page tutorial now explains the topic directory and paged lists; existing completed tours stay dismissed.
+
+Both platform install/source folders contain only version 1.4.1. Superseded 1.3.0/1.4.0 releases, older builds, old verification/screenshots and root release records moved into central Archives with every moved file hash-verified. Historical design documents moved under `docs/archive` inside source checkouts; current test fixtures and generator inputs remain in place. The active Git repositories and Android signing configuration retain their locations.
+
+Validation passed: 92 unit tests per platform, 101 browser checks per engine, 14 additional Android browser checks, nine native Android emulator checks, both package/build checks and independent portable-source checks. See [validation](VALIDATION.md) for details. The iPhone package reuses the unchanged native binary and is unsigned. No public deployment or personal-device installation was performed.
+
+---
+
+Earlier release notes follow.
+
+# Version 1.4.0 — October 24, 2026
+
+Exactly 50 new complete skills (154 total), a full prerequisite review, dedicated Heel, a per-dog daily familiar-practice queue, a six-page current tour and readable history/catalog tables. Existing grades and journal data are retained. See [the complete development report](docs/archive/DEVELOPMENT_REPORT_1.4.0.md) and `validation/v1.4.0/` for scope and checks.
+
+Earlier release notes follow.
+
 # 1.3.0 — independent components and a Brainiacs rework
 
 - Restore independent fridge opening, shelf retrieval and closing, with a direct rope prerequisite where the routine uses it.
@@ -9,7 +29,7 @@
 - Navigate to ready steps and celebrate only a complete skill.
 - Remove verified generated duplicate extractions and caches; preserve uncertain files and all personal records.
 
-See [the complete report](CURRICULUM_REWORK.md), [prerequisite audit](research/PREREQUISITE_AUDIT.md), [validation](VALIDATION.md) and [installation](INSTALL.md). Earlier release notes below are historical.
+See [the complete report](docs/archive/CURRICULUM_REWORK.md), [prerequisite audit](research/PREREQUISITE_AUDIT.md), [validation](VALIDATION.md) and [installation](INSTALL.md). Earlier release notes below are historical.
 
 ---
 
@@ -24,7 +44,7 @@ See [the complete report](CURRICULUM_REWORK.md), [prerequisite audit](research/P
 - Export backup version 3, accepting versions 1 and 2; protect new history from older app code.
 - Defer true shared training pending a backend, access model and conflict-safe offline synchronization.
 
-See [implementation decisions and limits](HANDOFF_1_2.md), [validation](VALIDATION.md), and [installation](INSTALL.md). Earlier notes below are historical.
+See [implementation decisions and limits](docs/archive/HANDOFF_1_2.md), [validation](VALIDATION.md), and [installation](INSTALL.md). Earlier notes below are historical.
 
 ---
 
@@ -36,7 +56,7 @@ See [implementation decisions and limits](HANDOFF_1_2.md), [validation](VALIDATI
 - Step-specific gradual practice based on confirmed observations; profile updates refresh relevant support.
 - Reviewed all 95 skills; grouped the fridge chain under Clever companions and corrected selected component prerequisites without changing record IDs.
 
-See [HANDOFF_NOTES.md](HANDOFF_NOTES.md) for decisions, intentional limits and validation. The local unsigned preview preserves the native binary. No release was published; physical-device checks remain outstanding.
+See [HANDOFF_NOTES.md](docs/archive/HANDOFF_NOTES.md) for decisions, intentional limits and validation. The local unsigned preview preserves the native binary. No release was published; physical-device checks remain outstanding.
 
 ---
 

@@ -17,8 +17,8 @@ test('all original fridge steps and cues survive as independent skills',()=>{
  const s=C.freshState();s.cues={OPEN:'Fridge',CLOSE:'Shut',SHELF:'Bottle',DRINK:'A drink'};s.favorites=['OPEN','SHELF'];s.progress['OPEN-1']={status:C.STATUSES[3],notes:'Kept',updatedAt:'2026-10-20'};
  const upgraded=C.observeProgress(D,s,now('2026-10-22'));assert.deepEqual(upgraded.favorites,['OPEN','SHELF']);assert.deepEqual(upgraded.cues,s.cues);assert.deepEqual(upgraded.progress,s.progress);
 });
-test('Brainiacs is last and contains four substantial acyclic projects tied to component skills',()=>{
- assert.equal(D.skills.at(-1).sheet,'Brainiacs');const projects=D.skills.filter(s=>s.sheet==='Brainiacs');assert.equal(projects.length,4);
+test('Brainiacs is last and contains eight substantial acyclic projects tied to component skills',()=>{
+ assert.equal(D.skills.at(-1).sheet,'Brainiacs');const projects=D.skills.filter(s=>s.sheet==='Brainiacs');assert.equal(projects.length,8);
  for(const skill of projects){const stages=C.projectPlan(D,C.freshState(),skill.code).modules.flatMap(m=>m.steps);assert.equal(new Set(stages.map(x=>x.step.id)).size,stages.length);assert.ok(stages.length>skill.steps.length);assert.ok(skill.steps.some(st=>st.deps.some(([id])=>I.steps.get(id).skill!==skill)));}
  assert.equal(C.availability(I.steps.get('OPEN-1').step,C.freshState()),'Ready to start');
  assert.equal(C.availability(I.steps.get('OPEN-2').step,C.freshState()),'Build prerequisite');

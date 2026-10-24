@@ -1,8 +1,0 @@
-PASS bundled local file opens with the native bridge and no server
-PASS native save sends complete valid state and receives acknowledgement
-PASS cold boot uses the state supplied by the native file store
-PASS lesson swipes navigate and never alter progress
-PASS write failures stay visible and an older acknowledgement cannot hide them
-PASS native export includes current records without requesting a web download
-PASS native import confirms and restores at a newer save revision
-PASS corrupt saved records are not silently replaced or exported as an empty backup

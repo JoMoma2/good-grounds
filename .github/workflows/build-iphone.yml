@@ -35,6 +35,8 @@ jobs:
           node tests/native-bridge.cjs
           node tests/handoff-ui.cjs
           node tests/curriculum-ui.cjs
+          node tests/expansion-ui.cjs
+          node tests/library-ui.cjs
       - uses: actions/upload-artifact@v7
         if: always()
         with:

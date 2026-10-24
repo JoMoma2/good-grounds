@@ -88,8 +88,8 @@ async function main(){
    await criteria.nth(0).locator('summary').click();assert.equal(await criteria.nth(0).getAttribute('open'),'');assert.equal(await criteria.nth(1).getAttribute('open'),null);
    await nav('#/learn');assert.equal(await page.locator('.training-tools a').count(),4);assert.equal(await page.locator('.tab-bar a').count(),4);
    assert.equal(await page.locator('.tab.active').textContent(),'Lessons');
-   const group=page.locator('.training-group').first();await group.locator('summary').first().click();assert.equal(await group.getAttribute('open'),null);
-   await page.locator('#learn-search').fill('NAME-1');assert.equal(await page.locator('.training-group').first().getAttribute('open'),'');
+   assert.equal(await page.locator('.library-topic').count(),14);assert.equal(await page.locator('#learn-results .lesson-card').count(),0);
+   await page.locator('#learn-search').fill('NAME-1');assert.equal(await page.locator('#learn-results .lesson-card').getAttribute('href'),'#/lesson/NAME-1');
    await nav('#/more');assert.equal(await page.locator('.menu-row').count(),4);
    await page.getByRole('link',{name:/Source library/}).click();await page.getByRole('link',{name:'Evidence & limitations',exact:true}).waitFor();
   });
@@ -120,9 +120,9 @@ async function main(){
    await selectBreed('Lagotto Romagnolo');await page.getByRole('heading',{name:'Does this fit Molly?',exact:true}).waitFor();assert.deepEqual((await snap()).tailoring.traits,[]);
    await page.getByRole('button',{name:'Yes, that fits',exact:true}).click();await nav('#/lesson/SOUND-1');assert.equal(await page.locator('.tailored-teaching').count(),1);
   });
-  await check('four advanced projects appear last; legacy fridge routes and component cues survive',async()=>{
+  await check('eight advanced projects appear last; legacy fridge routes and component cues survive',async()=>{
    const s=fresh();s.cues.OPEN='Fridge please';s.cues.CLOSE='Shut';s.cues.DRINK='A drink';
-   await boot(s,'#/learn');assert.equal(await page.locator('.training-group').last().getAttribute('data-topic'),'Brainiacs');assert.equal(await page.locator('.training-group').last().locator('.lesson-card').count(),4);
+   await boot(s,'#/learn');assert.equal(await page.locator('.library-topic').last().getAttribute('href'),'#/topic/Brainiacs');assert.equal(await page.locator('#learn-results .lesson-card').count(),0);
    await nav('#/topic/Fridge%20task');assert.equal(await page.getByRole('heading',{name:'Brainiacs',exact:true}).count(),1);
    await nav('#/lesson/OPEN-1');assert.equal(await page.locator('.step-pill').count(),3);assert.equal(await page.locator('[data-cue-input]').inputValue(),'Fridge please');
    await nav('#/lesson/CLOSE-1');assert.equal(await page.locator('[data-cue-input]').inputValue(),'Shut');await page.locator('[data-cue-input]').fill('Close gently');await page.locator('[data-cue-input]').blur();assert.equal((await snap()).cues.CLOSE,'Close gently');
@@ -152,7 +152,7 @@ async function main(){
    const lines=page.locator('[data-history-series]');assert.equal(await lines.count(),new Set(D.skills.map(x=>x.sheet)).size);
    assert.ok(await page.locator('.topic-progress').isVisible());const first=lines.first();assert.match(await first.locator('path').getAttribute('d'),/V34H344$/);
    const toggle=page.locator('[data-history-toggle]').first();await toggle.uncheck();assert.equal(await first.isVisible(),false);await toggle.check();assert.equal(await first.isVisible(),true);
-   await page.locator('.completion-history details summary').click();assert.ok((await page.locator('.history-table').textContent()).includes('100%'));await page.screenshot({path:out+'/history-'+engine+'.png',fullPage:true});
+   await page.locator('.completion-history details summary').click();assert.ok((await page.locator('.history-table').first().textContent()).includes('100%'));await page.screenshot({path:out+'/history-'+engine+'.png',fullPage:true});
    const all=await snap();assert.equal(all.progressHistory[0].date,'2026-10-01');assert.equal(C.parseBackup(JSON.stringify(C.makeBackup(all,D))).progressHistory.length,2);
    await boot(fresh(),'#/trends');assert.equal((await snap()).progressHistory.length,1);assert.ok((await page.locator('.completion-history').textContent()).includes('Earlier changes were not logged'));
   });

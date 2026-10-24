@@ -1,12 +1,12 @@
 {
-  "curriculum": 6,
-  "skills": 104,
-  "activeSteps": 264,
+  "curriculum": 7,
+  "skills": 154,
+  "activeSteps": 384,
   "archivedSteps": 36,
   "baselines": {
     "1.1.0": {
       "commit": "739a5ce",
-      "unchanged": 200,
+      "unchanged": 183,
       "changes": [
         {
           "id": "FREE-1",
@@ -20,44 +20,114 @@
           "reason": "Any comfortable position supports release; a finished sit was an artificial gate."
         },
         {
-          "id": "LEAVE-2",
+          "id": "RECALL-1",
           "before": [
             [
-              "LEAVE-1",
-              3
-            ]
-          ],
-          "after": [
-            [
-              "LEAVE-1",
-              3
-            ],
-            [
-              "HARNESS-3",
+              "NAME-2",
               2
             ]
           ],
-          "reason": "Floor practice uses a leash and harness to prevent access, so comfortable equipment is required."
+          "after": [],
+          "reason": "A distinct recall cue can be paired directly with approach; responding to the dog’s name is independent."
         },
         {
-          "id": "TURN-2",
+          "id": "SETTLE-1",
           "before": [
             [
-              "TURN-1",
-              3
+              "MAT-2",
+              2
             ]
           ],
-          "after": [
+          "after": [],
+          "reason": "Voluntary rest on a comfortable mat can be captured without a trained go-to-mat cue."
+        },
+        {
+          "id": "RESTHEAD-1",
+          "before": [
             [
-              "TURN-1",
-              3
-            ],
+              "CHIN-1",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "This step teaches cushion contact directly; a hand chin rest is only an optional prompt."
+        },
+        {
+          "id": "LOOSE-1",
+          "before": [
             [
               "HARNESS-3",
               2
             ]
           ],
-          "reason": "Leashed turns require comfortable equipment, without gating the leash-free introduction."
+          "after": [],
+          "reason": "Comfortable secure equipment is checked directly; recording a harness lesson is not a necessary learned component."
+        },
+        {
+          "id": "PASS-1",
+          "before": [
+            [
+              "PARALLEL-2",
+              3
+            ],
+            [
+              "TURN-3",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "DOG-2",
+              3
+            ],
+            [
+              "TURN-2",
+              3
+            ]
+          ],
+          "reason": "The first pass uses a stationary comfortable helper and a rehearsed exit; completed parallel moving-dog walks and sniff interruptions are unnecessary gates."
+        },
+        {
+          "id": "PASS-2",
+          "before": [
+            [
+              "PASS-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "PASS-1",
+              3
+            ],
+            [
+              "DOG-3",
+              3
+            ]
+          ],
+          "reason": "The moving-helper pass now explicitly needs comfortable dog movement at the step that introduces it."
+        },
+        {
+          "id": "STORM-1",
+          "before": [
+            [
+              "SAFE-1",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "Support and management must be accessible immediately; this step rehearses the refuge itself without requiring an earlier grade."
+        },
+        {
+          "id": "NAIL-2",
+          "before": [
+            [
+              "NAIL-1",
+              3
+            ]
+          ],
+          "after": [],
+          "reason": "Tool sight and sound can be conditioned separately from paw touch; this step stops before contact or clipping."
         },
         {
           "id": "TEETH-1",
@@ -89,6 +159,42 @@
             ]
           ],
           "reason": "Lip touch uses the voluntary start/exit signal established by CHIN-2."
+        },
+        {
+          "id": "FETCH-1",
+          "before": [
+            [
+              "CARRY-2",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "GIVE-2",
+              3
+            ]
+          ],
+          "reason": "A stationary pickup from a lower surface uses known take/hold/give, covered by hand delivery; traveling carries are not used until the next step."
+        },
+        {
+          "id": "FETCH-2",
+          "before": [
+            [
+              "FETCH-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "FETCH-1",
+              3
+            ],
+            [
+              "CARRY-2",
+              3
+            ]
+          ],
+          "reason": "The short outward retrieve now explicitly requires carrying at the step that introduces travel."
         },
         {
           "id": "BOX-1",
@@ -294,6 +400,86 @@
           "reason": "Joining opening and pickup requires OPEN-3; PULL-3 is directly visible here as well."
         },
         {
+          "id": "RECALLCTX-1",
+          "before": [
+            [
+              "RECALL-2",
+              3
+            ],
+            [
+              "HARNESS-3",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "RECALL-2",
+              3
+            ]
+          ],
+          "reason": "The indoor recall transfers; comfortable fitted long-line equipment is a safety condition, not an extra obedience prerequisite."
+        },
+        {
+          "id": "MATCTX-1",
+          "before": [
+            [
+              "MAT-2",
+              3
+            ],
+            [
+              "SETTLE-2",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "MAT-2",
+              3
+            ]
+          ],
+          "reason": "Moving the mat cue to a new room precedes resting and need not wait for settled duration."
+        },
+        {
+          "id": "MATCTX-2",
+          "before": [
+            [
+              "MATCTX-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "MATCTX-1",
+              3
+            ],
+            [
+              "SETTLE-2",
+              3
+            ]
+          ],
+          "reason": "The quiet-rest component is required at the step that actually transfers it."
+        },
+        {
+          "id": "WALKCTX-1",
+          "before": [
+            [
+              "LOOSE-3",
+              3
+            ],
+            [
+              "TURN-2",
+              2
+            ]
+          ],
+          "after": [
+            [
+              "LOOSE-3",
+              3
+            ]
+          ],
+          "reason": "Transfer uses loose walking; a turn-away remains a useful optional exit, not part of the taught walking action."
+        },
+        {
           "id": "WEAVE-2",
           "before": [
             [
@@ -328,6 +514,22 @@
             ]
           ],
           "reason": "The joined figure eight requires both independent loops."
+        },
+        {
+          "id": "WAVE-1",
+          "before": [
+            [
+              "HIGHFIVE-2",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "PAW-1",
+              3
+            ]
+          ],
+          "reason": "A small offered paw lift is sufficient; turning the palm into a high five is an optional detour."
         },
         {
           "id": "TOYNAME-1",
@@ -417,6 +619,57 @@
             ]
           ],
           "reason": "Mixed symbol choices require both symbol-action pairings."
+        },
+        {
+          "id": "HOOP-1",
+          "before": [
+            [
+              "TOUCH-2",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "Exploring an opening and following a small optional lure can be taught directly; a finished hand target unnecessarily blocks exploration."
+        },
+        {
+          "id": "SLIPPERS-1",
+          "before": [
+            [
+              "FETCH-2",
+              3
+            ],
+            [
+              "GIVE-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "GIVE-2",
+              3
+            ]
+          ],
+          "reason": "Hand presentation uses take and give; the floor retrieve belongs at the floor step."
+        },
+        {
+          "id": "SLIPPERS-2",
+          "before": [
+            [
+              "SLIPPERS-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "SLIPPERS-1",
+              3
+            ],
+            [
+              "FETCH-2",
+              3
+            ]
+          ],
+          "reason": "Floor pickup and delivery now explicitly require the reusable retrieve at the point of use."
         },
         {
           "id": "POUCH-1",
@@ -533,53 +786,134 @@
             ]
           ],
           "reason": "The floor cloth pickup explicitly requires FETCH-2 when it is introduced."
+        },
+        {
+          "id": "BOXFIND-1",
+          "before": [
+            [
+              "SEARCH-1",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "An obvious reward in one open box teaches its own search; another food-search lesson adds no necessary component."
         }
       ],
       "archived": []
     },
     "1.1.1": {
       "commit": "014e777",
-      "unchanged": 204,
+      "unchanged": 187,
       "changes": [
         {
-          "id": "LEAVE-2",
+          "id": "RECALL-1",
           "before": [
             [
-              "LEAVE-1",
-              3
-            ]
-          ],
-          "after": [
-            [
-              "LEAVE-1",
-              3
-            ],
-            [
-              "HARNESS-3",
+              "NAME-2",
               2
             ]
           ],
-          "reason": "Floor practice uses a leash and harness to prevent access, so comfortable equipment is required."
+          "after": [],
+          "reason": "A distinct recall cue can be paired directly with approach; responding to the dog’s name is independent."
         },
         {
-          "id": "TURN-2",
+          "id": "SETTLE-1",
           "before": [
             [
-              "TURN-1",
-              3
+              "MAT-2",
+              2
             ]
           ],
-          "after": [
+          "after": [],
+          "reason": "Voluntary rest on a comfortable mat can be captured without a trained go-to-mat cue."
+        },
+        {
+          "id": "RESTHEAD-1",
+          "before": [
             [
-              "TURN-1",
-              3
-            ],
+              "CHIN-1",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "This step teaches cushion contact directly; a hand chin rest is only an optional prompt."
+        },
+        {
+          "id": "LOOSE-1",
+          "before": [
             [
               "HARNESS-3",
               2
             ]
           ],
-          "reason": "Leashed turns require comfortable equipment, without gating the leash-free introduction."
+          "after": [],
+          "reason": "Comfortable secure equipment is checked directly; recording a harness lesson is not a necessary learned component."
+        },
+        {
+          "id": "PASS-1",
+          "before": [
+            [
+              "PARALLEL-2",
+              3
+            ],
+            [
+              "TURN-3",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "DOG-2",
+              3
+            ],
+            [
+              "TURN-2",
+              3
+            ]
+          ],
+          "reason": "The first pass uses a stationary comfortable helper and a rehearsed exit; completed parallel moving-dog walks and sniff interruptions are unnecessary gates."
+        },
+        {
+          "id": "PASS-2",
+          "before": [
+            [
+              "PASS-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "PASS-1",
+              3
+            ],
+            [
+              "DOG-3",
+              3
+            ]
+          ],
+          "reason": "The moving-helper pass now explicitly needs comfortable dog movement at the step that introduces it."
+        },
+        {
+          "id": "STORM-1",
+          "before": [
+            [
+              "SAFE-1",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "Support and management must be accessible immediately; this step rehearses the refuge itself without requiring an earlier grade."
+        },
+        {
+          "id": "NAIL-2",
+          "before": [
+            [
+              "NAIL-1",
+              3
+            ]
+          ],
+          "after": [],
+          "reason": "Tool sight and sound can be conditioned separately from paw touch; this step stops before contact or clipping."
         },
         {
           "id": "TEETH-1",
@@ -611,6 +945,42 @@
             ]
           ],
           "reason": "Lip touch uses the voluntary start/exit signal established by CHIN-2."
+        },
+        {
+          "id": "FETCH-1",
+          "before": [
+            [
+              "CARRY-2",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "GIVE-2",
+              3
+            ]
+          ],
+          "reason": "A stationary pickup from a lower surface uses known take/hold/give, covered by hand delivery; traveling carries are not used until the next step."
+        },
+        {
+          "id": "FETCH-2",
+          "before": [
+            [
+              "FETCH-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "FETCH-1",
+              3
+            ],
+            [
+              "CARRY-2",
+              3
+            ]
+          ],
+          "reason": "The short outward retrieve now explicitly requires carrying at the step that introduces travel."
         },
         {
           "id": "OPEN-1",
@@ -800,6 +1170,22 @@
           "reason": "The joined figure eight requires both independent loops."
         },
         {
+          "id": "WAVE-1",
+          "before": [
+            [
+              "HIGHFIVE-2",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "PAW-1",
+              3
+            ]
+          ],
+          "reason": "A small offered paw lift is sufficient; turning the palm into a high five is an optional detour."
+        },
+        {
           "id": "TOYNAME-1",
           "before": [
             [
@@ -887,6 +1273,137 @@
             ]
           ],
           "reason": "Mixed symbol choices require both symbol-action pairings."
+        },
+        {
+          "id": "RECALLCTX-1",
+          "before": [
+            [
+              "RECALL-2",
+              3
+            ],
+            [
+              "HARNESS-3",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "RECALL-2",
+              3
+            ]
+          ],
+          "reason": "The indoor recall transfers; comfortable fitted long-line equipment is a safety condition, not an extra obedience prerequisite."
+        },
+        {
+          "id": "MATCTX-1",
+          "before": [
+            [
+              "MAT-2",
+              3
+            ],
+            [
+              "SETTLE-2",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "MAT-2",
+              3
+            ]
+          ],
+          "reason": "Moving the mat cue to a new room precedes resting and need not wait for settled duration."
+        },
+        {
+          "id": "MATCTX-2",
+          "before": [
+            [
+              "MATCTX-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "MATCTX-1",
+              3
+            ],
+            [
+              "SETTLE-2",
+              3
+            ]
+          ],
+          "reason": "The quiet-rest component is required at the step that actually transfers it."
+        },
+        {
+          "id": "WALKCTX-1",
+          "before": [
+            [
+              "LOOSE-3",
+              3
+            ],
+            [
+              "TURN-2",
+              2
+            ]
+          ],
+          "after": [
+            [
+              "LOOSE-3",
+              3
+            ]
+          ],
+          "reason": "Transfer uses loose walking; a turn-away remains a useful optional exit, not part of the taught walking action."
+        },
+        {
+          "id": "HOOP-1",
+          "before": [
+            [
+              "TOUCH-2",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "Exploring an opening and following a small optional lure can be taught directly; a finished hand target unnecessarily blocks exploration."
+        },
+        {
+          "id": "SLIPPERS-1",
+          "before": [
+            [
+              "FETCH-2",
+              3
+            ],
+            [
+              "GIVE-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "GIVE-2",
+              3
+            ]
+          ],
+          "reason": "Hand presentation uses take and give; the floor retrieve belongs at the floor step."
+        },
+        {
+          "id": "SLIPPERS-2",
+          "before": [
+            [
+              "SLIPPERS-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "SLIPPERS-1",
+              3
+            ],
+            [
+              "FETCH-2",
+              3
+            ]
+          ],
+          "reason": "Floor pickup and delivery now explicitly require the reusable retrieve at the point of use."
         },
         {
           "id": "POUCH-1",
@@ -1003,53 +1520,134 @@
             ]
           ],
           "reason": "The floor cloth pickup explicitly requires FETCH-2 when it is introduced."
+        },
+        {
+          "id": "BOXFIND-1",
+          "before": [
+            [
+              "SEARCH-1",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "An obvious reward in one open box teaches its own search; another food-search lesson adds no necessary component."
         }
       ],
       "archived": []
     },
     "1.2.0": {
       "commit": "ba0d69a",
-      "unchanged": 209,
+      "unchanged": 192,
       "changes": [
         {
-          "id": "LEAVE-2",
+          "id": "RECALL-1",
           "before": [
             [
-              "LEAVE-1",
-              3
-            ]
-          ],
-          "after": [
-            [
-              "LEAVE-1",
-              3
-            ],
-            [
-              "HARNESS-3",
+              "NAME-2",
               2
             ]
           ],
-          "reason": "Floor practice uses a leash and harness to prevent access, so comfortable equipment is required."
+          "after": [],
+          "reason": "A distinct recall cue can be paired directly with approach; responding to the dog’s name is independent."
         },
         {
-          "id": "TURN-2",
+          "id": "SETTLE-1",
           "before": [
             [
-              "TURN-1",
-              3
+              "MAT-2",
+              2
             ]
           ],
-          "after": [
+          "after": [],
+          "reason": "Voluntary rest on a comfortable mat can be captured without a trained go-to-mat cue."
+        },
+        {
+          "id": "RESTHEAD-1",
+          "before": [
             [
-              "TURN-1",
-              3
-            ],
+              "CHIN-1",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "This step teaches cushion contact directly; a hand chin rest is only an optional prompt."
+        },
+        {
+          "id": "LOOSE-1",
+          "before": [
             [
               "HARNESS-3",
               2
             ]
           ],
-          "reason": "Leashed turns require comfortable equipment, without gating the leash-free introduction."
+          "after": [],
+          "reason": "Comfortable secure equipment is checked directly; recording a harness lesson is not a necessary learned component."
+        },
+        {
+          "id": "PASS-1",
+          "before": [
+            [
+              "PARALLEL-2",
+              3
+            ],
+            [
+              "TURN-3",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "DOG-2",
+              3
+            ],
+            [
+              "TURN-2",
+              3
+            ]
+          ],
+          "reason": "The first pass uses a stationary comfortable helper and a rehearsed exit; completed parallel moving-dog walks and sniff interruptions are unnecessary gates."
+        },
+        {
+          "id": "PASS-2",
+          "before": [
+            [
+              "PASS-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "PASS-1",
+              3
+            ],
+            [
+              "DOG-3",
+              3
+            ]
+          ],
+          "reason": "The moving-helper pass now explicitly needs comfortable dog movement at the step that introduces it."
+        },
+        {
+          "id": "STORM-1",
+          "before": [
+            [
+              "SAFE-1",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "Support and management must be accessible immediately; this step rehearses the refuge itself without requiring an earlier grade."
+        },
+        {
+          "id": "NAIL-2",
+          "before": [
+            [
+              "NAIL-1",
+              3
+            ]
+          ],
+          "after": [],
+          "reason": "Tool sight and sound can be conditioned separately from paw touch; this step stops before contact or clipping."
         },
         {
           "id": "TEETH-1",
@@ -1081,6 +1679,122 @@
             ]
           ],
           "reason": "Lip touch uses the voluntary start/exit signal established by CHIN-2."
+        },
+        {
+          "id": "FETCH-1",
+          "before": [
+            [
+              "CARRY-2",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "GIVE-2",
+              3
+            ]
+          ],
+          "reason": "A stationary pickup from a lower surface uses known take/hold/give, covered by hand delivery; traveling carries are not used until the next step."
+        },
+        {
+          "id": "FETCH-2",
+          "before": [
+            [
+              "FETCH-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "FETCH-1",
+              3
+            ],
+            [
+              "CARRY-2",
+              3
+            ]
+          ],
+          "reason": "The short outward retrieve now explicitly requires carrying at the step that introduces travel."
+        },
+        {
+          "id": "RECALLCTX-1",
+          "before": [
+            [
+              "RECALL-2",
+              3
+            ],
+            [
+              "HARNESS-3",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "RECALL-2",
+              3
+            ]
+          ],
+          "reason": "The indoor recall transfers; comfortable fitted long-line equipment is a safety condition, not an extra obedience prerequisite."
+        },
+        {
+          "id": "MATCTX-1",
+          "before": [
+            [
+              "MAT-2",
+              3
+            ],
+            [
+              "SETTLE-2",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "MAT-2",
+              3
+            ]
+          ],
+          "reason": "Moving the mat cue to a new room precedes resting and need not wait for settled duration."
+        },
+        {
+          "id": "MATCTX-2",
+          "before": [
+            [
+              "MATCTX-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "MATCTX-1",
+              3
+            ],
+            [
+              "SETTLE-2",
+              3
+            ]
+          ],
+          "reason": "The quiet-rest component is required at the step that actually transfers it."
+        },
+        {
+          "id": "WALKCTX-1",
+          "before": [
+            [
+              "LOOSE-3",
+              3
+            ],
+            [
+              "TURN-2",
+              2
+            ]
+          ],
+          "after": [
+            [
+              "LOOSE-3",
+              3
+            ]
+          ],
+          "reason": "Transfer uses loose walking; a turn-away remains a useful optional exit, not part of the taught walking action."
         },
         {
           "id": "WEAVE-2",
@@ -1119,6 +1833,22 @@
           "reason": "The joined figure eight requires both independent loops."
         },
         {
+          "id": "WAVE-1",
+          "before": [
+            [
+              "HIGHFIVE-2",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "PAW-1",
+              3
+            ]
+          ],
+          "reason": "A small offered paw lift is sufficient; turning the palm into a high five is an optional detour."
+        },
+        {
           "id": "TOYNAME-1",
           "before": [
             [
@@ -1206,6 +1936,57 @@
             ]
           ],
           "reason": "Mixed symbol choices require both symbol-action pairings."
+        },
+        {
+          "id": "HOOP-1",
+          "before": [
+            [
+              "TOUCH-2",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "Exploring an opening and following a small optional lure can be taught directly; a finished hand target unnecessarily blocks exploration."
+        },
+        {
+          "id": "SLIPPERS-1",
+          "before": [
+            [
+              "FETCH-2",
+              3
+            ],
+            [
+              "GIVE-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "GIVE-2",
+              3
+            ]
+          ],
+          "reason": "Hand presentation uses take and give; the floor retrieve belongs at the floor step."
+        },
+        {
+          "id": "SLIPPERS-2",
+          "before": [
+            [
+              "SLIPPERS-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "SLIPPERS-1",
+              3
+            ],
+            [
+              "FETCH-2",
+              3
+            ]
+          ],
+          "reason": "Floor pickup and delivery now explicitly require the reusable retrieve at the point of use."
         },
         {
           "id": "POUCH-1",
@@ -1322,6 +2103,17 @@
             ]
           ],
           "reason": "The floor cloth pickup explicitly requires FETCH-2 when it is introduced."
+        },
+        {
+          "id": "BOXFIND-1",
+          "before": [
+            [
+              "SEARCH-1",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "An obvious reward in one open box teaches its own search; another food-search lesson adds no necessary component."
         },
         {
           "id": "SHELF-1",
@@ -1570,6 +2362,357 @@
           "replacement": "POST-D"
         }
       ]
+    },
+    "1.3.0": {
+      "commit": "e6022443efc0abe90b34cd8444afdec0e89024ba",
+      "unchanged": 243,
+      "changes": [
+        {
+          "id": "LEAVE-2",
+          "before": [
+            [
+              "LEAVE-1",
+              3
+            ],
+            [
+              "HARNESS-3",
+              2
+            ]
+          ],
+          "after": [
+            [
+              "LEAVE-1",
+              3
+            ]
+          ],
+          "reason": "A protected floor item can be taught behind a barrier; wearing a harness is a setup option, not a learning component."
+        },
+        {
+          "id": "RECALL-1",
+          "before": [
+            [
+              "NAME-2",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "A distinct recall cue can be paired directly with approach; responding to the dog’s name is independent."
+        },
+        {
+          "id": "SETTLE-1",
+          "before": [
+            [
+              "MAT-2",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "Voluntary rest on a comfortable mat can be captured without a trained go-to-mat cue."
+        },
+        {
+          "id": "RESTHEAD-1",
+          "before": [
+            [
+              "CHIN-1",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "This step teaches cushion contact directly; a hand chin rest is only an optional prompt."
+        },
+        {
+          "id": "LOOSE-1",
+          "before": [
+            [
+              "HARNESS-3",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "Comfortable secure equipment is checked directly; recording a harness lesson is not a necessary learned component."
+        },
+        {
+          "id": "TURN-2",
+          "before": [
+            [
+              "TURN-1",
+              3
+            ],
+            [
+              "HARNESS-3",
+              2
+            ]
+          ],
+          "after": [
+            [
+              "TURN-1",
+              3
+            ]
+          ],
+          "reason": "The learned turn is necessary; suitable comfortable equipment is a direct setup check rather than a mandatory harness grade."
+        },
+        {
+          "id": "PASS-1",
+          "before": [
+            [
+              "PARALLEL-2",
+              3
+            ],
+            [
+              "TURN-3",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "DOG-2",
+              3
+            ],
+            [
+              "TURN-2",
+              3
+            ]
+          ],
+          "reason": "The first pass uses a stationary comfortable helper and a rehearsed exit; completed parallel moving-dog walks and sniff interruptions are unnecessary gates."
+        },
+        {
+          "id": "PASS-2",
+          "before": [
+            [
+              "PASS-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "PASS-1",
+              3
+            ],
+            [
+              "DOG-3",
+              3
+            ]
+          ],
+          "reason": "The moving-helper pass now explicitly needs comfortable dog movement at the step that introduces it."
+        },
+        {
+          "id": "STORM-1",
+          "before": [
+            [
+              "SAFE-1",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "Support and management must be accessible immediately; this step rehearses the refuge itself without requiring an earlier grade."
+        },
+        {
+          "id": "NAIL-2",
+          "before": [
+            [
+              "NAIL-1",
+              3
+            ]
+          ],
+          "after": [],
+          "reason": "Tool sight and sound can be conditioned separately from paw touch; this step stops before contact or clipping."
+        },
+        {
+          "id": "FETCH-1",
+          "before": [
+            [
+              "CARRY-2",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "GIVE-2",
+              3
+            ]
+          ],
+          "reason": "A stationary pickup from a lower surface uses known take/hold/give, covered by hand delivery; traveling carries are not used until the next step."
+        },
+        {
+          "id": "FETCH-2",
+          "before": [
+            [
+              "FETCH-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "FETCH-1",
+              3
+            ],
+            [
+              "CARRY-2",
+              3
+            ]
+          ],
+          "reason": "The short outward retrieve now explicitly requires carrying at the step that introduces travel."
+        },
+        {
+          "id": "RECALLCTX-1",
+          "before": [
+            [
+              "RECALL-2",
+              3
+            ],
+            [
+              "HARNESS-3",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "RECALL-2",
+              3
+            ]
+          ],
+          "reason": "The indoor recall transfers; comfortable fitted long-line equipment is a safety condition, not an extra obedience prerequisite."
+        },
+        {
+          "id": "MATCTX-1",
+          "before": [
+            [
+              "MAT-2",
+              3
+            ],
+            [
+              "SETTLE-2",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "MAT-2",
+              3
+            ]
+          ],
+          "reason": "Moving the mat cue to a new room precedes resting and need not wait for settled duration."
+        },
+        {
+          "id": "MATCTX-2",
+          "before": [
+            [
+              "MATCTX-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "MATCTX-1",
+              3
+            ],
+            [
+              "SETTLE-2",
+              3
+            ]
+          ],
+          "reason": "The quiet-rest component is required at the step that actually transfers it."
+        },
+        {
+          "id": "WALKCTX-1",
+          "before": [
+            [
+              "LOOSE-3",
+              3
+            ],
+            [
+              "TURN-2",
+              2
+            ]
+          ],
+          "after": [
+            [
+              "LOOSE-3",
+              3
+            ]
+          ],
+          "reason": "Transfer uses loose walking; a turn-away remains a useful optional exit, not part of the taught walking action."
+        },
+        {
+          "id": "WAVE-1",
+          "before": [
+            [
+              "HIGHFIVE-2",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "PAW-1",
+              3
+            ]
+          ],
+          "reason": "A small offered paw lift is sufficient; turning the palm into a high five is an optional detour."
+        },
+        {
+          "id": "HOOP-1",
+          "before": [
+            [
+              "TOUCH-2",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "Exploring an opening and following a small optional lure can be taught directly; a finished hand target unnecessarily blocks exploration."
+        },
+        {
+          "id": "SLIPPERS-1",
+          "before": [
+            [
+              "FETCH-2",
+              3
+            ],
+            [
+              "GIVE-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "GIVE-2",
+              3
+            ]
+          ],
+          "reason": "Hand presentation uses take and give; the floor retrieve belongs at the floor step."
+        },
+        {
+          "id": "SLIPPERS-2",
+          "before": [
+            [
+              "SLIPPERS-1",
+              3
+            ]
+          ],
+          "after": [
+            [
+              "SLIPPERS-1",
+              3
+            ],
+            [
+              "FETCH-2",
+              3
+            ]
+          ],
+          "reason": "Floor pickup and delivery now explicitly require the reusable retrieve at the point of use."
+        },
+        {
+          "id": "BOXFIND-1",
+          "before": [
+            [
+              "SEARCH-1",
+              2
+            ]
+          ],
+          "after": [],
+          "reason": "An obvious reward in one open box teaches its own search; another food-search lesson adds no necessary component."
+        }
+      ],
+      "archived": []
     }
   },
   "newProjects": [
@@ -1678,6 +2821,424 @@
       "requiredSteps": 12,
       "totalSteps": 12,
       "assemblySteps": 4
+    },
+    {
+      "code": "RALLY",
+      "title": "A little rally route",
+      "modules": [
+        {
+          "code": "HEEL",
+          "optional": false,
+          "steps": 4
+        },
+        {
+          "code": "STAND",
+          "optional": false,
+          "steps": 1
+        },
+        {
+          "code": "CONE",
+          "optional": false,
+          "steps": 2
+        },
+        {
+          "code": "RALLY",
+          "optional": false,
+          "steps": 3
+        }
+      ],
+      "requiredSteps": 10,
+      "totalSteps": 10,
+      "assemblySteps": 3
+    },
+    {
+      "code": "CIRCUIT",
+      "title": "A floor-level adventure circuit",
+      "modules": [
+        {
+          "code": "HOOP",
+          "optional": false,
+          "steps": 2
+        },
+        {
+          "code": "TUNNEL",
+          "optional": false,
+          "steps": 3
+        },
+        {
+          "code": "POLES",
+          "optional": false,
+          "steps": 2
+        },
+        {
+          "code": "CIRCUIT",
+          "optional": false,
+          "steps": 3
+        }
+      ],
+      "requiredSteps": 10,
+      "totalSteps": 10,
+      "assemblySteps": 3
+    },
+    {
+      "code": "SCENTREPORT",
+      "title": "Find, show and report a scent",
+      "modules": [
+        {
+          "code": "ARTICLE",
+          "optional": false,
+          "steps": 2
+        },
+        {
+          "code": "SCENTINDICATE",
+          "optional": false,
+          "steps": 2
+        },
+        {
+          "code": "TOUCH",
+          "optional": false,
+          "steps": 2
+        },
+        {
+          "code": "SCENTREPORT",
+          "optional": false,
+          "steps": 3
+        }
+      ],
+      "requiredSteps": 9,
+      "totalSteps": 9,
+      "assemblySteps": 3
+    },
+    {
+      "code": "ROUTINE",
+      "title": "A short cooperative trick routine",
+      "modules": [
+        {
+          "code": "BOW",
+          "optional": false,
+          "steps": 3
+        },
+        {
+          "code": "CIRCLEME",
+          "optional": false,
+          "steps": 2
+        },
+        {
+          "code": "POSE",
+          "optional": false,
+          "steps": 2
+        },
+        {
+          "code": "ROUTINE",
+          "optional": false,
+          "steps": 3
+        }
+      ],
+      "requiredSteps": 10,
+      "totalSteps": 10,
+      "assemblySteps": 3
+    }
+  ],
+  "addedSkills": [
+    {
+      "code": "STAY",
+      "title": "Stay until released",
+      "category": "Foundations",
+      "steps": 3
+    },
+    {
+      "code": "STOP",
+      "title": "Stop and stand on cue",
+      "category": "Foundations",
+      "steps": 3
+    },
+    {
+      "code": "FRONT",
+      "title": "Come to a front position",
+      "category": "Foundations",
+      "steps": 2
+    },
+    {
+      "code": "FOODWAIT",
+      "title": "Wait for a food-bowl invitation",
+      "category": "Foundations",
+      "steps": 2
+    },
+    {
+      "code": "CRATE",
+      "title": "Rest comfortably in a closed crate",
+      "category": "Calm at home",
+      "steps": 3
+    },
+    {
+      "code": "VACATE",
+      "title": "Get off furniture on cue",
+      "category": "Calm at home",
+      "steps": 2
+    },
+    {
+      "code": "ALLDONE",
+      "title": "Finish an activity and move on",
+      "category": "Calm at home",
+      "steps": 2
+    },
+    {
+      "code": "HEEL",
+      "title": "Heel on cue",
+      "category": "Walk skills",
+      "steps": 4
+    },
+    {
+      "code": "RHYTHM",
+      "title": "Counted walking rhythm",
+      "category": "Walk skills",
+      "steps": 2
+    },
+    {
+      "code": "CURB",
+      "title": "Pause at a curb",
+      "category": "Walk skills",
+      "steps": 2
+    },
+    {
+      "code": "CROSS",
+      "title": "Cross a quiet road together",
+      "category": "Walk skills",
+      "steps": 2
+    },
+    {
+      "code": "SLOW",
+      "title": "Match a slower walking pace",
+      "category": "Walk skills",
+      "steps": 2
+    },
+    {
+      "code": "WALKPAUSE",
+      "title": "Pause while the handler stops",
+      "category": "Walk skills",
+      "steps": 2
+    },
+    {
+      "code": "HANDOFF",
+      "title": "Change leash handlers comfortably",
+      "category": "People and door",
+      "steps": 3
+    },
+    {
+      "code": "ELEVATOR",
+      "title": "Ride a quiet elevator comfortably",
+      "category": "Sounds and novelty",
+      "steps": 3
+    },
+    {
+      "code": "AUTODOOR",
+      "title": "Pass through automatic doors",
+      "category": "Sounds and novelty",
+      "steps": 2
+    },
+    {
+      "code": "CLIP",
+      "title": "Accept a leash clip",
+      "category": "Care and equipment",
+      "steps": 2
+    },
+    {
+      "code": "COLLAR",
+      "title": "Comfortable collar contact",
+      "category": "Care and equipment",
+      "steps": 2
+    },
+    {
+      "code": "RINSE",
+      "title": "Step into a shallow paw rinse",
+      "category": "Care and equipment",
+      "steps": 3
+    },
+    {
+      "code": "EAR",
+      "title": "Offer an outer-ear check",
+      "category": "Care and equipment",
+      "steps": 2
+    },
+    {
+      "code": "SIDELIE",
+      "title": "Lie comfortably on one side",
+      "category": "Care and equipment",
+      "steps": 3
+    },
+    {
+      "code": "RAMP",
+      "title": "Walk a low stable ramp",
+      "category": "Care and equipment",
+      "steps": 2
+    },
+    {
+      "code": "SCRATCH",
+      "title": "Scratch a designated board",
+      "category": "Care and equipment",
+      "steps": 2
+    },
+    {
+      "code": "BREAKBUTTON",
+      "title": "Press to request a break",
+      "category": "Care and equipment",
+      "steps": 2
+    },
+    {
+      "code": "CROSSPAW",
+      "title": "Rest with crossed front paws",
+      "category": "Clever companions",
+      "steps": 2
+    },
+    {
+      "code": "TILT",
+      "title": "A little head tilt",
+      "category": "Clever companions",
+      "steps": 2
+    },
+    {
+      "code": "SHAKEOFF",
+      "title": "Shake off on cue",
+      "category": "Clever companions",
+      "steps": 2
+    },
+    {
+      "code": "CIRCLEME",
+      "title": "Circle around the handler",
+      "category": "Clever companions",
+      "steps": 2
+    },
+    {
+      "code": "UNROLL",
+      "title": "Unroll a short mat",
+      "category": "Clever companions",
+      "steps": 2
+    },
+    {
+      "code": "LEFTRIGHT",
+      "title": "Choose left or right targets",
+      "category": "Clever companions",
+      "steps": 3
+    },
+    {
+      "code": "NOD",
+      "title": "A small nose-target nod",
+      "category": "Clever companions",
+      "steps": 2
+    },
+    {
+      "code": "POINT",
+      "title": "Follow a pointing gesture",
+      "category": "Clever companions",
+      "steps": 2
+    },
+    {
+      "code": "REAR",
+      "title": "Rear feet on a flat target",
+      "category": "Body awareness",
+      "steps": 3
+    },
+    {
+      "code": "SIDESTEP",
+      "title": "Take a sideways step",
+      "category": "Body awareness",
+      "steps": 2
+    },
+    {
+      "code": "PIVOT",
+      "title": "Move the rear feet around a flat target",
+      "category": "Body awareness",
+      "steps": 2
+    },
+    {
+      "code": "UNDER",
+      "title": "Walk under a roomy obstacle",
+      "category": "Body awareness",
+      "steps": 2
+    },
+    {
+      "code": "POLES",
+      "title": "Step over ground poles",
+      "category": "Body awareness",
+      "steps": 2
+    },
+    {
+      "code": "SURFACE",
+      "title": "Choose unfamiliar safe surfaces",
+      "category": "Body awareness",
+      "steps": 2
+    },
+    {
+      "code": "TOILETBELL",
+      "title": "Ring to request a toilet trip",
+      "category": "Useful little jobs",
+      "steps": 3
+    },
+    {
+      "code": "LIGHTPAD",
+      "title": "Turn on a lamp with a pad",
+      "category": "Useful little jobs",
+      "steps": 3
+    },
+    {
+      "code": "BLANKET",
+      "title": "Pull a lap blanket into place",
+      "category": "Useful little jobs",
+      "steps": 3
+    },
+    {
+      "code": "SCENTMATCH",
+      "title": "Choose a familiar human scent",
+      "category": "Scent adventures",
+      "steps": 3
+    },
+    {
+      "code": "TRACKPERSON",
+      "title": "Follow a short human trail",
+      "category": "Scent adventures",
+      "steps": 3
+    },
+    {
+      "code": "SCENTINDICATE",
+      "title": "Show a find with a quiet nose hover",
+      "category": "Scent adventures",
+      "steps": 2
+    },
+    {
+      "code": "ARTICLE",
+      "title": "Find a familiar scented article",
+      "category": "Scent adventures",
+      "steps": 2
+    },
+    {
+      "code": "DIG",
+      "title": "Dig in a designated patch",
+      "category": "Scent adventures",
+      "steps": 2
+    },
+    {
+      "code": "RALLY",
+      "title": "A little rally route",
+      "category": "Brainiacs",
+      "steps": 3
+    },
+    {
+      "code": "CIRCUIT",
+      "title": "A floor-level adventure circuit",
+      "category": "Brainiacs",
+      "steps": 3
+    },
+    {
+      "code": "SCENTREPORT",
+      "title": "Find, show and report a scent",
+      "category": "Brainiacs",
+      "steps": 3
+    },
+    {
+      "code": "ROUTINE",
+      "title": "A short cooperative trick routine",
+      "category": "Brainiacs",
+      "steps": 3
     }
   ]
 }

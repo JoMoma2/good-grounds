@@ -1,9 +1,0 @@
-{
-  "archive": "GoodGround-1.3.0-Source.zip",
-  "zipIntegrity": true,
-  "contentAndHistoricalAuditPassed": true,
-  "unitTestsPassed": 77,
-  "generatorReproducible": true,
-  "requiresGit": false,
-  "requiresNodeModulesForUnitTests": false
-}

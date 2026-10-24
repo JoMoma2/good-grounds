@@ -1,6 +1,6 @@
 {
-  "version": 6,
-  "updated": "2026-10-22",
+  "version": 7,
+  "updated": "2026-10-24",
   "name": "Good Ground",
   "skills": [
     {
@@ -262,17 +262,13 @@
         {
           "id": "LEAVE-2",
           "title": "Add the cue, then remove the barrier gradually",
-          "teach": "Say “leave” just before the familiar turn-away opportunity. Reward from you, away from the item. Once easy, use a safe item on the floor at more distance, with a leash/harness preventing accidental access without pulling. Reward the turn; reset before the dog approaches again.",
+          "teach": "Say “leave” just before the familiar look-away opportunity and reward from you, away from the item. Set a safe boring item on the floor behind a secure barrier or under a clear sturdy cover so it cannot be taken. Gradually reduce your gesture, then vary the item slightly. Keep protection in place until easy. A comfortable leash setup is optional; never pull the dog away or test with hazards.",
           "advance": "Turns away on one cue from the selected safe floor item on 4 of 5 attempts in two sessions.",
           "easier": "Replace the barrier or increase distance. Do not rehearse with toxic food or rely on this cue as your only safety measure.",
           "deps": [
             [
               "LEAVE-1",
               3
-            ],
-            [
-              "HARNESS-3",
-              2
             ]
           ]
         }
@@ -365,12 +361,7 @@
           "teach": "With your dog near you, say your recall word, take a welcoming step backward, and reward as they reach you. Reset by tossing a treat a little away, then call when they are easily able to return. Keep the cue different from their name.",
           "advance": "Returns over one or two steps in 4 of 5 quiet repetitions.",
           "easier": "Start closer and with less competing activity. Do not chase the dog or repeat a cue unlikely to succeed.",
-          "deps": [
-            [
-              "NAME-2",
-              2
-            ]
-          ]
+          "deps": []
         },
         {
           "id": "RECALL-2",
@@ -421,6 +412,178 @@
       ]
     },
     {
+      "code": "STAY",
+      "title": "Stay until released",
+      "sheet": "Foundations",
+      "goal": "Remain in a chosen comfortable position through a short pause or small handler movement.",
+      "cue": "Stay; free",
+      "setup": "A quiet enclosed room, non-slip floor and any comfortable position. Duration and distance grow separately.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "STAY-1",
+          "title": "Stay through a small pause",
+          "teach": "Invite a comfortable sit, stand or down. Say “stay,” reward in position after one second, then give the familiar release and invite movement. Mix immediate releases with tiny pauses. If the dog moves sooner, shorten the next pause; never put them back physically.",
+          "advance": "Holds the chosen position for three relaxed seconds and moves on release in 4 of 5 easy turns.",
+          "easier": "Use a one-second stand or a more comfortable surface. End rather than repeatedly resetting.",
+          "deps": [
+            [
+              "FREE-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "STAY-2",
+          "title": "One small step away",
+          "teach": "From the familiar short stay, shift one foot back, return immediately, and reward in position before releasing. Build one actual step away only after the shift is easy. Keep time short while movement is new, and face normally rather than looming or staring.",
+          "advance": "Stays comfortably through one step away and return in two short sessions.",
+          "easier": "Reduce to a weight shift. A stay is not a way to prevent retreat from something worrying.",
+          "deps": [
+            [
+              "STAY-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "STAY-3",
+          "title": "A modest everyday version",
+          "teach": "Alternate a brief stay while you turn slightly with an easier stationary pause. Change only one feature per turn. Build toward five to ten comfortable seconds or two steps away, returning to reward before release. Keep outdoor hazards and anxiety triggers outside this practice.",
+          "advance": "Responds to one stay cue through the chosen short duration and small movement in two easy sessions.",
+          "easier": "Keep either time or movement easier and record the actual version. Do not test out-of-sight endurance.",
+          "deps": [
+            [
+              "STAY-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": true
+    },
+    {
+      "code": "STOP",
+      "title": "Stop and stand on cue",
+      "sheet": "Foundations",
+      "goal": "Stop ordinary slow movement and remain standing for a brief moment.",
+      "cue": "Stop",
+      "setup": "An enclosed level space; no moving traffic. This cue never replaces a lead or secure boundary.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "STOP-1",
+          "title": "Name a nearby stop",
+          "teach": "Walk slowly beside your dog. Say “stop,” stop your own feet, and use the familiar stand signal if needed. Reward a brief balanced stand at nose height, then invite walking again. Keep your hand loose and never use a lead to brake the dog.",
+          "advance": "Stops into a comfortable stand beside you on 4 of 5 slow indoor turns.",
+          "easier": "Start from one step of movement or reward a natural pause. Do not practice with a running dog.",
+          "deps": [
+            [
+              "STAND-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "STOP-2",
+          "title": "Fade your own stopping prompt",
+          "teach": "During a slow approach from one or two steps away, say “stop” before your small stand signal. Reward at the dog’s position as soon as they stop; walk to them rather than calling them out of the stand. Gradually reduce your extra body motion.",
+          "advance": "Stops from a short slow approach on the cue and small signal in two easy sessions.",
+          "easier": "Return to walking together. Reward immediately where the dog stopped instead of asking for a prolonged hold.",
+          "deps": [
+            [
+              "STOP-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "STOP-3",
+          "title": "A little distance, still easy",
+          "teach": "With the dog strolling in the secure space, cue a stop when they are only a few steps away and able to respond. Reward at their position, then release. Mix nearby practice with the slightly farther version and keep speed slow throughout.",
+          "advance": "Stops comfortably a few steps away on 4 of 5 quiet opportunities across two sessions.",
+          "easier": "Reduce distance. This practice does not certify an emergency stop near roads or wildlife.",
+          "deps": [
+            [
+              "STOP-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": true
+    },
+    {
+      "code": "FRONT",
+      "title": "Come to a front position",
+      "sheet": "Foundations",
+      "goal": "Finish a short approach facing you with space between your feet and the dog.",
+      "cue": "Front",
+      "setup": "Non-slip enclosed space. A stand is as valid as a sit; no tight positioning or collisions.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "FRONT-1",
+          "title": "Find the space in front",
+          "teach": "Stand still and use a small reward invitation to guide a broad approach toward the space in front of you. Mark when the dog faces you a comfortable step away and feed there. Reset to one side. Keep your knees soft and avoid drawing the dog into your legs.",
+          "advance": "Offers a balanced position facing you from either easy starting side.",
+          "easier": "Use a shorter straight approach and reward before the dog crowds you. Never push the shoulders into alignment.",
+          "deps": []
+        },
+        {
+          "id": "FRONT-2",
+          "title": "Name the front finish",
+          "teach": "Say “front,” then give the familiar empty-hand invitation. Reward facing you, then release to reset. Reduce the gesture across easy turns and vary the starting spot slightly. Keep this a position cue; a separate recall can bring the dog from farther away later.",
+          "advance": "Finds the front position from a few steps away without visible food in 4 of 5 turns across two sessions.",
+          "easier": "Keep the hand gesture or use one starting spot. Precision is optional; comfortable orientation is the goal.",
+          "deps": [
+            [
+              "FRONT-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": true
+    },
+    {
+      "code": "FOODWAIT",
+      "title": "Wait for a food-bowl invitation",
+      "sheet": "Foundations",
+      "goal": "Pause briefly while a meal is placed and approach when invited.",
+      "cue": "Wait; eat",
+      "setup": "Use part of the normal meal and a quiet feeding area with one dog. Skip if food handling causes guarding or frustration; meals are never withheld for performance.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "FOODWAIT-1",
+          "title": "A tiny pause before placement",
+          "teach": "Hold the bowl at a comfortable height while your dog stands freely nearby. Reward a moment with all paws on the floor, say “eat,” and place the bowl down within easy reach. Begin with almost no delay. Never repeatedly lift a bowl away as the dog approaches.",
+          "advance": "Comfortably pauses a moment and approaches the placed bowl after the invitation.",
+          "easier": "Feed the meal normally. Practice with a nearly empty bowl and a separate tiny reward another time.",
+          "deps": []
+        },
+        {
+          "id": "FOODWAIT-2",
+          "title": "Lower once, then invite",
+          "teach": "Say “wait” before lowering the bowl a small amount, reward that brief pause, then say “eat” as you finish placing it. Gradually lower farther before the invitation, keeping the pause only a second or two. If the dog moves early, simplify the next turn without taking food away.",
+          "advance": "Waits comfortably through one calm bowl placement and approaches on invitation in two mealtimes.",
+          "easier": "Use a smaller lowering movement or an immediate invitation. No long waits, hovering hands over food, or interference while eating.",
+          "deps": [
+            [
+              "FOODWAIT-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": true
+    },
+    {
       "code": "MAT",
       "title": "Go to a mat",
       "sheet": "Calm at home",
@@ -466,15 +629,10 @@
         {
           "id": "SETTLE-1",
           "title": "Capture comfortable resting",
-          "teach": "Place the familiar mat near you during a quiet activity. When your dog chooses a comfortable lie-down, gently place a reward between the paws. Watch for soft eyes, an easy hip shift, or a head resting. Reward quietly so you do not turn this into excited repetition.",
+          "teach": "Place a comfortable mat near you during a quiet activity. When your dog chooses a comfortable lie-down, gently place a reward between the paws. Watch for soft eyes, an easy hip shift, or a head resting. Reward quietly so you do not turn this into excited repetition.",
           "advance": "Chooses to rest with visibly soft posture on several occasions; can leave and return freely.",
           "easier": "Use a quieter place or a preferred bed. Reward subtle softening; do not keep asking for down.",
-          "deps": [
-            [
-              "MAT-2",
-              2
-            ]
-          ]
+          "deps": []
         },
         {
           "id": "SETTLE-2",
@@ -599,12 +757,7 @@
           "teach": "Place the cushion at a comfortable natural chin height with the dog able to leave. Mark any voluntary chin contact and reward gently beside it. A known chin-rest invitation can help, but never lift or press the head into position.",
           "advance": "Voluntarily lowers the chin onto the cushion several times without tension or restraint.",
           "easier": "Use a flatter cushion, reward a small head dip, or return to a familiar hand chin rest.",
-          "deps": [
-            [
-              "CHIN-1",
-              2
-            ]
-          ]
+          "deps": []
         },
         {
           "id": "RESTHEAD-2",
@@ -620,6 +773,121 @@
           ]
         }
       ]
+    },
+    {
+      "code": "CRATE",
+      "title": "Rest comfortably in a closed crate",
+      "sheet": "Calm at home",
+      "goal": "Voluntarily enter a suitable crate and remain comfortable through a tiny attended door closure.",
+      "cue": "Crate; free",
+      "setup": "A roomy stable crate with a secured door and familiar bedding. Stay present. Skip confinement practice and seek individual help for panic; this does not establish alone-time tolerance.",
+      "sources": "A10; P11; P22; R01; A11",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "CRATE-1",
+          "title": "Choose to enter and exit",
+          "teach": "Secure the crate door fully open. Reward looking toward the entrance, then voluntary steps inside, placing rewards where the dog can reach without squeezing. Reward exits too. Build toward all four paws inside and turn around only if space allows. Never push, pull or close the door behind a hesitant dog.",
+          "advance": "Freely enters, turns comfortably and leaves, with willingness to return across two short sessions.",
+          "easier": "Remove the door or begin beside the opening. An open resting area is an equally valid choice.",
+          "deps": []
+        },
+        {
+          "id": "CRATE-2",
+          "title": "Door movement with an open exit",
+          "teach": "While the dog chooses to be inside, move the door an inch, reward, and open it fully again. Keep your body out of the exit. Slowly increase movement across short sessions; let any exit end the turn. The goal is comfortable door motion rather than keeping the dog inside.",
+          "advance": "Remains loose through gradual door movement and freely re-enters after breaks.",
+          "easier": "Move the door while the dog is outside first. Stop for vigilance, pawing, freezing or reluctance to return.",
+          "deps": [
+            [
+              "CRATE-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "CRATE-3",
+          "title": "A momentary attended closure",
+          "teach": "After easy full door movement, close and latch for less than a second, feed through safely, then reopen. Stay beside the crate and mix open-door turns with tiny closures. Build only a few comfortable seconds. Unlatch promptly at worry; never wait through distress for quiet.",
+          "advance": "Comfortable through several seconds of attended closure and willingly returns after an open-door break.",
+          "easier": "Return to open-door resting. Longer confinement, travel and absences each need a separate gradual plan.",
+          "deps": [
+            [
+              "CRATE-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "VACATE",
+      "title": "Get off furniture on cue",
+      "sheet": "Calm at home",
+      "goal": "Leave an allowed low resting surface voluntarily when invited.",
+      "cue": "Off",
+      "setup": "A low stable surface, non-slip landing and an unobstructed route. Use a ramp if needed. Skip for pain, sleep disturbance or resource guarding.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "VACATE-1",
+          "title": "Make leaving worthwhile",
+          "teach": "With the dog awake and comfortable on the low surface, place a reward on the safe landing or invite them down with a small lure. Mark as all feet reach the floor and reward there. Sometimes invite them back up if allowed so leaving does not always end access.",
+          "advance": "Voluntarily steps onto the safe landing in several relaxed repetitions.",
+          "easier": "Use a lower surface or reward a single step toward the exit. Never push, lift or grab a resting dog.",
+          "deps": []
+        },
+        {
+          "id": "VACATE-2",
+          "title": "Off before the invitation",
+          "teach": "Say “off,” pause, then give the familiar empty-hand gesture toward the safe route. Reward on the floor and offer another comfortable resting place. Gradually reduce the gesture, using one cue while the dog is awake. Keep the same secure landing throughout early practice.",
+          "advance": "Leaves the low surface on the cue with a small gesture and no visible food in two short sessions.",
+          "easier": "Keep the gesture and reward generously. Use management and individual help if approaches to furniture create tension.",
+          "deps": [
+            [
+              "VACATE-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": true
+    },
+    {
+      "code": "ALLDONE",
+      "title": "Finish an activity and move on",
+      "sheet": "Calm at home",
+      "goal": "Recognize a clear end-of-game signal and transition to a different comfortable activity.",
+      "cue": "All done",
+      "setup": "Brief enjoyable play, a safe place to put props and a ready alternative such as water, a sniff or rest. Meet ordinary needs first.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "ALLDONE-1",
+          "title": "Predict a pleasant ending",
+          "teach": "During an easy short activity, stop while your dog is still comfortable. Say “all done,” put the prop aside without taking anything from their mouth, and offer the next quiet choice. Repeat on separate occasions. The phrase predicts an honest ending with support rather than abruptly removing all access to fun.",
+          "advance": "Moves comfortably into the offered alternative after several familiar endings.",
+          "easier": "Use a shorter activity or more appealing next option. First arrange a voluntary trade if the dog has the prop.",
+          "deps": []
+        },
+        {
+          "id": "ALLDONE-2",
+          "title": "Use the same ending elsewhere",
+          "teach": "Use the same phrase before ending a different easy activity, then open the route to the familiar alternative. Reward voluntary movement away and allow time to transition. Keep endings consistent and do not restart the game immediately after repeated requests; start another planned game later instead.",
+          "advance": "Recognizes the ending across two kinds of activity and can move on with ordinary support.",
+          "easier": "Return to the first familiar ending. Frustration means adjust the activity or transition, not withhold needed movement or rest.",
+          "deps": [
+            [
+              "ALLDONE-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": true
     },
     {
       "code": "CHECK",
@@ -660,7 +928,7 @@
       "sheet": "Walk skills",
       "goal": "Move together with slack in the leash.",
       "cue": "Let’s walk",
-      "setup": "Comfortable fitted harness; ordinary leash; quiet practice route.",
+      "setup": "Secure comfortable walking equipment and an ordinary leash; a quiet practice route. Check fit and willingness directly before practice. If equipment itself causes avoidance, use the Comfortable harness routine separately first.",
       "sources": "P14; P18",
       "priority": "Core",
       "steps": [
@@ -670,12 +938,7 @@
           "teach": "In a quiet area, reward your dog for standing near either chosen side with slack in the leash. Place the reward at your leg rather than out in front. Reset by moving one step and reward the dog for coming back into that comfortable area.",
           "advance": "Readily finds the side position with a loose leash in several short repetitions.",
           "easier": "Practice indoors first; check equipment comfort and use a wider space.",
-          "deps": [
-            [
-              "HARNESS-3",
-              2
-            ]
-          ]
+          "deps": []
         },
         {
           "id": "LOOSE-2",
@@ -733,10 +996,6 @@
             [
               "TURN-1",
               3
-            ],
-            [
-              "HARNESS-3",
-              2
             ]
           ]
         },
@@ -825,6 +1084,254 @@
           ]
         }
       ]
+    },
+    {
+      "code": "HEEL",
+      "title": "Heel on cue",
+      "sheet": "Walk skills",
+      "goal": "Move into a chosen position beside the handler and maintain it for a brief cued stretch.",
+      "cue": "Heel; free",
+      "setup": "Choose left or right once. Start in an enclosed non-slip room without a leash if safe. Shoulder roughly beside your leg, natural head carriage, no sustained eye contact or tight competition posture.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "HEEL-1",
+          "title": "Find the heel position",
+          "teach": "Stand still. Use a small treat invitation to bring the dog in a broad comfortable curve beside your chosen leg, facing the same way. Mark and feed at their natural head height when the shoulder is roughly alongside you. Release and reset away; do not squeeze them against your body.",
+          "advance": "Finds the chosen side facing forward on 4 of 5 easy invitations without strain.",
+          "easier": "Reward a looser side position or begin with the dog already beside you. Never pull them into place.",
+          "deps": []
+        },
+        {
+          "id": "HEEL-2",
+          "title": "Heel means come beside me",
+          "teach": "Say “heel,” pause briefly, then use the familiar empty-hand guide into position. Mark arrival and reward from the other hand. Practice from a step ahead and from the side, fading the guide gradually. Release after every arrival so the cue keeps a clear beginning and end.",
+          "advance": "Moves into the chosen side position on one heel cue with a small signal and no visible lure in two sessions.",
+          "easier": "Keep one easy starting angle and the clear hand signal. Do not add forward walking yet.",
+          "deps": [
+            [
+              "HEEL-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "HEEL-3",
+          "title": "Maintain position while moving",
+          "teach": "Cue the known heel entry, then take one slow step. Reward beside the same leg before the dog forges ahead, and release. Mix one, two and three steps, increasing only while shoulder position and natural movement stay easy. Feed frequently; this is brief precision work rather than an entire walk.",
+          "advance": "Enters and stays alongside for five to ten comfortable steps on most easy turns across two sessions.",
+          "easier": "Reward entry again or take just one step. Use natural head carriage rather than luring the head upward.",
+          "deps": [
+            [
+              "HEEL-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "HEEL-4",
+          "title": "Turns, stops and a clear release",
+          "teach": "After an easy heel entry, add one broad turn or a gentle halt, rewarding the maintained side position. Say “free” before allowing ordinary loose walking or sniffing. Transfer to a quiet secure outdoor spot with comfortable equipment, shortening the stretch again. Keep most walks available for exploring.",
+          "advance": "On cue, enters heel, follows a short stretch with one turn or halt, then leaves position on release in two easy settings.",
+          "easier": "Practice the turn standing beside you first or return indoors. A slack leash alone is loose walking, not the heel criterion.",
+          "deps": [
+            [
+              "HEEL-3",
+              3
+            ],
+            [
+              "FREE-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": true
+    },
+    {
+      "code": "RHYTHM",
+      "title": "Counted walking rhythm",
+      "sheet": "Walk skills",
+      "goal": "Join a short predictable count-and-reward walking game without a formal heel position.",
+      "cue": "One, two, three",
+      "setup": "A quiet safe space, suitable small rewards and room to opt out. Inspired by Leslie McDevitt’s counting pattern games; this is a predictable activity, not a cure for fear.",
+      "sources": "A10; P11; P22; R01; A14",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "RHYTHM-1",
+          "title": "Make the count predictable",
+          "teach": "While standing in a quiet space, say “one, two, three” in a gentle even rhythm and deliver a small reward beside you on “three.” Pause before repeating. Keep your hands neutral until delivery and make no demand for a sit, stare or exact side position.",
+          "advance": "Comfortably anticipates the reward near you at the end of the short spoken count across several brief turns.",
+          "easier": "Pair just “three” with a reward first or use a softer voice. Stop if anticipation becomes frantic.",
+          "deps": []
+        },
+        {
+          "id": "RHYTHM-2",
+          "title": "Walk a few counted steps",
+          "teach": "Begin the familiar count, take one or two ordinary steps and deliver the reward beside you on “three,” even if the position is approximate. Repeat only a few comfortable cycles, then finish with a break. Add a third step later. Keep distance from distractions rather than counting through fear or pulling the dog along.",
+          "advance": "Willingly joins two or three short count-and-walk cycles in two quiet outings, moving comfortably without leash pressure.",
+          "easier": "Count while stationary again or use just one step. Participation is optional and the reward timing stays predictable.",
+          "deps": [
+            [
+              "RHYTHM-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": true
+    },
+    {
+      "code": "CURB",
+      "title": "Pause at a curb",
+      "sheet": "Walk skills",
+      "goal": "Stop with the handler before a ground-level pretend curb and wait for permission.",
+      "cue": "Curb; let’s go",
+      "setup": "Start with a flat line on a floor, then a quiet path well away from traffic. Humans always decide when a crossing is safe.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "CURB-1",
+          "title": "Stop at a pretend edge",
+          "teach": "Place a flat contrasting strip across a non-slip floor. Approach slowly together, say “curb,” and stop before the line. Reward a brief stand beside you, then say “let’s go” and cross the harmless line together. Keep the route open and never block the dog with your knee.",
+          "advance": "Pauses beside you before the line in 4 of 5 slow approaches.",
+          "easier": "Use just one approach step and an immediate reward. Avoid raised poles or trip hazards.",
+          "deps": []
+        },
+        {
+          "id": "CURB-2",
+          "title": "Transfer to a quiet real edge",
+          "teach": "Choose a quiet curb beside a protected area with no traffic exposure and generous space behind it. Use comfortable secure equipment, cue the familiar pause, reward, and turn away initially. Cross only where a human has checked safety. Reward pauses even when no crossing follows.",
+          "advance": "Pauses with you at the chosen quiet curb and waits for an invitation across two outings.",
+          "easier": "Return to the floor line. Recorded completion never means the dog can judge vehicles or cross alone.",
+          "deps": [
+            [
+              "CURB-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": true
+    },
+    {
+      "code": "CROSS",
+      "title": "Cross a quiet road together",
+      "sheet": "Walk skills",
+      "goal": "Combine a curb pause with a short uninterrupted crossing at the handler’s invitation.",
+      "cue": "Cross",
+      "setup": "A quiet lawful crossing with clear sight lines, comfortable fitted equipment and a capable adult. Rehearse away from vehicles first.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "CROSS-1",
+          "title": "Rehearse the whole path indoors",
+          "teach": "Mark two harmless flat lines several steps apart. Pause at the first as in curb practice, say “cross,” and walk straight to the far line with your dog on a slack lead. Reward on the far side. Keep the middle free of sniff rewards so the destination is clear.",
+          "advance": "Completes pause, invitation and a few continuous steps to the far line comfortably.",
+          "easier": "Shorten the pretend crossing or practice loose steps separately. No leash pressure to keep pace.",
+          "deps": [
+            [
+              "CURB-2",
+              3
+            ],
+            [
+              "LOOSE-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "CROSS-2",
+          "title": "One quiet checked crossing",
+          "teach": "At a suitable real crossing, keep the dog safely back from the edge while you check all directions. When the route is clear, say “cross” and walk together to a safe spot beyond the far curb. Reward there. If anything changes, prioritize human safety decisions over the exercise.",
+          "advance": "Completes the short human-managed crossing without stopping in the roadway in two quiet outings.",
+          "easier": "Return to the pretend route or choose a quieter place. Never rehearse against active traffic or rely on the cue for safety.",
+          "deps": [
+            [
+              "CROSS-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": true
+    },
+    {
+      "code": "SLOW",
+      "title": "Match a slower walking pace",
+      "sheet": "Walk skills",
+      "goal": "Keep a comfortable slack-leash pace when the handler deliberately slows down.",
+      "cue": "Slow",
+      "setup": "A short flat quiet route, suitable equipment and ordinary comfortable walking. This is pace matching, not restricting normal exercise.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "SLOW-1",
+          "title": "Notice a pace change",
+          "teach": "Walk a few familiar loose steps, say “slow,” and take one slightly shorter slower step. Reward at your side before the lead tightens. Return to your usual pace after a step or two. Keep the difference small enough for the dog to stay balanced without bracing.",
+          "advance": "Matches a small slowing change with slack equipment on most easy turns.",
+          "easier": "Make the change smaller or shorten the stretch. Stop for uneven movement or discomfort.",
+          "deps": [
+            [
+              "LOOSE-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "SLOW-2",
+          "title": "Several unhurried steps",
+          "teach": "Cue “slow” before a short stretch of slower walking, rewarding intermittently beside you. Mix normal and slower stretches with an obvious return to ordinary walking. Try a few easy steps on another flat route only after the first location is clear.",
+          "advance": "Matches three to five slow steps after the cue across two comfortable outings.",
+          "easier": "Reward after one step again. This cue is not a demand for an unnatural gait or extended restricted movement.",
+          "deps": [
+            [
+              "SLOW-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": true
+    },
+    {
+      "code": "WALKPAUSE",
+      "title": "Pause while the handler stops",
+      "sheet": "Walk skills",
+      "goal": "Stand comfortably nearby during a brief walking interruption without a formal heel or sit.",
+      "cue": "Pause; let’s go",
+      "setup": "A quiet protected walking space and comfortable secure equipment; no tethering or prolonged immobility.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "WALKPAUSE-1",
+          "title": "A one-second walking pause",
+          "teach": "Take a few ordinary steps, say “pause,” and stop with slack in the lead. Reward any comfortable nearby stand after one second, then invite movement again. No particular side or eye contact is needed. Reward before the dog becomes restless rather than waiting for frustration to stop.",
+          "advance": "Pauses near you for a second through several easy walking stops.",
+          "easier": "Shorten to a moment or practice in a secure room without a leash. Check ordinary toilet and movement needs first.",
+          "deps": []
+        },
+        {
+          "id": "WALKPAUSE-2",
+          "title": "A brief practical interruption",
+          "teach": "Repeat the known pause while you glance at an imaginary sign or adjust an empty pocket. Reward staying nearby, then say “let’s go.” Build toward five comfortable seconds, mixing shorter pauses in. Keep this brief and supervised rather than using a long stay in a busy area.",
+          "advance": "Comfortably waits nearby during a small five-second handler interruption across two quiet outings.",
+          "easier": "Reward sooner or remove the hand movement. Let the dog move and reset if the pause is difficult.",
+          "deps": [
+            [
+              "WALKPAUSE-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": true
     },
     {
       "code": "DOG",
@@ -970,11 +1477,11 @@
           "easier": "Widen the arc, hide the helper partly, or return to parallel walking. Stop if either dog becomes tense.",
           "deps": [
             [
-              "PARALLEL-2",
+              "DOG-2",
               3
             ],
             [
-              "TURN-3",
+              "TURN-2",
               3
             ]
           ]
@@ -988,6 +1495,10 @@
           "deps": [
             [
               "PASS-1",
+              3
+            ],
+            [
+              "DOG-3",
               3
             ]
           ]
@@ -1280,6 +1791,53 @@
       ]
     },
     {
+      "code": "HANDOFF",
+      "title": "Change leash handlers comfortably",
+      "sheet": "People and door",
+      "goal": "Stay comfortable while a walking lead passes between two familiar trusted adults.",
+      "cue": "With Alex (use the person’s name)",
+      "setup": "Two capable familiar adults, a secure enclosed rehearsal area and suitable equipment. Maintain human control of the lead throughout; no stranger handovers.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "HANDOFF-1",
+          "title": "Walk beside the helper",
+          "teach": "Walk together briefly while the usual handler keeps the lead and the familiar helper strolls at a comfortable distance. Let the helper reward a voluntary approach without reaching over the dog. End together. Keep departures and transfer of equipment out of this first exercise.",
+          "advance": "Comfortably walks near both adults and voluntarily accepts their company across two short turns.",
+          "easier": "Increase space or practice being together without walking. Do not use handover practice to force social contact.",
+          "deps": []
+        },
+        {
+          "id": "HANDOFF-2",
+          "title": "A still, secure transfer",
+          "teach": "Pause in the enclosed area. With the usual handler still holding the lead, let the helper take a secure hold at an appropriate point, then transfer control hand to hand without dropping it. Reward comfort, then transfer back. Keep hands away from the dog’s head and avoid tangling the line.",
+          "advance": "Remains comfortable through several quiet transfers with both adults staying nearby.",
+          "easier": "Make the hand motion smaller or reward the helper touching an unused spare lead first.",
+          "deps": [
+            [
+              "HANDOFF-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "HANDOFF-3",
+          "title": "A short walk with the new handler",
+          "teach": "Name the familiar helper before the known transfer. Let them invite one or two easy steps while the first adult remains close, then reward and reunite. Extend the short walk gradually without combining it with separation. The adult checks equipment security before any real-world transfer.",
+          "advance": "Walks a short comfortable route with either familiar handler after the transfer in two sessions.",
+          "easier": "Keep the first person beside the dog. Distress about separation needs its own supported plan.",
+          "deps": [
+            [
+              "HANDOFF-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
       "code": "SOUND",
       "title": "Controlled sound practice",
       "sheet": "Sounds and novelty",
@@ -1388,15 +1946,10 @@
         {
           "id": "STORM-1",
           "title": "Rehearse the support arrangement",
-          "teach": "On a quiet day, set up the familiar refuge, close curtains, check escape routes, and try gentle masking sound if your dog likes it. Sit nearby and let them choose to hide, rest, or seek contact. Rehearse any veterinarian-prescribed plan only as directed by that veterinarian.",
+          "teach": "On a quiet day, set up a quiet refuge with familiar bedding, close curtains, check escape routes, and try gentle masking sound if your dog likes it. Sit nearby and let them choose to hide, rest, or seek contact. Rehearse any veterinarian-prescribed plan only as directed by that veterinarian.",
           "advance": "The refuge, trusted company, and any ordinary sound masking are familiar and comfortable before the event.",
           "easier": "Remove masking that worries the dog or change the resting location. A crate is suitable only if already comfortable.",
-          "deps": [
-            [
-              "SAFE-1",
-              2
-            ]
-          ]
+          "deps": []
         },
         {
           "id": "STORM-2",
@@ -1537,6 +2090,87 @@
           ]
         }
       ]
+    },
+    {
+      "code": "ELEVATOR",
+      "title": "Ride a quiet elevator comfortably",
+      "sheet": "Sounds and novelty",
+      "goal": "Choose entry and a short attended elevator ride with comfortable exits.",
+      "cue": "Lift (an invitation)",
+      "setup": "Use a quiet authorized elevator with a helper, non-slip footing and enough room. Keep dogs and equipment clear of door tracks; humans control access and never use the dog to hold doors.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "ELEVATOR-1",
+          "title": "Watch from a comfortable distance",
+          "teach": "Stay well outside the doorway and let the empty elevator open and close while you reward comfortable observation. Move away after each brief look. Begin far enough back that sounds and people do not trap the dog. Skip crowded times and let the dog choose to leave.",
+          "advance": "Comfortably observes a few quiet door cycles and approaches only by choice.",
+          "easier": "Use more distance or stop at a partial view. Take another route when possible.",
+          "deps": []
+        },
+        {
+          "id": "ELEVATOR-2",
+          "title": "Enter and exit while stationary",
+          "teach": "With a helper safely using the door controls according to building rules, invite a voluntary step into the stationary empty car. Reward and exit promptly together. Build toward a full brief entry with enough room to turn. Keep the lead slack and all feet clear of the moving-door zone.",
+          "advance": "Chooses full entry and a calm immediate exit in several stationary rehearsals.",
+          "easier": "Reward approaching from outside. Never lure a worried dog past a closing door.",
+          "deps": [
+            [
+              "ELEVATOR-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "ELEVATOR-3",
+          "title": "One short quiet ride",
+          "teach": "After easy entries, choose a single short ride with a familiar adult beside the dog. Reward comfort as the doors close and the car moves, then leave together at the next safe opening. Keep other people out of the training plan and finish after one ride.",
+          "advance": "Comfortably completes a short ride and ordinary exit on two quiet occasions.",
+          "easier": "Return to stationary entry or use an alternative route. Motion distress, nausea or panic calls for individual support.",
+          "deps": [
+            [
+              "ELEVATOR-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "AUTODOOR",
+      "title": "Pass through automatic doors",
+      "sheet": "Sounds and novelty",
+      "goal": "Approach and walk through a wide automatic doorway without rushing or startling.",
+      "cue": "Through doors",
+      "setup": "A quiet permitted entrance with a helper, broad clearance and room to retreat. Humans verify the sensor and opening; avoid revolving doors.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "AUTODOOR-1",
+          "title": "Watch the moving panels",
+          "teach": "Stand far enough to the side for an unobstructed view without triggering the doors yourself. Have a helper activate one cycle while you reward your dog for comfortable observation. Let them leave and return. Never put the dog in the opening to make the sensor respond.",
+          "advance": "Comfortably observes several predictable cycles with ordinary loose movement.",
+          "easier": "Watch from farther away or choose a quieter entrance. Motion comfort comes before passage.",
+          "deps": []
+        },
+        {
+          "id": "AUTODOOR-2",
+          "title": "One generous walking pass",
+          "teach": "Have the helper safely activate the doors and confirm they are fully open. Invite your dog to walk beside you through the broad opening, reward beyond it, then take a break. Keep the lead and tail clear and walk at a natural pace, with room to abort before entry.",
+          "advance": "Walks through a fully open doorway comfortably in two short visits.",
+          "easier": "Return to observation or use a manual alternative. Never hurry a hesitant dog through narrowing panels.",
+          "deps": [
+            [
+              "AUTODOOR-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
     },
     {
       "code": "HARNESS",
@@ -1781,15 +2415,10 @@
         {
           "id": "NAIL-2",
           "title": "Separate tool appearance from contact",
-          "teach": "Show the nail tool at a distance and reward; introduce its quiet sound separately if relevant. Only once comfortable, bring it slightly toward the paw, stop well short, and reward. Actual clipping or grinding is not the next automatic step: get instruction on anatomy, tool use, and this dog’s comfort.",
+          "teach": "Show the nail tool at a comfortable distance, reward, and put it away. Introduce its quiet sound separately if relevant. Bring it slightly nearer only while the dog freely remains comfortable; stop well short of paw contact. Paw-touch preparation can run separately at NAIL-1. Actual clipping or grinding needs individual instruction on anatomy, technique and comfort, rather than following automatically.",
           "advance": "Comfortable with the selected non-contact preparation in two sessions; an appropriate next-care plan is arranged.",
           "easier": "Return the tool farther away or omit its sound. Never restrain the paw to finish a training repetition.",
-          "deps": [
-            [
-              "NAIL-1",
-              3
-            ]
-          ]
+          "deps": []
         }
       ]
     },
@@ -1814,7 +2443,7 @@
         {
           "id": "TEETH-2",
           "title": "Invite a tiny lip touch",
-          "teach": "Ask your veterinary team to demonstrate a suitable safe approach. When the dog voluntarily offers their familiar chin rest or other agreed start signal, briefly touch the outer lip area as demonstrated, remove your hand, and reward. Stop immediately if the dog withdraws.",
+          "teach": "Ask your veterinary team to demonstrate a suitable safe approach. When the dog voluntarily offers their familiar chin rest, briefly touch the outer lip area as demonstrated, remove your hand, and reward. Stop immediately if the dog withdraws.",
           "advance": "Freely offers repeated start signals and stays comfortable with a momentary gentle lip-area touch.",
           "easier": "Return to hand movement at a distance. Pain, guarding, or resistance calls for individual help, not holding the head.",
           "deps": [
@@ -1888,6 +2517,319 @@
           ]
         }
       ]
+    },
+    {
+      "code": "CLIP",
+      "title": "Accept a leash clip",
+      "sheet": "Care and equipment",
+      "goal": "Voluntarily remain comfortable while a lead is clipped and unclipped.",
+      "cue": "Clip?",
+      "setup": "Comfortable already-worn equipment, a quiet light clip and a freely accessible exit. Check fit separately; no reaching to grab the dog.",
+      "sources": "A12; P11; R17; R18",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "CLIP-1",
+          "title": "Clip sound and hand approach",
+          "teach": "Hold the lead far enough away for comfort, operate the clip softly, then reward. Separately bring an empty hand a little toward the attachment point, reward and withdraw. Let the dog step away whenever wanted. Keep the sound and reach separate until both are easy.",
+          "advance": "Comfortable with the quiet clip sound and a short hand approach over several voluntary turns.",
+          "easier": "Muffle or replace a loud clip and increase distance. Do not touch equipment while the dog avoids you.",
+          "deps": []
+        },
+        {
+          "id": "CLIP-2",
+          "title": "Attach, reward, remove",
+          "teach": "Invite the dog near, briefly touch the familiar attachment area, reward and withdraw. After easy touches, attach the clip, reward, then remove it immediately. Keep the line supported so it does not swing into legs. Slowly add a few comfortable steps only when attachment itself is unremarkable.",
+          "advance": "Freely approaches for clipping and unclipping and moves comfortably afterward in two sessions.",
+          "easier": "Return to the hand approach or equipment comfort. Clipping is not permission to restrain a worried dog.",
+          "deps": [
+            [
+              "CLIP-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "COLLAR",
+      "title": "Comfortable collar contact",
+      "sheet": "Care and equipment",
+      "goal": "Stay relaxed through a brief gentle human touch of the collar or harness attachment area.",
+      "cue": "Got you (a gentle warning)",
+      "setup": "Well-fitted comfortable equipment and an awake willing dog. Touch only; no jerks, choking or surprise grabs. Useful for safe handling but not a test of restraint tolerance.",
+      "sources": "A12; P11; R17; R18",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "COLLAR-1",
+          "title": "Predict a brief touch",
+          "teach": "Say the chosen warning softly, reach only partway toward the equipment, reward and withdraw. Build toward a momentary finger contact on the outside without gripping. Keep your hand visible from the side, and let any movement away end the turn. Practice before a real need arises.",
+          "advance": "Voluntarily stays loose through several predicted brief outside touches.",
+          "easier": "Reach less far or use an easier body area. Skip and seek help for guarding or bite risk.",
+          "deps": []
+        },
+        {
+          "id": "COLLAR-2",
+          "title": "A loose momentary hold",
+          "teach": "After easy contact, briefly place fingers around a safe section of equipment with no pressure on the neck or body. Reward and release immediately. Mix contact-only turns with this tiny hold. Never use a treat to conceal a grab or keep holding until the dog stops resisting.",
+          "advance": "Freely returns for predicted momentary no-pressure holds across two easy sessions.",
+          "easier": "Return to a touch. This does not make grabbing, lifting by equipment or restraint during fear safe.",
+          "deps": [
+            [
+              "COLLAR-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "RINSE",
+      "title": "Step into a shallow paw rinse",
+      "sheet": "Care and equipment",
+      "goal": "Voluntarily place feet in a broad shallow tray of plain water.",
+      "cue": "Rinse",
+      "setup": "A broad stable non-slip tray, shallow lukewarm plain water, dry safe exits and healthy paws. No detergents or forced immersion; veterinary advice for skin problems.",
+      "sources": "A12; P11; R17; R18",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "RINSE-1",
+          "title": "Explore the dry tray",
+          "teach": "Secure the broad tray so it cannot slide or wobble. Reward looking, approaching and voluntary foot contacts with the empty surface. Invite an easy step off after each contact. Build toward comfortable standing only if all feet fit with room; never place paws into the tray yourself.",
+          "advance": "Voluntarily steps into and out of the stable dry tray several times.",
+          "easier": "Use a flat non-slip mat or a wider tray. Stop at any uneven movement.",
+          "deps": []
+        },
+        {
+          "id": "RINSE-2",
+          "title": "A trace of water",
+          "teach": "Add only enough plain water to dampen a small area while the dog is away. Let them inspect and reward a voluntary single foot contact, then offer an immediate exit. Increase coverage only across comfortable turns. Keep water still, without pouring or splashing near the dog.",
+          "advance": "Chooses to place feet on the wet surface and freely returns after a break.",
+          "easier": "Use less water or return to a dry tray. Do not hold a foot in place.",
+          "deps": [
+            [
+              "RINSE-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "RINSE-3",
+          "title": "A short rinse pause",
+          "teach": "Invite the familiar tray entry with the chosen cue. Reward a brief comfortable stand in very shallow water, then invite an exit onto a dry non-slip surface. Any later wiping is a separate invitation. Empty the tray after use rather than leaving standing water accessible.",
+          "advance": "Enters on invitation, pauses comfortably and exits in two short sessions.",
+          "easier": "Rinse one willing foot briefly or use another vet-advised cleaning method. Stop for skin irritation or discomfort.",
+          "deps": [
+            [
+              "RINSE-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "EAR",
+      "title": "Offer an outer-ear check",
+      "sheet": "Care and equipment",
+      "goal": "Voluntarily participate in a tiny visual check of a healthy outer ear.",
+      "cue": "Ear?",
+      "setup": "Healthy pain-free ears, clean hands and a known chin start signal. No insertion, flushing, cleaning or medication in this lesson; contact a vet for pain, odor or discharge.",
+      "sources": "A12; P11; R17; R18",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "EAR-1",
+          "title": "Hand movement toward the ear",
+          "teach": "Offer the familiar chin target. While the dog chooses contact, move your other hand a little toward the outside of one healthy ear, stop and reward. End immediately if the chin lifts. Build only the comfortable hand approach, keeping fingers out of the canal.",
+          "advance": "Freely restarts and stays comfortable through the small hand approach in several turns.",
+          "easier": "Return to shoulder-level hand movement or the chin lesson. Do not investigate a painful ear through training.",
+          "deps": [
+            [
+              "CHIN-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "EAR-2",
+          "title": "A momentary outer-flap view",
+          "teach": "After a voluntary start, touch only the outer flap lightly as demonstrated by your veterinary team, then withdraw and reward. If appropriate, briefly lift just enough for an outside visual look without stretching. Let a lifted chin end contact. Practice the other side separately from the easiest level.",
+          "advance": "Voluntarily permits a momentary healthy outer-ear view on each side across two easy sessions.",
+          "easier": "Return to approach or one light touch. No cotton buds, instruments or treatment without veterinary instruction.",
+          "deps": [
+            [
+              "EAR-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "SIDELIE",
+      "title": "Lie comfortably on one side",
+      "sheet": "Care and equipment",
+      "goal": "Choose a brief side-lying posture without being rolled or restrained.",
+      "cue": "Side",
+      "setup": "A broad soft non-slip surface and comfortable movement. Skip for stiffness or breathing difficulty. This posture is not permission for procedures.",
+      "sources": "A12; P11; R17; R18",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "SIDELIE-1",
+          "title": "Reward a natural hip roll",
+          "teach": "While your dog chooses a comfortable down, quietly reward a natural hip shift or brief roll toward one side. Feed where the head can remain neutral rather than twisting the neck. Invite a break after one reward. Capture the movement without pushing shoulders or pulling legs.",
+          "advance": "Offers a comfortable hip roll toward side-lying during several voluntary turns.",
+          "easier": "Reward a smaller hip shift or simply watch for a natural side rest. Do not manipulate the body.",
+          "deps": [
+            [
+              "DOWN-2",
+              2
+            ]
+          ]
+        },
+        {
+          "id": "SIDELIE-2",
+          "title": "Brief full side rest",
+          "teach": "From the familiar hip roll, reward a little more voluntary shoulder lowering until the dog chooses to rest on one side. Mark the brief posture and reward low, then allow them to get up. Work in tiny pieces and keep all limbs free.",
+          "advance": "Chooses a brief full side rest and rises comfortably across two short sessions.",
+          "easier": "Return to a hip shift or stop. Do not continue if rising looks difficult.",
+          "deps": [
+            [
+              "SIDELIE-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "SIDELIE-3",
+          "title": "Name the offered position",
+          "teach": "Say “side” just before the familiar comfortable movement or small empty-hand invitation. Reward a moment in position and release. Gradually use less help without adding duration or touch. Teach either comfortable side separately; a single willing side is sufficient for this optional cue.",
+          "advance": "Offers a brief side rest from the cue and small invitation in two sessions.",
+          "easier": "Keep capturing naturally offered rests. Any handling while side-lying needs a separate voluntary start and exit agreement.",
+          "deps": [
+            [
+              "SIDELIE-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "RAMP",
+      "title": "Walk a low stable ramp",
+      "sheet": "Care and equipment",
+      "goal": "Choose slow up-and-down walking on a broad secured shallow ramp.",
+      "cue": "Ramp",
+      "setup": "A broad dog-suitable ramp with grip and side clearance, initially flat and later minimally inclined. Secure both ends. Get individual mobility advice for pain or weakness; no vehicle heights in this lesson.",
+      "sources": "A12; P11; R17; R18",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "RAMP-1",
+          "title": "Walk the flat ramp",
+          "teach": "Lay the secured ramp flat on level ground. Reward a voluntary approach, then one foot contact and an easy step off. Build a complete slow walk along its broad center, rewarding partway if helpful. Let the dog go around it rather than steering with the lead.",
+          "advance": "Chooses relaxed complete passes in either direction on the flat secured ramp.",
+          "easier": "Use a wider flat surface or reward one foot contact. Stop for slipping or worry.",
+          "deps": []
+        },
+        {
+          "id": "RAMP-2",
+          "title": "A tiny supported slope",
+          "teach": "With the dog away, secure one end on a very low stable support according to the ramp instructions. Invite the familiar slow pass and reward balanced steps. Practice descent separately, starting near the bottom. A helper may stabilize equipment but never lift or push the dog along it.",
+          "advance": "Comfortably walks up and down the tiny stable slope across two sessions.",
+          "easier": "Flatten the ramp again. A higher vehicle ramp is a separate individualized transfer, not an automatic next test.",
+          "deps": [
+            [
+              "RAMP-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "SCRATCH",
+      "title": "Scratch a designated board",
+      "sheet": "Care and equipment",
+      "goal": "Voluntarily make a small front-paw scrape on a safe designated board.",
+      "cue": "Scratch",
+      "setup": "A stable broad board with a safe mild surface chosen with your veterinary or grooming team, no staples or loose grit. Healthy paws only. This teaches participation, not a nail-trimming prescription.",
+      "sources": "A12; P11; R17; R18",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "SCRATCH-1",
+          "title": "Find one paw movement",
+          "teach": "Place the secured board nearly flat on a non-slip floor. Reward voluntary front-foot contact or a small paw movement on it, then reset off the board. Keep food above the surface or in your hand after marking; do not hide food underneath to provoke frantic digging.",
+          "advance": "Offers a small voluntary front-paw movement on the stable board without chewing or frustration.",
+          "easier": "Use a plain nonabrasive target first or reward a weight shift. Skip for sore pads or unwillingness.",
+          "deps": []
+        },
+        {
+          "id": "SCRATCH-2",
+          "title": "Name one gentle scrape",
+          "teach": "Reward the smallest deliberate paw scrape, then say “scratch” just before the familiar offer. End after one or two gentle actions and inspect paws and nails. Let a professional advise any later nail-care use; more scraping is not automatically better. Never lift or drag the paw over the surface.",
+          "advance": "Offers a gentle scrape on cue and readily steps away in two short sessions.",
+          "easier": "Use a nonabrasive board or return to foot contact. Stop for repeated hard scratching, irritation or uneven use.",
+          "deps": [
+            [
+              "SCRATCH-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "BREAKBUTTON",
+      "title": "Press to request a break",
+      "sheet": "Care and equipment",
+      "goal": "Learn a separate optional button action that reliably ends a short training turn.",
+      "cue": "Break (the button’s consequence)",
+      "setup": "A large quiet low-force button, different from other request controls, within easy reach and out of chewing access. All ordinary withdrawal remains valid; never require a button press to stop.",
+      "sources": "A12; P11; R17; R18",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "BREAKBUTTON-1",
+          "title": "A press always opens a break",
+          "teach": "In a short easy training session, invite one familiar press on the designated quiet break button. Immediately say “break,” stop asking for actions and let the dog walk away, sniff or rest. Follow through every time. Keep rewards and attention available without demanding a return to work.",
+          "advance": "Several gentle prompted presses have consistently produced an immediate optional break.",
+          "easier": "End the session without a press. Use a different easy signal if the button is uncomfortable.",
+          "deps": [
+            [
+              "BUTTON-3",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "BREAKBUTTON-2",
+          "title": "Wait for a voluntary request",
+          "teach": "During an easy familiar activity, leave the break button safely accessible and pause briefly with neutral hands. Honor any offered press immediately. Also stop at ordinary avoidance, disengagement or movement away. Continue pairing on later short sessions without manufacturing frustration to make the dog request relief.",
+          "advance": "Offers the separate break press voluntarily on several occasions and the person promptly stops the turn.",
+          "easier": "Keep an occasional prompted pairing or simply use natural withdrawal. No response is required for the dog to have a break.",
+          "deps": [
+            [
+              "BREAKBUTTON-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
     },
     {
       "code": "TAKE",
@@ -2066,7 +3008,7 @@
           "easier": "Raise it slightly or use a more grippable object. Avoid repeated failed cues.",
           "deps": [
             [
-              "CARRY-2",
+              "GIVE-2",
               3
             ]
           ]
@@ -2080,6 +3022,10 @@
           "deps": [
             [
               "FETCH-1",
+              3
+            ],
+            [
+              "CARRY-2",
               3
             ]
           ]
@@ -2377,23 +3323,19 @@
       "sheet": "Practice elsewhere",
       "goal": "Apply recall outdoors while retaining physical safety.",
       "cue": "Come / here",
-      "setup": "Long line on a comfortable harness; secure area; no line wrapped around hands or neck.",
+      "setup": "Long line on a comfortable harness; secure area; no line wrapped around hands or neck. Use a securely enclosed area or a safely managed long line on comfortable fitted equipment. Start with equipment comfort separately if needed; never attach a long line to the neck or allow a hard stop.",
       "sources": "P15",
       "priority": "Generalization",
       "steps": [
         {
           "id": "RECALLCTX-1",
           "title": "Restart short in a quiet outdoor area",
-          "teach": "Begin much closer than your best indoor recall, with the line slack and the dog comfortable. Call once, step back invitingly, reward arrival generously, then let them explore again. Manage the line so it cannot snag or build up a fast hard stop.",
+          "teach": "In a securely enclosed area, or with a safely managed slack long line on comfortable fitted equipment, begin much closer than your best indoor recall. Call once, step back invitingly, reward arrival generously, then let them explore again. Manage the line so it cannot snag or produce a fast hard stop; never reel the dog in.",
           "advance": "Returns over the chosen short outdoor distance in 4 of 5 attempts across two sessions.",
           "easier": "Return to a shorter distance or quieter enclosed area; do not reel the dog in as a training response.",
           "deps": [
             [
               "RECALL-2",
-              3
-            ],
-            [
-              "HARNESS-3",
               3
             ]
           ]
@@ -2401,7 +3343,7 @@
         {
           "id": "RECALLCTX-2",
           "title": "Change distance or mild interest separately",
-          "teach": "Once the easy outdoor return is reliable, try a little more distance OR call from an ordinary mild sniff. Keep the other variable easy and reward generously. Do not use a known frightening trigger or a running animal as the next test. Maintain the line for safety.",
+          "teach": "Once the easy outdoor return is reliable, try a little more distance OR call from an ordinary mild sniff. Keep the other variable easy and reward generously. Do not use a known frightening trigger or a running animal as the next test. Maintain your secure enclosure or safely managed line for safety.",
           "advance": "Reliable comfortable returns in the exact recorded context across two sessions; physical management remains in place.",
           "easier": "Reduce the chosen variable. A learned recall does not authorize off-leash exposure near roads or animals.",
           "deps": [
@@ -2433,10 +3375,6 @@
             [
               "MAT-2",
               3
-            ],
-            [
-              "SETTLE-2",
-              3
             ]
           ]
         },
@@ -2449,6 +3387,10 @@
           "deps": [
             [
               "MATCTX-1",
+              3
+            ],
+            [
+              "SETTLE-2",
               3
             ]
           ]
@@ -2475,10 +3417,6 @@
             [
               "LOOSE-3",
               3
-            ],
-            [
-              "TURN-2",
-              2
             ]
           ]
         },
@@ -2842,12 +3780,12 @@
         {
           "id": "WAVE-1",
           "title": "Reward the lift before contact",
-          "teach": "Invite the familiar low high five. As the paw begins to lift, mark before it reaches your palm, lower your hand away, and reward. Keep the movement small so the dog does not stretch or paw at your arm. Reset between attempts.",
+          "teach": "Invite the familiar small paw offer toward a low open hand. Mark as the paw lifts, before contact, move the hand away, and reward. Keep the movement small so the dog does not stretch or scratch. Reset between attempts. A finished high five is optional; the offered lift is the component used here.",
           "advance": "Offers a small comfortable paw lift when shown the familiar hand signal.",
           "easier": "Reward ordinary low palm contact again. Do not withdraw the hand so fast that the dog overreaches.",
           "deps": [
             [
-              "HIGHFIVE-2",
+              "PAW-1",
               3
             ]
           ]
@@ -3034,6 +3972,329 @@
       ]
     },
     {
+      "code": "CROSSPAW",
+      "title": "Rest with crossed front paws",
+      "sheet": "Clever companions",
+      "goal": "Offer one light front-paw crossing while lying comfortably.",
+      "cue": "Cross paws",
+      "setup": "A broad soft non-slip surface, comfortable down and a small willing paw offer. Skip if shoulders, elbows or wrists are uncomfortable; no held or forced crossing.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Optional trick",
+      "steps": [
+        {
+          "id": "CROSSPAW-1",
+          "title": "A tiny reach in a down",
+          "teach": "With the dog in a comfortable down, offer the familiar low paw hand just a little toward the midline. Mark a tiny voluntary reach and let the paw return immediately. Reward without holding the foot or asking the dog to lean sideways. Keep early turns to one small reach.",
+          "advance": "Comfortably reaches the chosen paw slightly inward without shifting awkwardly or rising.",
+          "easier": "Offer the hand closer to the paw or reward a small lift. Never drag the leg across.",
+          "deps": [
+            [
+              "DOWN-2",
+              2
+            ],
+            [
+              "PAW-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "CROSSPAW-2",
+          "title": "Fade the receiving hand",
+          "teach": "Offer the same small inward invitation but lower your hand before contact so the dog can place the paw lightly across the other foreleg if comfortable. Mark the brief placement and release. Add “cross paws” before the invitation, fading the hand only across easy balanced turns.",
+          "advance": "Offers a brief voluntary light crossing from a cue and small signal across two sessions.",
+          "easier": "Reward the smaller reach again or skip the trick. A stretched, trapped or held leg is outside the goal.",
+          "deps": [
+            [
+              "CROSSPAW-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "TILT",
+      "title": "A little head tilt",
+      "sheet": "Clever companions",
+      "goal": "Put an optional cue to a naturally offered small head tilt.",
+      "cue": "Tilt",
+      "setup": "Quiet familiar surroundings; capture only natural comfortable movement. No startling noises or repeated unusual sounds to provoke it.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Optional trick",
+      "steps": [
+        {
+          "id": "TILT-1",
+          "title": "Capture a natural tilt",
+          "teach": "During ordinary friendly interaction, watch for a naturally offered small head tilt. Quietly mark it and reward while the dog returns to neutral. Pause rather than trying to repeat noises until the dog tilts. A few occasional captured moments across days are enough to explore the game.",
+          "advance": "Several comfortable naturally offered tilts can be rewarded without provoking worry.",
+          "easier": "Choose another trick if tilts are rare. Persistent new or one-sided head tilting needs veterinary assessment.",
+          "deps": []
+        },
+        {
+          "id": "TILT-2",
+          "title": "Offer the new cue",
+          "teach": "Once the dog begins offering the small movement in the game, say “tilt” just before a likely offer. Reward one brief tilt, then finish or reset to neutral. Try the cue once on an easy turn and help by waiting calmly rather than exaggerating sounds or posture.",
+          "advance": "Offers a small comfortable tilt after the cue in several short enjoyable turns.",
+          "easier": "Return to occasional capturing. No physical positioning or requirement to tilt farther or hold the angle.",
+          "deps": [
+            [
+              "TILT-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "SHAKEOFF",
+      "title": "Shake off on cue",
+      "sheet": "Clever companions",
+      "goal": "Name a naturally occurring comfortable body shake without wetting or startling the dog.",
+      "cue": "Shake off",
+      "setup": "Capture ordinary comfortable shakes only. Do not use stress, water sprays, restraint or irritating objects to produce them.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Optional trick",
+      "steps": [
+        {
+          "id": "SHAKEOFF-1",
+          "title": "Catch an ordinary shake",
+          "teach": "Notice a naturally occurring shake after an ordinary comfortable transition, such as getting up after rest. Quietly mark after the motion and reward. Keep your distance so you do not interrupt the movement. Record only easy opportunities rather than provoking repeated shakes during one session.",
+          "advance": "You can reward several ordinary shakes without changing the dog’s comfort or daily routine.",
+          "easier": "Skip the game if there are no natural opportunities. Frequent unexplained shaking or scratching needs a health check.",
+          "deps": []
+        },
+        {
+          "id": "SHAKEOFF-2",
+          "title": "Name before the familiar moment",
+          "teach": "Say “shake off” when an ordinary shake is predictably about to begin, then reward afterward. Across days, try the cue once in that same comfortable context. Accept no response and move on; this is an optional captured action, not a way to make fear or tension disappear.",
+          "advance": "The cue precedes a comfortable voluntary shake in several familiar-context opportunities.",
+          "easier": "Continue occasional capture only. Never treat a shake as proof of emotional recovery or add unpleasant triggers to produce one.",
+          "deps": [
+            [
+              "SHAKEOFF-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "CIRCLEME",
+      "title": "Circle around the handler",
+      "sheet": "Clever companions",
+      "goal": "Walk one broad loop around a stationary person.",
+      "cue": "Circle",
+      "setup": "Open non-slip space and a steady standing or seated handler; generous clearance, no moving feet or tight curves.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Optional trick",
+      "steps": [
+        {
+          "id": "CIRCLEME-1",
+          "title": "One open half-loop",
+          "teach": "Keep your body still and offer the known hand target to one side, then farther around at generous distance. Reward after a quarter or half-loop. Let the dog take a broad path without brushing your legs. Pass the invitation between hands smoothly rather than turning your body into their route.",
+          "advance": "Completes either comfortable half of the broad loop with easy hand targets.",
+          "easier": "Reward a smaller arc or use a seated steady handler with room around the chair.",
+          "deps": [
+            [
+              "TOUCH-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "CIRCLEME-2",
+          "title": "Join and name the circle",
+          "teach": "Invite the first familiar half-loop and switch to the other hand for the remaining half. Reward halfway initially, then after a full comfortable loop. Say “circle” before the first invitation and gradually reduce target help. Finish with the dog clear of your feet.",
+          "advance": "Walks one broad loop from the cue and small signals in two short sessions.",
+          "easier": "Reward halfway again. Keep speed slow and stop if either participant feels unsteady.",
+          "deps": [
+            [
+              "CIRCLEME-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "UNROLL",
+      "title": "Unroll a short mat",
+      "sheet": "Clever companions",
+      "goal": "Nudge a loosely rolled mat forward to reveal a small flat section.",
+      "cue": "Unroll",
+      "setup": "A lightweight non-slip mat with a very loose broad roll, no straps, food hidden inside or material the dog chews. Supervise and remove after practice.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Optional trick",
+      "steps": [
+        {
+          "id": "UNROLL-1",
+          "title": "Nudge the loose edge",
+          "teach": "Set only the first few inches of the mat in a loose roll, keeping the rest flat and secured. Present a familiar large nose target against the front of the roll. Reward a gentle touch, then a touch that moves it slightly. Keep your hands clear and stop before pawing or biting starts.",
+          "advance": "Gently nudges the roll so a small section opens without mouthing or pouncing.",
+          "easier": "Loosen the roll further or return to an ordinary object target. Skip for fabric chewers.",
+          "deps": [
+            [
+              "OTARGET-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "UNROLL-2",
+          "title": "A short unrolling action",
+          "teach": "Reduce the target pad while rewarding the same gentle forward nose nudge. Add “unroll” before the familiar action. Start with one movement, then two on a later turn. Reward after the small section is flat, remove the prop and finish; the whole mat need not be unrolled.",
+          "advance": "Opens a short loose section on cue with one or two gentle nose nudges across two sessions.",
+          "easier": "Use the larger pad or only one nudge. Never increase roll resistance or encourage forceful pushing.",
+          "deps": [
+            [
+              "UNROLL-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "LEFTRIGHT",
+      "title": "Choose left or right targets",
+      "sheet": "Clever companions",
+      "goal": "Follow two distinct directional cues to nearby matching floor targets.",
+      "cue": "Left; right",
+      "setup": "Two identical broad flat targets, equal short distances on each side. Directions are from the dog’s starting orientation, with no reading or reasoning claim.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Optional trick",
+      "steps": [
+        {
+          "id": "LEFTRIGHT-1",
+          "title": "Pair left by itself",
+          "teach": "Use one familiar mat a single step to the dog’s left from a consistent forward-facing start. Say “left” before the ordinary mat invitation, then reward arrival. Reset facing the original direction and fade the gesture. Keep the right target out of view during this independent pairing.",
+          "advance": "Moves to the left target on the new cue with reduced mat prompting in several easy turns.",
+          "easier": "Move the target closer and use the known mat cue again. Keep orientation consistent.",
+          "deps": [
+            [
+              "MAT-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "LEFTRIGHT-2",
+          "title": "Pair right independently",
+          "teach": "With the left mat put away, place the familiar target one step to the dog’s right. Say “right” before the known mat invitation and reward arrival. Keep starts facing forward, then fade the extra cue over brief separate sessions. This side can be learned before the left pairing is finished.",
+          "advance": "Moves to the right target on its cue with reduced mat prompting in several easy turns.",
+          "easier": "Return to the known mat invitation. Do not alternate words rapidly or test two targets yet.",
+          "deps": [
+            [
+              "MAT-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "LEFTRIGHT-3",
+          "title": "Make a fair directional choice",
+          "teach": "Place both identical targets equally near. Begin centered with neutral hands and gaze, request one direction, and reward the corresponding arrival. Mix requested sides and reset orientation each time. After errors return to a single-target success. Record responses without interpreting a lucky sequence as general left-right knowledge.",
+          "advance": "Chooses the requested nearby target on most turns across two short mixed-order sessions.",
+          "easier": "Separate the pairings again or keep pointing help. This criterion concerns the practiced orientation only.",
+          "deps": [
+            [
+              "LEFTRIGHT-1",
+              3
+            ],
+            [
+              "LEFTRIGHT-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "NOD",
+      "title": "A small nose-target nod",
+      "sheet": "Clever companions",
+      "goal": "Offer a tiny comfortable down-and-up nose movement from a cue.",
+      "cue": "Nod",
+      "setup": "A broad safe target, natural neck range and brief turns. No repeated bobbing, head pressure or exaggerated flexion.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Optional trick",
+      "steps": [
+        {
+          "id": "NOD-1",
+          "title": "Two close target positions",
+          "teach": "Present the known nose target at natural head height and reward. On another turn present it only slightly lower, still comfortable, and reward. Mix the two nearby placements without asking the dog to tuck the chin or stretch. Let the head return to neutral freely between touches.",
+          "advance": "Comfortably follows the two very close target heights with a small natural head motion.",
+          "easier": "Use an even smaller change or stay at natural height. Skip for neck stiffness.",
+          "deps": [
+            [
+              "OTARGET-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "NOD-2",
+          "title": "Fade to a tiny nod signal",
+          "teach": "Invite a small lower-then-neutral movement with the familiar target, rewarding one comfortable motion. Say “nod” just before it and gradually make the pad help smaller. End after one or two turns. The finished trick is a small motion, not agreement with a question.",
+          "advance": "Offers one small comfortable nod from the cue and small signal in two short sessions.",
+          "easier": "Keep the pad visible or choose another trick. Never request a deeper bend or a long sequence of nods.",
+          "deps": [
+            [
+              "NOD-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "POINT",
+      "title": "Follow a pointing gesture",
+      "sheet": "Clever companions",
+      "goal": "Use a human pointing gesture to approach one of two nearby floor targets.",
+      "cue": "A clear arm point",
+      "setup": "Two identical broad flat targets in a quiet space. Handler points without leaning over or crowding; this is learned cue-following rather than a claim about reasoning.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Optional trick",
+      "steps": [
+        {
+          "id": "POINT-1",
+          "title": "Point to one familiar target",
+          "teach": "Place one familiar mat a step away. Point clearly toward it, then give the known mat cue and reward arrival. Reset nearby and move the single mat slightly between turns. Gradually pause after pointing so the dog can approach before hearing the old cue.",
+          "advance": "Approaches the single target after the gesture with reduced verbal help across easy positions.",
+          "easier": "Keep the mat closer and pair gesture then old cue again. Use a comfortable visible arm motion.",
+          "deps": [
+            [
+              "MAT-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "POINT-2",
+          "title": "Choose between two close targets",
+          "teach": "Place two identical mats equally near, point clearly to one, and reward the indicated arrival. Alternate sides in mixed order while keeping your feet and gaze neutral. After errors return to the single-target pairing rather than pointing repeatedly or correcting. Keep only one invitation per turn.",
+          "advance": "Usually chooses the pointed-to close target across two short mixed-side sessions.",
+          "easier": "Use a more obvious gesture or return to one mat. Do not infer abstract understanding from a small test.",
+          "deps": [
+            [
+              "POINT-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
       "code": "BACK",
       "title": "Back up a few steps",
       "sheet": "Body awareness",
@@ -3214,20 +4475,15 @@
         {
           "id": "HOOP-1",
           "title": "Explore the open shape",
-          "teach": "Keep the hoop still with its bottom on the floor and plenty of room to go around it. Reward a glance or approach. If comfortable, offer a hand target through the center and reward one voluntary step through. Never move the hoop over the dog.",
+          "teach": "Keep the hoop still with its bottom on the floor and plenty of room to go around it. Reward a glance or approach. If comfortable, offer a known hand target or a small reward invitation through the center and reward one voluntary step through. Never move the hoop over the dog.",
           "advance": "Walks through the large opening comfortably while it stays stationary on the floor.",
           "easier": "Use a wider opening or stop at looking. Avoid hoops if tags, equipment, or body shape could snag.",
-          "deps": [
-            [
-              "TOUCH-2",
-              2
-            ]
-          ]
+          "deps": []
         },
         {
           "id": "HOOP-2",
           "title": "Name the walking pass",
-          "teach": "Say “through” before the familiar target invitation. Reward after the dog walks fully through. Gradually reduce your hand movement while the hoop remains on the floor. Reset away from it so each pass is voluntary rather than a repetitive obstacle circuit.",
+          "teach": "Say “through” before the familiar familiar invitation. Reward after the dog walks fully through. Gradually reduce your hand movement and hide any reward until after the pass while the hoop remains on the floor. Reset away from it so each pass is voluntary rather than a repetitive obstacle circuit.",
           "advance": "Makes a relaxed walking pass on cue in 4 of 5 attempts across two short sessions.",
           "easier": "Use the target again or end. This lesson does not add height, jumping, or narrow openings.",
           "deps": [
@@ -3284,6 +4540,228 @@
           ]
         }
       ]
+    },
+    {
+      "code": "REAR",
+      "title": "Rear feet on a flat target",
+      "sheet": "Body awareness",
+      "goal": "Notice and place the rear feet on a broad flat target while walking forward.",
+      "cue": "Back feet",
+      "setup": "A long broad non-slip mat, lying flat with no raised platform. Comfortable ordinary movement only.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "REAR-1",
+          "title": "Notice the rear-foot arrival",
+          "teach": "Lay a broad flat mat across an open walking route. Let the dog stroll forward over it, marking when a rear foot reaches the mat. Reward at a natural head height while the rear feet are still on the surface if possible. Keep walking routes roomy and avoid sudden stops.",
+          "advance": "Offers several relaxed passes with reward timed to rear-foot contact.",
+          "easier": "Use a longer mat and slower approach. Do not move a paw or block forward escape.",
+          "deps": []
+        },
+        {
+          "id": "REAR-2",
+          "title": "Pause with rear feet supported",
+          "teach": "Use the same easy forward pass and reward when both rear feet are on the mat after the front feet have stepped beyond it. Feed in a balanced stand, then release forward. Choose a target long enough that the position happens comfortably without stretching the body.",
+          "advance": "Briefly stands with rear feet on the mat and front feet beyond in several easy turns.",
+          "easier": "Reward any rear contact or make the mat longer. Stop for stiffness or uneven loading.",
+          "deps": [
+            [
+              "REAR-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "REAR-3",
+          "title": "Name the target position",
+          "teach": "Say “back feet” before the familiar slow pass and brief pause. Reduce your own accompanying movement while keeping the route straight. Reward both rear feet on the flat surface, then release. This lesson ends at floor level; no raised perch or balance surface is required.",
+          "advance": "Finds the rear-foot position on the cue and small guiding gesture in two short sessions.",
+          "easier": "Keep walking with the dog or reward a single rear contact. Skip if the posture is difficult.",
+          "deps": [
+            [
+              "REAR-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "SIDESTEP",
+      "title": "Take a sideways step",
+      "sheet": "Body awareness",
+      "goal": "Make one or two small voluntary lateral steps without being crowded.",
+      "cue": "Side step",
+      "setup": "Open non-slip space with room to move away. Work both directions separately without demanding symmetry or using body pressure.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "SIDESTEP-1",
+          "title": "Capture a lateral foot shift",
+          "teach": "Stand at an angle beside your comfortable standing dog, leaving generous space. Watch for a small sideways foot adjustment during an ordinary reset, mark and reward. A small reward invitation across the front can help, but do not walk into the dog or twist the head sharply.",
+          "advance": "Offers several small lateral foot adjustments with balanced ordinary movement.",
+          "easier": "Reward a tiny weight shift or try another day. Do not create the movement by crowding or pushing.",
+          "deps": []
+        },
+        {
+          "id": "SIDESTEP-2",
+          "title": "Build and name one step",
+          "teach": "Reward slightly larger sideways adjustments until a front and rear foot move a small distance in the same direction. Say “side step” just before the familiar small gesture. Keep your feet still, mark one balanced step and release. Teach the other direction in a separate easy session if comfortable.",
+          "advance": "Offers one or two balanced lateral steps from the cue and small gesture in two sessions.",
+          "easier": "Reward a single foot movement again. End for stiffness, scrambling or persistent turning instead of stepping.",
+          "deps": [
+            [
+              "SIDESTEP-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "PIVOT",
+      "title": "Move the rear feet around a flat target",
+      "sheet": "Body awareness",
+      "goal": "Keep front feet on a broad flat mat while taking one or two small rear-foot steps around it.",
+      "cue": "Pivot",
+      "setup": "A broad non-slip floor target, open space and healthy comfortable movement. No raised perch, tight rotations or long repetitions.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "PIVOT-1",
+          "title": "Reward a tiny rear adjustment",
+          "teach": "Invite the known front-feet target position. Keep rewards near natural head height and watch for one small rear-foot adjustment while the front feet remain on the mat. Mark immediately and release. Do not turn the head far to force the hindquarters around or step into the dog.",
+          "advance": "Offers several small balanced rear-foot adjustments with front feet supported on the flat mat.",
+          "easier": "Use a larger mat or reward a weight shift. Skip if the dog repeatedly loses balance.",
+          "deps": [
+            [
+              "FEET-3",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "PIVOT-2",
+          "title": "A small arc on cue",
+          "teach": "Reward one rear step around the familiar front-foot position, then a second on a later turn. Put “pivot” before the predictable small invitation. Mix single-step rewards with two-step attempts and release often. Keep the arc short; there is no need for a full circle.",
+          "advance": "Makes one or two comfortable rear-foot steps around the flat target on invitation across two sessions.",
+          "easier": "Return to a single adjustment. Stop for twisting, paw sticking or any difficulty moving freely.",
+          "deps": [
+            [
+              "PIVOT-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "UNDER",
+      "title": "Walk under a roomy obstacle",
+      "sheet": "Body awareness",
+      "goal": "Choose to walk beneath a high stable open structure without crouching.",
+      "cue": "Under",
+      "setup": "A stable open table or broad arch with generous head and body clearance, no low bars, dangling objects or enclosed dead ends.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "UNDER-1",
+          "title": "Explore the open route",
+          "teach": "Stand beside a broad high table or arch and reward a voluntary look toward the open path beneath. Place an easy reward invitation just inside, then outside again. Keep both ends clear and allow the dog to go around. Never lower the structure over the dog or lure them into a cramped space.",
+          "advance": "Comfortably takes voluntary steps beneath the roomy open structure and exits freely.",
+          "easier": "Use a higher wider opening or stay at the edge. No crawling or crouching is needed.",
+          "deps": []
+        },
+        {
+          "id": "UNDER-2",
+          "title": "Name a walking pass",
+          "teach": "Say “under,” then give the familiar small invitation along the clear route. Reward after a complete natural-height walking pass. Hide the reward until afterward as the gesture becomes familiar. Reset well away and finish after a few easy choices rather than repeatedly sending the dog back and forth.",
+          "advance": "Walks underneath on cue and a small gesture in two short sessions without ducking or rushing.",
+          "easier": "Use a clearer invitation or wider route. Choose a different activity if overhead structures worry the dog.",
+          "deps": [
+            [
+              "UNDER-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "POLES",
+      "title": "Step over ground poles",
+      "sheet": "Body awareness",
+      "goal": "Walk slowly over a few safe poles lying on the ground with natural foot placement.",
+      "cue": "Step over",
+      "setup": "Two or three broad visible poles that cannot roll, completely on the floor, with generous spacing for this dog. Non-slip footing and comfortable movement; no jumping or fitness prescription.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "POLES-1",
+          "title": "One harmless pole",
+          "teach": "Secure one visible pole flat on the ground. Walk beside it first, then invite a slow voluntary step across, rewarding beyond it. Let the dog inspect or walk around instead. Choose a pole and approach angle that allow normal walking without hopping, snagging toes or pulling on equipment.",
+          "advance": "Comfortably walks over the single ground pole in either direction over several turns.",
+          "easier": "Use a flat contrasting strip instead or remove the obstacle. Stop for tripping or uneven movement.",
+          "deps": []
+        },
+        {
+          "id": "POLES-2",
+          "title": "A short spaced line",
+          "teach": "Add a second secured ground pole far enough away for several natural steps between them. Invite an unhurried pass and reward at the end. Add a third only if walking stays ordinary. Adjust spacing to the dog rather than asking them to match a rigid pattern.",
+          "advance": "Chooses a slow balanced pass over two or three well-spaced ground poles across two sessions.",
+          "easier": "Remove one pole or increase spacing. No raised poles, repetitive circuits or forced stride changes.",
+          "deps": [
+            [
+              "POLES-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "SURFACE",
+      "title": "Choose unfamiliar safe surfaces",
+      "sheet": "Body awareness",
+      "goal": "Voluntarily step across a small stable change of texture.",
+      "cue": "Explore (an invitation)",
+      "setup": "Clean secure non-slip textures such as rubber and tightly secured fabric on the floor. No hot, sharp, noisy unstable or painful surfaces.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "SURFACE-1",
+          "title": "One foot on a new texture",
+          "teach": "Lay a small secured texture beside familiar flooring. Reward looking or approaching from the familiar side, then voluntary foot contact. Offer an easy reward back on the original surface so moving away remains part of the game. Never place the dog onto it or trap the exit.",
+          "advance": "Freely chooses single-foot contacts and returns after easy breaks.",
+          "easier": "Use a smaller or more familiar texture. Reward interest without expecting contact.",
+          "deps": []
+        },
+        {
+          "id": "SURFACE-2",
+          "title": "A short voluntary crossing",
+          "teach": "Use the familiar texture over a small broad patch. Invite a natural walking crossing, reward beyond it and give a break. Later present a different safe texture from the easiest level, without assuming transfer. Keep your invitation optional; comfort matters more than covering a required area.",
+          "advance": "Chooses comfortable full crossings on two different stable safe textures in separate easy sessions.",
+          "easier": "Return to one foot or remove the unfamiliar patch. Avoid luring into a situation the dog then cannot leave.",
+          "deps": [
+            [
+              "SURFACE-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
     },
     {
       "code": "OPEN",
@@ -3518,11 +4996,7 @@
           "easier": "Use a familiar safe toy instead. Stop if any part could be swallowed or the dog guards it.",
           "deps": [
             [
-              "FETCH-2",
-              3
-            ],
-            [
-              "GIVE-1",
+              "GIVE-2",
               3
             ]
           ]
@@ -3536,6 +5010,10 @@
           "deps": [
             [
               "SLIPPERS-1",
+              3
+            ],
+            [
+              "FETCH-2",
               3
             ]
           ]
@@ -4077,6 +5555,161 @@
       ]
     },
     {
+      "code": "TOILETBELL",
+      "title": "Ring to request a toilet trip",
+      "sheet": "Useful little jobs",
+      "goal": "Use a quiet accessible button to request prompt supervised access to the toilet area.",
+      "cue": "Outside? (the button predicts a trip)",
+      "setup": "A large low-force quiet button at a comfortable nose height near the exit, inaccessible electronics and prompt adult response. A request never replaces regular toilet opportunities.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "TOILETBELL-1",
+          "title": "Connect one press with access",
+          "teach": "Place the familiar quiet button near the usual toilet exit. During a planned trip, invite one known press, immediately say “outside,” and provide the ordinary supervised trip. Reward toileting as usual. Do not require pressing before urgent access or repeat button drills without opening the route.",
+          "advance": "Several comfortable press-to-trip pairings have occurred with prompt consistent human follow-through.",
+          "easier": "Use an ordinary approach-to-door request instead. Give the toilet opportunity whether or not the button is pressed.",
+          "deps": [
+            [
+              "BUTTON-3",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "TOILETBELL-2",
+          "title": "Notice an offered request",
+          "teach": "At a normal likely toilet time, stand near the button briefly with neutral hands. If the dog offers a press, promptly open the safe route and accompany them. If not, offer the trip anyway. Respond to early spontaneous presses with calm access instead of testing whether they really need it.",
+          "advance": "Offers a press without a hand prompt on several occasions and receives a prompt trip.",
+          "easier": "Return to occasional prompted pairings. Check schedule and health rather than withholding access after frequent requests.",
+          "deps": [
+            [
+              "TOILETBELL-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "TOILETBELL-3",
+          "title": "Make the request practical",
+          "teach": "Keep the button in the same accessible place and respond consistently during ordinary supervised days. Record requests and whether toileting followed so you can improve access timing. The action requests an opportunity; it does not prove bladder urgency or language understanding. Continue regular trips and other recognized signals.",
+          "advance": "Uses the button independently for access across two days while the human keeps a reliable toilet routine.",
+          "easier": "Use a simpler door approach signal or return to scheduled access. New accidents or sudden frequency changes need veterinary attention.",
+          "deps": [
+            [
+              "TOILETBELL-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "LIGHTPAD",
+      "title": "Turn on a lamp with a pad",
+      "sheet": "Useful little jobs",
+      "goal": "Press an approved low-force control to turn on a small safe lamp.",
+      "cue": "Light",
+      "setup": "A commercially safe accessible low-voltage or wireless control pad, secured wiring and electronics out of reach. Humans configure and inspect the lamp; no plugs, wall switches or electrical DIY by the dog.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "LIGHTPAD-1",
+          "title": "Light change is comfortable",
+          "teach": "Let a helper turn the lamp on and off with the dog at a comfortable distance. Reward a noticed mild change, then take a break. Keep the room otherwise lit so switching does not plunge the dog into darkness. Teach this comfort separately from pressing the control pad.",
+          "advance": "Comfortable with several gentle lamp changes and free movement away.",
+          "easier": "Use a dimmer familiar lamp or more distance. Stop for light sensitivity or startle.",
+          "deps": []
+        },
+        {
+          "id": "LIGHTPAD-2",
+          "title": "Transfer the known pad press",
+          "teach": "With the lamp temporarily disconnected from the control, secure the approved pad at natural nose height. Invite the familiar gentle press and reward. Match the old target’s location initially, then move it only slightly. Keep all switches, batteries and wires inaccessible to mouthing.",
+          "advance": "Offers comfortable gentle presses on the secured control in several turns.",
+          "easier": "Use the old pad beside the new one or choose a more sensitive approved control.",
+          "deps": [
+            [
+              "BUTTON-3",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "LIGHTPAD-3",
+          "title": "One press makes light",
+          "teach": "After both separate pieces are comfortable, enable the lamp control. Say “light,” invite one known press, and reward after the gentle light change. A human resets the lamp between turns; reward the dog’s single action rather than repeated toggling. Remove access after the short supervised practice.",
+          "advance": "Turns on the safe lamp from the cue with reduced press prompting in two short sessions.",
+          "easier": "Return to disconnected presses or human-controlled light changes. Stop for mouthing, repeated rapid presses or startle.",
+          "deps": [
+            [
+              "LIGHTPAD-1",
+              3
+            ],
+            [
+              "LIGHTPAD-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "BLANKET",
+      "title": "Pull a lap blanket into place",
+      "sheet": "Useful little jobs",
+      "goal": "Gently pull a loose lightweight blanket edge toward an adult’s lap.",
+      "cue": "Blanket",
+      "setup": "A consenting seated adult, a light loose blanket with a safe broad grip edge and non-slip footing. No cords, knots, trapped limbs or blanket wrapping around the dog; skip for fabric eaters.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Useful extra",
+      "steps": [
+        {
+          "id": "BLANKET-1",
+          "title": "A free blanket edge",
+          "teach": "Support a lightweight blanket loosely on a low stable chair with its broad safe edge at natural mouth height. Invite the known gentle grip and tiny pull, then a release and reward. Let the fabric slide with almost no resistance. Keep all feet and neck clear of loose material.",
+          "advance": "Comfortably moves the loose fabric an inch or two and releases in several turns.",
+          "easier": "Use an ordinary safe pull prop or support more of the blanket. Skip if chewing begins.",
+          "deps": [
+            [
+              "PULL-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "BLANKET-2",
+          "title": "A tiny lap adjustment",
+          "teach": "With an adult seated and the blanket loosely over their knees, offer the same free edge beside the lap, away from hands and feet. Cue the gentle pull toward the adult, release and reward immediately. The adult helps the fabric travel so no force or backward dragging is needed.",
+          "advance": "Makes a small comfortable blanket adjustment without contact with limbs or loss of footing.",
+          "easier": "Return to the empty-chair version. Never ask the dog to pull a person, weighted blanket or caught fabric.",
+          "deps": [
+            [
+              "BLANKET-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "BLANKET-3",
+          "title": "Name the short job",
+          "teach": "Say “blanket” before the familiar tiny pull invitation. Reward a single useful adjustment and release, then the adult finishes positioning the blanket. Reduce the extra prompt while the movement remains light. Finish after one job rather than repeatedly disturbing the blanket to get more repetitions.",
+          "advance": "Makes one gentle useful lap adjustment on cue and releases across two sessions.",
+          "easier": "Keep helping the blanket slide or choose a different job. Remove fabric after any chewing or snagging.",
+          "deps": [
+            [
+              "BLANKET-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
       "code": "BOXFIND",
       "title": "Search a few open boxes",
       "sheet": "Scent adventures",
@@ -4092,12 +5725,7 @@
           "teach": "Place a reward visibly in one shallow open box while the dog watches from nearby. Let them approach and eat it without needing a sit or nose hold. Repeat with easy placements and allow the dog to leave. The box is an invitation, not a barrier.",
           "advance": "Comfortably approaches the box and finds the obvious food without chewing the container or climbing in.",
           "easier": "Use a plate or floor scatter instead if boxes cause concern or chewing.",
-          "deps": [
-            [
-              "SEARCH-1",
-              2
-            ]
-          ]
+          "deps": []
         },
         {
           "id": "BOXFIND-2",
@@ -4375,6 +6003,211 @@
           ]
         }
       ]
+    },
+    {
+      "code": "SCENTMATCH",
+      "title": "Choose a familiar human scent",
+      "sheet": "Scent adventures",
+      "goal": "Explore matching a familiar adult’s scent across safe inaccessible samples.",
+      "cue": "Find this scent",
+      "setup": "One willing familiar adult, large identical ventilated containers with secured lids, clean cotton samples and clean handling tools. No essential oils, chemicals or ingestible loose samples. One dog at a time; this is a game, not detection certification.",
+      "sources": "A13; P32; P11; R01",
+      "priority": "Enrichment",
+      "steps": [
+        {
+          "id": "SCENTMATCH-1",
+          "title": "A pleasant scent-container pairing",
+          "teach": "Let a familiar adult handle a clean cotton sample, then secure it inside a large vented container the dog cannot open or mouth. Present the container still and reward a voluntary sniff nearby from your hand. Put it away between turns. Keep rewards outside so scent and food are not stored together.",
+          "advance": "Comfortably investigates the safe container during several brief rewarding presentations.",
+          "easier": "Use a larger secured container or reward looking first. Stop for biting or frustrated pawing.",
+          "deps": []
+        },
+        {
+          "id": "SCENTMATCH-2",
+          "title": "Introduce a clean comparison",
+          "teach": "Using clean tools, prepare one identical container with an untouched cotton sample and one with the familiar adult’s sample. Present them close and equally accessible. Reward investigation of the familiar sample; move it between positions and reset errors to one easy target presentation without correction.",
+          "advance": "Comfortably chooses to investigate the familiar sample more often than a fixed side across easy mixed positions.",
+          "easier": "Return to one container, use fresher samples and check accidental food odors or handling differences.",
+          "deps": [
+            [
+              "SCENTMATCH-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "SCENTMATCH-3",
+          "title": "Refresh the samples fairly",
+          "teach": "Prepare fresh matched cotton samples and swap container positions with a helper while you stay neutral. Briefly offer a separate secured reference sample from the same adult, then invite the close choice. Reward the matching sample and record choices before making claims about scent understanding.",
+          "advance": "Most choices follow the familiar adult’s fresh sample across two short mixed-position sets with neutral human cues.",
+          "easier": "Keep the one-sample sniff game. A small household exercise does not establish operational detection or general matching ability.",
+          "deps": [
+            [
+              "SCENTMATCH-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "TRACKPERSON",
+      "title": "Follow a short human trail",
+      "sheet": "Scent adventures",
+      "goal": "Follow a short fresh route laid by a familiar adult, using investigation rather than seeing their departure.",
+      "cue": "Track",
+      "setup": "Two familiar adults, a safe open low-distraction area, a secured familiar-human cotton scent sample and comfortable equipment if needed. Food stays at the finish, not along the route. No roads, forced separation or real missing-person searches.",
+      "sources": "A13; P32; P11; R01; A15",
+      "priority": "Enrichment",
+      "steps": [
+        {
+          "id": "TRACKPERSON-1",
+          "title": "A very short visible route",
+          "teach": "Have a familiar adult walk a straight route of a few metres across clear safe ground and wait in view. Invite the dog to investigate from the start and follow at their pace, rewarding at the adult. Record the route beforehand. This visible introduction builds enjoyment rather than establishing tracking ability.",
+          "advance": "Comfortably investigates along the tiny route and enjoys the reward at the familiar adult.",
+          "easier": "Keep the adult closer or walk together. Skip if even brief distance causes distress.",
+          "deps": []
+        },
+        {
+          "id": "TRACKPERSON-2",
+          "title": "Start a fresh unobserved trail",
+          "teach": "Let the dog remain comfortably with you while the other adult walks a fresh short straight route out of their view and waits just behind a broad safe screen. Offer a secured scent sample handled by that adult at the start, then say “track.” Follow relaxed investigation without pointing or steering; reveal the endpoint before frustration.",
+          "advance": "Investigates from the start and follows the short freshly laid route toward the hidden endpoint on several easy turns.",
+          "easier": "Restore a visible finish or shorten the route. Do not hold the dog back, drag along the route or keep a helper hidden while distress develops.",
+          "deps": [
+            [
+              "TRACKPERSON-1",
+              3
+            ],
+            [
+              "SCENTMATCH-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "TRACKPERSON-3",
+          "title": "One fresh broad bend",
+          "teach": "Have the adult lay a fresh route of roughly five to ten metres with one broad bend while the dog cannot see the departure. Mark the route for the humans and keep the finish easy. Invite from the scent sample at the start, follow without directional help and reward at the adult. If the dog takes a direct shortcut, simplify rather than counting it as route-following.",
+          "advance": "Across two short sessions, willingly follows the approximate fresh route including its bend to the hidden adult. This is a small practiced trail, not evidence of operational tracking ability.",
+          "easier": "Return to a shorter straight trail or a visible finish. Keep trails fresh and easy; no aged tracks, unknown people or prolonged searches.",
+          "deps": [
+            [
+              "TRACKPERSON-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "SCENTINDICATE",
+      "title": "Show a find with a quiet nose hover",
+      "sheet": "Scent adventures",
+      "goal": "Offer a brief nose hover beside a safe secured scent container instead of grabbing it.",
+      "cue": "Show me",
+      "setup": "A large secured vented container with a familiar human cotton scent sample inside. No oils or loose samples. Comfortable natural head height, no prolonged breath holding or sustained nose pressure.",
+      "sources": "A13; P32; P11; R01",
+      "priority": "Enrichment",
+      "steps": [
+        {
+          "id": "SCENTINDICATE-1",
+          "title": "Reward a brief investigation",
+          "teach": "Present the familiar secured scent container at an easy natural height. Mark the first brief nose investigation before licking, pawing or grabbing starts, reward away and reset. Keep turns short and reward early. The container stays fixed rather than being pushed into the dog’s face.",
+          "advance": "Offers gentle brief investigation without mouthing or pawing in several easy turns.",
+          "easier": "Reward a glance or approach from farther away. Remove the prop if chewing or frustration starts.",
+          "deps": []
+        },
+        {
+          "id": "SCENTINDICATE-2",
+          "title": "A still moment beside the scent",
+          "teach": "After easy investigation, delay the marker by only a fraction of a second while the nose remains near the container. Reward before the dog presses or paws. Name the short hover “show me,” then reset away. Build to about one second at most, mixing immediate rewards in.",
+          "advance": "Offers a brief relaxed nose hover beside the container on invitation across two sessions.",
+          "easier": "Mark sooner and reward one soft investigation. Do not demand contact, a rigid freeze or a long hold.",
+          "deps": [
+            [
+              "SCENTINDICATE-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "ARTICLE",
+      "title": "Find a familiar scented article",
+      "sheet": "Scent adventures",
+      "goal": "Locate a safe familiar-human-scented container in a small accessible area without retrieving it.",
+      "cue": "Find the article",
+      "setup": "A large secured vented container holding clean cotton handled by one familiar adult, safe open hiding places and no accessible samples, oils or food inside. This is recreational searching.",
+      "sources": "A13; P32; P11; R01",
+      "priority": "Enrichment",
+      "steps": [
+        {
+          "id": "ARTICLE-1",
+          "title": "An obvious scent destination",
+          "teach": "Present the familiar scent container on a clear floor while the dog watches. Say “find the article,” allow approach and investigation, and reward beside it from your hand. Leave the container where it is rather than inviting pickup. Move the obvious position slightly between short turns.",
+          "advance": "Comfortably locates and investigates the visible container without trying to retrieve it.",
+          "easier": "Keep it near your feet or reward a glance first. Secure the container or stop if it is mouthed.",
+          "deps": [
+            [
+              "SCENTMATCH-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "ARTICLE-2",
+          "title": "A small concealed search",
+          "teach": "Let the dog watch the familiar container placed partly behind a broad safe object. Invite the search, remain neutral and reward discovery beside the container. Later make one easy placement while the dog looks away nearby. Keep the area tiny and reveal the container before frustration develops.",
+          "advance": "Willingly finds the container at several easy partly hidden placements across two sessions.",
+          "easier": "Show more of the container or use a visible placement. No inaccessible cavities, climbing or prolonged searching.",
+          "deps": [
+            [
+              "ARTICLE-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
+    },
+    {
+      "code": "DIG",
+      "title": "Dig in a designated patch",
+      "sheet": "Scent adventures",
+      "goal": "Enjoy digging only in a clearly offered safe supervised patch.",
+      "cue": "Dig here",
+      "setup": "A clean broad shallow digging area with soft suitable material, no sharp pieces or buried food for eaters, and room to leave. Inspect paws and keep dogs separate.",
+      "sources": "A13; P32; P11; R01",
+      "priority": "Enrichment",
+      "steps": [
+        {
+          "id": "DIG-1",
+          "title": "Explore the permitted patch",
+          "teach": "Show the clean shallow patch and let the dog investigate freely. If they offer one comfortable paw scrape, say “dig here,” reward beside the patch and let them explore again. Use an obvious safe favorite toy on the surface if helpful, without burying food or provoking frantic digging.",
+          "advance": "Comfortably explores and offers a little voluntary digging in the patch.",
+          "easier": "Accept sniffing or ordinary play instead. Some dogs do not enjoy digging; do not move their paws.",
+          "deps": []
+        },
+        {
+          "id": "DIG-2",
+          "title": "Invite and finish the digging game",
+          "teach": "Offer “dig here” before access to the familiar patch and reward a little appropriate digging with continued choice. End after a brief enjoyable turn with a clear finished cue and another pleasant activity. Cover or block the patch afterward. Supervise rather than assuming this cue prevents digging elsewhere.",
+          "advance": "Chooses a short comfortable dig in the offered patch and transitions away across two sessions.",
+          "easier": "Shorten the turn or use sniffing enrichment. Stop for gritty eyes, sore paws, swallowing material or escalating arousal.",
+          "deps": [
+            [
+              "DIG-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false
     },
     {
       "code": "DRINK",
@@ -4747,6 +6580,318 @@
           "LOOSE"
         ],
         "parallel": "Equipment retrieval, comfortable fitting and doorway waiting are separate skills. Learn them independently before connecting the full routine. The human handles clips, fitting and every exit decision."
+      }
+    },
+    {
+      "code": "RALLY",
+      "title": "A little rally route",
+      "sheet": "Brainiacs",
+      "goal": "Follow a short handler-directed route combining heel, a position pause and a broad marker loop.",
+      "cue": "Rally",
+      "setup": "A spacious non-slip enclosed area and three clear human-readable stations. No competition precision, tight turns or speed requirement.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Optional advanced",
+      "steps": [
+        {
+          "id": "RALLY-1",
+          "title": "Heel to one easy station",
+          "teach": "Set one station card several steps away. Cue the familiar heel entry, walk a short comfortable stretch, release at the card and reward. Rehearse stopping and choosing an ordinary stand separately at the station. Keep the card for the human; the dog is responding to your cues.",
+          "advance": "Comfortably travels in a short heel to the first station and transitions to a brief stand.",
+          "easier": "Shorten the route and reward the heel entry. Leave other station actions out initially.",
+          "deps": [
+            [
+              "HEEL-3",
+              3
+            ],
+            [
+              "STAND-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "RALLY-2",
+          "title": "Add a marker-loop station",
+          "teach": "Place a familiar soft cone with generous clearance after the first station. Release the heel, cue the known broad loop and reward its finish. Practice the cone station on its own as well as after the first. Keep your cues distinct so the dog is not asked to heel and loop simultaneously.",
+          "advance": "Comfortably changes from the first station into a separately cued broad loop.",
+          "easier": "Reward each station separately or remove the connecting walk. Use a wider cone curve.",
+          "deps": [
+            [
+              "RALLY-1",
+              3
+            ],
+            [
+              "CONE-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "RALLY-3",
+          "title": "One short complete route",
+          "teach": "Add a final station for the familiar comfortable stand and release. Follow the three stations at a natural pace, rewarding between them whenever useful. On later sessions change the station order with the same clear cues. Finish after one enjoyable route and remove the cards.",
+          "advance": "Completes the short handler-directed route with clear heel, loop, position and release cues in two easy sessions.",
+          "easier": "Keep two stations or reward every action. This is a cooperative activity rather than a test of memorized sequences.",
+          "deps": [
+            [
+              "RALLY-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false,
+      "project": {
+        "modules": [
+          {
+            "code": "HEEL"
+          },
+          {
+            "code": "STAND"
+          },
+          {
+            "code": "CONE"
+          },
+          {
+            "code": "RALLY"
+          }
+        ],
+        "foundations": [
+          "FREE"
+        ]
+      }
+    },
+    {
+      "code": "CIRCUIT",
+      "title": "A floor-level adventure circuit",
+      "sheet": "Brainiacs",
+      "goal": "Join a few voluntary walking obstacles into one short adaptable route.",
+      "cue": "Adventure",
+      "setup": "A wide floor-level hoop, a very short secured open tunnel and ground poles in a spacious non-slip area. All equipment has easy bypasses. No jumps, speed, tight turns or fitness prescription.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Optional advanced",
+      "steps": [
+        {
+          "id": "CIRCUIT-1",
+          "title": "Link two familiar walking pieces",
+          "teach": "Place the familiar floor hoop and the shortest open tunnel far apart with an easy straight walking connection. Invite one hoop pass, reward, then separately invite the tunnel and reward. Let the dog bypass either. Start with each obstacle alone before asking for a linked route.",
+          "advance": "Comfortably chooses both familiar walking pieces with a relaxed connection.",
+          "easier": "Use only the easier piece or reward the connection. Remove any obstacle that creates rushing.",
+          "deps": [
+            [
+              "HOOP-2",
+              3
+            ],
+            [
+              "TUNNEL-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "CIRCUIT-2",
+          "title": "Add the ground-pole finish",
+          "teach": "After a break, add the familiar widely spaced ground poles beyond the tunnel with generous straight clearance. Rehearse this last part alone first. Then invite the short route, rewarding after each piece. Keep the dog walking naturally; a complete circuit is optional on every turn.",
+          "advance": "Comfortably adds the ground-pole walking finish without rushing or changing gait.",
+          "easier": "Use one pole or skip that piece. Never guide the dog into an obstacle they are trying to avoid.",
+          "deps": [
+            [
+              "CIRCUIT-1",
+              3
+            ],
+            [
+              "POLES-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "CIRCUIT-3",
+          "title": "An adaptable route with choices",
+          "teach": "Say the adventure invitation before the first familiar component cue. Support each choice separately, reward generously and finish after one easy circuit. On another day change only the order with large open connections. Preserve all bypasses and celebrate a shorter route when the dog prefers it.",
+          "advance": "Enjoys a short linked route on two occasions with natural movement and willing entries at every piece.",
+          "easier": "Return to separate obstacles or choose a single comfortable walking activity. No repeated circuits to meet a quota.",
+          "deps": [
+            [
+              "CIRCUIT-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false,
+      "project": {
+        "modules": [
+          {
+            "code": "HOOP"
+          },
+          {
+            "code": "TUNNEL"
+          },
+          {
+            "code": "POLES"
+          },
+          {
+            "code": "CIRCUIT"
+          }
+        ],
+        "foundations": []
+      }
+    },
+    {
+      "code": "SCENTREPORT",
+      "title": "Find, show and report a scent",
+      "sheet": "Brainiacs",
+      "goal": "Find the familiar scent container, indicate it briefly, then return to touch the handler’s hand.",
+      "cue": "Report",
+      "setup": "One secured familiar human-scent container, easy accessible placements and an uncluttered room. No oils, operational searches or prolonged indication.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Optional advanced",
+      "steps": [
+        {
+          "id": "SCENTREPORT-1",
+          "title": "Join the find and indication",
+          "teach": "Place the familiar container in a fully visible nearby spot. Invite the known article search, then the short nose-hover indication. Reward beside the find before any frustration or grabbing. Rehearse this ending separately from hidden placements and keep the container fixed throughout.",
+          "advance": "Finds and briefly indicates the visible container with comfortable component cues.",
+          "easier": "Reward discovery without the hover or rehearse the indication alone. Keep the task easy enough to avoid repeated prompting.",
+          "deps": [
+            [
+              "ARTICLE-2",
+              3
+            ],
+            [
+              "SCENTINDICATE-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "SCENTREPORT-2",
+          "title": "Add a close return report",
+          "teach": "After an easy find and hover, offer your familiar hand target a step away. Reward the touch at your hand and release. Alternate rewards at the find with rewards after the return so indicating remains worthwhile. Keep yourself close enough that leaving the find is an easy choice.",
+          "advance": "Comfortably changes from the short indication to a one-step hand-touch report.",
+          "easier": "Bring your hand closer or reward at both locations. Do not withhold rewards to force a longer chain.",
+          "deps": [
+            [
+              "SCENTREPORT-1",
+              3
+            ],
+            [
+              "TOUCH-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "SCENTREPORT-3",
+          "title": "A tiny hidden search and report",
+          "teach": "Place the familiar secured container partly behind a broad safe object in the small known area. Say “report,” then support the known search, brief show and return touch with component cues. Reward generously, then finish. Gradually fade one extra prompt at a time without making the hiding harder.",
+          "advance": "Finds the easy container, briefly shows it and returns to touch with ordinary support across two sessions.",
+          "easier": "Reveal the container or return to the visible ending. This recreational chain does not certify an independent working alert.",
+          "deps": [
+            [
+              "SCENTREPORT-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false,
+      "project": {
+        "modules": [
+          {
+            "code": "ARTICLE"
+          },
+          {
+            "code": "SCENTINDICATE"
+          },
+          {
+            "code": "TOUCH"
+          },
+          {
+            "code": "SCENTREPORT"
+          }
+        ],
+        "foundations": [
+          "SCENTMATCH"
+        ]
+      }
+    },
+    {
+      "code": "ROUTINE",
+      "title": "A short cooperative trick routine",
+      "sheet": "Brainiacs",
+      "goal": "Combine three comfortable tricks with clear individual cues and a restful finish.",
+      "cue": "Showtime",
+      "setup": "An enclosed non-slip space, steady handler and generous curves. Choose only the dog’s comfortable versions; this optional routine requires no speed, music, audience or repeated performance.",
+      "sources": "A10; P11; P22; R01",
+      "priority": "Optional advanced",
+      "steps": [
+        {
+          "id": "ROUTINE-1",
+          "title": "A bow and one open circle",
+          "teach": "Invite the familiar brief bow, reward and let the dog reset to stand. Then separately cue one broad circle around your still body and reward its finish. Practice each action alone between combinations. Keep full pauses so joining never turns into rapid twisting or repeated stretching.",
+          "advance": "Comfortably offers the two familiar actions with clear separate cues and an easy transition.",
+          "easier": "Do just one action or reward an ordinary stand between them. Skip any movement that looks stiff.",
+          "deps": [
+            [
+              "BOW-3",
+              3
+            ],
+            [
+              "CIRCLEME-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "ROUTINE-2",
+          "title": "Add a quiet final pose",
+          "teach": "After the familiar circle, let the dog settle their footing and invite the short comfortable photo pose without taking a picture. Reward and give the familiar finished cue. Rehearse the pose ending on its own before joining it. Keep the whole routine to a handful of gentle actions.",
+          "advance": "Completes bow, broad circle and brief pose with comfortable pauses and separate cues.",
+          "easier": "Remove the first action or shorten the pose. There is no need to perform all pieces every time.",
+          "deps": [
+            [
+              "ROUTINE-1",
+              3
+            ],
+            [
+              "POSE-2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "ROUTINE-3",
+          "title": "One invitation, clear support",
+          "teach": "Say “showtime” before the familiar bow cue, then support circle and pose with their known cues. Reward between pieces whenever useful and finish with an honest break. On later occasions reduce only one prompt if the dog anticipates the sequence comfortably. One enjoyable supported routine is the full goal.",
+          "advance": "Enjoys the short three-action routine with clear cues and a restful ending on two occasions.",
+          "easier": "Keep individual cues and frequent rewards. Do not drill for an audience or interpret a missed cue as lost completion.",
+          "deps": [
+            [
+              "ROUTINE-2",
+              3
+            ]
+          ]
+        }
+      ],
+      "maintenance": false,
+      "project": {
+        "modules": [
+          {
+            "code": "BOW"
+          },
+          {
+            "code": "CIRCLEME"
+          },
+          {
+            "code": "POSE"
+          },
+          {
+            "code": "ROUTINE"
+          }
+        ],
+        "foundations": []
       }
     }
   ],
@@ -5602,6 +7747,78 @@
       "finding": "Multiple close-together stressful events may leave a dog less able to cope with the next challenge.",
       "limits": "A practical description, not a precise hormone clock or evidence for a universal number of recovery hours.",
       "use": "Reducing demands after a difficult day, using individual baseline observations rather than fixed decompression deadlines."
+    },
+    {
+      "id": "A10",
+      "title": "Dog training tips",
+      "author": "RSPCA",
+      "year": "Checked 2026-10-24",
+      "type": "Original professional guidance",
+      "url": "https://www.rspca.org.uk/adviceandwelfare/pets/dogs/training",
+      "access": "Public written guidance reviewed",
+      "finding": "Rewards, short enjoyable sessions and gradual teaching support basic cue learning.",
+      "limits": "General professional guidance; no guarantee for a particular dog or the original lesson sequences.",
+      "use": "Reward-based foundations, walking cues and optional tricks."
+    },
+    {
+      "id": "A11",
+      "title": "Crate training your dog",
+      "author": "PDSA",
+      "year": "Checked 2026-10-24",
+      "type": "Original professional guidance",
+      "url": "https://www.pdsa.org.uk/pet-help-and-advice/looking-after-your-pet/puppies-dogs/crate-training",
+      "access": "Public written guidance reviewed",
+      "finding": "Voluntary introductions and gradual positive steps help make a suitable crate familiar.",
+      "limits": "A crate is not a treatment for separation distress. This app stops at tiny attended closures, not prolonged confinement.",
+      "use": "The separate attended crate-door lesson; exits and comfort remain available."
+    },
+    {
+      "id": "A12",
+      "title": "Fear Free Handling",
+      "author": "SPCA New Zealand",
+      "year": "Checked 2026-10-24",
+      "type": "Original professional guidance",
+      "url": "https://spca.b-cdn.net/advocacy/position-statements/article/fear-free-handling",
+      "access": "Public written guidance reviewed",
+      "finding": "Supports voluntary participation in routine care using cooperative approaches and low-stress handling.",
+      "limits": "A professional position statement, not a validated protocol for each care task. Pain and actual procedures need individual veterinary guidance.",
+      "use": "Start signals, stopping at withdrawal, and preparation rather than forced handling."
+    },
+    {
+      "id": "A13",
+      "title": "Scent Work: Get Started",
+      "author": "American Kennel Club",
+      "year": "Checked 2026-10-24",
+      "type": "Original professional guidance",
+      "url": "https://www.akc.org/sports/akc-scent-work/getting-started/",
+      "access": "Public written guidance reviewed",
+      "finding": "Recreational scent work joins finding a scent with communicating the find to a handler.",
+      "limits": "The app uses secured familiar-human cotton samples without essential oils. Its games are original adaptations and do not establish competition readiness or operational detection.",
+      "use": "Separate scent search, indication and cooperative report components."
+    },
+    {
+      "id": "A14",
+      "title": "Walking 1-2-3",
+      "author": "CattleDog Publishing veterinary behavior education team",
+      "year": "Checked 2026-10-24",
+      "type": "Original professional teaching guide",
+      "url": "https://cattledogpublishing.com/blog/walking-1-2-3/",
+      "access": "Public written guidance reviewed",
+      "finding": "Describes a predictable counting and reward pattern and credits Leslie McDevitt’s Control Unleashed pattern games.",
+      "limits": "Practical teaching guidance, not a clinical trial or a guarantee that the game will make trigger exposure safe.",
+      "use": "A short quiet count-and-walk adaptation with optional participation and no fear-exposure requirement."
+    },
+    {
+      "id": "A15",
+      "title": "Tracking: Get Started",
+      "author": "American Kennel Club",
+      "year": "Checked 2026-10-24",
+      "type": "Official sport overview",
+      "url": "https://www.akc.org/sports/tracking/getting-started/",
+      "access": "Public written overview reviewed",
+      "finding": "Distinguishes following a human-laid scent route from simply finding a visible person or article.",
+      "limits": "A competition overview is not a validated training protocol. This app’s fresh tiny trails do not qualify a dog for sport or search-and-rescue work.",
+      "use": "Separating a recreational human-route-following exercise from visual hide-and-seek and food trails."
     }
   ],
   "evidence": [

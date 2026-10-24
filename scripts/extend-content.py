@@ -5,8 +5,8 @@ ROOT=Path(__file__).resolve().parents[1]
 D=json.loads((ROOT/'research/base-data.json').read_text())
 D['sources']=[s for s in D['sources'] if not s['id'].startswith('T')]
 D['sources']+=json.loads((ROOT/'research/additional-sources.json').read_text())
-D['version']=6
-D['updated']='2026-10-22'
+D['version']=7
+D['updated']='2026-10-24'
 for x in D['intro']:
  x['body']=x['body'].replace('column','section').replace('Foundations records','Foundations covers').replace('Practice elsewhere records','Practice elsewhere covers')
 D['intro'].append({'title':'After a difficult day','body':'Several close-together challenges can leave a dog less able to cope. Offer predictable rest, space, and enjoyable low-demand activities. Return to planned exposure only when this dog is back at their ordinary comfortable baseline; there is no universal number of hours that certifies recovery.'})
@@ -207,6 +207,9 @@ import runpy
 runpy.run_path(str(ROOT/'scripts/advanced-content.py'))['extend'](D, add)
 for item in D['intro']:
  if item['title']=='Optional advanced jobs':item['body']=item['body'].replace('the fridge retrieve in Clever companions','the optional multi-stage projects in Brainiacs')
+
+runpy.run_path(str(ROOT/'scripts/prerequisite-review.py'))['apply'](D)
+runpy.run_path(str(ROOT/'scripts/curriculum-expansion.py'))['extend'](D, add)
 
 # Preserve topic grouping while retaining every original step ID.
 order=['Foundations','Calm at home','Walk skills','Other dogs','People and door','Sounds and novelty','Care and equipment','Play and jobs','Practice elsewhere','Clever companions','Body awareness','Useful little jobs','Scent adventures']

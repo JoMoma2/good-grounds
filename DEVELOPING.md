@@ -64,4 +64,20 @@ Projects use `skill.project.modules` and `foundations` referencing ordinary skil
 
 Run `npm test` for all unit suites, including immutable 1.1.1 compatibility fixtures. Keep those fixtures portable; do not depend on a local Git checkout for source-archive tests. The focused handoff suite measures real desktop audio graph output; this is not physical speaker verification. It also supports `GG_BROWSER=firefox` for local-file checks.
 
-The 1.3.0 implementation, deferred trick decisions and safe-cleanup record are in [CURRICULUM_REWORK.md](CURRICULUM_REWORK.md). Keep step-count tests focused on meaningful component relationships; do not enforce a quota that encourages padded projects.
+The 1.3.0 implementation, deferred trick decisions and safe-cleanup record are in [CURRICULUM_REWORK.md](docs/archive/CURRICULUM_REWORK.md). Keep step-count tests focused on meaningful component relationships; do not enforce a quota that encourages padded projects.
+
+## Curriculum 7 / 1.4.0 additions
+
+`curriculum-expansion.py` authors the 50 additions; `prerequisite-review.py` revises existing gates after the older generator stages. Run `python3 scripts/extend-content.py` for both data bundles. `research/prerequisite-review.json` records each active step’s reviewed dependencies; audit checks all four historical baselines and the exact 104 → 154 expansion. Read `docs/archive/DEVELOPMENT_REPORT_1.4.0.md` for editorial reasons.
+
+`dailyPractice` selects learned maintained skills per selected dog. `logPracticeToday` writes idempotent linked journal records atomically, without changing progress or observed completion history. New maintenance-eligible lessons carry `maintenance: true`; existing eligible codes remain supported. Detailed same-day logs count too. Calendar refresh respects unsaved forms and open dialogs.
+
+Run `npm test`, `npm run check`, and `npm run test:expansion` (also with `GG_BROWSER=webkit`). The expansion browser suite opens all 120 new steps and checks the daily queue, correction, local-date rollover, tables and accessibility. Platform-specific tests remain required for transport and native behavior.
+
+## Lesson browsing and current release layout
+
+The Lessons landing page renders the topic directory, never all 154 skill cards. `librarySelection` applies word-prefix search, exact current/archived Step IDs, selected-dog cues, topic and progress filters. `libraryResults` renders at most 12 compact rows and accessible page controls. Category pages have their own search and remembered page. Browse state is temporary UI state and does not change dog records or backup formats. The original topic routes and Fridge task alias remain valid.
+
+Run `npm run test:library` in Chromium and WebKit. It reaches every skill once through topic pagination and checks search, filtering, dog ownership, keyboard focus, text size and accessibility.
+
+Keep one current installer and one current source ZIP per platform outside the active Git checkouts. Put superseded releases, old generated builds and old validation into the central Archives folder, with versioned subfolders where known. Historical design notes inside a checkout belong in `docs/archive`. Keep generator inputs and compatibility fixtures in place. New verification belongs in `validation/v1.4.1`; current `build` and `test-results` folders are generated and ignored. Never move or reset the active `.git`, `.signing` or personal app records as part of cleanup.

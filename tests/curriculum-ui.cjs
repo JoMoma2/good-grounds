@@ -18,8 +18,8 @@ async function main(){
  async function grade(value){await page.getByRole('button',{name:'Set progress',exact:true}).click();await page.locator('[data-action="set-progress"]').filter({has:page.getByText(C.LABELS[C.STATUSES.indexOf(value)],{exact:true})}).click();}
  async function check(name,fn){await fn();report.checks.push(name);console.log('PASS '+name);}
  try{
-  await check('Brainiacs has four distinct project overviews and a working component dropdown for every step',async()=>{
-   await boot();assert.equal(await page.locator('.project-card').count(),4);await page.locator('[href="#/project/DRINK"]').click();await page.locator('[data-module=OPEN]').waitFor();
+  await check('Brainiacs has eight distinct project overviews and a working component dropdown for every step',async()=>{
+   await boot();assert.equal(await page.locator('.project-card').count(),8);await page.locator('[href="#/project/DRINK"]').click();await page.locator('[data-module=OPEN]').waitFor();
    const groups=page.locator('[data-module]');assert.equal(await groups.count(),4);assert.equal(await page.locator('[data-module][open]').count(),0);
    await page.locator('[data-module=SHELF] summary').click();assert.equal(await page.locator('[data-module=SHELF] a').count(),3);await page.locator('[data-module=SHELF] a').first().click();await nav('#/lesson/SHELF-1');assert.ok(page.url().endsWith('#/lesson/SHELF-1'));assert.equal(await page.locator('.step-pill').count(),3);
    await nav('#/project/DRINK');await page.locator('.project-foundations>summary').click();await page.locator('[data-foundation=PULL] summary').click();assert.equal(await page.locator('[data-foundation=PULL] [href="#/lesson/PULL-3"]').count(),1);await page.locator('[data-module=CLOSE] summary').click();assert.ok((await page.locator('[data-module=CLOSE] summary').textContent()).includes('optional'));await page.screenshot({path:out+'/curriculum-fridge-'+engine+'.png',fullPage:true});

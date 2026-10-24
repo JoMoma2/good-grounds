@@ -24,8 +24,8 @@ test('separate loops and symbol pairings run in parallel but their combinations 
  s=done(s,'WEAVE-2','CARDS-2');assert.equal(ready(s,'WEAVE-3'),'Build prerequisite');assert.equal(ready(s,'CARDS-3'),'Build prerequisite');
  s=done(s,'WEAVE-1','CARDS-1');assert.equal(ready(s,'WEAVE-3'),'Ready to start');assert.equal(ready(s,'CARDS-3'),'Ready to start');
 });
-test('comfortable equipment and participation gates occur at the action that uses them',()=>{
- let s=done(C.freshState(),'TURN-1','TEETH-1');assert.equal(ready(s,'TURN-2'),'Build prerequisite');assert.equal(ready(s,'TEETH-2'),'Build prerequisite');
+test('equipment comfort stays a setup check while the taught participation signal remains a gate',()=>{
+ let s=done(C.freshState(),'TURN-1','TEETH-1');assert.equal(ready(s,'TURN-2'),'Ready to start');assert.equal(ready(s,'TEETH-2'),'Build prerequisite');
  s=done(s,'HARNESS-3','CHIN-2');assert.equal(ready(s,'TURN-2'),'Ready to start');assert.equal(ready(s,'TEETH-2'),'Ready to start');assert.equal(ready(C.freshState(),'TEETH-1'),'Ready to start');
 });
 test('handover is independent of travel, while travel still needs carrying',()=>{
@@ -34,7 +34,7 @@ test('handover is independent of travel, while travel still needs carrying',()=>
  s=done(s,'CARRY-1');for(const id of ['POUCH-2','MESSENGER-2'])assert.equal(ready(s,id),'Ready to start');
 });
 test('the four advanced projects have independent components and distinct complete tasks',()=>{
- assert.deepEqual(D.skills.filter(s=>s.sheet==='Brainiacs').map(s=>s.code),['DRINK','SORTALL','COURIER','WALKREADY']);assert.equal(D.skills.at(-1).sheet,'Brainiacs');
+ assert.deepEqual(D.skills.filter(s=>s.sheet==='Brainiacs').map(s=>s.code),['DRINK','SORTALL','COURIER','WALKREADY','RALLY','CIRCUIT','SCENTREPORT','ROUTINE']);assert.equal(D.skills.at(-1).sheet,'Brainiacs');
  for(const code of ['DRINK','SORTALL','COURIER','WALKREADY']){const p=C.projectPlan(D,C.freshState(),code);assert.ok(p.modules.length>=3);assert.equal(p.skill.steps.length,4);}
  assert.ok(step('COURIER-1').deps.some(([id])=>id==='PERSON-4'));
  assert.match(step('PERSON-4').teach,/farther|nearer/);assert.match(step('THIRDBIN-3').advance,/Six/);
