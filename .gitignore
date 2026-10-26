@@ -5,3 +5,6 @@ build/
 *.ipa.sha256
 test-results/
 __pycache__/
+
+# LibreOffice / OpenOffice temporary document locks
+.~lock.*#

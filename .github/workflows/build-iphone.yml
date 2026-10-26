@@ -37,6 +37,7 @@ jobs:
           node tests/curriculum-ui.cjs
           node tests/expansion-ui.cjs
           node tests/library-ui.cjs
+          node tests/redesign-ui.cjs
       - uses: actions/upload-artifact@v7
         if: always()
         with:
