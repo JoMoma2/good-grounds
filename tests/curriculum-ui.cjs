@@ -4,7 +4,7 @@ const root=path.resolve(__dirname,'..'),web=process.env.GG_WEB_ROOT||root+'/app/
 const out=root+'/test-results',report={engine,webRoot:web,checks:[],errors:[],externalRequests:[],physicalDogTrainingTested:false,nativeRuntimeTested:false};fs.mkdirSync(out,{recursive:true});
 async function main(){
  const browser=await ({chromium,webkit,firefox}[engine]).launch({headless:true});let context,page;
- const fresh=()=>{const s=C.freshState();s.profile.name='Molly';s.household.setupComplete=true;s.household.tutorialSeenVersion=1;return s;};
+ const fresh=()=>{const s=C.freshState();s.settings.lessonMode='detailed';s.profile.name='Molly';s.household.setupComplete=true;s.household.tutorialSeenVersion=1;return s;};
  const done=(s,...ids)=>ids.reduce((a,id)=>C.setProgress(a,id,C.STATUSES[3]),s);
  async function boot(s=fresh(),hash='#/topic/Brainiacs'){
   if(context)await context.close();context=await browser.newContext({viewport:{width:390,height:844},isMobile:engine!=='firefox',hasTouch:true});
@@ -21,7 +21,7 @@ async function main(){
   await check('Brainiacs has eight distinct project overviews and a working component dropdown for every step',async()=>{
    await boot();assert.equal(await page.locator('.project-card').count(),8);await page.locator('[href="#/project/DRINK"]').click();await page.locator('[data-module=OPEN]').waitFor();
    const groups=page.locator('[data-module]');assert.equal(await groups.count(),4);assert.equal(await page.locator('[data-module][open]').count(),0);
-   await page.locator('[data-module=SHELF] summary').click();assert.equal(await page.locator('[data-module=SHELF] a').count(),3);await page.locator('[data-module=SHELF] a').first().click();await nav('#/lesson/SHELF-1');assert.ok(page.url().endsWith('#/lesson/SHELF-1'));assert.equal(await page.locator('.step-pill').count(),3);
+   await page.locator('[data-module=SHELF] summary').click();assert.equal(await page.locator('[data-module=SHELF] a').count(),3);await page.locator('[data-module=SHELF] a').first().click();await nav('#/lesson/SHELF-1');assert.ok(page.url().endsWith('#/lesson/SHELF-1'));assert.equal(await page.locator('[data-lesson-section=steps] .lesson-step-list a').count(),3);
    await nav('#/project/DRINK');await page.locator('.project-foundations>summary').click();await page.locator('[data-foundation=PULL] summary').click();assert.equal(await page.locator('[data-foundation=PULL] [href="#/lesson/PULL-3"]').count(),1);await page.locator('[data-module=CLOSE] summary').click();assert.ok((await page.locator('[data-module=CLOSE] summary').textContent()).includes('optional'));await page.screenshot({path:out+'/curriculum-fridge-'+engine+'.png',fullPage:true});
    for(const code of ['SORTALL','COURIER','WALKREADY']){await nav('#/project/'+code);assert.ok(await page.locator('[data-module]').count()>=3);assert.equal(await page.locator('.tab.active').textContent(),'Lessons');}
   });

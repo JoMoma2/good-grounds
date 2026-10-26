@@ -7,7 +7,7 @@ const report={engine,webRoot:web,checks:[],errors:[],externalRequests:[],nativeR
 async function main(){
  const browser=await ({chromium,webkit,firefox}[engine]).launch({headless:true});let context,page;
  const out=root+'/test-results';fs.mkdirSync(out,{recursive:true});
- const fresh=()=>{const s=C.freshState();s.household.setupComplete=true;s.household.tutorialSeenVersion=1;s.profile.name='Molly';return s;};
+ const fresh=()=>{const s=C.freshState();s.settings.lessonMode='detailed';s.household.setupComplete=true;s.household.tutorialSeenVersion=1;s.profile.name='Molly';return s;};
  async function boot(s=fresh(),hash='#/lesson/NAME-1'){
   if(context)await context.close();context=await browser.newContext({viewport:{width:390,height:844},isMobile:engine!=='firefox',hasTouch:true});
   await context.addInitScript(state=>{
@@ -52,25 +52,16 @@ async function main(){
    }
    const before=await page.evaluate(()=>__starts);await page.locator('[data-cue-input]').fill('Molly come');assert.equal(await page.evaluate(()=>__starts),before);
   });
-  await check('marker and Set progress stay above navigation and settle at their normal location',async()=>{
+  await check('training controls follow the criterion and can be reached without covering teaching content',async()=>{
    await nav('#/lesson/VISITOR-4');const controls=page.locator('.lesson-actions');
    for(const dimensions of [{width:390,height:844},{width:320,height:568},{width:844,height:390}]){
-    await page.setViewportSize(dimensions);
-    for(const text of ['normal','large']){
-     await page.evaluate(t=>document.documentElement.dataset.text=t,text);
-     for(const y of [0,250,600]){
-      await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),y);
-      await page.waitForTimeout(40);
-      const box=await controls.boundingBox(),bar=await page.locator('.tab-bar').boundingBox();
-      assert.ok(box.y>=0&&box.y+box.height<=bar.y,JSON.stringify({dimensions,text,y,box,bar}));
-      assert.ok(await page.locator('.lesson-marker [data-marker]').isVisible());
-     }
+    await page.setViewportSize(dimensions);for(const text of ['normal','large']){
+     await page.evaluate(t=>document.documentElement.dataset.text=t,text);await controls.scrollIntoViewIfNeeded();
+     const box=await controls.boundingBox(),bar=await page.locator('.tab-bar').boundingBox();assert.ok(box.y>=0&&box.y+box.height<=bar.y,JSON.stringify({dimensions,text,box,bar}));
+     assert.equal(await controls.evaluate(e=>getComputedStyle(e).position),'static');assert.ok(await page.locator('.lesson-marker [data-marker]').isVisible());
     }
    }
-   await page.setViewportSize({width:390,height:844});
-   await page.evaluate(()=>{document.documentElement.dataset.text='normal';scrollTo({top:document.body.scrollHeight,behavior:'instant'});});
-   await page.waitForTimeout(40);const box=await controls.boundingBox(),bar=await page.locator('.tab-bar').boundingBox();assert.ok(box.y+box.height<bar.y-20,'Controls should rest above the remaining lesson footer');
-   await page.getByRole('button',{name:'Set progress',exact:true}).click();await page.getByRole('dialog').waitFor();await page.getByRole('button',{name:'Close dialog',exact:true}).click();
+   await page.setViewportSize({width:390,height:844});await page.getByRole('button',{name:'Set progress',exact:true}).click();await page.getByRole('dialog').waitFor();await page.getByRole('button',{name:'Close dialog',exact:true}).click();
   });
   await check('Settings can hide and restore the lesson marker, preserving the preference through backup',async()=>{
    await nav('#/settings');await page.locator('[name="lessonMarker"]').uncheck();await page.getByRole('button',{name:'Save settings',exact:true}).click();
@@ -90,7 +81,7 @@ async function main(){
    assert.equal(await page.locator('.tab.active').textContent(),'Lessons');
    assert.equal(await page.locator('.library-topic').count(),14);assert.equal(await page.locator('#learn-results .lesson-card').count(),0);
    await page.locator('#learn-search').fill('NAME-1');assert.equal(await page.locator('#learn-results .lesson-card').getAttribute('href'),'#/lesson/NAME-1');
-   await nav('#/more');assert.equal(await page.locator('.menu-row').count(),4);
+   await nav('#/more');assert.equal(await page.locator('.menu-row').count(),6);
    await page.getByRole('link',{name:/Source library/}).click();await page.getByRole('link',{name:'Evidence & limitations',exact:true}).waitFor();
   });
   await check('larger text scales headings, labels, controls and body text throughout the app',async()=>{
@@ -124,7 +115,7 @@ async function main(){
    const s=fresh();s.cues.OPEN='Fridge please';s.cues.CLOSE='Shut';s.cues.DRINK='A drink';
    await boot(s,'#/learn');assert.equal(await page.locator('.library-topic').last().getAttribute('href'),'#/topic/Brainiacs');assert.equal(await page.locator('#learn-results .lesson-card').count(),0);
    await nav('#/topic/Fridge%20task');assert.equal(await page.getByRole('heading',{name:'Brainiacs',exact:true}).count(),1);
-   await nav('#/lesson/OPEN-1');assert.equal(await page.locator('.step-pill').count(),3);assert.equal(await page.locator('[data-cue-input]').inputValue(),'Fridge please');
+   await nav('#/lesson/OPEN-1');assert.equal(await page.locator('[data-lesson-section=steps] .lesson-step-list a').count(),3);assert.equal(await page.locator('[data-cue-input]').inputValue(),'Fridge please');
    await nav('#/lesson/CLOSE-1');assert.equal(await page.locator('[data-cue-input]').inputValue(),'Shut');await page.locator('[data-cue-input]').fill('Close gently');await page.locator('[data-cue-input]').blur();assert.equal((await snap()).cues.CLOSE,'Close gently');
    await nav('#/lesson/DRINK-4');assert.equal(await page.locator('[data-cue-input]').inputValue(),'A drink');
    await nav('#/learn');await page.locator('#learn-search').fill('SHELF-2');assert.equal(await page.locator('#learn-results .lesson-card').first().getAttribute('href'),'#/lesson/SHELF-2');
@@ -152,7 +143,7 @@ async function main(){
    const lines=page.locator('[data-history-series]');assert.equal(await lines.count(),new Set(D.skills.map(x=>x.sheet)).size);
    assert.ok(await page.locator('.topic-progress').isVisible());const first=lines.first();assert.match(await first.locator('path').getAttribute('d'),/V34H344$/);
    const toggle=page.locator('[data-history-toggle]').first();await toggle.uncheck();assert.equal(await first.isVisible(),false);await toggle.check();assert.equal(await first.isVisible(),true);
-   await page.locator('.completion-history details summary').click();assert.ok((await page.locator('.history-table').first().textContent()).includes('100%'));await page.screenshot({path:out+'/history-'+engine+'.png',fullPage:true});
+   await page.locator('.completion-history>details>summary').click();assert.ok((await page.locator('.history-table').first().textContent()).includes('100%'));await page.screenshot({path:out+'/history-'+engine+'.png',fullPage:true});
    const all=await snap();assert.equal(all.progressHistory[0].date,'2026-10-01');assert.equal(C.parseBackup(JSON.stringify(C.makeBackup(all,D))).progressHistory.length,2);
    await boot(fresh(),'#/trends');assert.equal((await snap()).progressHistory.length,1);assert.ok((await page.locator('.completion-history').textContent()).includes('Earlier changes were not logged'));
   });

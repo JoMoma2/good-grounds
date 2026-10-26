@@ -7,7 +7,7 @@ const root=path.resolve(__dirname,'..'),web=process.env.GG_WEB_ROOT||root+'/app/
 const C=require(web+'/core.js'),D=require(web+'/data.json'),engine=process.env.GG_BROWSER||'chromium';
 const report={engine,checks:[],errors:[],externalRequests:[],nativeRuntimeTested:false};
 const out=root+'/test-results';fs.mkdirSync(out,{recursive:true});
-function settled(){const s=C.freshState();s.household.setupComplete=true;s.household.tutorialSeenVersion=1;return s;}
+function settled(){const s=C.freshState();s.settings.lessonMode='detailed';s.household.setupComplete=true;s.household.tutorialSeenVersion=1;return s;}
 function twoDogs(){let s=settled();s.profile.name='Molly';s=C.addDog(s,{name:'Spot'});return C.selectDogs(s,C.dogs(s).map(d=>d.id));}
 async function main(){
   const browser=await (engine==='webkit'?webkit:chromium).launch({headless:true});let context,page,saves=[];

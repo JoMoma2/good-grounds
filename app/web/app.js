@@ -88,7 +88,7 @@
   function textField(label,name,value='',hint='') {return `<label class="field"><span>${E(label)}</span><textarea name="${name}" rows="3" maxlength="30000">${E(value)}</textarea>${hint?`<small>${E(hint)}</small>`:''}</label>`;}
   function selectField(label,name,items,value='',blank) {return `<label class="field"><span>${E(label)}</span><select name="${name}">${selectOptions(items,value,blank)}</select></label>`;}
   const formError=()=>'<p class="form-error" role="alert" hidden></p>';
-  function failForm(form,message) {const el=form.querySelector('.form-error');if(el){el.textContent=message;el.hidden=false;el.scrollIntoView({block:'center',behavior:'smooth'});}else toast(message,true);}
+  function failForm(form,message) {const el=form.querySelector('.form-error');if(el){el.textContent=message;el.hidden=false;el.scrollIntoView({block:'center',behavior:'smooth'});}else if(route!=='feedback')toast(message,true);}
   function lessonCard(skill,step,compact=false) {
     const a=C.availability(step,training);
     return link('lesson',step.id,`<div class="lesson-symbol">${icon(topicIcon(skill.sheet))}</div><div class="card-copy"><div class="eyebrow">${E(skill.sheet)}</div><h3>${E(skill.title)}</h3><p>${E(step.title)}</p>${competentNote(step.id)}<div class="card-meta">${badge(a)}<span>Step ${skill.steps.indexOf(step)+1} of ${skill.steps.length}</span></div></div>${icon('arrow','chevron')}`,'lesson-card '+(compact?'compact':''));
@@ -215,34 +215,52 @@
     const {skill,step}=item,current=I.skills.get(skill.code);
     return `${backBar('learn','','Lessons')}<div class="lesson-title"><span class="eyebrow">EARLIER GUIDE · ${E(step.id)}</span><h1>${E(skill.title)}</h1><p>This guide has been shortened. Its original instructions and your records stay here; use the current guide for new practice.</p>${current?link('lesson',current.steps[0].id,'Open the current guide','button secondary'):''}<p>${pill(statLabel(C.status(training,step.id)))}</p></div><section class="lesson-section"><p>${E(skill.setup)}</p><h2>${E(step.title)}</h2><p>${E(step.teach)}</p><h3>Move on when</h3><p>${E(step.advance)}</p><h3>Make it easier</h3><p>${E(step.easier)}</p></section><section class="lesson-section"><h2>Your original notes</h2>${dogNotes(step.id)}</section>${sourceLinks(skill.sources)}`;
   }
+  // Only these reviewed setups contain no extra safety conditions. New lessons
+  // keep their complete setup visible until reviewed, even in Simple mode.
+  const OPTIONAL_SETUP=new Set(['NAME','FREE','MAT','CHECK','SIDE','NAMECTX','MATCTX','KEEP','TOYNAME','TWOOBJECT','CARDS','LEFTRIGHT','POINT']);
   function lessonView(id) {
-    currentLesson=id;
     const item=itemFor(id);if(!item)return notFound();
     if(item.archived)return earlierLesson(item);
-    const {skill,step}=item,n=skill.steps.indexOf(step),avail=C.availability(step,training),v=C.status(training,id);
-    const dependencies=step.deps.map(([key,min])=>{
+    const {skill,step}=item,n=skill.steps.indexOf(step),avail=C.availability(step,training),v=C.status(training,id),visible=C.lessonSections(state.settings);
+    const dependencyLinks=(onlyMissing=false)=>step.deps.filter(([key,min])=>onlyMissing==='met'?C.rank(C.status(training,key))>=min:!onlyMissing||C.rank(C.status(training,key))<min).map(([key,min])=>{
       const dep=itemFor(key),met=C.rank(C.status(training,key))>=min;
       return `<a href="${path('lesson',key)}" class="dependency ${met?'met':''}">${icon(met?'check':'learn')}<span><strong>${E(dep.skill.title)} · ${E(dep.step.title)}</strong><small>${min===2?'Nearly there permits easy parallel practice':'Meet this step’s consistency criterion'} · ${E(statLabel(C.status(training,key)))}</small></span>${icon('arrow')}</a>`;
     }).join('');
+    const safetySetup=OPTIONAL_SETUP.has(skill.code)?'':skill.setup;
+    // Keep stop/avoidance advice in adaptations visible as well as the full
+    // adaptation in Extra guidance. Teaching and advancement text stay intact.
+    const safetyEasier=step.easier.split(/(?<=[.!?])\s+/).filter(t=>/\b(stop|skip|never|avoid|pain|panic|distress|guarding|swallow|chewing|veterinar|vet|medical|breath|force|traffic|road|supervis|unsafe)\w*\b|\bdo not (?:force|restrain|hold|pull|push|grab|lift|attach|trap|block|fasten|provoke|chase)\b|\bno (?:force|hold|pull|jump|restraint)/i.test(t)).join(' ');
+    const stepList=`<nav class="lesson-step-list" aria-label="All teaching steps">${skill.steps.map((st,i)=>link('lesson',st.id,`<span>${i+1}. ${E(st.title)}</span><small>${E(st.id)} · ${E(statLabel(C.status(training,st.id)))}</small>`,st.id===id?'current':'').replace('<a ',`<a ${st.id===id?'aria-current="step"':''} `)).join('')}</nav>`;
+    const projects=C.relatedProjects(D,skill.code),downstream=C.downstreamSkills(D,skill.code);
+    const blocks={
+      setup:{title:'Get ready',body:`<p>${E(skill.goal)}</p><p>${E(skill.setup)}</p>${safetySetup?'<small>Safety conditions also stay visible above.</small>':''}`},
+      easier:{title:'Make it easier',body:`<p>${E(step.easier)}</p>`},
+      prerequisites:dependencyLinks('met')?{title:'Build on these prerequisites',body:`<p>These earlier steps support this lesson. Missing prerequisites stay visible above.</p><div class="stack">${dependencyLinks('met')}</div>`}:null,
+      notes:{title:'Your notes',body:dogNotes(id)},
+      sources:{title:'Why this approach? · Sources',body:`<p>These references support the teaching approach. This step sequence is an original practical adaptation, not a promise of treatment success.</p>${sourceLinks(skill.sources)}`},
+      downstream:downstream.length?{title:'Where this skill can lead',body:`<p>Explore whenever you’re curious; each lesson’s own prerequisites still apply.</p><ul>${downstream.map(x=>`<li>${link('lesson',x.step.id,E(x.skill.title))}</li>`).join('')}</ul>`}:null,
+      steps:{title:'All steps and project maps',body:stepList+projects.map(project=>`<div class="lesson-project">${link('project',project.code,E(project.title)+' · project overview','text-link')}${projectOutline(project,id)}</div>`).join('')},
+      earlier:step.replaces?.length?{title:'Earlier guides and saved notes',body:`<p>Completed earlier groups can credit this step. Original notes remain on their original pages.</p><ul>${step.replaces.map(old=>`<li>${link('lesson',old,E(itemFor(old).step.title))}</li>`).join('')}</ul>`}:null
+    };
+    const block=(key,expanded)=>{const b=blocks[key];if(key==='earlier'&&b)return `<details class="lesson-extra earlier-records" data-lesson-section="earlier"><summary>${E(b.title)}</summary>${b.body}</details>`;return b?expanded?`<section class="lesson-section lesson-extra ${key==='downstream'?'downstream-skills':''}" data-lesson-section="${key}"><h2>${E(b.title)}</h2>${b.body}</section>`:`<details class="lesson-extra ${key==='downstream'?'downstream-skills':''}" data-lesson-section="${key}"><summary>${E(b.title)}</summary>${b.body}</details>`:'';};
+    const hidden=Object.keys(blocks).filter(key=>blocks[key]&&!visible[key]);
     return `${backBar('topic',skill.sheet,skill.sheet,`<button class="icon-button favorite ${state.favorites.includes(skill.code)?'active':''}" data-action="favorite" data-id="${E(skill.code)}" aria-label="${state.favorites.includes(skill.code)?'Unsave':'Save'} this skill" aria-pressed="${state.favorites.includes(skill.code)}">${icon('heart')}</button>`)}
-    ${competentNote(id)}<div class="lesson-title"><div class="eyebrow">${E(skill.priority)} · ${E(id)}</div><h1>${E(skill.title)}</h1><p>${E(skill.goal)}</p><div class="card-meta">${badge(avail)}<button class="text-button" data-action="progress" data-id="${E(id)}">${E(statLabel(v))} ${icon('tune')}</button></div></div>
-    ${C.relatedProjects(D,skill.code).map(project=>`<details class="lesson-project"><summary>${E(project.title)} · project map</summary>${link('project',project.code,'Open project overview','text-link')}${projectOutline(project,id)}</details>`).join('')}
-    <nav class="step-strip" aria-label="Teaching steps">${skill.steps.map((s,i)=>link('lesson',s.id,`<span>${C.status(training,s.id)===C.STATUSES[3]?icon('check'):i+1}</span><small>${E(s.title)}</small>`,`step-pill ${s.id===id?'current':''} ${C.status(training,s.id)===C.STATUSES[3]?'done':''}`)).join('')}</nav>
-    <section class="lesson-section setup"><div class="eyebrow">GET READY</div><p>${E(skill.setup)}</p>${cueFields(skill)}</section>
-    ${avail==='Build prerequisite'?`<div class="notice amber"><strong>Read ahead; build the earlier piece first.</strong><p>The prerequisite links below show what is missing. For anxiety, comfortable management and easy pairings do not require perfect obedience.</p></div>`:''}
-    <section class="lesson-section teaching"><span class="eyebrow">STEP ${n+1} OF ${skill.steps.length}</span><h2>${E(step.title)}</h2><div class="teaching-copy">${teachingCopy(skill,step)}</div></section>
+    ${competentNote(id)}<div class="lesson-title focused-title"><h1>${E(skill.title)}</h1><div class="lesson-step-heading"><span>Step ${n+1} of ${skill.steps.length}</span>${badge(avail)}<button class="text-button" data-action="choose-step" data-id="${E(id)}">Change step</button></div></div>
+    <section class="lesson-cue" aria-label="Training cue">${cueFields(skill)}</section>
+    ${safetySetup||safetyEasier?`<aside class="lesson-safety"><strong>Safe start</strong>${safetySetup?`<p>${E(safetySetup)}</p>`:''}${safetyEasier?`<p>${E(safetyEasier)}</p>`:''}</aside>`:''}
+    ${dependencyLinks(true)?`<aside class="notice amber required-prerequisites"><strong>Build the earlier piece first.</strong><p>You can read ahead. Before practicing this step, follow the links to the missing prerequisites. Comfortable management and easy anxiety pairings do not require perfect obedience.</p><div class="stack">${dependencyLinks(true)}</div></aside>`:''}
+    <section class="lesson-section teaching"><h2>${E(step.title)}</h2><div class="teaching-copy">${teachingCopy(skill,step)}</div></section>
     <section class="criterion"><div class="criterion-icon">${icon('check')}</div><div><span class="eyebrow">MOVE ON WHEN</span><p>${E(step.advance)}</p></div></section>
-    ${practiceRecency(skill)}
-    <section class="lesson-section easier"><h2>${icon('leaf')}Make it easier</h2><p>${E(step.easier)}</p></section>
-    ${dependencies?`<section class="lesson-section"><h2>Build on these</h2><p class="quiet">Tap a prerequisite to open its exact teaching step.</p><div class="stack">${dependencies}</div></section>`:''}
-    <section class="lesson-section"><h2>Your notes</h2>${dogNotes(id)}</section>
-    ${step.replaces?.length?`<details class="earlier-records"><summary>Earlier guide and saved notes</summary><p>Completed earlier groups can credit this step; original notes remain on their original pages.</p><ul>${step.replaces.map(old=>`<li>${link('lesson',old,E(itemFor(old).step.title))}</li>`).join('')}</ul></details>`:''}
-    <section class="lesson-section references"><details><summary>Why this approach? · Sources</summary><p>These references support the teaching approach. This specific step sequence is an original practical adaptation, not a promise of treatment success.</p>${sourceLinks(skill.sources)}</details></section>
-    ${C.downstreamSkills(D,skill.code).length?`<details class="downstream-skills"><summary>Where this skill can lead</summary><p>This skill helps build the following lessons. Explore whenever you’re curious; their own prerequisites still apply.</p><ul>${C.downstreamSkills(D,skill.code).map(x=>`<li>${link('lesson',x.step.id,E(x.skill.title))}</li>`).join('')}</ul></details>`:''}
     <div class="lesson-actions ${state.settings.lessonMarker?'':'without-marker'}" role="group" aria-label="Training controls">${state.settings.lessonMarker?`<div class="lesson-marker"><button class="button" data-marker aria-label="Play marker sound" aria-describedby="marker-feedback">${icon('sound')}<span data-marker-label>Mark & reward</span></button>${link('clicker',id,'Open clicker','text-link')}</div>`:''}<button class="button secondary" data-action="progress" data-id="${E(id)}">${icon('check')}Set progress</button>${state.settings.lessonMarker?'<p id="marker-feedback" class="marker-feedback" role="status" aria-live="polite" aria-atomic="true">Tap to mark, then reward.</p>':''}</div>
-    ${link('session',id,icon('plus')+'Log practice','button secondary full')}
     <nav class="step-navigation" aria-label="Previous and next teaching step">${n>0?link('lesson',skill.steps[n-1].id,icon('back')+'Previous','button ghost'):'<span></span>'}${n<skill.steps.length-1?link('lesson',skill.steps[n+1].id,'Next step'+icon('arrow'),'button ghost'):link('topic',skill.sheet,'More in this topic'+icon('arrow'),'button ghost')}</nav>
+    ${Object.keys(blocks).filter(key=>visible[key]).map(key=>block(key,true)).join('')}
+    ${hidden.length?`<details class="extra-guidance"><summary>Extra guidance <small>Setup, help and more</small></summary><p class="fineprint">Open anything you need for this visit. Your saved display choices stay the same.</p>${hidden.map(key=>block(key,false)).join('')}</details>`:''}
+    <p class="fineprint lesson-display-link">${E(state.settings.lessonMode==='detailed'?'Detailed':'Simple')} lesson display${Object.keys(state.settings.lessonSections).length?' · customized':''} · ${link('settings','','Change lesson display')}</p>
     <p class="fineprint">A recorded stage is a planning aid. Your dog’s comfort, health, and ability to leave always come first. ${link('basics','','Read the training essentials')}</p>`;
+  }
+  function chooseStep(id) {
+    const item=itemFor(id);if(!item)return;
+    openModal('Choose a teaching step',`<p class="fineprint">${E(item.skill.title)} · Viewing a step never records progress.</p><nav class="lesson-step-list" aria-label="Choose a teaching step">${item.skill.steps.map((st,i)=>link('lesson',st.id,`<span>${i+1}. ${E(st.title)}</span><small>${E(C.availability(st,training))} · ${E(statLabel(C.status(training,st.id)))}</small>`,st.id===id?'current':'').replace('<a ',`<a ${st.id===id?'aria-current="step"':''} `)).join('')}</nav>`);
   }
   function clickerView(id) {
     const item=itemFor(id)||itemFor(currentLesson), sound=GroundMarker.sounds.find(s=>s.id===state.settings.markerSound);
@@ -290,7 +308,7 @@
   }
   function practiceView() {
     const queue=C.dailyPractice(D,state),records=queue.records;
-    return `${backBar('learn','','Lessons')}<div class="page-title"><span class="eyebrow">KEEP THE FAMILIAR FEELING GOOD</span><h1>Your practice<br>rhythm.</h1><p>Revisit completed foundations and walk skills, including Heel. One comfortable refresher is enough to log a practice day; nothing here resets learning.</p></div>${dailyPracticeCard(queue)}${records.length?`<details class="practice-library"><summary>All learned fundamentals · ${records.length}</summary>${records.map(x=>`<section class="reading-card"><h2>${E(x.skill.title)}</h2>${C.dogs(state).length>1?`<p class="quiet">For ${E(x.dogName)}</p>`:''}<p>${x.lastPractice?'Last practice logged '+E(C.elapsedLabel(x.practiceDays).toLowerCase())+' · '+E(dateLabel(x.lastPractice)):'No practice logged yet. '+(x.learnedOn?'Consistency recorded '+E(dateLabel(x.learnedOn))+'.':'')}</p><div class="button-row">${x.lastPractice===queue.today?pill('Practiced today','complete'):`<button class="button secondary" data-action="quick-practice" data-id="${E(x.skill.steps.at(-1).id)}" data-dog-id="${E(x.dogId)}">Practiced today</button>`}${link('lesson',x.skill.steps.at(-1).id,'Review lesson','text-link')}</div></section>`).join('')}</details>`:empty('Room for a rhythm','Once all steps of a foundation or walk skill are recorded as consistent for a selected dog, it appears here. You can still log practice from any lesson.',link('learn','','Explore lessons','button secondary'))}<p class="fineprint">Practice is recorded separately for each dog in Journal. Detailed Skill practice entries for any step of a skill count too. Edit or remove a journal entry to correct a practice date. The list follows the local date on this device.</p><p class="fineprint">${link('basics','practice-rhythms','How practice reminders work')} · ${link('settings','','Change reminders')}</p>`;
+    return `${backBar('learn','','Lessons')}<div class="page-title"><span class="eyebrow">KEEP THE FAMILIAR FEELING GOOD</span><h1>Your practice<br>rhythm.</h1><p>Revisit completed foundations and walk skills, including Heel. One comfortable refresher is enough to log a practice day; nothing here resets learning.</p></div>${dailyPracticeCard(queue)}${records.length?`<details class="practice-library"><summary>All learned fundamentals · ${records.length}</summary>${records.map(x=>`<section class="reading-card"><h2>${E(x.skill.title)}</h2>${C.dogs(state).length>1?`<p class="quiet">For ${E(x.dogName)}</p>`:''}<p>${x.lastPractice?'Last practice logged '+E(C.elapsedLabel(x.practiceDays).toLowerCase())+' · '+E(dateLabel(x.lastPractice)):'No practice logged yet. '+(x.learnedOn?'Consistency recorded '+E(dateLabel(x.learnedOn))+'.':'')}</p><div class="button-row">${x.lastPractice===queue.today?pill('Practiced today','complete'):`<button class="button secondary" data-action="quick-practice" data-id="${E(x.skill.steps.at(-1).id)}" data-dog-id="${E(x.dogId)}">Practiced today</button>`}${link('lesson',x.skill.steps.at(-1).id,'Review lesson','text-link')}</div></section>`).join('')}</details>`:empty('Room for a rhythm','Once all steps of a foundation or walk skill are recorded as consistent for a selected dog, it appears here. Use Journal → Add a session for other practice.',link('learn','','Explore lessons','button secondary'))}<p class="fineprint">Practice is recorded separately for each dog in Journal. Detailed Skill practice entries for any step of a skill count too. Edit or remove a journal entry to correct a practice date. The list follows the local date on this device.</p><p class="fineprint">${link('basics','practice-rhythms','How practice reminders work')} · ${link('settings','','Change reminders')}</p>`;
   }
   function progressModal(id) {
     if(I.archivedSteps.has(id)){toast('Use the current guide to record new progress.');return;}
@@ -327,7 +345,7 @@
     const original=E(step.teach).split(/\n\n+/).map(p=>`<p>${p}</p>`).join('');
     const adapted=C.selectedDogs(state).map(d=>({dog:d,pieces:GroundTailoring.practicePieces(step.id,d.tailoring.traits)})).filter(x=>x.pieces.length);
     if(!adapted.length)return original;
-    return `<div class="tailored-teaching">${adapted.map(({dog,pieces})=>`<div><span class="eyebrow">SMALLER PRACTICE STEPS${C.selectedDogs(state).length>1?' · '+E(dog.profile.name):''}</span><ol>${pieces.map(p=>`<li>${E(p)}</li>`).join('')}</ol></div>`).join('')}</div><details><summary>Full teaching guide</summary>${original}</details>`;
+    return `<div class="tailored-teaching">${adapted.map(({dog,pieces})=>`<div><span class="eyebrow">SMALLER PRACTICE STEPS${C.selectedDogs(state).length>1?' · '+E(dog.profile.name):''}</span><ol>${pieces.map(p=>`<li>${E(p)}</li>`).join('')}</ol></div>`).join('')}</div><div class="original-teaching"><h3>Teaching guide</h3>${original}</div>`;
   }
   function tailoredToday() {
     const choices=C.personalizedAvailable(D,state).slice(0,3);if(!choices.length)return '';
@@ -344,7 +362,7 @@
   }
   function guideView() {
     const pages=GROUND_GUIDE.pages;guideIndex=Math.max(0,Math.min(guideIndex,pages.length-1));const page=pages[guideIndex];
-    return `<div class="tour-top"><span class="brand-kicker">A LITTLE LOOK AROUND</span><button class="text-button" data-action="finish-guide">Skip tour</button></div><div class="tour-symbol">${icon(page.icon)}</div><div class="page-title"><span class="eyebrow">${E(page.eyebrow)}</span><h1>${E(page.title)}</h1><p>${E(C.dogs(state).length===1&&page.singleBody?page.singleBody:page.body)}</p></div><div class="tour-detail"><p>${E(C.dogs(state).length===1&&page.singleDetail?page.singleDetail:page.detail)}</p></div><div class="tour-dots" role="img" aria-label="Tour page ${guideIndex+1} of ${pages.length}">${pages.map((_,i)=>`<span class="${i===guideIndex?'current':''}"></span>`).join('')}</div><div class="tour-actions">${guideIndex?'<button class="button secondary" data-action="guide-back">Back</button>':'<span></span>'}<button class="button" data-action="${guideIndex===pages.length-1?'finish-guide':'guide-next'}">${guideIndex===pages.length-1?'Let’s begin':'Next'}${icon('arrow')}</button></div><p class="fineprint">You can reopen this tour anytime in More.</p>`;
+    return `<div class="tour-top"><span class="brand-kicker">A LITTLE LOOK AROUND</span><button class="text-button" data-action="finish-guide">Skip tour</button></div><div class="tour-symbol">${icon(page.icon)}</div><div class="page-title"><span class="eyebrow">${E(page.eyebrow)}</span><h1>${E(page.title)}</h1><p>${E(C.dogs(state).length===1&&page.singleBody?page.singleBody:page.body)}</p></div><div class="tour-detail"><p>${E(C.dogs(state).length===1&&page.singleDetail?page.singleDetail:page.detail)}</p></div><p class="tour-page-number">${guideIndex+1} of ${pages.length}</p><div class="tour-dots" role="img" aria-label="Tour page ${guideIndex+1} of ${pages.length}">${pages.map((_,i)=>`<span class="${i===guideIndex?'current':''}"></span>`).join('')}</div><div class="tour-actions">${guideIndex?'<button class="button secondary" data-action="guide-back">Back</button>':'<span></span>'}<button class="button" data-action="${guideIndex===pages.length-1?'finish-guide':'guide-next'}">${guideIndex===pages.length-1?'Let’s begin':'Next'}${icon('arrow')}</button></div><p class="fineprint">You can reopen this tour anytime in More.</p>`;
   }
   function dogChooserView() {
     const selected=new Set(state.household.selectedIds);
@@ -423,9 +441,59 @@
     ${chart(obs.recovery,'Recovery after the event','seconds')}${chart(obs.response,'Observed response','custom response 0–4',4)}
     <div class="notice"><strong>Describe more than the number.</strong><p>Recovery means returning to their ordinary comfortable behavior after the event ends. The 0–4 description is a personal tracking aid. Keep the setup and body-language notes alongside it.</p></div>`;
   }
+  // The form ID is public routing information, never an account/API credential.
+  // Public Formspree form ID lives in the bundled HTML; no private credentials.
+  const feedbackFormId=document.querySelector('meta[name="good-ground-feedback-form"]')?.content||'';
+  const feedbackEndpoint=/^[a-z0-9]{6,64}$/.test(feedbackFormId)?'https://formspree.io/f/'+feedbackFormId:'';
+  let feedbackDraft={message:'',email:'',consent:false},feedbackPending=false,feedbackStatus='',feedbackLastSent=0;
+  function feedbackView() {
+    return `${backBar('more','','More')}<div class="page-title"><span class="eyebrow">HELP GOOD GROUND GROW</span><h1>Feedback.</h1><p>Share an idea, something confusing, or a problem you found.</p></div>${!feedbackEndpoint?'<aside class="notice"><strong>Feedback delivery is not connected yet.</strong><p>You can write and copy your message. Nothing will be sent until the app owner connects the feedback inbox.</p></aside>':''}<form id="feedback-form" class="form-card">${formError()}<label class="field"><span>Your feedback</span><textarea name="message" rows="6" maxlength="5000" required>${E(feedbackDraft.message)}</textarea><small>Please leave out passwords, health records and other sensitive details. Your draft stays only while this app page remains open.</small></label><label class="field"><span>Email for a reply · optional</span><input type="email" name="email" maxlength="254" autocomplete="email" value="${E(feedbackDraft.email)}"><small>Leave blank to send without a reply address.</small></label><div class="feedback-honeypot" aria-hidden="true"><label>Leave this empty<input name="_gotcha" type="text" tabindex="-1" autocomplete="off"></label></div><p class="fineprint" id="feedback-privacy">Submit sends your message and optional reply address through Formspree to the app owner. Formspree also receives connection information such as your IP address. Dog profiles, progress and journal entries are never attached. <a href="https://formspree.io/legal/privacy-policy/" rel="noopener noreferrer">Formspree privacy policy ↗</a></p><label class="check-chip"><input name="consent" type="checkbox" ${feedbackDraft.consent?'checked':''} aria-describedby="feedback-privacy"><span>I agree to send this feedback through Formspree.</span></label><p id="feedback-status" role="status" aria-live="polite">${E(feedbackStatus)}</p><button type="submit" class="button" ${!feedbackEndpoint||feedbackPending?'disabled':''}>${feedbackPending?'Sending…':'Submit feedback'}</button><button type="button" class="button secondary full" data-action="copy-feedback" ${feedbackPending?'disabled':''}>Copy feedback</button></form>`;
+  }
+  function rememberFeedback(form) {
+    if(feedbackPending)return;
+    const fields=new FormData(form);feedbackDraft={message:String(fields.get('message')||''),email:String(fields.get('email')||''),consent:fields.has('consent')};
+  }
+  async function submitFeedback(form) {
+    if(feedbackPending)return;
+    rememberFeedback(form);feedbackStatus='';
+    const error=form.querySelector('.form-error');error.hidden=true;
+    if(!feedbackEndpoint){failForm(form,'Feedback delivery is not connected yet. You can copy your message.');return;}
+    const message=feedbackDraft.message.trim(),email=feedbackDraft.email.trim();
+    if(!message||message.length>5000){failForm(form,'Write a message of up to 5,000 characters.');return;}
+    if(!form.reportValidity())return;
+    if(!feedbackDraft.consent){failForm(form,'Please agree to send your feedback through Formspree.');return;}
+    if(new FormData(form).get('_gotcha')){failForm(form,'This submission could not be sent.');return;}
+    if(feedbackLastSent&&Date.now()-feedbackLastSent<30000){failForm(form,'Please wait a moment before sending another message.');return;}
+    if(navigator.onLine===false){failForm(form,'You appear to be offline. Your draft is still here; connect and try again.');return;}
+    feedbackPending=true;
+    const button=form.querySelector('[type=submit]'),status=form.querySelector('#feedback-status');
+    button.disabled=true;button.textContent='Sending…';form.setAttribute('aria-busy','true');status.textContent='Sending feedback…';
+    // Freeze this draft until the request finishes, so a successful response
+    // cannot erase changes typed while it was in flight.
+    form.querySelectorAll('textarea,input').forEach(el=>el.disabled=true);
+    const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),15000);
+    try {
+      const response=await fetch(feedbackEndpoint,{method:'POST',headers:{Accept:'application/json','Content-Type':'application/json'},body:JSON.stringify({message,...(email?{email}:{}),_subject:'Good Ground feedback',_gotcha:''}),credentials:'omit',referrerPolicy:'no-referrer',redirect:'error',signal:controller.signal});
+      let result;try{result=await response.json();}catch{throw new Error('Delivery could not be confirmed. Your draft is still here; the message may have arrived. Check before retrying.');}
+      if(!response.ok||result?.ok!==true){
+        if(response.status===429)throw new Error('The feedback service is busy or its allowance is full. Your draft is still here; try again later.');
+        if(result?.errors?.some(e=>/captcha/i.test(e.code||e.message||'')))throw new Error('The service requires a verification this app cannot show. Your draft is still here; the app owner needs to check the feedback setup.');
+        throw new Error('The service did not accept this message. Your draft is still here; please try later.');
+      }
+      feedbackLastSent=Date.now();feedbackDraft={message:'',email:'',consent:false};feedbackStatus='Feedback received by our form service. Thank you!';
+      if(form.isConnected){form.reset();form.querySelector('[name=message]').value='';form.querySelector('[name=email]').value='';form.querySelector('[name=consent]').checked=false;status.textContent=feedbackStatus;}else if(route!=='feedback')toast(feedbackStatus);
+    } catch(error) {
+      const message=error instanceof TypeError||error.name==='AbortError'?'Delivery could not be confirmed. Your draft is still here; the message may have arrived. Connect and check before retrying.':error.message;
+      feedbackStatus=message;if(form.isConnected){status.textContent='';failForm(form,message);}else if(route!=='feedback')toast(message,true);
+    } finally {
+      clearTimeout(timeout);feedbackPending=false;
+      if(form.isConnected){form.querySelectorAll('textarea,input').forEach(el=>el.disabled=false);button.disabled=false;button.textContent='Submit feedback';form.removeAttribute('aria-busy');}
+      if(route==='feedback'&&$('#feedback-form')!==form)render({preserveScroll:true});
+    }
+  }
   function moreView() {
-    const rows=[['settings','tune','Settings','Appearance, clicker, practice reminders and backups'],['sources','book','Source library','Training essentials, evidence and references'],['dogs','dog','Your dogs','Profiles and separate training records'],['about','shield','About Good Ground','Privacy, app guide and compatibility']];
-    return `<div class="page-title"><span class="eyebrow">YOUR COMPANION TOOLKIT</span><h1>A little more<br>good ground.</h1><p>The useful details, all in one place.</p></div><div class="menu-list">${rows.map(([p,i,t,d])=>link(p,'',`<div class="menu-icon">${icon(i)}</div><span><strong>${E(t)}</strong><small>${E(d)}</small></span>${icon('arrow')}`,'menu-row')).join('')}</div><div class="local-card">${icon('shield')}<h2>At home on your phone.</h2><p>No account. No analytics. No app-run uploads. Your records stay local unless you choose to export them.</p><small data-save-indicator>${E(saveStatus)}</small></div>`;
+    const rows=[['settings','tune','Settings','Lesson display, appearance, clicker and backups'],['sources','book','Source library','Training essentials, evidence and references'],['dogs','dog','Your dogs','Profiles and separate training records'],['tutorial','learn','How to use Good Ground','A brief, practical tour you can replay'],['feedback','heart','Feedback','Share an idea or report a problem'],['about','shield','About Good Ground','Privacy, app guide and compatibility']];
+    return `<div class="page-title"><span class="eyebrow">YOUR COMPANION TOOLKIT</span><h1>A little more<br>good ground.</h1><p>The useful details, all in one place.</p></div><div class="menu-list">${rows.map(([p,i,t,d])=>link(p,'',`<div class="menu-icon">${icon(i)}</div><span><strong>${E(t)}</strong><small>${E(d)}</small></span>${icon('arrow')}`,'menu-row')).join('')}</div><div class="local-card">${icon('shield')}<h2>At home on your phone.</h2><p>No account needed for training. No analytics or background uploads. Training records stay local; feedback is sent only when you choose Submit.</p><small data-save-indicator>${E(saveStatus)}</small></div>`;
   }
   function plansView() {
     const chosen=C.selectedDogs(state);if(!chosen.some(d=>d.id===planDogId))planDogId=chosen[0].id;const dog=C.dogState(state,planDogId);
@@ -462,11 +530,15 @@
     <section class="reading-card"><h2>Export a backup</h2><p>Save a JSON file in Files. Choose <strong>On My iPhone</strong> if you want that copy to stay on the phone. Keep a separate copy before replacing or removing the app or its LiveContainer data container.</p><button class="button" data-action="export">${icon('save')}Save backup to Files</button></section>
     <section class="reading-card"><h2>Restore a backup</h2><p>The file is validated first. You’ll see a summary and confirm before it replaces current records. Canceling leaves your records untouched.</p><button class="button secondary" data-action="import">${icon('restore')}Choose backup file</button></section>${native?'<section class="reading-card"><h2>Previous local save</h2><p>If a recent change or damaged file needs recovery, you can preview the previous local snapshot before deciding whether to restore it.</p><button class="button secondary" data-action="recover-previous">Preview previous save</button></section>':''}<p class="fineprint" data-save-indicator>${E(saveStatus)}</p>`;
   }
+  function lessonDisplayFields() {
+    const values=C.lessonSections(state.settings);
+    return `<fieldset class="lesson-display-settings"><legend>Lesson display</legend>${selectField('Starting mode','lessonMode',[['simple','Simple · essentials first'],['detailed','Detailed · supporting guidance visible']],state.settings.lessonMode)}<p class="fineprint">Changing mode resets the section choices below to that preset. Adjust them, then Save settings. Safety instructions and missing prerequisites always stay visible.</p><details class="lesson-customization"><summary>Customize individual sections</summary><p class="fineprint">Checked sections appear below the training controls. Others stay in Extra guidance. These choices apply to every dog.</p><div class="stack">${Object.entries(C.LESSON_SECTIONS).map(([key,title])=>`<label class="check-chip"><input type="checkbox" name="lessonSection" value="${key}" ${values[key]?'checked':''}><span>${E(title)}</span></label>`).join('')}</div></details></fieldset>`;
+  }
   function settingsView() {
-    return `${backBar('more','','More')}<div class="page-title"><span class="eyebrow">COMFORTABLE TO READ</span><h1>Make yourself<br>at home.</h1><p>Appearance changes never change your training records.</p></div><form id="settings-form" class="form-card">${selectField('Color theme','theme',[['light','Warm light'],['dark','Quiet dark'],['system','Follow iPhone appearance']],state.settings.theme)}${selectField('Text size','textSize',[['normal','Comfortable'],['large','Larger']],state.settings.textSize)}${selectField('Gentle refresher reminders','reminderDays',[[7,'After a week without a recent record'],[14,'After two weeks'],[30,'After a month'],[0,'Turn reminders off']].map(([v,t])=>[String(v),t]),String(state.settings.reminderDays))}<p class="fineprint">A practical nudge for learned foundations and walk skills, not a scientific forgetting deadline.</p><label class="check-chip"><input name="lessonMarker" type="checkbox" ${state.settings.lessonMarker?'checked':''}><span>Show the clicker and lesson marker</span></label><p class="fineprint">Mark & reward stays within reach alongside Set progress. ${state.settings.lessonMarker?'Choose a sound and volume in '+link('clicker','','Clicker')+'.':'Enable the marker to show its training controls.'}</p><button class="button" type="submit">Save settings</button></form>${link('backup','',icon('save')+'Backup & restore','button secondary full')}`;
+    return `${backBar('more','','More')}<div class="page-title"><span class="eyebrow">COMFORTABLE TO READ</span><h1>Make yourself<br>at home.</h1><p>Appearance changes never change your training records.</p></div><form id="settings-form" class="form-card">${lessonDisplayFields()}${selectField('Color theme','theme',[['light','Warm light'],['dark','Quiet dark'],['system','Follow iPhone appearance']],state.settings.theme)}${selectField('Text size','textSize',[['normal','Comfortable'],['large','Larger']],state.settings.textSize)}${selectField('Gentle refresher reminders','reminderDays',[[7,'After a week without a recent record'],[14,'After two weeks'],[30,'After a month'],[0,'Turn reminders off']].map(([v,t])=>[String(v),t]),String(state.settings.reminderDays))}<p class="fineprint">A practical nudge for learned foundations and walk skills, not a scientific forgetting deadline.</p><label class="check-chip"><input name="lessonMarker" type="checkbox" ${state.settings.lessonMarker?'checked':''}><span>Show the clicker and lesson marker</span></label><p class="fineprint">Mark & reward stays within reach alongside Set progress. ${state.settings.lessonMarker?'Choose a sound and volume in '+link('clicker','','Clicker')+'.':'Enable the marker to show its training controls.'}</p><button class="button" type="submit">Save settings</button></form>${link('backup','',icon('save')+'Backup & restore','button secondary full')}`;
   }
   function aboutView() {
-    return `${backBar('more','','More')}<div class="page-title"><span class="brand-kicker">GOOD GROUND</span><h1>Practice kindly.<br>Keep it local.</h1><p>A personal dog-training companion built around comfortable progress and useful teaching guides.</p></div>${link('tutorial','','A quick tour','button secondary full')}<div class="reading-stack"><section class="reading-card"><h2>On this phone</h2><p>Version 1.4.1 · Curriculum ${D.version} · Updated ${E(D.updated)}.</p><p>${D.skills.length} skills and programs · ${I.steps.size} teaching steps · ${D.sources.length} reference records.</p><p>The installed app stores its records in its local data container. It has no analytics, remote fonts, advertising, API, or background data uploads. Automatic iCloud backup is excluded for the app’s progress folder; you control any exported files.</p></section><section class="reading-card"><h2>Built for real life</h2><p>The lessons are educational planning guides. Sudden changes, pain, severe panic, bites or redirection, and no comfortable starting setup deserve individual veterinary and behavior support. Secure equipment, barriers, and distance can help while arranging that care.</p></section><section class="reading-card"><h2>In LiveContainer</h2><p>Your records belong to the selected container. Keep using that same container for updates and export a backup before replacing it. File pickers depend on your LiveContainer setup; use its Fix File Picker setting if needed. Compatibility and physical-device behavior still need testing on your iPhone.</p></section></div>`;
+    return `${backBar('more','','More')}<div class="page-title"><span class="brand-kicker">GOOD GROUND</span><h1>Practice kindly.<br>Keep it local.</h1><p>A personal dog-training companion built around comfortable progress and useful teaching guides.</p></div>${link('tutorial','','A quick tour','button secondary full')}<div class="reading-stack"><section class="reading-card"><h2>On this phone</h2><p>Version 1.5.1 · Curriculum ${D.version} · Updated ${E(D.updated)}.</p><p>${D.skills.length} skills and programs · ${I.steps.size} teaching steps · ${D.sources.length} reference records.</p><p>The installed app stores its records in its local data container. It has no analytics, remote fonts, advertising or background data uploads. Optional feedback sends only what you type to Formspree when you submit it. Automatic iCloud backup is excluded for the app’s progress folder; you control any exported files.</p></section><section class="reading-card"><h2>Built for real life</h2><p>The lessons are educational planning guides. Sudden changes, pain, severe panic, bites or redirection, and no comfortable starting setup deserve individual veterinary and behavior support. Secure equipment, barriers, and distance can help while arranging that care.</p></section><section class="reading-card"><h2>In LiveContainer</h2><p>Your records belong to the selected container. Keep using that same container for updates and export a backup before replacing it. File pickers depend on your LiveContainer setup; use its Fix File Picker setting if needed. Compatibility and physical-device behavior still need testing on your iPhone.</p></section></div>`;
   }
   function notFound() {return empty('That page is not here','Return to the library to find the lesson you need.',link('learn','','Open the library','button'));}
   function currentTab(type) {return ['project','lesson','topic','learn','clicker','trends','plans','plan','practice'].includes(type)?'learn':['journal','session','entry','edit-session'].includes(type)?'journal':type==='today'?'today':'more';}
@@ -478,14 +550,14 @@
     if(!loadError&&!window.GOOD_GROUND_BOOT?.smoke){if(!state.household.setupComplete)type='setup';else if(!state.household.tutorialSeenVersion)type='tutorial';else if(needsDogChoice)type='choose-dogs';}
     const startup=['setup','tutorial','choose-dogs'].includes(type);
     route=type;renderedHash=location.hash||'#/today';
-    const views={setup:setupView,tutorial:guideView,'choose-dogs':dogChooserView,'add-dog':addDogView,practice:practiceView,clicker:()=>clickerView(id),today:todayView,learn:learnView,topic:()=>topicView(id),project:()=>projectView(id),lesson:()=>lessonView(id),journal:journalView,session:()=>sessionForm(id),entry:()=>entryView(id),'edit-session':()=>sessionForm(id,true),trends:trendsView,more:moreView,profile:()=>profileView(id),dogs:dogsView,plans:plansView,plan:()=>planView(id),basics:basicsView,evidence:evidenceView,sources:sourcesView,source:()=>sourceView(id),backup:backupView,settings:settingsView,about:aboutView};
+    const views={feedback:feedbackView,setup:setupView,tutorial:guideView,'choose-dogs':dogChooserView,'add-dog':addDogView,practice:practiceView,clicker:()=>clickerView(id),today:todayView,learn:learnView,topic:()=>topicView(id),project:()=>projectView(id),lesson:()=>lessonView(id),journal:journalView,session:()=>sessionForm(id),entry:()=>entryView(id),'edit-session':()=>sessionForm(id,true),trends:trendsView,more:moreView,profile:()=>profileView(id),dogs:dogsView,plans:plansView,plan:()=>planView(id),basics:basicsView,evidence:evidenceView,sources:sourcesView,source:()=>sourceView(id),backup:backupView,settings:settingsView,about:aboutView};
     $('#app').innerHTML=`<div class="app-shell"><div class="top-safe"></div><div id="save-warning" class="load-error" role="alert" ${saveStatus.includes('not')?'':'hidden'}><strong>This change could not be saved.</strong><p>Keep the app open. Retry, or export a backup to protect your work.</p><button class="button secondary" data-action="retry-save">Retry save</button> <button class="button secondary" data-action="export">Export backup</button></div>${loadError?`<div class="load-error" role="alert"><strong>Saved data needs attention.</strong><p>${E(loadError)}</p><button class="button secondary" data-action="import">Restore a backup</button></div>`:''}<main id="main" data-route="${E(type)}" data-page-id="${E(id)}" class="page ${type==='today'?'home-page':''}" tabindex="-1">${!startup?trainingContext():''}${(views[type]||notFound)()}</main><nav class="tab-bar" aria-label="Main navigation" ${startup?'hidden':''}>${[['today','home','Today'],['learn','learn','Lessons'],['journal','journal','Journal'],['more','more','More']].map(([p,i,t])=>`<a href="${path(p)}" class="tab ${currentTab(type)===p?'active':''}" ${currentTab(type)===p?'aria-current="page"':''}>${icon(i)}<span>${t}</span></a>`).join('')}</nav></div>`;
+    if(type==='feedback'&&feedbackPending)document.querySelectorAll('#feedback-form textarea,#feedback-form input').forEach(el=>el.disabled=true);
     applySettings();
     navObserver.disconnect();const nav=$('.tab-bar');if(nav&&!startup)navObserver.observe(nav);
     document.title=(type==='lesson'?itemFor(id)?.skill.title||'Lesson':type.charAt(0).toUpperCase()+type.slice(1))+' · Good Ground';
     window.scrollTo(0,options.preserveScroll?previousY:0);
     if(type==='basics'&&id==='practice-rhythms')requestAnimationFrame(()=>{const target=$('#practice-rhythms');target?.scrollIntoView({block:'start',behavior:'instant'});target?.focus({preventScroll:true});});
-    if(type==='lesson')requestAnimationFrame(()=>{const strip=$('.step-strip'),active=$('.step-pill.current');if(strip&&active)strip.scrollLeft=Math.max(0,active.offsetLeft-strip.offsetLeft-12);});
   }
   function navigate(type,id) {routePositions.set(location.hash||'#/today',scrollY);pendingScroll=0;location.hash=path(type,id);}
   function stageNotes() {
@@ -537,7 +609,7 @@
       if(anchor.getAttribute('href').startsWith('#/source/')){
         sourceContext=['lesson','evidence'].includes(route)?{type:route,id:decodeURIComponent(location.hash.split('/')[2]||'')}:null;
       }
-      stageNotes();
+      stageNotes();if(anchor.closest('#modal-root')&&anchor.getAttribute('href')===location.hash){event.preventDefault();closeModal();}
     }
     const go=event.target.closest('[data-go]');if(go){if(dirty){pendingNavigation=path(go.dataset.go);confirmAction('Leave this form?','Unsaved form changes will be discarded.','discard-form','Leave without saving');}else navigate(go.dataset.go);return;}
     const el=event.target.closest('[data-action]');if(!el)return;
@@ -585,6 +657,14 @@
         }catch(error){toast(error.message,true);}break;
       }
       case 'close-modal': closeModal();break;
+      case 'copy-feedback':{
+        const form=$('#feedback-form');rememberFeedback(form);
+        if(!feedbackDraft.message.trim()){failForm(form,'Write your feedback first.');break;}
+        const copy=feedbackDraft.message+(feedbackDraft.email?'\n\nReply to: '+feedbackDraft.email:'');
+        if(navigator.clipboard?.writeText)navigator.clipboard.writeText(copy).then(()=>toast('Feedback copied.')).catch(()=>{const field=form.querySelector('textarea');field.focus();field.select();toast('Your message is selected. Use your device’s Copy command.');});
+        else {const field=form.querySelector('textarea');field.focus();field.select();toast('Your message is selected. Use your device’s Copy command.');}break;
+      }
+      case 'choose-step':chooseStep(id);break;
       case 'retry-save':flush();break;
       case 'recover-previous':send('recoverPrevious');break;
       case 'discard-form':dirty=false;closeModal();location.hash=pendingNavigation;break;
@@ -640,7 +720,8 @@
   let pendingNavigation='',pendingDelete='';
   document.addEventListener('input',event=>{
     const el=event.target;
-    if(el.id==='breed-search'){breedQuery=el.value;$('#breed-results').innerHTML=breedResults();}
+    if(el.closest('#feedback-form')){rememberFeedback(el.closest('form'));}
+    else if(el.id==='breed-search'){breedQuery=el.value;$('#breed-results').innerHTML=breedResults();}
     else if(el.id==='marker-volume'){const value=Number(el.value);$('#marker-volume-label').textContent=value+'%';}
     else if(el.id==='learn-search'){learnPage=0;learnQuery=el.value;$('#learn-results').innerHTML=learnResults();}
     else if(el.id==='topic-search'){const topic=el.dataset.topic;topicQueries.set(topic,el.value);topicPages.set(topic,0);$('#topic-results').innerHTML=libraryResults(librarySelection(el.value,topic),{kind:'topic',topic});}
@@ -649,7 +730,9 @@
   });
   document.addEventListener('change',event=>{
     const el=event.target;
-    if(el.matches('[data-history-toggle]')){document.querySelectorAll('[data-history-series]').forEach(g=>{if(g.dataset.historySeries===el.dataset.historyToggle)g.style.display=el.checked?'':'none';});}
+    if(el.closest('#feedback-form')){if(!feedbackPending)rememberFeedback(el.closest('form'));}
+    else if(el.name==='lessonMode'){document.querySelectorAll('[name=lessonSection]').forEach(box=>box.checked=el.value==='detailed');dirty=true;}
+    else if(el.matches('[data-history-toggle]')){document.querySelectorAll('[data-history-series]').forEach(g=>{if(g.dataset.historySeries===el.dataset.historyToggle)g.style.display=el.checked?'':'none';});}
     else if(el.name==='householdSize'){$('#dog-count-field').hidden=el.value!=='multiple';$('#dog-count-field input').disabled=el.value!=='multiple';}
     else if(el.name==='markerSound'){if(commit(C.touch({...state,settings:{...state.settings,markerSound:el.value}})))render({preserveScroll:true});}
     else if(el.id==='marker-volume'){commit(C.touch({...state,settings:{...state.settings,markerVolume:Number(el.value)}}));}
@@ -666,7 +749,7 @@
     }
   });
   document.addEventListener('submit',event=>{
-    event.preventDefault();const form=event.target,f=new FormData(form),get=key=>String(f.get(key)||'').trim();
+    event.preventDefault();const form=event.target;if(form.id==='feedback-form'){submitFeedback(form);return;}const f=new FormData(form),get=key=>String(f.get(key)||'').trim();
     if(loadError){toast('Restore a readable backup before saving new changes.',true);return;}
     try{
       if(form.id==='household-count-form'){
@@ -715,7 +798,7 @@
         }
         if(commit(next)){dirty=false;navigate('entry',firstId);toast(ids.length>1?'Session saved separately for each checked dog.':'Session saved.');}
       }else if(form.id==='settings-form'){
-        if(commit(C.touch({...state,settings:{...state.settings,theme:get('theme'),textSize:get('textSize'),lessonMarker:f.has('lessonMarker'),reminderDays:Number(get('reminderDays'))}}))){dirty=false;render({preserveScroll:true});toast('Settings saved.');}
+        if(commit(C.touch({...state,settings:{...state.settings,theme:get('theme'),textSize:get('textSize'),lessonMarker:f.has('lessonMarker'),reminderDays:Number(get('reminderDays')),lessonMode:get('lessonMode'),lessonSections:Object.fromEntries(Object.keys(C.LESSON_SECTIONS).filter(k=>f.getAll('lessonSection').includes(k)!==(get('lessonMode')==='detailed')).map(k=>[k,f.getAll('lessonSection').includes(k)]))}}))){dirty=false;render({preserveScroll:true});toast('Settings saved.');}
       }
     }catch(error){failForm(form,error.message);}
   });

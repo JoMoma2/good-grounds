@@ -1,0 +1,80 @@
+{
+  "engine": "chromium",
+  "checks": [
+    "Simple essentials, collapsed help, temporary expansion, step chooser and progress preservation",
+    "Simple customization, Detailed preset reset, independent opt-out, persistence and backup",
+    "safety, complete instructions, missing prerequisites and per-dog notes remain available",
+    "13 accurate tutorial pages, skip, replay and existing dismissal",
+    "history counts and revision explanation fit with vertical scrolling; category count never overlaps",
+    "unconfigured feedback is honest, retains draft, and never sends a request",
+    "shipped public endpoint enables feedback and accepts a mocked submission without exposing training records",
+    "configured feedback sends only explicit fields, handles success, cooldown, errors, offline, timeout, and malformed replies",
+    "packaged file-origin feedback works with explicit consent and no attached training data",
+    "feedback can finish safely after navigating away and reopening its draft",
+    "lesson, settings, history, feedback and tour fit small screens, large text, dark theme, keyboard and accessibility"
+  ],
+  "errors": [],
+  "accessibility": [
+    {
+      "width": 320,
+      "hash": "#/lesson/NAME-1",
+      "violations": []
+    },
+    {
+      "width": 320,
+      "hash": "#/lesson/MUZZLE-1",
+      "violations": []
+    },
+    {
+      "width": 320,
+      "hash": "#/settings",
+      "violations": []
+    },
+    {
+      "width": 320,
+      "hash": "#/trends",
+      "violations": []
+    },
+    {
+      "width": 320,
+      "hash": "#/feedback",
+      "violations": []
+    },
+    {
+      "width": 320,
+      "hash": "#/tutorial",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "hash": "#/lesson/NAME-1",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "hash": "#/lesson/MUZZLE-1",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "hash": "#/settings",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "hash": "#/trends",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "hash": "#/feedback",
+      "violations": []
+    },
+    {
+      "width": 390,
+      "hash": "#/tutorial",
+      "violations": []
+    }
+  ],
+  "requests": []
+}

@@ -1,10 +1,10 @@
 {
   "name": "good-ground-local",
-  "version": "1.4.1",
+  "version": "1.5.1",
   "private": true,
   "description": "Offline dog training companion, packaged for iPhone",
   "scripts": {
-    "test": "node tests/core.test.cjs && node tests/updates.test.cjs && node tests/marker.test.cjs && node tests/projects-history.test.cjs && node tests/curriculum-rework.test.cjs && node tests/expansion-practice.test.cjs",
+    "test": "node tests/core.test.cjs && node tests/updates.test.cjs && node tests/marker.test.cjs && node tests/projects-history.test.cjs && node tests/curriculum-rework.test.cjs && node tests/expansion-practice.test.cjs && node tests/lesson-display.test.cjs",
     "test:ui": "node tests/ui.cjs",
     "preview": "python3 -m http.server 8765 --bind 127.0.0.1 --directory app/web",
     "check": "node scripts/check.cjs && node scripts/audit-curriculum.cjs",
@@ -14,7 +14,8 @@
     "test:handoff": "node tests/handoff-ui.cjs",
     "test:curriculum": "node tests/curriculum-ui.cjs",
     "test:expansion": "node tests/expansion-ui.cjs",
-    "test:library": "node tests/library-ui.cjs"
+    "test:library": "node tests/library-ui.cjs",
+    "test:redesign": "node tests/redesign-ui.cjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.11.1",

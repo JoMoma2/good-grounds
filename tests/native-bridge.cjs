@@ -20,7 +20,7 @@ async function main(){
     return null;
   };
   async function newSession(state){
-    if(!state){state=C.freshState();state.household.setupComplete=true;state.household.tutorialSeenVersion=1;}
+    if(!state){state=C.freshState();state.settings.lessonMode='detailed';state.household.setupComplete=true;state.household.tutorialSeenVersion=1;}
     if(context)await context.close();
     context=await b.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
     await context.exposeBinding('mockNative',handleNative);
@@ -56,7 +56,7 @@ async function main(){
     });
     await check('native export includes current records without requesting a web download',async()=>{await go('#/backup');await p.getByRole('button',{name:'Save backup to Files',exact:true}).click();await p.waitForTimeout(100);assert.ok(exported);assert.equal(exported.progress['NAME-1'].status,C.STATUSES[1]);});
     await check('native import confirms and restores at a newer save revision',async()=>{
-      const s=C.freshState();s.household.setupComplete=true;s.household.tutorialSeenVersion=1;s.profile.name='Imported native test';s.revision=500;importFile=JSON.stringify(C.makeBackup(s,D));
+      const s=C.freshState();s.settings.lessonMode='detailed';s.household.setupComplete=true;s.household.tutorialSeenVersion=1;s.profile.name='Imported native test';s.revision=500;importFile=JSON.stringify(C.makeBackup(s,D));
       await p.getByRole('button',{name:'Choose backup file',exact:true}).click();await p.getByRole('dialog').waitFor();assert.notEqual((await p.evaluate(()=>GoodGround.snapshot())).profile.name,s.profile.name);
       await p.getByRole('button',{name:'Restore backup',exact:true}).click();await p.waitForTimeout(100);assert.equal(saved.profile.name,s.profile.name);assert.ok(saved.revision>500);
     });

@@ -1,13 +1,18 @@
-# Version 1.4.1 validation — October 24, 2026
+# Version 1.5.1 feedback connection validation — October 25, 2026
 
-- **92 unit tests passed per platform**; full curriculum audit passed. The curriculum data and core progress/storage logic are byte-for-byte unchanged from 1.4.0.
-- **101 browser checks passed in Chromium and 101 in WebKit** across eight suites, including seven new library checks. They reach all 154 skills once through topic pagination; test global/topic/title/custom-cue/Step-ID search, punctuation and international cues; verify filter/page reset, multi-dog isolation, unchanged saved state, focus management, large text, 320–768 px layouts and accessibility. Existing training, audio graph, history, backup, component and prior-guide tests pass. No unexpected external requests or page errors.
-- **14 additional Android browser checks passed** (7 transport and 7 library).
-- **9 real Android 15 emulator checks passed**, including the compact directory and typed search to Heel, real Java-bridge saves, Back protection, nonzero marker audio rendering, document picker opening/cancellation, process restart and daily practice preserving grades. The native atomic-store/smoke checks also passed.
-- Android release/debug builds and lint passed, with the existing release certificate, valid signature and 16 KB ZIP alignment. Both packages identify as 1.4.1/build 7. All 11 bundled web files match each platform's source. The iPhone package keeps the unchanged native executable and its library checks passed against the extracted IPA assets in WebKit.
-- Both portable source archives were extracted independently and passed all 92 unit tests and full catalog audits. The extracted Android project also built and linted a fresh debug APK without release-signing material.
-- All **490 moved files** still match their recorded SHA-256 digest. Active repository/signing locations and required compatibility/generator inputs are preserved. Current install/source folders contain only the new release; historical files are in Archives or source `docs/archive`.
+This patch configures the owner-provided public form ID `moeeevrq` in both bundled apps, increments the app version/build to 1.5.1/9, and makes feedback browser fixtures independent of the configured ID. No lesson content, training records, storage formats or native networking code changes.
 
-Raw current reports: `validation/v1.4.1/summary.json` and adjacent logs. The organization record is in the central `Archives/Development Records/ORGANIZATION_1_4_1.json`. The browser-only checks simulate native bridges; the Android runtime results are separate real emulator checks.
+Current checks and package results are recorded in `validation/v1.5.1`. The complete 1.5.0 redesign verification is preserved in [the baseline report](docs/archive/VALIDATION_1_5_0.md) and `validation/v1.5.0`.
 
-No physical phone, speaker/Bluetooth routing, VoiceOver/TalkBack session or real dog was tested. Android document-provider file writing/import was not tested end to end. The iPhone installer is unsigned and updates the existing shell's assets; it was not freshly compiled with Xcode here. No publication or personal-device installation occurred.
+No live feedback message has been sent by automated checks. The owner still needs to verify Formspree email notifications, disable interactive CAPTCHA, leave domain restrictions unset, and test inbox/dashboard delivery from both installed apps. Physical-device and assistive-technology checks from the baseline remain pending. The unsigned iPhone build reuses its existing native executable rather than compiling Swift on Linux.
+
+## Completed for this patch
+
+- 95 unit tests per platform; bundled-resource checks and full curriculum audit (154 skills, 384 active steps, 36 preserved earlier steps, 77 references; four historical baselines).
+- 11 grouped redesign checks in Chromium and WebKit on both platforms. The shipped endpoint and About version are checked; all form submissions are intercepted. Success, minimal payload, consent, cooldown, quota, malformed replies, offline/network failures, timeout, in-flight navigation and local-file origin remain covered, as do lesson preferences, record/backup compatibility, mobile/large-text layouts and WCAG 2 A/AA automated checks.
+- Non-submitting OPTIONS preflight to the actual endpoint accepted both `null` (file origin) and `https://appassets.androidplatform.net`, with POST and content-type permitted. The provider edge rejected Python's default user agent; using an app browser user agent succeeded. This does not prove email delivery or account/CAPTCHA settings.
+- Android debug/release builds and lint passed. Original release certificate, package identity, 1.5.1/build 9 and 16 KB alignment verified. No native source or permissions changed in this patch.
+- iPhone package retains the native executable byte-for-byte and uses the current interface bundle, 1.5.1/build 9. Both installers and portable source archives are checksum-verified and checked against the current sources.
+- All training content, core state/backup code and native networking code are byte-identical to 1.5.0. The runtime changes are the public endpoint and displayed version only. No personal-device records were accessed or reset.
+
+Native emulator checks from 1.5.0 were not repeated for this configuration-only patch. The native feedback assertion was updated for enabled submission. No live feedback POST, email or provider account changes were performed; install and verify the inbox on actual devices before wider distribution.

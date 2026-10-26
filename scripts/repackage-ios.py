@@ -47,16 +47,18 @@ with zipfile.ZipFile(base) as original:
     output.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(output, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as updated:
         for item in original.infolist():
-            if item.filename.startswith(PREFIX + "web/") or item.filename.startswith(PREFIX + "_CodeSignature/") or item.filename in {PREFIX + "Info.plist", PREFIX + "CodeResources"}:
+            if item.filename.startswith(PREFIX + "web/") or item.filename.startswith(PREFIX + "_CodeSignature/") or item.filename in {PREFIX + "Info.plist", PREFIX + "PrivacyInfo.xcprivacy", PREFIX + "CodeResources"}:
                 continue
             updated.writestr(item, original.read(item.filename))
         updated.writestr(original.getinfo(PREFIX + "Info.plist"), plistlib.dumps(info, sort_keys=False))
+        updated.write(ROOT / "ios/PrivacyInfo.xcprivacy", PREFIX + "PrivacyInfo.xcprivacy")
         for path in web_files:
             updated.write(path, PREFIX + "web/" + path.relative_to(web).as_posix())
 
 with zipfile.ZipFile(output) as updated:
     assert updated.testzip() is None
     assert hashlib.sha256(updated.read(executable)).hexdigest() == native_hash
+    assert updated.read(PREFIX + "PrivacyInfo.xcprivacy") == (ROOT / "ios/PrivacyInfo.xcprivacy").read_bytes()
     for path in web_files:
         assert updated.read(PREFIX + "web/" + path.relative_to(web).as_posix()) == path.read_bytes()
 

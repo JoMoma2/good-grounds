@@ -1,0 +1,6 @@
+
+> good-ground-local@1.5.0 check
+> node scripts/check.cjs && node scripts/audit-curriculum.cjs
+
+PASS: 154 skills, 384 real teaching steps, 77 source records, valid prerequisites, bundled offline resources.
+PASS: full catalog audit; 154 skills, 384 active steps, 36 preserved earlier steps; four historical baselines; all changes reviewed.

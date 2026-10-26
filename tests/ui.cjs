@@ -15,7 +15,7 @@ async function main(){
   const engine=report.engine==='webkit'?webkit:chromium;
   const browser=await engine.launch({headless:true});
   const context=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:1,hasTouch:true,isMobile:true});
-  const settled=C.freshState();settled.household.setupComplete=true;settled.household.tutorialSeenVersion=1;
+  const settled=C.freshState();settled.settings.lessonMode='detailed';settled.household.setupComplete=true;settled.household.tutorialSeenVersion=1;
   await context.addInitScript(s=>{if(!localStorage.getItem('good-ground-state-v1'))localStorage.setItem('good-ground-state-v1',JSON.stringify(s));},settled);
   const page=await context.newPage();page.on('pageerror',e=>report.errors.push(e.message));
   await page.route('**/*',route=>{if(route.request().url().startsWith(origin))return route.continue();report.externalRequests.push(route.request().url());return route.abort();});

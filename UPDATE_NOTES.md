@@ -1,3 +1,26 @@
+# 1.5.1 — connect the feedback inbox
+
+- More → Feedback now uses the owner's public Formspree endpoint, `https://formspree.io/f/moeeevrq`, so Submit is enabled in both apps.
+- Keeps the existing vanilla JavaScript AJAX integration, explicit consent, optional reply address, draft retention, cooldown and truthful submission/error states. No CDN scripts, private credentials or new backend.
+- Formspree notification verification, CAPTCHA/domain settings and a real inbox test remain owner checks. See FEEDBACK_SETUP.md.
+- Version 1.5.1 / build 9 retains the same app identities, training data, preferences and storage/backup formats. Android retains the original release signing certificate; iPhone retains the native executable.
+
+---
+
+# 1.5.0 — a calmer lesson experience
+
+- Current lessons prioritize the cue, safe start, teaching instructions, Move on when and Set progress. Change step replaces the horizontal strip; Previous/Next remains available.
+- Simple is the default for new and existing records without display preferences. Detailed starts with supporting sections enabled. Eight independent choices are remembered in Settings; a mode change resets those choices to its preset before saving. Hidden sections stay accessible for a visit in Extra guidance.
+- Get ready, Make it easier, notes, sources, related skills, supporting prerequisites, full step/project maps and earlier guides remain intact. Critical setup and missing prerequisite links stay visible. Full original teaching stays visible with tailored exercises.
+- Last Logged Practice and Log Practice are removed from current lesson pages. Journal, daily familiar practice, completed fundamentals and history remain available.
+- The skippable, replayable tutorial has 13 practical slides and respects previously dismissed tours.
+- Recorded values use date groups and two wrapping columns with vertical scrolling. The old Catalog Changes table becomes an optional plain-language explanation and revision list; original counts and versions remain unchanged. Category counts have normal spacing above the first skill.
+- More → Feedback has an in-app composer, explicit privacy consent, error handling and direct Formspree integration. **The owner must configure a public form ID for delivery.** No private credentials or Good Ground server. See FEEDBACK_SETUP.md.
+
+Existing profiles, progress, history, notes, cues, plans and backup compatibility are retained. Native Android networking is narrowly enabled for optional feedback; the iPhone native executable remains unchanged.
+
+---
+
 # Version 1.4.1 — October 24, 2026
 
 Lessons opens a compact directory of 14 topics. Global search stays near the top; Ready / practicing, Saved and Learned filters narrow the catalog. Opening a topic shows short skill rows and a search limited to that topic. Longer results use pages of at most 12 rows, with counts and keyboard/screen-reader focus after page changes. Exact titles rank first, multiword and punctuation-insensitive search works, and custom cues and exact current/archived Step IDs remain searchable. Projects still open their component overview.

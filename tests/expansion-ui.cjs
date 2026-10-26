@@ -47,17 +47,16 @@ async function main(){
    await boot();for(const code of ['RALLY','CIRCUIT','SCENTREPORT','ROUTINE']){await nav('#/project/'+code);assert.equal(await page.locator('[data-module]').count(),4);await page.locator('[data-module]').first().locator('summary').click();assert.ok(await page.locator('[data-module][open] a').count()>=2);}
    await nav('#/lesson/LIGHTPAD-1');assert.ok((await page.locator('.lesson-title').textContent()).includes('Ready to start'));await nav('#/lesson/SCENTINDICATE-1');assert.ok((await page.locator('.lesson-title').textContent()).includes('Ready to start'));
   });
-  await check('current six-page tour is replayable without forcing it over existing users',async()=>{
-   await boot();assert.equal(await page.locator('.tour-symbol').count(),0);await nav('#/tutorial');const count=await page.evaluate(()=>GROUND_GUIDE.pages.length);assert.equal(count,6);
+  await check('current 13-page tour is replayable without forcing it over existing users',async()=>{
+   await boot();assert.equal(await page.locator('.tour-symbol').count(),0);await nav('#/tutorial');const count=await page.evaluate(()=>GROUND_GUIDE.pages.length);assert.equal(count,13);
    let copy='';for(let i=0;i<count;i++){copy+=await page.locator('#main').textContent();if(i<count-1)await page.getByRole('button',{name:'Next',exact:true}).click();}
    for(const term of ['Brainiacs','Familiar skills for today','Practice rhythm','Trends','Backup','backup'])assert.ok(copy.toLowerCase().includes(term.toLowerCase()),term);
-   await page.locator('[data-action=finish-guide]').last().click();assert.equal((await snap()).household.tutorialSeenVersion,4);
+   await page.locator('[data-action=finish-guide]').last().click();assert.equal((await snap()).household.tutorialSeenVersion,5);
   });
   await check('history tables preserve words and whole values at 320px, large text, dark mode and desktop widths',async()=>{
-   let s=done(fresh(),'SIT');s.progressHistory=[{date:'2026-10-20',curriculum:6,topics:{'Care and equipment':[1,10],'Walk skills':[2,6]}},{date:'2026-10-23',curriculum:7,topics:{'Care and equipment':[1,17],'Walk skills':[2,12]}}];s.settings.textSize='large';s.settings.theme='dark';await boot(s,'#/trends');await page.locator('.completion-history details>summary').click();assert.equal(await page.locator('.history-table').count(),2);
+   let s=done(fresh(),'SIT');s.progressHistory=[{date:'2026-10-20',curriculum:6,topics:{'Care and equipment':[1,10],'Walk skills':[2,6]}},{date:'2026-10-23',curriculum:7,topics:{'Care and equipment':[1,17],'Walk skills':[2,12]}}];s.settings.textSize='large';s.settings.theme='dark';await boot(s,'#/trends');await page.locator('.completion-history>details>summary').click();assert.equal(await page.locator('.history-table').count(),1);
    for(const width of [320,390,768,1280]){await page.setViewportSize({width,height:844});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));for(const region of await page.locator('.history-table').all()){
-    assert.equal(await region.evaluate(e=>getComputedStyle(e).overflowWrap),'normal');assert.equal(await region.locator('.history-date').first().evaluate(e=>getComputedStyle(e).whiteSpace),'nowrap');
-    if(width===320)assert.ok(await region.evaluate(e=>e.scrollWidth>e.clientWidth));
+    assert.ok(await region.evaluate(e=>e.scrollWidth<=e.clientWidth+1));assert.equal(await region.locator('.history-date-group').count(),3);
    }}
    await page.setViewportSize({width:320,height:844});await page.screenshot({path:out+'/expansion-tables-'+engine+'.png',fullPage:true});
   });

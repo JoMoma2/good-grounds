@@ -1,12 +1,14 @@
+> **1.5.1 lesson redesign:** Simple by default, Detailed and individual section choices in Settings; 13-slide tutorial; history fits phone widths. More → Feedback is connected to the owner’s public Formspree endpoint; verified notifications and a live inbox test remain necessary. See [FEEDBACK_SETUP.md](FEEDBACK_SETUP.md). Training and saved records stay local.
+
 # Good Ground for iPhone
 
-A personal, offline dog-training companion. Version **1.4.1** includes **154 skills, 384 active teaching steps and 77 research/reference records**. Training is for individual dogs of any breed or mix.
+A personal, offline dog-training companion. Version **1.5.1** includes **154 skills, 384 active teaching steps and 77 research/reference records**. Training is for individual dogs of any breed or mix.
 
 The release provides an updated unsigned `GoodGround-unsigned.ipa` alongside this source archive. The interface was updated inside the existing iPhone shell; the native executable and Swift source are unchanged. Install through the existing SideStore or LiveContainer setup. The source folder itself is not an IPA. A fresh native build remains available through the supplied macOS workflow.
 
-Read [UPDATE_NOTES.md](UPDATE_NOTES.md) for this release and [INSTALL.md](INSTALL.md) for installation. Both active platform projects were updated together for 1.4.1.
+Read [UPDATE_NOTES.md](UPDATE_NOTES.md) for this release and [INSTALL.md](INSTALL.md) for installation. Both active platform projects were updated together for 1.5.1.
 
-The development handoff is described in [HANDOFF_NOTES.md](docs/archive/HANDOFF_NOTES.md). A separate unsigned preview is available at `build/GoodGround-1.4.1-unsigned.ipa`; it reuses the unchanged native executable. No release has been published.
+The development handoff is described in [HANDOFF_NOTES.md](docs/archive/HANDOFF_NOTES.md). A separate unsigned preview is available at `build/GoodGround-1.5.1-unsigned.ipa`; it reuses the unchanged native executable. No release has been published.
 
 Lessons now opens with 14 topics, global search and filters. Topics and filtered/search results use compact skill rows with at most 12 per page. Search within a topic, by a custom cue, or by an exact Step ID. Read [UPDATE_NOTES.md](UPDATE_NOTES.md) for this release; the [1.4.0 report](docs/archive/DEVELOPMENT_REPORT_1.4.0.md) documents the earlier 50-skill expansion.
 
@@ -14,7 +16,7 @@ Lessons now opens with 14 topics, global search and filters. Topics and filtered
 
 - **Today:** useful next lessons, current practice, optional fun and gentle refresher notes. For a training group, suggestions follow the earliest available gap, with a small note for dogs who already know a step.
 - **Lessons:** searchable skills, saved lessons and exact Step IDs. Each lesson has instructions, advancement criteria, easier versions, large prerequisite links and smaller links to the skills it helps build. Cue wording is editable directly, separately for each dog.
-- **Lessons → Clicker:** a large sound button, four original offline sounds, volume and the current lesson's instructions. Lessons also keep Mark & reward and Set progress above navigation until they reach their normal place. Hide all clicker controls and shortcuts in Settings. On iOS 17+, the marker requests playback mode for Silent-mode use; device verification is still required. Mark, then reward; pressing the sound never records practice automatically.
+- **Lessons → Clicker:** a large sound button, four original offline sounds, volume and the current lesson's instructions. Lessons put Mark & reward and Set progress directly after Move on when, without covering the teaching instructions. Hide all clicker controls and shortcuts in Settings. On iOS 17+, the marker requests playback mode for Silent-mode use; device verification is still required. Mark, then reward; pressing the sound never records practice automatically.
 - **Journal:** quick practice entries or fuller dated notes, optional counts, observed response, context and recovery. Group entries can apply to a selected subset; each dog keeps their own record.
 - **More:** Settings, Source library, Your dogs and About Good Ground. Find Trends, Clicker, Trigger plans and Practice rhythm under Lessons; essentials and evidence under Source library; backups in Settings; the tour in About Good Ground.
 

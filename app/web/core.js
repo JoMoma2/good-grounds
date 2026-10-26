@@ -18,8 +18,14 @@
     const d = new Date(s + 'T12:00:00Z');
     return Number.isFinite(+d) && d.toISOString().slice(0,10) === s && +s.slice(0,4) >= 1900 && +s.slice(0,4) <= 2100;
   }
+  // Presets are starting points. Only differences from the chosen preset are saved.
+  const LESSON_SECTIONS={setup:'Get ready',easier:'Make it easier',notes:'Your notes',sources:'Why this approach and sources',downstream:'Where this skill can lead',prerequisites:'Supporting prerequisites',steps:'All steps and project maps',earlier:'Earlier guides and saved notes'};
+  function lessonSections(settings) {
+    const detailed=settings.lessonMode==='detailed',overrides=settings.lessonSections||{};
+    return Object.fromEntries(Object.keys(LESSON_SECTIONS).map(key=>[key,typeof overrides[key]==='boolean'?overrides[key]:detailed]));
+  }
   function freshState() {
-    return {schema:1,revision:0,createdAt:new Date().toISOString(),cues:{},progressHistory:[],tailoring:{traits:[],reviewedBreed:''},household:{primaryId:'dog-1',others:[],selectedIds:['dog-1'],setupComplete:false,setupTarget:0,setupIndex:0,tutorialSeenVersion:0},profile:{name:'',age:'',breed:'',health:'',comfort:'',rewards:'',equipment:'',history:'',help:'',priorities:[]},progress:{},favorites:[],sessions:[],plans:{},settings:{theme:'light',textSize:'normal',markerSound:'click',markerVolume:25,lessonMarker:true,reminderDays:7,remindersDismissedOn:''}};
+    return {schema:1,revision:0,createdAt:new Date().toISOString(),cues:{},progressHistory:[],tailoring:{traits:[],reviewedBreed:''},household:{primaryId:'dog-1',others:[],selectedIds:['dog-1'],setupComplete:false,setupTarget:0,setupIndex:0,tutorialSeenVersion:0},profile:{name:'',age:'',breed:'',health:'',comfort:'',rewards:'',equipment:'',history:'',help:'',priorities:[]},progress:{},favorites:[],sessions:[],plans:{},settings:{lessonMode:'simple',lessonSections:{},theme:'light',textSize:'normal',markerSound:'click',markerVolume:25,lessonMarker:true,reminderDays:7,remindersDismissedOn:''}};
   }
   // Schema 1 remains the native file envelope. Primary dog fields stay at the
   // root for lossless migration; household.others holds complete additional dogs.
@@ -366,7 +372,7 @@
       progress:Object.fromEntries(Object.entries(input.progress).filter(([k])=>k!==FORMAT_GUARD).map(([k,v])=>[k,{status:v.status,notes:v.notes,updatedAt:v.updatedAt,completedAt:text(v.completedAt,100)?v.completedAt:(v.status===STATUSES[3]?v.updatedAt:'')}])),
       favorites:input.favorites.slice(),sessions:input.sessions.map(s=>normalizeSession(s)),
       plans:Object.fromEntries(Object.entries(input.plans).map(([k,v])=>[k,Object.fromEntries(['setup','baseline','next','exit','notes'].map(n=>[n,v[n]??'']))])),
-      settings:{theme:input.settings.theme,textSize:input.settings.textSize,markerSound:['click','ding','pop','buzz'].includes(input.settings.markerSound)?input.settings.markerSound:'click',markerVolume:Number.isFinite(input.settings.markerVolume)?Math.max(0,Math.min(100,input.settings.markerVolume)):25,lessonMarker:input.settings.lessonMarker!==false,reminderDays:[0,7,14,30].includes(input.settings.reminderDays)?input.settings.reminderDays:7,remindersDismissedOn:validDate(input.settings.remindersDismissedOn)?input.settings.remindersDismissedOn:''}
+      settings:{lessonMode:input.settings.lessonMode==='detailed'?'detailed':'simple',lessonSections:Object.fromEntries(Object.keys(LESSON_SECTIONS).filter(k=>plain(input.settings.lessonSections)&&typeof input.settings.lessonSections[k]==='boolean').map(k=>[k,input.settings.lessonSections[k]])),theme:input.settings.theme,textSize:input.settings.textSize,markerSound:['click','ding','pop','buzz'].includes(input.settings.markerSound)?input.settings.markerSound:'click',markerVolume:Number.isFinite(input.settings.markerVolume)?Math.max(0,Math.min(100,input.settings.markerVolume)):25,lessonMarker:input.settings.lessonMarker!==false,reminderDays:[0,7,14,30].includes(input.settings.reminderDays)?input.settings.reminderDays:7,remindersDismissedOn:validDate(input.settings.remindersDismissedOn)?input.settings.remindersDismissedOn:''}
     };
     const history=input.progressHistory===undefined?[]:input.progressHistory;
     if(!Array.isArray(history)||history.length>10000)fail();
@@ -423,5 +429,5 @@
     if (!plain(b)||b.format!=='good-ground-backup'||![1,2,3].includes(b.version)) throw new Error('Choose a Good Ground backup file (version 1, 2 or 3).');
     return validateState(b.state);
   }
-  return {STORAGE_BYTES,withinStorageLimit,STATUSES,LABELS,rank,esc,uid,dateToday,validDate,freshState,storageState,FORMAT_GUARD,dogs,selectedDogs,dogState,updateDog,addDog,selectDogs,trainingView,trainingAvailable,startingAvailable,personalizedAvailable,setDogProgress,practiceRecords,dailyPractice,logPracticeToday,index,status,availability,stageLabel,touch,setProgress,summary,completionSnapshot,observeProgress,creditReplacements,relatedProjects,projectPlan,nextTeachingStep,available,nextChoices,downstreamSkills,daysBetween,practiceRecord,maintenance,elapsedLabel,MAINTENANCE_CODES,normalizeSession,sessionGuidance,observations,validateState,makeBackup,parseBackup};
+  return {LESSON_SECTIONS,lessonSections,STORAGE_BYTES,withinStorageLimit,STATUSES,LABELS,rank,esc,uid,dateToday,validDate,freshState,storageState,FORMAT_GUARD,dogs,selectedDogs,dogState,updateDog,addDog,selectDogs,trainingView,trainingAvailable,startingAvailable,personalizedAvailable,setDogProgress,practiceRecords,dailyPractice,logPracticeToday,index,status,availability,stageLabel,touch,setProgress,summary,completionSnapshot,observeProgress,creditReplacements,relatedProjects,projectPlan,nextTeachingStep,available,nextChoices,downstreamSkills,daysBetween,practiceRecord,maintenance,elapsedLabel,MAINTENANCE_CODES,normalizeSession,sessionGuidance,observations,validateState,makeBackup,parseBackup};
 });

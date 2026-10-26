@@ -67,9 +67,9 @@ async function main(){
       await page.setViewportSize({width:390,height:844});await page.screenshot({path:output+'/updated-clicker-'+report.engine+'.png',fullPage:true});
     });
     await check('completing a teaching step opens the next step and keeps notes',async()=>{
-      await go('#/lesson/NAME-1');await page.locator('#step-notes').fill('Keep these notes after completion.');await page.locator('#step-notes').blur();
+      await go('#/settings');await page.locator('[name=lessonMode]').selectOption('detailed');await page.getByRole('button',{name:'Save settings',exact:true}).click();await go('#/lesson/NAME-1');await page.locator('#step-notes').fill('Keep these notes after completion.');await page.locator('#step-notes').blur();
       await page.getByRole('button',{name:'Set progress',exact:true}).click();await page.locator('[data-action="set-progress"][data-value="Consistent - move on"]').click();
-      await page.waitForURL('**/#/lesson/NAME-2');await page.locator('[data-step-notes][data-id="NAME-2"]').first().waitFor();await page.getByText('Ready to start',{exact:true}).waitFor();
+      await page.waitForURL('**/#/lesson/NAME-2');await page.waitForFunction(()=>document.querySelector('#main')?.dataset.pageId==='NAME-2');await page.getByText('Ready to start',{exact:true}).waitFor();
       const s=await state();assert.equal(s.progress['NAME-1'].notes,'Keep these notes after completion.');assert.equal(s.progress['NAME-1'].status,C.STATUSES[3]);
     });
     await check('last-step completion offers three useful choices and optional fun or rest',async()=>{
@@ -84,9 +84,9 @@ async function main(){
       const s=C.freshState();for(const st of D.skills.find(s=>s.code==='SIT').steps)s.progress[st.id]={status:C.STATUSES[3],notes:'',updatedAt:'2026-09-01T12:00:00Z',completedAt:'2026-09-01T12:00:00Z'};
       await seed(s);await go('#/today');await page.getByRole('heading',{name:'A gentle refresher?',exact:true}).waitFor();
       assert.ok((await page.locator('.refresher-note').textContent()).includes('Sit'));
-      await go('#/lesson/SIT-1');await page.getByRole('button',{name:'Practiced today',exact:true}).click();
+      await go('#/practice');await page.locator('[data-daily-practice]').click();
       await page.waitForFunction(()=>GoodGround.snapshot().sessions.length===1);
-      await page.getByRole('button',{name:'Practiced today',exact:true}).click();assert.equal((await state()).sessions.length,1);
+      await page.locator('.practice-library>summary').click();assert.equal(await page.locator('.practice-library .pill.complete').count(),1);assert.equal((await state()).sessions.length,1);
       await go('#/today');assert.equal(await page.locator('.refresher-note').count(),0);
       await go('#/practice');assert.ok((await page.locator('main').textContent()).includes('Last practice logged today'));
     });
@@ -119,7 +119,7 @@ async function main(){
     await check('a cold opening asks who to train; single-dog progress never credits other dogs',async()=>{
       await page.reload();await page.locator('#dog-choice-form').waitFor();
       await page.locator('[name="dogId"][value="'+dogIDs[0]+'"]').uncheck();await page.getByRole('button',{name:'Let’s practice',exact:true}).click();
-      await nav('#/lesson/NAME-1');await page.getByRole('button',{name:'Set progress',exact:true}).click();await page.locator('[data-action="set-progress"][data-value="Consistent - move on"]').click();await page.waitForURL('**/#/lesson/NAME-2');await page.locator('[data-step-notes][data-id="NAME-2"]').first().waitFor();
+      await nav('#/lesson/NAME-1');await page.getByRole('button',{name:'Set progress',exact:true}).click();await page.locator('[data-action="set-progress"][data-value="Consistent - move on"]').click();await page.waitForURL('**/#/lesson/NAME-2');await page.waitForFunction(()=>document.querySelector('#main')?.dataset.pageId==='NAME-2');
       const snapshot=await state();assert.equal(C.status(C.dogState(snapshot,dogIDs[1]),'NAME-1'),C.STATUSES[3]);
       for(const id of [dogIDs[0],dogIDs[2]])assert.equal(C.status(C.dogState(snapshot,id),'NAME-1'),C.STATUSES[0]);
     });
@@ -129,11 +129,11 @@ async function main(){
       assert.ok((await page.locator('.lesson-card').first().textContent()).includes('Spot already has this step recorded as consistent.'));
       await page.locator('.lesson-card').first().click();await page.getByRole('button',{name:'Set progress',exact:true}).click();
       assert.equal(await page.locator('[name="progressDog"][value="'+dogIDs[0]+'"]').isChecked(),true);assert.equal(await page.locator('[name="progressDog"][value="'+dogIDs[1]+'"]').isChecked(),false);
-      await page.locator('[data-action="set-progress"][data-value="Consistent - move on"]').click();await page.waitForURL('**/#/lesson/NAME-2');await page.locator('[data-step-notes][data-id="NAME-2"]').first().waitFor();
+      await page.locator('[data-action="set-progress"][data-value="Consistent - move on"]').click();await page.waitForURL('**/#/lesson/NAME-2');await page.waitForFunction(()=>document.querySelector('#main')?.dataset.pageId==='NAME-2');
       const snapshot=await state();assert.equal(C.status(C.dogState(snapshot,dogIDs[0]),'NAME-1'),C.STATUSES[3]);assert.equal(C.status(C.dogState(snapshot,dogIDs[2]),'NAME-1'),C.STATUSES[0]);
     });
     await check('group lesson notes remain separate for each dog',async()=>{
-      await page.locator('[data-step-notes][data-dog-id="'+dogIDs[0]+'"]').fill('Molly likes the kitchen.');await page.locator('[data-step-notes][data-dog-id="'+dogIDs[0]+'"]').blur();
+      await page.locator('.extra-guidance>summary').click();await page.locator('[data-lesson-section=notes]>summary').click();await page.locator('[data-step-notes][data-dog-id="'+dogIDs[0]+'"]').fill('Molly likes the kitchen.');await page.locator('[data-step-notes][data-dog-id="'+dogIDs[0]+'"]').blur();
       await page.locator('[data-step-notes][data-dog-id="'+dogIDs[1]+'"]').fill('Spot likes the garden.');await page.locator('[data-step-notes][data-dog-id="'+dogIDs[1]+'"]').blur();
       const snapshot=await state();assert.equal(C.dogState(snapshot,dogIDs[0]).progress['NAME-2'].notes,'Molly likes the kitchen.');assert.equal(C.dogState(snapshot,dogIDs[1]).progress['NAME-2'].notes,'Spot likes the garden.');assert.equal(C.dogState(snapshot,dogIDs[2]).progress['NAME-2'],undefined);
     });
@@ -169,7 +169,7 @@ async function main(){
     await check('foundational lessons link quietly to their dependent advanced lessons',async()=>{
       await nav('#/lesson/NAME-1');assert.equal(await page.locator('.downstream-skills').count(),1);
       assert.equal(await page.locator('.downstream-skills').getAttribute('open'),null);
-      await page.getByText('Where this skill can lead',{exact:true}).click();
+      await page.locator('.extra-guidance>summary').click();await page.getByText('Where this skill can lead',{exact:true}).click();
       const links=await page.locator('.downstream-skills a').evaluateAll(xs=>xs.map(x=>({text:x.textContent,href:x.getAttribute('href')})));
       assert.ok(links.some(x=>x.text==='Name response in new settings'&&x.href==='#/lesson/NAMECTX-1'));
       await page.locator('.downstream-skills a[href="#/lesson/NAMECTX-1"]').click();await page.waitForURL('**/#/lesson/NAMECTX-1');await page.locator('.dependency').first().waitFor();

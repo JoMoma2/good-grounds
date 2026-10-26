@@ -50,7 +50,7 @@ node tests/curriculum-ui.cjs
 
 Repeat the six browser scripts with `GG_BROWSER=webkit`. These tests use invented records in isolated browser/native-bridge simulations. `GG_WEB_ROOT` can target an extracted app's bundled web folder for artifact checks. Desktop engines do not substitute for a physical iPhone or Swift runtime test. The macOS build and simulator workflow remains available.
 
-Lesson controls use CSS sticky positioning and the measured navigation height. Keep visible feedback available in both the large clicker and the lesson marker. Never schedule a late marker after a failed or timed-out audio unlock. Text sizes use rem units so the root text-size preference affects labels and controls as well as teaching copy.
+Lesson controls sit directly after the advancement criterion in normal document flow. Keep visible feedback available in both the large clicker and the lesson marker. Never schedule a late marker after a failed or timed-out audio unlock. Text sizes use rem units so the root text-size preference affects labels and controls as well as teaching copy.
 
 ## Completion history and component projects
 
@@ -80,4 +80,16 @@ The Lessons landing page renders the topic directory, never all 154 skill cards.
 
 Run `npm run test:library` in Chromium and WebKit. It reaches every skill once through topic pagination and checks search, filtering, dog ownership, keyboard focus, text size and accessibility.
 
-Keep one current installer and one current source ZIP per platform outside the active Git checkouts. Put superseded releases, old generated builds and old validation into the central Archives folder, with versioned subfolders where known. Historical design notes inside a checkout belong in `docs/archive`. Keep generator inputs and compatibility fixtures in place. New verification belongs in `validation/v1.4.1`; current `build` and `test-results` folders are generated and ignored. Never move or reset the active `.git`, `.signing` or personal app records as part of cleanup.
+Keep one current installer and one current source ZIP per platform outside the active Git checkouts. Put superseded releases, old generated builds and old validation into the central Archives folder, with versioned subfolders where known. Historical design notes inside a checkout belong in `docs/archive`. Keep generator inputs and compatibility fixtures in place. New verification belongs in `validation/v1.5.1`; current `build` and `test-results` folders are generated and ignored. Never move or reset the active `.git`, `.signing` or personal app records as part of cleanup.
+
+## 1.5.0 lesson display and feedback
+
+`settings.lessonMode` is `simple` or `detailed`; `settings.lessonSections` stores boolean differences from the selected preset. Missing/invalid new preferences migrate to Simple without rejecting or resetting old training records. A mode change resets the form's section choices; Save settings persists them. Every optional block is built once per render, then placed either below the criterion/controls or inside Extra guidance. Opening help never changes the saved display choices. Archived original guides retain their notes and current-guide links.
+
+Full teaching/advancement text and missing prerequisites remain essential. Setup is conservatively visible for all skills except the short, explicitly reviewed `OPTIONAL_SETUP` allowlist; new skills therefore keep their setup visible until reviewed. Stop/avoidance advice in adaptations is also retained. When authoring new content, review this allowlist and the safety advice rendering. Do not hide essential safety instructions with an optional-section toggle.
+
+Use `npm run test:redesign` and `GG_BROWSER=webkit npm run test:redesign`, plus the existing unit, curriculum, library, bridge, history and practice suites. Feedback tests use mocked provider responses and never send a live message. For real delivery and owner setup see [FEEDBACK_SETUP.md](FEEDBACK_SETUP.md). Network policy now permits only user-submitted Formspree feedback; older statements that the application has no network permission or no connection capability are superseded by this section.
+
+## 1.5.1 feedback connection
+
+The public Formspree ID `moeeevrq` is configured in the bundled HTML on both platforms. Keep the dependency-free vanilla JavaScript JSON submission flow; no CDN code, React package, credentials or backend is needed. Browser fixtures replace the meta value explicitly to exercise both the disabled state and a mocked submission to the exact shipped endpoint. All remote calls remain mocked in automated browser checks; inbox delivery is a separate owner/device check.
