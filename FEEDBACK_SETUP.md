@@ -4,14 +4,14 @@ The app contains an in-app composer and direct Formspree submission flow. **The 
 
 ## Current connection
 
-Both active sources and the 1.5.1 installers contain the public form ID **`moeeevrq`**, posting to **`https://formspree.io/f/moeeevrq`**. Submit is enabled. This is a public routing ID, not a private credential. No live test submission or inbox verification has been performed by development.
+Both active sources and the 1.6.0 installers contain the public form ID **`moeeevrq`**, posting to **`https://formspree.io/f/moeeevrq`**. Submit is enabled. This is a public routing ID, not a private credential. No live test submission or inbox verification has been performed by development.
 
 Before using the form with users:
 
 1. In your existing Formspree account, confirm the destination email is verified and email notifications are enabled for this form.
 2. Leave **Restrict to Domain** unset: the iPhone bundle uses a local file origin, while Android uses `appassets.androidplatform.net`. This is an installed app, not a website with a common referrer.
 3. Keep basic spam filtering enabled. Disable the form's interactive reCAPTCHA requirement: this integration submits JSON without loading third-party challenge scripts. Required CAPTCHA produces an error and retains the draft. The `_gotcha` honeypot, length limits, one in-flight request and successful-send cooldown provide basic friction; monitor spam and quota in the dashboard.
-4. Install the new 1.5.1 build over the same app/container, open More → Feedback, and submit a short test message. Verify the submission in both the Formspree dashboard and your inbox/spam folder. Include a reply address to check Reply-To. Repeat on both platforms, then check offline behavior.
+4. Install the new 1.6.0 build over the same app/container, open More → Feedback, and submit a short test message. Verify the submission in both the Formspree dashboard and your inbox/spam folder. Include a reply address to check Reply-To. Repeat on both platforms, then check offline behavior.
 
 ## Changing the endpoint later
 

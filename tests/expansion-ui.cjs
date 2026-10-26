@@ -51,7 +51,7 @@ async function main(){
    await boot();assert.equal(await page.locator('.tour-symbol').count(),0);await nav('#/tutorial');const count=await page.evaluate(()=>GROUND_GUIDE.pages.length);assert.equal(count,13);
    let copy='';for(let i=0;i<count;i++){copy+=await page.locator('#main').textContent();if(i<count-1)await page.getByRole('button',{name:'Next',exact:true}).click();}
    for(const term of ['Brainiacs','Familiar skills for today','Practice rhythm','Trends','Backup','backup'])assert.ok(copy.toLowerCase().includes(term.toLowerCase()),term);
-   await page.locator('[data-action=finish-guide]').last().click();assert.equal((await snap()).household.tutorialSeenVersion,5);
+   await page.locator('[data-action=finish-guide]').last().click();assert.equal((await snap()).household.tutorialSeenVersion,6);
   });
   await check('history tables preserve words and whole values at 320px, large text, dark mode and desktop widths',async()=>{
    let s=done(fresh(),'SIT');s.progressHistory=[{date:'2026-10-20',curriculum:6,topics:{'Care and equipment':[1,10],'Walk skills':[2,6]}},{date:'2026-10-23',curriculum:7,topics:{'Care and equipment':[1,17],'Walk skills':[2,12]}}];s.settings.textSize='large';s.settings.theme='dark';await boot(s,'#/trends');await page.locator('.completion-history>details>summary').click();assert.equal(await page.locator('.history-table').count(),1);

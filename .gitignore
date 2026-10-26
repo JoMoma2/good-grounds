@@ -8,3 +8,8 @@ __pycache__/
 
 # LibreOffice / OpenOffice temporary document locks
 .~lock.*#
+
+# Local historical documents and generated validation evidence stay off GitHub.
+docs/archive/
+validation/
+.signing/

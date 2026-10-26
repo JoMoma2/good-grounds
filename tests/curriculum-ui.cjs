@@ -43,9 +43,9 @@ async function main(){
   await check('shortened guides credit only completed groups and retain editable original notes on earlier pages',async()=>{
    const s=done(fresh(),'SORT-1','SORT-2');s.progress['SORT-1'].notes='Original basket note';s.cues.SORT='Put away';s.favorites=['OPEN'];await boot(s,'#/lesson/SORT-A');
    assert.equal((await snap()).progress['SORT-A'].status,C.STATUSES[3]);assert.equal((await snap()).progress['SORT-B'],undefined);assert.equal(await page.locator('[data-cue-input]').inputValue(),'Put away');
-   await page.locator('.earlier-records summary').click();await page.locator('.earlier-records [href="#/lesson/SORT-1"]').click();await page.waitForFunction(()=>document.querySelector('#main')?.dataset.pageId==='SORT-1');assert.ok((await page.locator('.lesson-title').textContent()).includes('EARLIER GUIDE'));
-   assert.equal(await page.locator('#step-notes').inputValue(),'Original basket note');await page.locator('#step-notes').fill('Original note, amended');await page.locator('#step-notes').blur();assert.equal((await snap()).progress['SORT-1'].notes,'Original note, amended');assert.equal((await snap()).progress['SORT-A'].notes,'');
-   await page.getByRole('link',{name:'Open the current guide',exact:true}).click();await page.locator('.earlier-records').waitFor();assert.deepEqual((await snap()).favorites,['OPEN']);
+   await page.locator('.extra-information>summary').click();await page.locator('.earlier-records summary').click();await page.locator('.earlier-records [href="#/lesson/SORT-1"]').click();await page.waitForFunction(()=>document.querySelector('#main')?.dataset.pageId==='SORT-1');assert.ok((await page.locator('.lesson-title').textContent()).includes('EARLIER GUIDE'));
+   assert.equal(await page.locator('#step-notes').inputValue(),'Original basket note');await openNotes(page);await page.locator('#step-notes').fill('Original note, amended');await page.locator('#step-notes').blur();assert.equal((await snap()).progress['SORT-1'].notes,'Original note, amended');assert.equal((await snap()).progress['SORT-A'].notes,'');
+   await page.getByRole('link',{name:'Open the current guide',exact:true}).click();await page.locator('.extra-information>summary').click();await page.locator('.earlier-records').waitFor();assert.deepEqual((await snap()).favorites,['OPEN']);
    await nav('#/learn');await page.locator('#learn-search').fill('SORT-1');await page.locator('#learn-results .lesson-card').click();await page.waitForFunction(()=>document.querySelector('#main')?.dataset.pageId==='SORT-1');assert.ok(page.url().endsWith('#/lesson/SORT-1'));
   });
   await check('editing an old journal entry and exporting preserves its original step link and all notes',async()=>{
@@ -70,3 +70,5 @@ async function main(){
  }finally{fs.writeFileSync(out+'/curriculum-'+engine+'.json',JSON.stringify(report,null,2)+'\n');await browser.close();}
 }
 main().catch(e=>{report.failure=e.stack;fs.writeFileSync(out+'/curriculum-'+engine+'.json',JSON.stringify(report,null,2)+'\n');console.error(e);process.exitCode=1;});
+
+async function openNotes(page){const outer=page.locator('.extra-information');if(!await outer.count())return;if(await outer.getAttribute('open')===null)await outer.locator(':scope>summary').click();const notes=page.locator('[data-lesson-section=notes]');if(await notes.getAttribute('open')===null)await notes.locator(':scope>summary').click();}

@@ -12,7 +12,7 @@ async function main(){
   if(context)await context.close();context=await browser.newContext({viewport:{width:390,height:844},isMobile:engine!=='firefox',hasTouch:true});
   await context.addInitScript(state=>{
    window.GOOD_GROUND_BOOT={native:true,state,error:null,smoke:false};window.__saved=state;
-   window.webkit={messageHandlers:{ground:{postMessage:m=>{if(m.action==='save')window.__saved=m.state;}}}};
+   window.webkit={messageHandlers:{ground:{postMessage:m=>{if(m.action==='save'){window.__saved=m.state;queueMicrotask(()=>GoodGround.nativeMessage({type:'saved',revision:m.state.revision}));}}}}};
    window.__starts=0;const Audio=window.AudioContext||window.webkitAudioContext;
    if(Audio)window.AudioContext=function(...args){const ctx=new Audio(...args);window.__audio=ctx;const analyser=ctx.createAnalyser();analyser.fftSize=1024;analyser.connect(ctx.destination);window.__analyser=analyser;const gainCreate=ctx.createGain.bind(ctx);ctx.createGain=()=>{const g=gainCreate(),connect=g.connect.bind(g);g.connect=target=>connect(target===ctx.destination?analyser:target);return g;};const create=ctx.createBufferSource.bind(ctx);ctx.createBufferSource=()=>{const source=create(),start=source.start.bind(source);source.start=(...args)=>{window.__starts++;start(...args);};return source;};return ctx;};
   },s);
@@ -52,28 +52,28 @@ async function main(){
    }
    const before=await page.evaluate(()=>__starts);await page.locator('[data-cue-input]').fill('Molly come');assert.equal(await page.evaluate(()=>__starts),before);
   });
-  await check('training controls follow the criterion and can be reached without covering teaching content',async()=>{
+  await check('one floating control group docks after the criterion without covering navigation or trapping content',async()=>{
    report.lessonControls=[];
-   for(const mode of ['simple','detailed']){
-    const state=fresh();state.settings.lessonMode=mode;await boot(state,'#/lesson/VISITOR-4');const controls=page.locator('.lesson-actions');
+   for(const marker of [true,false]){
+    const state=fresh();state.settings.lessonMarker=marker;await boot(state,'#/lesson/VISITOR-4');const controls=page.locator('.lesson-actions');
     for(const safeBottom of ['0px','34px']){
      await page.evaluate(value=>document.documentElement.style.setProperty('--safe-bottom',value),safeBottom);
      for(const dimensions of [{width:390,height:844},{width:320,height:568},{width:844,height:390}]){
       await page.setViewportSize(dimensions);for(const text of ['normal','large']){
-       await page.evaluate(t=>document.documentElement.dataset.text=t,text);await controls.scrollIntoViewIfNeeded();
-       const box=await controls.boundingBox(),bar=await page.locator('.tab-bar').boundingBox();const geometry={mode,safeBottom,dimensions,text,box,bar};
-       assert.ok(box.y>=0&&box.y+box.height<=bar.y,JSON.stringify(geometry));
-       assert.equal(await controls.evaluate(e=>getComputedStyle(e).position),'static');assert.ok(await page.locator('.lesson-marker [data-marker]').isVisible());
-       const targets=await controls.locator('button,a').evaluateAll(elements=>elements.map(el=>{const r=el.getBoundingClientRect();return {label:el.textContent,reachable:el.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2))};}));
-       assert.ok(targets.every(t=>t.reachable),JSON.stringify({geometry,targets}));
-       assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Controls must not require horizontal scrolling');
-       report.lessonControls.push(geometry);
+       await page.evaluate(t=>{document.documentElement.dataset.text=t;scrollTo({top:0,behavior:'instant'});},text);
+       await page.waitForFunction(()=>document.querySelector('.lesson-actions').classList.contains('is-floating'));
+       assert.equal(await controls.evaluate(e=>getComputedStyle(e).position),'fixed');assert.equal(await controls.count(),1);
+       const floating=await controls.boundingBox(),nav=await page.locator('.tab-bar').boundingBox();assert.ok(floating.y>=0&&floating.y+floating.height<=nav.y-7,JSON.stringify({dimensions,text,marker,safeBottom,floating,nav}));
+       await page.locator('.lesson-actions-slot').evaluate(e=>e.scrollIntoView({block:'center',behavior:'instant'}));await page.waitForFunction(()=>document.querySelector('.lesson-actions').dataset.docked==='true');
+       const box=await controls.boundingBox(),bar=await page.locator('.tab-bar').boundingBox(),slot=await page.locator('.lesson-actions-slot').boundingBox();const geometry={marker,safeBottom,dimensions,text,box,bar,floating};
+       assert.ok(box.y>=0&&box.y+box.height<=bar.y,JSON.stringify(geometry));assert.ok(Math.abs(slot.y-box.y)<1);assert.equal(await controls.evaluate(e=>getComputedStyle(e).position),'static');assert.equal(await page.locator('.lesson-marker [data-marker]').count(),marker?1:0);
+       if(!marker)assert.ok(await controls.evaluate(e=>e.querySelector('button').getBoundingClientRect().width>=e.clientWidth-24));
+       const targets=await controls.locator('button,a').evaluateAll(elements=>elements.map(el=>{const r=el.getBoundingClientRect();return {label:el.textContent,reachable:el.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2))};}));assert.ok(targets.every(t=>t.reachable),JSON.stringify({geometry,targets}));assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));report.lessonControls.push(geometry);
       }
      }
     }
    }
-   await page.evaluate(()=>document.documentElement.style.removeProperty('--safe-bottom'));
-   await page.setViewportSize({width:390,height:844});await page.getByRole('button',{name:'Set progress',exact:true}).click();await page.getByRole('dialog').waitFor();await page.getByRole('button',{name:'Close dialog',exact:true}).click();
+   await page.evaluate(()=>document.documentElement.style.removeProperty('--safe-bottom'));await page.setViewportSize({width:390,height:844});await page.getByRole('button',{name:'Set progress',exact:true}).click();await page.getByRole('dialog').waitFor();await page.getByRole('button',{name:'Close dialog',exact:true}).click();
   });
   await check('Settings can hide and restore the lesson marker, preserving the preference through backup',async()=>{
    await nav('#/settings');await page.locator('[name="lessonMarker"]').uncheck();await page.getByRole('button',{name:'Save settings',exact:true}).click();

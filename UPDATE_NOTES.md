@@ -1,3 +1,19 @@
+# 1.6.0 — one clear lesson layout and a complete preparation review
+
+- Every current step follows the same order: step/status/chooser, Setup, editable cue, original teaching, Move on when, one Clicker/Set progress group, step links and collapsed Extra Information.
+- All 154 skills and 384 active steps were reviewed. Added 384 specific step preparations rather than showing a shared goal/setup block. Original cues, teaching, criteria, prerequisites, IDs and all 36 earlier guides remain unchanged. Read research/SETUP_REVIEW.md for the complete review.
+- One control group floats above navigation until its reserved place after the criterion fits, then docks in normal flow. Safe-area/font changes are measured; hidden clicker leaves a full-width progress control.
+- Removed Simple/Detailed and individual lesson-section preferences. Older saves/backups load normally; obsolete keys are dropped without altering dog records or current preferences.
+- Extra Information groups easier adaptations, notes, supporting prerequisites, related skills, sources, skill goal, step/project maps and earlier guides. Safety and missing prerequisites remain visible.
+- Ready / practicing retains the topic-card grid with matching skill counts, hides empty topics and keeps the filter inside opened categories. A zero-result state offers Show all lessons.
+- Tutorial replay is only in More → How to use Good Ground. Its 13 pages now explain step setup, the single layout and floating controls; replay keeps all records.
+- Settings exit offers Save and Exit, Discard changes and Stay in Settings. Save waits for browser persistence or native acknowledgement; failures/timeouts retain choices and the page, with retry. Android hardware Back uses the same flow.
+- Feedback retains the configured public Formspree endpoint, consent and minimal payload. No server, account, analytics or live feedback submission was added.
+
+Version 1.6.0/build 10 retains app/container identities and backup format 3. Curriculum graph version 7 is unchanged; preparation revision 1 is tracked separately. No personal-device records were accessed or reset. The unsigned iPhone package reuses the existing native executable; Android keeps its release certificate.
+
+---
+
 # 1.5.1 — connect the feedback inbox
 
 - More → Feedback now uses the owner's public Formspree endpoint, `https://formspree.io/f/moeeevrq`, so Submit is enabled in both apps.

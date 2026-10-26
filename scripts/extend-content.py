@@ -216,6 +216,8 @@ order=['Foundations','Calm at home','Walk skills','Other dogs','People and door'
 order+=[name for name in dict.fromkeys(s['sheet'] for s in D['skills']) if name not in order and name!='Brainiacs']
 order+=['Brainiacs']
 D['skills'].sort(key=lambda s:order.index(s['sheet']))
+runpy.run_path(str(ROOT/'scripts/review-setups.py'))['apply'](D)
+
 (ROOT/'app/web/data.json').write_text(json.dumps(D,ensure_ascii=False,indent=2)+'\n')
 (ROOT/'app/web/data.js').write_text('window.GOOD_GROUND_DATA = '+json.dumps(D,ensure_ascii=False,separators=(',',':'))+';\n')
 print(len(D['skills']),'skills',sum(len(s['steps']) for s in D['skills']),'teaching steps',len(D['sources']),'sources')

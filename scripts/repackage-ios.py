@@ -25,7 +25,7 @@ web = ROOT / "app/web"
 web_files = sorted(p for p in web.rglob("*") if p.is_file())
 if any(p.is_symlink() for p in web_files):
     raise SystemExit("The web bundle must contain ordinary local files.")
-for required in ["index.html", "app.js", "core.js", "data.js", "data.json", "styles.css", "marker.js", "guide.js", "tailoring.js", "history.js"]:
+for required in ["index.html", "app.js", "core.js", "data.js", "data.json", "styles.css", "marker.js", "guide.js", "tailoring.js", "history.js", "lesson-controls.js"]:
     if not (web / required).is_file():
         raise SystemExit("Missing bundled file: " + required)
 

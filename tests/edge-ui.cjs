@@ -121,9 +121,9 @@ async function main(){
         if(remaining<=0){delete s.progress[st.id];break;}s.progress[st.id].notes='n'.repeat(Math.min(30000,remaining));
         if(remaining<=30000)break;
       }
-      assert.ok(C.withinStorageLimit(s));await boot(s,'#/lesson/SIT-1');await page.locator('#step-notes').fill('a'.repeat(2000));await page.locator('#step-notes').blur();
+      assert.ok(C.withinStorageLimit(s));await boot(s,'#/lesson/SIT-1');await openNotes(page);await page.locator('#step-notes').fill('a'.repeat(2000));await page.locator('#step-notes').blur();
       await page.locator('.tab-bar').getByRole('link',{name:'Today',exact:true}).click();assert.equal(page.url().endsWith('#/lesson/SIT-1'),true);assert.equal(await page.locator('#step-notes').inputValue(),'a'.repeat(2000));assert.equal((await snapshot()).progress['SIT-1'],undefined);
-      await page.locator('#step-notes').fill('A shorter useful note.');await page.locator('#step-notes').blur();await page.locator('.tab-bar').getByRole('link',{name:'Today',exact:true}).click();await page.waitForURL('**#/today');assert.equal((await snapshot()).progress['SIT-1'].notes,'A shorter useful note.');
+      await openNotes(page);await page.locator('#step-notes').fill('A shorter useful note.');await page.locator('#step-notes').blur();await page.locator('.tab-bar').getByRole('link',{name:'Today',exact:true}).click();await page.waitForURL('**#/today');assert.equal((await snapshot()).progress['SIT-1'].notes,'A shorter useful note.');
     });
     await check('new screens fit compact landscape and dark larger text without accessibility errors',async()=>{
       const s=twoDogs();s.profile.name='M'.repeat(100);s.tailoring.traits=['noise','novelty','handling'];s.household.others[0].profile.name='S'.repeat(100);s.settings.theme='dark';s.settings.textSize='large';await boot(s);await page.getByRole('button',{name:'Let’s practice',exact:true}).click();
@@ -141,3 +141,5 @@ async function main(){
   }finally{fs.writeFileSync(out+'/edge-'+engine+'.json',JSON.stringify(report,null,2)+'\n');await browser.close();}
 }
 main().catch(e=>{report.failure=e.stack;fs.writeFileSync(out+'/edge-'+engine+'.json',JSON.stringify(report,null,2)+'\n');console.error(e);process.exitCode=1;});
+
+async function openNotes(page){const outer=page.locator('.extra-information');if(!await outer.count())return;if(await outer.getAttribute('open')===null)await outer.locator(':scope>summary').click();const notes=page.locator('[data-lesson-section=notes]');if(await notes.getAttribute('open')===null)await notes.locator(':scope>summary').click();}

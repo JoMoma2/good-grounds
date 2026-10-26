@@ -67,7 +67,7 @@ async function main(){
       await page.setViewportSize({width:390,height:844});await page.screenshot({path:output+'/updated-clicker-'+report.engine+'.png',fullPage:true});
     });
     await check('completing a teaching step opens the next step and keeps notes',async()=>{
-      await go('#/settings');await page.locator('[name=lessonMode]').selectOption('detailed');await page.getByRole('button',{name:'Save settings',exact:true}).click();await go('#/lesson/NAME-1');await page.locator('#step-notes').fill('Keep these notes after completion.');await page.locator('#step-notes').blur();
+      await go('#/settings');await page.getByRole('button',{name:'Save settings',exact:true}).click();await go('#/lesson/NAME-1');await openNotes(page);await page.locator('#step-notes').fill('Keep these notes after completion.');await page.locator('#step-notes').blur();
       await page.getByRole('button',{name:'Set progress',exact:true}).click();await page.locator('[data-action="set-progress"][data-value="Consistent - move on"]').click();
       await page.waitForURL('**/#/lesson/NAME-2');await page.waitForFunction(()=>document.querySelector('#main')?.dataset.pageId==='NAME-2');await page.getByText('Ready to start',{exact:true}).waitFor();
       const s=await state();assert.equal(s.progress['NAME-1'].notes,'Keep these notes after completion.');assert.equal(s.progress['NAME-1'].status,C.STATUSES[3]);
@@ -218,3 +218,5 @@ async function main(){
   }finally{fs.writeFileSync(output+'/updates-'+report.engine+'.json',JSON.stringify(report,null,2)+'\n');await browser.close();server.close();}
 }
 main().catch(e=>{report.failure=e.stack;fs.writeFileSync(output+'/updates-'+report.engine+'.json',JSON.stringify(report,null,2)+'\n');console.error(e);server.close();process.exitCode=1;});
+
+async function openNotes(page){const outer=page.locator('.extra-information');if(!await outer.count())return;if(await outer.getAttribute('open')===null)await outer.locator(':scope>summary').click();const notes=page.locator('[data-lesson-section=notes]');if(await notes.getAttribute('open')===null)await notes.locator(':scope>summary').click();}

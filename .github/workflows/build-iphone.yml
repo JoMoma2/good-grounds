@@ -58,6 +58,7 @@ jobs:
         run: |
           npm run check
           npm test
+          npm run test:package
       - name: Show the Apple toolchain
         run: |
           xcodebuild -version

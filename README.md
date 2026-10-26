@@ -1,16 +1,16 @@
-> **1.5.1 lesson redesign:** Simple by default, Detailed and individual section choices in Settings; 13-slide tutorial; history fits phone widths. More → Feedback is connected to the owner’s public Formspree endpoint; verified notifications and a live inbox test remain necessary. See [FEEDBACK_SETUP.md](FEEDBACK_SETUP.md). Training and saved records stay local.
+> **1.6.0:** One consistent lesson layout, individually reviewed Setup for all 384 steps, floating/docked training controls, collapsed Extra Information, category-grid filtering and acknowledged Save and Exit. Training records stay local. See [UPDATE_NOTES.md](UPDATE_NOTES.md) and [the complete setup review](research/SETUP_REVIEW.md).
 
 # Good Ground for iPhone
 
-A personal, offline dog-training companion. Version **1.5.1** includes **154 skills, 384 active teaching steps and 77 research/reference records**. Training is for individual dogs of any breed or mix.
+A personal, offline dog-training companion. Version **1.6.0** includes **154 skills, 384 active teaching steps and 77 research/reference records**. Training is for individual dogs of any breed or mix.
 
 The release provides an updated unsigned `GoodGround-unsigned.ipa` alongside this source archive. The interface was updated inside the existing iPhone shell; the native executable and Swift source are unchanged. Install through the existing SideStore or LiveContainer setup. The source folder itself is not an IPA. A fresh native build remains available through the supplied macOS workflow.
 
-Read [UPDATE_NOTES.md](UPDATE_NOTES.md) for this release and [INSTALL.md](INSTALL.md) for installation. Both active platform projects were updated together for 1.5.1.
+Read [UPDATE_NOTES.md](UPDATE_NOTES.md) for this release and [INSTALL.md](INSTALL.md) for installation. Both active platform projects were updated together for 1.6.0.
 
-The development handoff is described in [HANDOFF_NOTES.md](docs/archive/HANDOFF_NOTES.md). A separate unsigned preview is available at `build/GoodGround-1.5.1-unsigned.ipa`; it reuses the unchanged native executable. No release has been published.
+Current behavior and the complete preparation audit are described in [UPDATE_NOTES.md](UPDATE_NOTES.md) and [SETUP_REVIEW.md](research/SETUP_REVIEW.md). A separate unsigned preview is available at `build/GoodGround-1.6.0-unsigned.ipa`; it reuses the unchanged native executable. No release has been published.
 
-Lessons now opens with 14 topics, global search and filters. Topics and filtered/search results use compact skill rows with at most 12 per page. Search within a topic, by a custom cue, or by an exact Step ID. Read [UPDATE_NOTES.md](UPDATE_NOTES.md) for this release; the [1.4.0 report](docs/archive/DEVELOPMENT_REPORT_1.4.0.md) documents the earlier 50-skill expansion.
+Lessons now opens with 14 topics, global search and filters. All lessons and Ready / practicing use the same topic cards; opened topics, searches and Saved/Learned results use compact skill rows with at most 12 per page. Search within a topic, by a custom cue, or by an exact Step ID. Read [UPDATE_NOTES.md](UPDATE_NOTES.md) for this release and [the prerequisite audit](research/PREREQUISITE_AUDIT.md) for component relationships.
 
 ## In the app
 
@@ -32,7 +32,7 @@ The usual four-in-five advancement rule is a practical planning aid, not a valid
 
 Practice timers reflect linked Skill practice journal entries. Reminders for learned foundations/walk skills default to a week, with two weeks, a month or off available in Settings. A missing log is not proof of forgetting. Note edits and clicker presses do not reset practice dates, and fear-exposure programs are excluded from automatic refreshers.
 
-[research/IPHONE_UPDATE_RESEARCH.md](research/IPHONE_UPDATE_RESEARCH.md) records the reminder and tailoring decisions and their limits. [research/APP_REVIEW.md](research/APP_REVIEW.md) retains the earlier content review. Brainiacs combines independent components into eight projects, including the existing fridge retrieval, sorting, Courier and pre-walk routines plus rally, a floor circuit, scent reporting and a short trick routine. Project maps expose expandable step groups and reusable foundations. Earlier overlong guides were shortened, with all 36 old pages and their records preserved. See [the curriculum rework](docs/archive/CURRICULUM_REWORK.md) and [the full prerequisite audit](research/PREREQUISITE_AUDIT.md).
+[research/IPHONE_UPDATE_RESEARCH.md](research/IPHONE_UPDATE_RESEARCH.md) records the reminder and tailoring decisions and their limits. [research/APP_REVIEW.md](research/APP_REVIEW.md) retains the earlier content review. Brainiacs combines independent components into eight projects, including the existing fridge retrieval, sorting, Courier and pre-walk routines plus rally, a floor circuit, scent reporting and a short trick routine. Project maps expose expandable step groups and reusable foundations. Earlier overlong guides were shortened, with all 36 old pages and their records preserved. See [the full prerequisite audit](research/PREREQUISITE_AUDIT.md) for the current component structure.
 
 The Trends page adds daily observed category completion history alongside the current progress bars. It starts when this version first observes the dog; earlier history is not invented. Categories share a color key, and their historical totals stay fixed. Shared training between devices is not available; [the assessment](research/SYNC_ASSESSMENT.md) explains what it requires.
 
@@ -76,3 +76,9 @@ Repeat browser scripts with `GG_BROWSER=webkit`. [VALIDATION.md](VALIDATION.md) 
 On a Mac with Xcode selected, `bash scripts/build-ios.sh device` builds a fresh unsigned IPA. The GitHub workflow also compiles and exercises the iPhone simulator. For an interface-only update with an unchanged native shell, `scripts/repackage-ios.py BASE_IPA OUTPUT_IPA` replaces bundled web files, retains the native executable and verifies every bundled file. It does not sign or compile Swift.
 
 Original code, icon, synthesized sounds and instructional writing are under [LICENSE](LICENSE). Linked works retain their own rights; full third-party papers and recorded sound libraries are not bundled.
+
+## Portable source release
+
+Run `npm run test:package` to verify packaging, then `python3 scripts/package-source.py /tmp/GoodGround-1.6.0-Source.zip` to make a ZIP and SHA-256 sidecar. The same commands work from a clean checkout with the complete intended source files, or from an extracted source ZIP. The iOS build copies the whole bundled `app/web` directory, including `lesson-controls.js`.
+
+`docs/archive/` is optional local history and is excluded from both publication and the portable ZIP. Generated `validation/`, `build/`, `test-results/`, dependencies, Git internals, local `.signing/` material and office lock files are excluded too. Existing tracked validation artifacts are not deleted by the ignore rules. Other public documentation may be included when present without becoming a required dependency. Keep `research/` baselines and `tests/fixtures/`: they are active generator/test inputs despite their historical names.

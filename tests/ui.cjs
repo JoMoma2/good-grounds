@@ -43,7 +43,7 @@ async function main(){
     });
     await step('saved skills, safe text notes, and searches work',async()=>{
       await page.getByRole('button',{name:'Save this skill',exact:true}).click();
-      await page.locator('#step-notes').fill('Quiet kitchen. <script>never run</script>');await page.locator('#step-notes').blur();
+      await openNotes(page);await page.locator('#step-notes').fill('Quiet kitchen. <script>never run</script>');await page.locator('#step-notes').blur();
       await go('#/learn');await page.getByRole('button',{name:'Saved',exact:true}).click();await page.getByRole('heading',{name:'Name recognition',exact:true}).waitFor();
       await page.getByRole('button',{name:'All lessons',exact:true}).click();await page.locator('#learn-search').fill('NAME-2');assert.equal(await page.locator('.lesson-card').count(),1);
       await page.locator('.lesson-card').click();assert.equal(await page.locator('#step-notes').inputValue(),'Quiet kitchen. <script>never run</script>');
@@ -52,7 +52,7 @@ async function main(){
     await step('exact locked Step IDs open directly, and source links return to the lesson',async()=>{
       await go('#/learn');await page.locator('#learn-search').fill('DOG-2');assert.equal(await page.locator('.lesson-card').count(),1);assert.equal(await page.locator('.lesson-card').getAttribute('href'),'#/lesson/DOG-2');
       await page.locator('.lesson-card').tap();await page.waitForURL('**/#/lesson/DOG-2');
-      await page.getByText('Why this approach? · Sources',{exact:true}).click();await page.locator('.source-chip').first().tap();await page.waitForURL('**/#/source/*');
+      await page.locator('.extra-information>summary').click();await page.getByText('Why this approach? · Sources',{exact:true}).click();await page.locator('.source-chip').first().tap();await page.waitForURL('**/#/source/*');
       await page.getByRole('link',{name:'Back to lesson',exact:true}).tap();await page.waitForURL('**/#/lesson/DOG-2');await page.waitForFunction(()=>scrollY>300,null,{timeout:3000});
       await page.getByRole('button',{name:'Set progress',exact:true}).click();const a=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa']).analyze();assert.equal(a.violations.length,0,JSON.stringify(a.violations.map(v=>v.id)));await page.getByRole('button',{name:'Close dialog'}).click();
     });
@@ -129,3 +129,5 @@ async function main(){
   }
 }
 main().catch(error=>{report.failure=error.stack;fs.writeFileSync(output+'/ui-'+report.engine+'.json',JSON.stringify(report,null,2)+'\n');console.error(error);server.close();process.exitCode=1;});
+
+async function openNotes(page){const outer=page.locator('.extra-information');if(!await outer.count())return;if(await outer.getAttribute('open')===null)await outer.locator(':scope>summary').click();const notes=page.locator('[data-lesson-section=notes]');if(await notes.getAttribute('open')===null)await notes.locator(':scope>summary').click();}

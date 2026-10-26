@@ -64,7 +64,7 @@ async function main(){
       await newSession({schema:1,revision:700,broken:true});
       const before=messages.filter(x=>x.action==='save').length;await go('#/profile');await p.locator('.load-error strong').getByText('Saved data needs attention.').waitFor();
       await p.locator('[name="name"]').fill('Must not overwrite');await p.getByRole('button',{name:'Save profile',exact:true}).click();assert.equal(messages.filter(x=>x.action==='save').length,before);
-      await go('#/backup');exported=null;await p.getByRole('button',{name:'Save backup to Files',exact:true}).click();await p.waitForTimeout(100);assert.equal(exported,null);
+      await go('#/backup');await p.getByRole('button',{name:'Leave without saving',exact:true}).click();await p.getByRole('button',{name:'Save backup to Files',exact:true}).waitFor();exported=null;await p.getByRole('button',{name:'Save backup to Files',exact:true}).click();await p.waitForTimeout(100);assert.equal(exported,null);
       importFile=JSON.stringify(C.makeBackup(C.freshState(),D));await p.getByRole('button',{name:'Choose backup file',exact:true}).click();await p.getByRole('button',{name:'Restore backup',exact:true}).click();await p.waitForTimeout(100);assert.ok(saved.revision>700,'Restoring over a corrupt high-revision file must advance the native save revision');
     });
     assert.equal(result.errors.length,0,result.errors.join('\n'));

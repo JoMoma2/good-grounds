@@ -1,6 +1,6 @@
 {
   "version": 7,
-  "updated": "2026-10-24",
+  "updated": "2026-10-26",
   "name": "Good Ground",
   "skills": [
     {
@@ -19,7 +19,8 @@
           "teach": "When your dog is relaxed near you, say their name once in a friendly voice, then immediately offer a tiny reward. No sit or eye contact is required. Pause a few seconds and repeat a handful of times; finish while they still enjoy it.",
           "advance": "Your dog begins turning or expecting a reward after the name during several easy pairings.",
           "easier": "Use a quieter room or a reward your dog readily enjoys. Do not repeat the name louder.",
-          "deps": []
+          "deps": [],
+          "setup": "Have tiny rewards within reach in a familiar room. Sit or stand near your relaxed dog, with room for them to move away; no particular posture is needed."
         },
         {
           "id": "NAME-2",
@@ -32,7 +33,8 @@
               "NAME-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same quiet room. Keep rewards out of sight near your body and begin with your dog nearby, comfortably facing a little away from you."
         }
       ]
     },
@@ -52,7 +54,8 @@
           "teach": "Use your chosen soft marker once: say “yes,” use a physical clicker, or tap the app’s Mark & reward button. Immediately give a tiny treat. Pause before another pairing, and keep your reward hand still until after the signal. There is no action to ask for yet. Use the same signal consistently; if a click worries your dog, choose a gentle spoken word instead.",
           "advance": "The signal produces relaxed reward anticipation in several pairings; no flinching or avoidance.",
           "easier": "Soften the sound, change the signal, or deliver the reward directly without a marker.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose a soft spoken word or test the clicker quietly away from your dog first. Put small rewards within easy reach, with your dog comfortably nearby and your reward hand empty."
         }
       ]
     },
@@ -72,7 +75,8 @@
           "teach": "Offer an empty palm a few inches from the side of your dog’s nose. Let them choose to sniff it. Say “yes” as the nose touches, then reward from the other hand. Remove the palm between attempts. Do not push your hand into their face.",
           "advance": "Offers a gentle nose touch on 4 of 5 presentations without your palm moving toward them.",
           "easier": "Start farther to the side, reward a small approach, or use an object target if hands worry them.",
-          "deps": []
+          "deps": [],
+          "setup": "Sit or stand beside your dog at a comfortable height. Keep one palm empty and rewards in the other hand; leave clear space beside their nose and an open route away."
         },
         {
           "id": "TOUCH-2",
@@ -85,7 +89,8 @@
               "TOUCH-1",
               3
             ]
-          ]
+          ],
+          "setup": "Start in the familiar hand-target area on a non-slip floor. Keep your target palm empty, rewards hidden in the other hand, and space for one easy step either side."
         }
       ]
     },
@@ -105,7 +110,8 @@
           "teach": "Hold a tiny treat near the nose and slowly move it a little upward and back. When the bottom touches down, mark and feed. If the dog backs up, lower and shorten the motion. Never press the hips down. Alternatively, reward a naturally offered sit.",
           "advance": "Can obtain a comfortable sit with a small hand motion on 4 of 5 attempts.",
           "easier": "Capture an offered sit; use a non-slip surface. New stiffness or reluctance merits a vet conversation.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose a non-slip area with enough room behind your dog. Have small rewards ready at nose height. If sitting looks uncomfortable, choose a comfortable standing exercise instead."
         },
         {
           "id": "SIT-2",
@@ -118,7 +124,8 @@
               "SIT-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same non-slip area. Keep the guiding hand empty and rewards in your other hand or pouch, with your dog close enough to see the familiar signal."
         }
       ]
     },
@@ -138,7 +145,8 @@
           "teach": "From a comfortable stand or sit, guide a treat slowly toward the floor between the front paws, then slightly forward. Mark when elbows meet the surface and feed low. If the dog dislikes this route, wait for a natural comfortable lie-down and reward it.",
           "advance": "Offers an unforced comfortable down several times using the chosen easy method.",
           "easier": "Use a softer surface, a smaller motion, or capture natural downs. Skip postures that appear painful.",
-          "deps": []
+          "deps": [],
+          "setup": "Provide a soft, non-slip resting surface and space to stretch out. Sit beside your dog with rewards accessible near floor level; use a comfortable stand or sit as the starting position."
         },
         {
           "id": "DOWN-2",
@@ -151,7 +159,8 @@
               "DOWN-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar soft surface and leave space for your dog to stand up between turns. Keep the signaling hand empty and rewards in the other hand or pouch."
         }
       ]
     },
@@ -171,7 +180,8 @@
           "teach": "From a comfortable sit, move a treat slowly forward at nose height. Mark as all four feet support a stand, before the dog takes several steps. Feed in place. Repeat with an empty guiding hand, then put “stand” before that hand signal.",
           "advance": "Stands on a small cue/signal without visible food on 4 of 5 attempts in two quiet sessions.",
           "easier": "Shorten the lure distance and reward the first weight shift. Avoid repeated posture changes if stiff.",
-          "deps": []
+          "deps": [],
+          "setup": "Use a level, non-slip floor with room in front of your dog. Begin beside a freely offered comfortable sit, with a small reward ready at their natural standing nose height."
         }
       ]
     },
@@ -191,7 +201,8 @@
           "teach": "After a very brief sit, stand, or down, say “free,” pause a beat, and toss a treat a small distance away. Let your dog move to it. On another repetition, reward the position first, then say “free” and invite movement.",
           "advance": "Usually moves after the release word rather than requiring the tossed treat to start moving.",
           "easier": "Use an easier position and a clear invitation to move; do not restrain the dog until released.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose a familiar room with non-slip footing and a clear patch of floor for a small tossed reward. Have several rewards ready; any comfortable position your dog already offers is suitable."
         },
         {
           "id": "FREE-2",
@@ -204,7 +215,8 @@
               "FREE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same safe floor area. Have rewards accessible both for delivery at your dog's position and for a small toss away, with an unobstructed route to move off."
         }
       ]
     },
@@ -224,7 +236,8 @@
           "teach": "Let your dog hold an ordinary toy. Place a few tasty treats on the floor to the side; as the dog releases to eat, quietly mark the release. Let them have the toy again after the treats. Repeat a few easy exchanges. Never pry open the mouth or chase them.",
           "advance": "Freely releases the low-value toy for the trade and remains loose around your approach.",
           "easier": "Use a less-valued toy. If there is stiffness, growling, hovering over the item, or snapping, stop this setup and get individual help.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose an ordinary dog-safe toy your dog does not guard, with floor space to one side for treats. Have better food rewards ready and keep other dogs away. Skip this setup if item handling causes tension."
         },
         {
           "id": "DROP-2",
@@ -237,7 +250,8 @@
               "DROP-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same low-value toy and clear trading area, with the better rewards initially out of sight. Avoid treasured or stolen items; a dog with guarding concerns needs an individual plan."
         }
       ]
     },
@@ -257,7 +271,8 @@
           "teach": "Place a boring safe practice item where the dog can see but cannot grab it. Stay nearby with better rewards. Mark even a brief look away and feed away from the item. Reset with an easy approach. Do not use a valuable object that creates prolonged frustration.",
           "advance": "Readily turns away from the protected item for a reward in 4 of 5 easy opportunities.",
           "easier": "Make the item less interesting or start farther away; shorten the waiting time.",
-          "deps": []
+          "deps": [],
+          "setup": "Secure a boring, harmless item behind a barrier or sturdy transparent cover that cannot be knocked aside. Begin far enough away for easy disengagement, with better rewards beside you and away from the item."
         },
         {
           "id": "LEAVE-2",
@@ -270,7 +285,8 @@
               "LEAVE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare one harmless practice item under a sturdy clear cover or behind a secure barrier. Keep the floor around it clear and better rewards with you; protection stays in place during early cue practice."
         }
       ]
     },
@@ -295,7 +311,8 @@
               "FREE-2",
               2
             ]
-          ]
+          ],
+          "setup": "Choose an open interior doorway with no access to outdoors. Clear the floor on both sides, keep the door still, and stand beside your dog with rewards within reach."
         },
         {
           "id": "WAIT-2",
@@ -308,7 +325,8 @@
               "WAIT-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar interior doorway, clear of paws and tails throughout the door's swing. Stand with your dog safely back from the edge and keep rewards available; no exterior exit should be exposed."
         }
       ]
     },
@@ -328,7 +346,8 @@
           "teach": "Offer a quiet toilet opportunity after waking, eating, play, and whenever your dog signals a need. Wait without pressuring them. As they finish in the chosen area, quietly reward there, then allow a little sniff time. Clean accidents without punishment.",
           "advance": "A routine reliably creates successful opportunities; record the timing of any accidents to adjust access.",
           "easier": "Offer more frequent easy access. Sudden accidents, straining, or increased drinking warrant a vet check.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose an accessible toilet spot and clear the route there. Keep outdoor clothing, a lead if needed, and rewards near the exit so trips after sleep, meals or play can be prompt."
         },
         {
           "id": "TOILET-2",
@@ -341,7 +360,8 @@
               "TOILET-1",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the familiar toilet route immediately accessible and rewards ready at the toilet spot. Choose the same cue in advance; any request signal must leave access to the door unobstructed."
         }
       ]
     },
@@ -361,7 +381,8 @@
           "teach": "With your dog near you, say your recall word, take a welcoming step backward, and reward as they reach you. Reset by tossing a treat a little away, then call when they are easily able to return. Keep the cue different from their name.",
           "advance": "Returns over one or two steps in 4 of 5 quiet repetitions.",
           "easier": "Start closer and with less competing activity. Do not chase the dog or repeat a cue unlikely to succeed.",
-          "deps": []
+          "deps": [],
+          "setup": "Use a secure room with a clear, non-slip path between you and your dog. Have attractive rewards out of sight and room to take one step backward without bumping anything."
         },
         {
           "id": "RECALL-2",
@@ -374,7 +395,8 @@
               "RECALL-1",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the same enclosed space and clear a slightly longer approach. Have several small rewards accessible at your side. Only include harness contact if your dog already welcomes that separate handling exercise."
         }
       ]
     },
@@ -394,7 +416,8 @@
           "teach": "Hold the target still a little to the side of the dog’s nose. Let them choose to investigate. Mark a gentle nose contact and reward from your other hand. Remove the target after each attempt; do not poke it toward the face.",
           "advance": "Voluntarily touches the still pad in 4 of 5 easy presentations.",
           "easier": "Use a larger target, increase space, or reward a glance or small approach first.",
-          "deps": []
+          "deps": [],
+          "setup": "Prepare a large, smooth target pad on a secure handle without sharp ends or loose parts. Sit or stand beside your dog, with rewards in the other hand and room beside their face."
         },
         {
           "id": "OTARGET-2",
@@ -407,7 +430,8 @@
               "OTARGET-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar target and non-slip footing. Leave a few inches of clear space around its usual position at natural head height, and keep rewards separate from the target hand."
         }
       ]
     },
@@ -432,7 +456,8 @@
               "FREE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a quiet enclosed room and comfortable non-slip surface. Have rewards ready for delivery at your dog's position and enough clear floor for an easy release; use any comfortable posture."
         },
         {
           "id": "STAY-2",
@@ -445,7 +470,8 @@
               "STAY-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same surface with clear space behind your own feet for one small step. Keep rewards with you and the dog free to leave; remove nearby distractions before adding handler movement."
         },
         {
           "id": "STAY-3",
@@ -458,7 +484,8 @@
               "STAY-2",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare a quiet enclosed area with clear footing for a slight turn or two steps away. Decide beforehand whether this turn changes time or movement, and keep rewards readily accessible."
         }
       ],
       "maintenance": true
@@ -484,7 +511,8 @@
               "STAND-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use a secure, level, non-slip space away from traffic and wildlife. Begin beside your dog with room for a few slow steps and rewards at natural standing nose height."
         },
         {
           "id": "STOP-2",
@@ -497,7 +525,8 @@
               "STOP-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same enclosed area with one or two clear steps between you and your dog. Keep rewards accessible so you can walk to their stopping place without calling them closer."
         },
         {
           "id": "STOP-3",
@@ -510,7 +539,8 @@
               "STOP-2",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a secure area with an unobstructed, level walking surface. Start only a few steps from your dog, with rewards ready; this exercise needs slow strolling, not running or real hazards."
         }
       ],
       "maintenance": true
@@ -531,7 +561,8 @@
           "teach": "Stand still and use a small reward invitation to guide a broad approach toward the space in front of you. Mark when the dog faces you a comfortable step away and feed there. Reset to one side. Keep your knees soft and avoid drawing the dog into your legs.",
           "advance": "Offers a balanced position facing you from either easy starting side.",
           "easier": "Use a shorter straight approach and reward before the dog crowds you. Never push the shoulders into alignment.",
-          "deps": []
+          "deps": [],
+          "setup": "Stand on non-slip flooring with an open approach in front of you. Leave about a comfortable dog's length of space before your knees and have small rewards available at their natural head height."
         },
         {
           "id": "FRONT-2",
@@ -544,7 +575,8 @@
               "FRONT-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar approach area, with your signal hand empty and rewards elsewhere. Clear space at the usual starting spot and one nearby alternative; a comfortable stand is sufficient."
         }
       ],
       "maintenance": true
@@ -565,7 +597,8 @@
           "teach": "Hold the bowl at a comfortable height while your dog stands freely nearby. Reward a moment with all paws on the floor, say “eat,” and place the bowl down within easy reach. Begin with almost no delay. Never repeatedly lift a bowl away as the dog approaches.",
           "advance": "Comfortably pauses a moment and approaches the placed bowl after the invitation.",
           "easier": "Feed the meal normally. Practice with a nearly empty bowl and a separate tiny reward another time.",
-          "deps": []
+          "deps": [],
+          "setup": "Use the usual quiet feeding area with other animals separated. Put part of the normal meal in an easy-to-handle bowl and clear its landing spot. Skip waiting practice if bowl handling causes tension."
         },
         {
           "id": "FOODWAIT-2",
@@ -578,7 +611,8 @@
               "FOODWAIT-1",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the familiar bowl and clear feeding spot, with a separate small reward accessible. Stand at a comfortable lowering height with your dog free nearby; the meal remains available without a performance requirement."
         }
       ],
       "maintenance": true
@@ -599,7 +633,8 @@
           "teach": "Lay out the mat and let your dog investigate. Mark a step toward or onto it and place the reward on the mat. Reset by tossing a reward off, then wait for another voluntary approach. Gradually reward paws on the mat rather than merely looking at it.",
           "advance": "Voluntarily returns with all four paws on the mat on 4 of 5 resets.",
           "easier": "Use a larger flatter mat and reward a smaller approach. Check that texture or slipping is not worrying them.",
-          "deps": []
+          "deps": [],
+          "setup": "Lay a comfortable, flat mat on a non-slip surface away from household traffic. Leave open floor around it for approaches and resets, with small rewards available beside you."
         },
         {
           "id": "MAT-2",
@@ -612,7 +647,8 @@
               "MAT-1",
               3
             ]
-          ]
+          ],
+          "setup": "Place the familiar mat in its usual quiet spot, with clear floor one step away. Keep rewards with you rather than scattered on the mat before the cue."
         }
       ]
     },
@@ -632,7 +668,8 @@
           "teach": "Place a comfortable mat near you during a quiet activity. When your dog chooses a comfortable lie-down, gently place a reward between the paws. Watch for soft eyes, an easy hip shift, or a head resting. Reward quietly so you do not turn this into excited repetition.",
           "advance": "Chooses to rest with visibly soft posture on several occasions; can leave and return freely.",
           "easier": "Use a quieter place or a preferred bed. Reward subtle softening; do not keep asking for down.",
-          "deps": []
+          "deps": [],
+          "setup": "After ordinary toilet, movement and water needs are met, place a comfortable mat near your quiet activity. Keep low-excitement rewards within reach and an open route off the mat."
         },
         {
           "id": "SETTLE-2",
@@ -645,7 +682,8 @@
               "SETTLE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar resting spot when your dog is already comfortable there. Minimize nearby activity, have quiet rewards ready, and leave their preferred way to get up unobstructed."
         },
         {
           "id": "SETTLE-3",
@@ -658,7 +696,8 @@
               "SETTLE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a familiar calm resting period and sit near the usual mat or bed. Keep the room uneventful and allow your dog to choose their posture and leave freely."
         }
       ]
     },
@@ -678,7 +717,8 @@
           "teach": "Set up a quiet resting area away from windows or the entryway. Let your dog explore; place a little normal food there and allow them to leave. Spend calm time nearby. Do not close a crate or room door if confinement is unfamiliar or distressing.",
           "advance": "Enters and rests or explores freely in several quiet visits; there is no hesitation about returning.",
           "easier": "Use an open room or bed instead of a crate. Move it farther from sounds or household traffic.",
-          "deps": []
+          "deps": [],
+          "setup": "Arrange a quiet bed and water away from the entry and busy windows. Leave the route in and out open; use an open crate only if that space is already comfortable."
         },
         {
           "id": "SAFE-2",
@@ -691,7 +731,8 @@
               "SAFE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the familiar resting area without visitors present. Have a trusted person comfortably visible and a gate, door or curtains ready for only the small adjustment your dog already tolerates."
         }
       ]
     },
@@ -711,7 +752,8 @@
           "teach": "With the camera positioned, begin while your dog is comfortably occupied or resting. Stand up or take one step away, then return before they worry. Observe posture, movement, and breathing, rather than requiring a stay. Repeat only a few easy movements with breaks.",
           "advance": "Can make that small movement repeatedly without vigilance, following in distress, or other signs of worry.",
           "easier": "Make the movement smaller or remain seated. For known separation panic, arrange professional support instead of testing their limit.",
-          "deps": []
+          "deps": [],
+          "setup": "Place a camera where you can see your dog's whole body in their familiar safe area. Start while they are comfortably resting or occupied, with the floor around your chair clear. Do not test known separation panic."
         },
         {
           "id": "ALONE-2",
@@ -724,7 +766,8 @@
               "ALONE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Check that the camera shows your dog while you are briefly beyond a nearby interior doorway. Keep the return route clear, the door open and the starting distance within their established comfort."
         },
         {
           "id": "ALONE-3",
@@ -737,7 +780,8 @@
               "ALONE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the same camera and easy absence arrangement. Choose one quiet departure prop, such as keys, and keep it within reach; avoid combining several new departure signals."
         }
       ]
     },
@@ -757,7 +801,8 @@
           "teach": "Place the cushion at a comfortable natural chin height with the dog able to leave. Mark any voluntary chin contact and reward gently beside it. A known chin-rest invitation can help, but never lift or press the head into position.",
           "advance": "Voluntarily lowers the chin onto the cushion several times without tension or restraint.",
           "easier": "Use a flatter cushion, reward a small head dip, or return to a familiar hand chin rest.",
-          "deps": []
+          "deps": [],
+          "setup": "Place a stable soft cushion at your dog's natural chin height on a non-slip base. Sit beside it with rewards accessible and a clear route away; avoid anything that tips under light contact."
         },
         {
           "id": "RESTHEAD-2",
@@ -770,7 +815,8 @@
               "RESTHEAD-1",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the familiar cushion at the same comfortable height. Sit nearby with quiet rewards and clear space for your dog to lift their head and leave without obstruction."
         }
       ]
     },
@@ -790,7 +836,8 @@
           "teach": "Secure the crate door fully open. Reward looking toward the entrance, then voluntary steps inside, placing rewards where the dog can reach without squeezing. Reward exits too. Build toward all four paws inside and turn around only if space allows. Never push, pull or close the door behind a hesitant dog.",
           "advance": "Freely enters, turns comfortably and leaves, with willingness to return across two short sessions.",
           "easier": "Remove the door or begin beside the opening. An open resting area is an equally valid choice.",
-          "deps": []
+          "deps": [],
+          "setup": "Check that the crate allows comfortable standing, turning and lying. Secure the door fully open, add familiar non-slip bedding, and clear the entrance and exit. Remain nearby with rewards."
         },
         {
           "id": "CRATE-2",
@@ -803,7 +850,8 @@
               "CRATE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the familiar roomy crate with the door initially secured open. Keep its swing clear of paws and tails, place rewards within reach, and sit beside rather than across the exit."
         },
         {
           "id": "CRATE-3",
@@ -816,7 +864,8 @@
               "CRATE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Check the familiar crate's latch opens smoothly and rewards can be delivered safely without trapping fingers. Stay beside the door with its exit clear; do not use this setup for panic or unattended absences."
         }
       ],
       "maintenance": false
@@ -837,7 +886,8 @@
           "teach": "With the dog awake and comfortable on the low surface, place a reward on the safe landing or invite them down with a small lure. Mark as all feet reach the floor and reward there. Sometimes invite them back up if allowed so leaving does not always end access.",
           "advance": "Voluntarily steps onto the safe landing in several relaxed repetitions.",
           "easier": "Use a lower surface or reward a single step toward the exit. Never push, lift or grab a resting dog.",
-          "deps": []
+          "deps": [],
+          "setup": "Use a low, stable surface only while your dog is awake and comfortable. Clear a non-slip landing or familiar ramp, with rewards accessible from the side; skip practice if approaches cause guarding or pain."
         },
         {
           "id": "VACATE-2",
@@ -850,7 +900,8 @@
               "VACATE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the same secure landing or ramp and a comfortable alternative resting place nearby. Have the signaling hand empty and rewards ready on the floor side, with your dog awake and unpressured."
         }
       ],
       "maintenance": true
@@ -871,7 +922,8 @@
           "teach": "During an easy short activity, stop while your dog is still comfortable. Say “all done,” put the prop aside without taking anything from their mouth, and offer the next quiet choice. Repeat on separate occasions. The phrase predicts an honest ending with support rather than abruptly removing all access to fun.",
           "advance": "Moves comfortably into the offered alternative after several familiar endings.",
           "easier": "Use a shorter activity or more appealing next option. First arrange a voluntary trade if the dog has the prop.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose a brief familiar game, a safe place to put its prop, and a ready alternative such as water, a sniff area or a bed. Arrange a voluntary trade separately if the dog may hold the prop."
         },
         {
           "id": "ALLDONE-2",
@@ -884,7 +936,8 @@
               "ALLDONE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Select a different easy activity and prepare the same familiar quiet alternative. Clear the route between them and a safe place for equipment, with ordinary movement, water and rest needs already met."
         }
       ],
       "maintenance": true
@@ -905,7 +958,8 @@
           "teach": "Stand or stroll in a quiet enclosed area. Whenever your dog voluntarily glances toward you, mark and reward beside you. Let them return to sniffing. Avoid constantly calling their name; the choice to check in is what earns the reward.",
           "advance": "Offers several check-ins without being called, with loose comfortable movement.",
           "easier": "Start indoors, stand still, or shorten the exercise. Sniffing does not need to stop all session.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose a familiar enclosed space with something safe to sniff and room beside your body for rewards. Stand comfortably without blocking your dog, with food readily accessible and no attention cue needed."
         },
         {
           "id": "CHECK-2",
@@ -918,7 +972,8 @@
               "CHECK-1",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare a clear, quiet walking strip with safe sniffing space nearby. Use comfortable familiar walking equipment if needed, keep the lead slack, and have rewards accessible at your side."
         }
       ]
     },
@@ -938,7 +993,8 @@
           "teach": "In a quiet area, reward your dog for standing near either chosen side with slack in the leash. Place the reward at your leg rather than out in front. Reset by moving one step and reward the dog for coming back into that comfortable area.",
           "advance": "Readily finds the side position with a loose leash in several short repetitions.",
           "easier": "Practice indoors first; check equipment comfort and use a wider space.",
-          "deps": []
+          "deps": [],
+          "setup": "Check that the familiar harness or collar fits comfortably and your dog willingly wears it. Use an ordinary lead in a quiet spacious area, with rewards accessible beside your chosen leg."
         },
         {
           "id": "LOOSE-2",
@@ -951,7 +1007,8 @@
               "LOOSE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a short, clear stretch on the familiar quiet route. Check comfortable equipment and slack lead handling, with rewards easy to reach before taking the first walking steps."
         },
         {
           "id": "LOOSE-3",
@@ -964,7 +1021,8 @@
               "LOOSE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a safe, modestly interesting sniffing patch beside a quiet route. Check the ground and other animals, use comfortable equipment, and leave room to approach without tightening the lead."
         }
       ]
     },
@@ -984,7 +1042,8 @@
           "teach": "In a quiet room or yard, say “this way” cheerfully, turn your shoulders, and take two steps away. Reward your dog beside you as they follow. If needed, guide the first few repetitions with a treat, then hide it until after the turn.",
           "advance": "Follows the cue into a comfortable turn without a visible lure on 4 of 5 easy repetitions.",
           "easier": "Use a smaller change of direction, slower steps, or an easy hand target.",
-          "deps": []
+          "deps": [],
+          "setup": "Clear a wide turning arc in a quiet room or secure yard with no trigger present. Stand near your dog with rewards ready and stable footing for two easy steps away."
         },
         {
           "id": "TURN-2",
@@ -997,7 +1056,8 @@
               "TURN-1",
               3
             ]
-          ]
+          ],
+          "setup": "Pick a quiet outdoor rehearsal area and a safe destination a few steps away. Use familiar comfortable walking equipment and hold the slack lead clear of both your feet."
         },
         {
           "id": "TURN-3",
@@ -1010,7 +1070,8 @@
               "TURN-2",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a familiar quiet route and an easy sniffing spot well away from dogs or other triggers. Identify a clear, rewarding exit direction before starting."
         }
       ]
     },
@@ -1030,7 +1091,8 @@
           "teach": "Say “find it,” then scatter a few tiny treats over a small clean area where your dog can see them land. Let them sniff and finish without pressure. Repeat in a calm familiar place. This is an activity, not a requirement to stop feeling afraid.",
           "advance": "Begins searching after the cue in several easy scatters and stays comfortable.",
           "easier": "Use a smaller clean area or place food visibly. Skip food games where guarding or competition is present.",
-          "deps": []
+          "deps": [],
+          "setup": "Inspect a small clean floor patch and separate other animals. Have a few tiny suitable treats ready, with your dog comfortably nearby and no traffic or food competition."
         },
         {
           "id": "FIND-2",
@@ -1043,7 +1105,8 @@
               "FIND-1",
               3
             ]
-          ]
+          ],
+          "setup": "Check a quiet yard or familiar outdoor patch for litter, unsafe plants and approaching animals. Keep other dogs away and prepare easily visible food pieces off the walking path."
         }
       ]
     },
@@ -1068,7 +1131,8 @@
               "TOUCH-2",
               2
             ]
-          ]
+          ],
+          "setup": "Stand in a quiet room with enough non-slip floor for a wide arc around your legs. Keep the target hand empty, rewards separate, and any lead clear of the route."
         },
         {
           "id": "SIDE-2",
@@ -1081,7 +1145,8 @@
               "SIDE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the same wide side-change space, with room for one forward step after arrival. Keep rewards accessible and avoid real approaching activity during this cue practice."
         }
       ]
     },
@@ -1101,7 +1166,8 @@
           "teach": "Stand still. Use a small treat invitation to bring the dog in a broad comfortable curve beside your chosen leg, facing the same way. Mark and feed at their natural head height when the shoulder is roughly alongside you. Release and reset away; do not squeeze them against your body.",
           "advance": "Finds the chosen side facing forward on 4 of 5 easy invitations without strain.",
           "easier": "Reward a looser side position or begin with the dog already beside you. Never pull them into place.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose your left or right side in advance. Stand in an enclosed non-slip room with a broad approach arc beside that leg, and have rewards ready at natural nose height."
         },
         {
           "id": "HEEL-2",
@@ -1114,7 +1180,8 @@
               "HEEL-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same side and clear entry area. Keep the guiding hand empty and rewards in the other hand, with starting space just ahead and slightly to the side."
         },
         {
           "id": "HEEL-3",
@@ -1127,7 +1194,8 @@
               "HEEL-2",
               3
             ]
-          ]
+          ],
+          "setup": "Clear a short, straight walking strip in the familiar enclosed room. Use your established side and rewards accessible beside that leg; leave enough space for a relaxed release."
         },
         {
           "id": "HEEL-4",
@@ -1144,7 +1212,8 @@
               "FREE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare a broad turning area with non-slip footing and space for ordinary walking afterward. For outdoor transfer, choose a quiet secure spot and check familiar comfortable equipment before starting."
         }
       ],
       "maintenance": true
@@ -1165,7 +1234,8 @@
           "teach": "While standing in a quiet space, say “one, two, three” in a gentle even rhythm and deliver a small reward beside you on “three.” Pause before repeating. Keep your hands neutral until delivery and make no demand for a sit, stare or exact side position.",
           "advance": "Comfortably anticipates the reward near you at the end of the short spoken count across several brief turns.",
           "easier": "Pair just “three” with a reward first or use a softer voice. Stop if anticipation becomes frantic.",
-          "deps": []
+          "deps": [],
+          "setup": "Stand in a quiet safe area with your dog freely nearby. Prepare suitable small rewards for delivery beside you, keeping your hands neutral and an open route for the dog to opt out."
         },
         {
           "id": "RHYTHM-2",
@@ -1178,7 +1248,8 @@
               "RHYTHM-1",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a short, flat walking strip in the familiar quiet area. Have rewards easy to reach beside you, comfortable equipment if needed, and space for a break away from distractions."
         }
       ],
       "maintenance": true
@@ -1199,7 +1270,8 @@
           "teach": "Place a flat contrasting strip across a non-slip floor. Approach slowly together, say “curb,” and stop before the line. Reward a brief stand beside you, then say “let’s go” and cross the harmless line together. Keep the route open and never block the dog with your knee.",
           "advance": "Pauses beside you before the line in 4 of 5 slow approaches.",
           "easier": "Use just one approach step and an immediate reward. Avoid raised poles or trip hazards.",
-          "deps": []
+          "deps": [],
+          "setup": "Lay a flat contrasting strip on a non-slip floor, with several clear steps on each side. Avoid raised edges or obstacles and have rewards ready beside your dog."
         },
         {
           "id": "CURB-2",
@@ -1212,7 +1284,8 @@
               "CURB-1",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a protected curb with generous standing space well away from moving vehicles. Check secure comfortable equipment and a clear retreat; an adult remains responsible for every crossing decision."
         }
       ],
       "maintenance": true
@@ -1242,7 +1315,8 @@
               "LOOSE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Mark two harmless flat lines a few steps apart on a non-slip indoor floor. Clear the route between them, prepare rewards beyond the far line, and use a comfortable familiar lead setup."
         },
         {
           "id": "CROSS-2",
@@ -1255,7 +1329,8 @@
               "CROSS-1",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a quiet lawful crossing with clear sight lines and safe standing space beyond both curbs. A capable adult checks secure equipment and traffic; have rewards accessible for the far side."
         }
       ],
       "maintenance": true
@@ -1281,7 +1356,8 @@
               "LOOSE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a short, flat, unobstructed part of a familiar quiet route. Check comfortable walking equipment and have rewards at your side; begin at your dog's ordinary comfortable pace."
         },
         {
           "id": "SLOW-2",
@@ -1294,7 +1370,8 @@
               "SLOW-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the successful flat route with clear space for alternating normal and slightly slower stretches. Keep rewards accessible; prepare a second equally quiet route only after the familiar one is easy."
         }
       ],
       "maintenance": true
@@ -1315,7 +1392,8 @@
           "teach": "Take a few ordinary steps, say “pause,” and stop with slack in the lead. Reward any comfortable nearby stand after one second, then invite movement again. No particular side or eye contact is needed. Reward before the dog becomes restless rather than waiting for frustration to stop.",
           "advance": "Pauses near you for a second through several easy walking stops.",
           "easier": "Shorten to a moment or practice in a secure room without a leash. Check ordinary toilet and movement needs first.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose a protected quiet walking strip and a roomy stopping spot. Check familiar equipment, ordinary toilet and movement needs, and rewards accessible without shortening the lead."
         },
         {
           "id": "WALKPAUSE-2",
@@ -1328,7 +1406,8 @@
               "WALKPAUSE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar spacious stopping spot. Have rewards ready and choose one harmless distraction such as an empty pocket or imaginary sign; no tether or busy waiting area is needed."
         }
       ],
       "maintenance": true
@@ -1349,7 +1428,8 @@
           "teach": "Choose a wide quiet area where you can retreat without passing the other dog. Begin farther away than you think necessary. Allow one brief distant sighting, then leave the view. Record distance and body language without approaching to find the breaking point. Both dogs and handlers need to be comfortable.",
           "advance": "Can notice the helper dog with loose movement and ordinary interest, then return to baseline when the view ends.",
           "easier": "Start farther away or use a partial visual barrier. If no comfortable setup is available, use management and individual professional help.",
-          "deps": []
+          "deps": [],
+          "setup": "Agree with a capable helper on a calm adult dog, wide separation and a way to end the view. Check comfortable secure equipment and a retreat that does not pass the helper; start conservatively far away."
         },
         {
           "id": "DOG-2",
@@ -1362,7 +1442,8 @@
               "DOG-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the recorded comfortable separation with the same helper and dog. Arrange brief views that the helper can end, keep desired food ready with you, and leave the retreat completely clear."
         },
         {
           "id": "DOG-3",
@@ -1375,7 +1456,8 @@
               "DOG-2",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the successful distance, secure equipment and retreat unchanged. Agree that the helper will make only one small sideways movement on request; prepare rewards and an immediate way to end the view."
         }
       ]
     },
@@ -1400,7 +1482,8 @@
               "DOG-2",
               2
             ]
-          ]
+          ],
+          "setup": "Recreate the successful DOG viewing distance with the same calm helper dog, secure equipment and clear retreat. Keep rewards with you and the helper ready to end the view before attention becomes fixed."
         },
         {
           "id": "DISENGAGE-2",
@@ -1413,7 +1496,8 @@
               "DISENGAGE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the established comfortable viewing arrangement and mark out a few clear steps farther away. Coordinate breaks with the helper and keep rewards accessible without tightening the lead."
         }
       ]
     },
@@ -1442,7 +1526,8 @@
               "TURN-2",
               3
             ]
-          ]
+          ],
+          "setup": "Arrange two capable handlers on wide, separate walking lines in a quiet open area. Start at the established comfortable separation, check equipment, and agree on the same direction and outward break routes."
         },
         {
           "id": "PARALLEL-2",
@@ -1455,7 +1540,8 @@
               "PARALLEL-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same successful separation, direction and calm helper dog. Choose a slightly longer clear stretch with separate sniff-break areas and ample room to widen apart without crossing paths."
         }
       ]
     },
@@ -1484,7 +1570,8 @@
               "TURN-2",
               3
             ]
-          ]
+          ],
+          "setup": "Place a capable helper and calm stationary dog well away from a broad curved walking line. Check comfortable secure equipment, rewards and a clear exit beyond the arc; avoid narrow paths."
         },
         {
           "id": "PASS-2",
@@ -1501,7 +1588,8 @@
               "DOG-3",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the successful wide arc and separate distant helper line. Agree on slow opposite-direction movement and an early-stop signal, with clear exits and rewards available to both handlers."
         }
       ]
     },
@@ -1521,7 +1609,8 @@
           "teach": "Arrange for a cooperative adult to stand or sit sideways at a generous distance and ignore the dog. Let your dog notice for a brief moment, then give desired food yourself and allow retreat. The person does not approach, reach, stare, or offer food to lure the dog closer.",
           "advance": "Several brief views are comfortable, with voluntary movement and ordinary recovery between them.",
           "easier": "Increase distance, shorten the view, or add a visual barrier. Do not keep the dog near a person just because they eat.",
-          "deps": []
+          "deps": [],
+          "setup": "Arrange a cooperative adult sideways at a generous distance in a quiet open area. Agree that they will ignore your dog without approaching or offering food; keep your own rewards and retreat ready."
         },
         {
           "id": "STRANGER-2",
@@ -1534,7 +1623,8 @@
               "STRANGER-1",
               3
             ]
-          ]
+          ],
+          "setup": "Recreate the comfortable adult-helper distance and retreat. Agree on one tiny hand movement and a stop signal, with desired rewards beside you; keep all other helper behavior unchanged."
         },
         {
           "id": "STRANGER-3",
@@ -1547,7 +1637,8 @@
               "STRANGER-2",
               3
             ]
-          ]
+          ],
+          "setup": "Arrange a different cooperative adult, beginning again with the stationary sideways posture and original easy distance. Keep secure equipment, your own rewards and an open retreat; no greeting or touch is planned."
         }
       ]
     },
@@ -1567,7 +1658,8 @@
           "teach": "Sit with your dog well away from the entrance. Make one barely audible fingertip tap on a surface that does not alarm them, then promptly provide a tiny desired reward. Pause long enough for ordinary behavior to return. Do only a few comfortable repetitions; nobody comes in.",
           "advance": "Several gentle taps predict relaxed interest or food anticipation across two short sessions.",
           "easier": "Use a softer surface, a helper farther away, or a quieter recording. Stop if the tap already worries the dog.",
-          "deps": []
+          "deps": [],
+          "setup": "Prevent surprise arrivals and choose a quiet time well away from the entrance. Prepare a soft tapping surface and desired rewards; place any helper farther away with a clear stop signal."
         },
         {
           "id": "KNOCK-2",
@@ -1580,7 +1672,8 @@
               "KNOCK-1",
               3
             ]
-          ]
+          ],
+          "setup": "Arrange a helper outside the closed entry door with no visitor entering. Keep your dog at the previously comfortable indoor distance, rewards beside you, and an agreed signal for one very soft tap."
         },
         {
           "id": "KNOCK-3",
@@ -1593,7 +1686,8 @@
               "KNOCK-2",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the successful closed-door arrangement and a helper who can stop immediately. Agree beforehand on either an extra faint tap or a slightly stronger single tap, with rewards and quiet breaks ready."
         }
       ]
     },
@@ -1613,7 +1707,8 @@
           "teach": "Record your bell or choose a similar sound. Play a very brief faint version once, then promptly feed a desired treat. Wait for baseline before repeating. If the dog does not notice the sound, avoid raising it rapidly; make one tiny change at a time.",
           "advance": "Several noticeable faint sounds remain comfortable and predict relaxed reward anticipation.",
           "easier": "Move the speaker farther away or reduce volume. A recording may not sound like the actual bell to the dog.",
-          "deps": []
+          "deps": [],
+          "setup": "Prepare a brief bell recording and a speaker you can stop immediately. Set a faint volume with the speaker away from your dog's resting area, prevent actual arrivals, and have desired rewards ready."
         },
         {
           "id": "BELL-2",
@@ -1626,7 +1721,8 @@
               "BELL-1",
               3
             ]
-          ]
+          ],
+          "setup": "Arrange a helper at the actual bell without anyone entering. Keep your dog far inside with rewards ready and the door closed; use a recording instead if the real bell cannot be made sufficiently gentle."
         }
       ]
     },
@@ -1659,7 +1755,8 @@
               "FREE-2",
               2
             ]
-          ]
+          ],
+          "setup": "Place the familiar mat at an easy distance from the closed entry door. Use only the previously comfortable knock, with rewards ready at the mat and no visitors or unexpected arrivals planned."
         },
         {
           "id": "DOOR-2",
@@ -1672,7 +1769,8 @@
               "DOOR-1",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the successful mat location and gentle knock source unchanged. Have rewards ready for delivery on the mat and enough quiet time for short pauses; no visitor or extra door movement is included."
         },
         {
           "id": "DOOR-3",
@@ -1685,7 +1783,8 @@
               "DOOR-2",
               3
             ]
-          ]
+          ],
+          "setup": "Secure a separate barrier before any entry opening. Place the mat at its successful distance, clear the handler's route to the door, and prepare rewards; nobody will enter during practice."
         }
       ]
     },
@@ -1710,7 +1809,8 @@
               "SAFE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the dog's already comfortable refuge, a secure barrier and a suitable familiar activity if enjoyed. Arrange trusted company if needed and clear your route to the entry; no visitor is present."
         },
         {
           "id": "VISITOR-2",
@@ -1723,7 +1823,8 @@
               "VISITOR-1",
               3
             ]
-          ]
+          ],
+          "setup": "Arrange one cooperative adult for a no-knock arrival and a quiet seat away from the refuge. Secure your dog in the familiar comfortable arrangement first, with monitoring or trusted company and rewards ready."
         },
         {
           "id": "VISITOR-3",
@@ -1740,7 +1841,8 @@
               "STRANGER-2",
               3
             ]
-          ]
+          ],
+          "setup": "Only use an established safe separated arrangement and comfortable STRANGER starting distance. Seat the adult behind a secure barrier, keep your own rewards ready, and ensure you can end the view immediately."
         },
         {
           "id": "VISITOR-4",
@@ -1753,7 +1855,8 @@
               "VISITOR-3",
               3
             ]
-          ]
+          ],
+          "setup": "Recreate the successful separated or viewing arrangement with the same adult and secure barrier. Agree on one quiet word or small movement and a stop signal, with your rewards and retreat ready."
         }
       ]
     },
@@ -1773,7 +1876,8 @@
           "teach": "With a familiar adult at an easy distance, reward your dog for standing with all four paws down. Have the adult take one slow step closer; reward before jumping begins. The adult pauses or steps back if needed so you can reset at an easier distance.",
           "advance": "Keeps four paws on the floor for several tiny familiar-person approaches without frustration or fear.",
           "easier": "Shorten the approach and reward lower. If jumping reflects distress, work on feelings and space instead.",
-          "deps": []
+          "deps": [],
+          "setup": "Arrange one familiar adult your dog already enjoys, beginning at an easy distance. Clear a non-slip approach and retreat, have rewards ready low beside you, and agree on one slow approach step."
         },
         {
           "id": "GREET-2",
@@ -1786,7 +1890,8 @@
               "GREET-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar adult and successful roomy approach area. Agree that contact is optional and brief, with pauses and an unobstructed exit; keep rewards available without drawing the dog into touch."
         }
       ]
     },
@@ -1806,7 +1911,8 @@
           "teach": "Walk together briefly while the usual handler keeps the lead and the familiar helper strolls at a comfortable distance. Let the helper reward a voluntary approach without reaching over the dog. End together. Keep departures and transfer of equipment out of this first exercise.",
           "advance": "Comfortably walks near both adults and voluntarily accepts their company across two short turns.",
           "easier": "Increase space or practice being together without walking. Do not use handover practice to force social contact.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose a secure enclosed walking area and two familiar capable adults. Check comfortable fitted equipment; the usual handler keeps the lead while the helper has rewards and space to walk nearby."
         },
         {
           "id": "HANDOFF-2",
@@ -1819,7 +1925,8 @@
               "HANDOFF-1",
               3
             ]
-          ]
+          ],
+          "setup": "Pause in the enclosed area with the usual handler securely holding the lead. Identify a safe hand-to-hand grip away from your dog's head and remove tangles; have rewards accessible without releasing control."
         },
         {
           "id": "HANDOFF-3",
@@ -1832,7 +1939,8 @@
               "HANDOFF-2",
               3
             ]
-          ]
+          ],
+          "setup": "Recreate the successful secure transfer arrangement, with a short clear walking line and the first adult staying close. Check equipment and rewards before the familiar helper takes control; no departure is planned."
         }
       ],
       "maintenance": false
@@ -1853,7 +1961,8 @@
           "teach": "Choose just one sound and record the starting volume/speaker position. Play a split-second faint version from a distance. If it is noticed comfortably, promptly offer desired food. End playback and allow a break. Do not loop a track while waiting for the dog to stop reacting.",
           "advance": "Several noticeable faint presentations stay comfortable across two sessions.",
           "easier": "Reduce volume, shorten the clip, or move the speaker farther away. No reaction to a recording may mean it is not meaningful to this dog.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose one brief sound clip in a quiet home and a player with an immediate stop control. Set a faint volume and distant speaker position, note both settings, and keep desired food ready."
         },
         {
           "id": "SOUND-2",
@@ -1866,7 +1975,8 @@
               "SOUND-1",
               3
             ]
-          ]
+          ],
+          "setup": "Recreate the successful recording, speaker position and volume. Decide on one tiny duration or volume change before starting, with an immediate stop control and rewards within reach."
         },
         {
           "id": "SOUND-3",
@@ -1879,7 +1989,8 @@
               "SOUND-2",
               3
             ]
-          ]
+          ],
+          "setup": "Choose one modest source or location variation and reset playback to an easy quiet level. Keep the dog's familiar retreat open, rewards ready, and real frightening noise events outside this practice."
         }
       ]
     },
@@ -1899,7 +2010,8 @@
           "teach": "Arrange a comfortable area farther from the window or entryway, with view screening and gentle background sound if enjoyed. Rehearse moving there for rewards when nothing is happening. Record which sounds or sights are noticed and what the dog’s comfortable baseline looks like.",
           "advance": "Can use the quieter arrangement comfortably; a manageable version of the chosen outside event is identified.",
           "easier": "Add more distance or view screening. This management stage need not wait for obedience training.",
-          "deps": []
+          "deps": [],
+          "setup": "Prepare a comfortable resting area away from busy windows, with view screening and an open retreat. Check any gentle masking sound separately and have rewards ready while nothing is happening outside."
         },
         {
           "id": "OUTSIDE-2",
@@ -1912,7 +2024,8 @@
               "OUTSIDE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the screened comfortable area and agree on one faint scheduled event with a helper far outside. Keep food beside you, a clear stop signal and the option to end exposure immediately."
         },
         {
           "id": "OUTSIDE-3",
@@ -1929,7 +2042,8 @@
               "TURN-1",
               2
             ]
-          ]
+          ],
+          "setup": "Keep the established low-level event and screening arrangement. Clear a short route away from the window to the familiar rest area, with rewards ready there and no obstacle to retreat."
         }
       ]
     },
@@ -1949,7 +2063,8 @@
           "teach": "On a quiet day, set up a quiet refuge with familiar bedding, close curtains, check escape routes, and try gentle masking sound if your dog likes it. Sit nearby and let them choose to hide, rest, or seek contact. Rehearse any veterinarian-prescribed plan only as directed by that veterinarian.",
           "advance": "The refuge, trusted company, and any ordinary sound masking are familiar and comfortable before the event.",
           "easier": "Remove masking that worries the dog or change the resting location. A crate is suitable only if already comfortable.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose a quiet day to prepare familiar bedding, curtains and secure exits in the refuge. Have water and trusted company available; use masking sound only if already comfortable and follow any veterinary plan as prescribed."
         },
         {
           "id": "STORM-2",
@@ -1962,7 +2077,8 @@
               "STORM-1",
               3
             ]
-          ]
+          ],
+          "setup": "Before the expected event, bring your dog inside, secure escape routes and prepare the rehearsed refuge. Keep water, optional food or play and trusted company available, following the existing veterinary plan without adding a training test."
         }
       ]
     },
@@ -1982,7 +2098,8 @@
           "teach": "Put the object far enough away that your dog can notice it comfortably. Reward looking or calm exploration from you, without luring closer. Let them retreat. If the object is already frightening merely at sight, use more distance or only a partial view.",
           "advance": "Several brief comfortable views across two sessions; the dog can choose ordinary movement and retreat.",
           "easier": "Increase distance or show less of the object. Do not place food on it to force approach.",
-          "deps": []
+          "deps": [],
+          "setup": "Place the object switched off and stable at a generous distance. Keep your dog's route away clear without crossing its path, have rewards with you, and screen part of the view if needed."
         },
         {
           "id": "OBJECT-2",
@@ -1995,7 +2112,8 @@
               "OBJECT-1",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the object switched off at its established comfortable distance. Arrange a helper for one tiny movement and an immediate stop, with your dog's exit clear and food ready beside you."
         },
         {
           "id": "OBJECT-3",
@@ -2008,7 +2126,8 @@
               "OBJECT-2",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare a faint recording or a helper controlling the appliance behind a distant closed door. Keep the dog in a comfortable separate area with rewards and an immediate sound cutoff; do not add visible motion yet."
         }
       ]
     },
@@ -2028,7 +2147,8 @@
           "teach": "Pick one trigger type and a protected position with a clear retreat. A cooperative adult can slowly move a bicycle far away, for example. After your dog notices, promptly reward and let the view end. Do not use traffic as something to approach or chase for practice.",
           "advance": "Several comfortable observations of the slow distant version in two sessions, with normal recovery.",
           "easier": "Use a stationary version, more distance, or a partial view. Chasing may involve motivations beyond fear.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose one trigger type and a protected stationary viewing spot with a clear retreat. Arrange a cooperative adult far away for a slow controlled demonstration, check secure equipment, and keep rewards ready."
         },
         {
           "id": "MOTION-2",
@@ -2041,7 +2161,8 @@
               "MOTION-1",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the successful protected location and wide separation. Agree with the helper on either a very small speed change or a duration change, with a stop signal, secure equipment and rewards available."
         }
       ]
     },
@@ -2061,7 +2182,8 @@
           "teach": "From a comfortable distance, let your dog see the parked, switched-off vehicle and provide desired food. Gradually work toward an open door only as comfortable. Let them move away. Put non-slip footing or a suitable ramp in place if needed; never pull them inside.",
           "advance": "Can approach the open car door comfortably across two sessions, without needing food held inside to lure them.",
           "easier": "Work farther away, shorten the view, or seek help for existing severe travel fear.",
-          "deps": []
+          "deps": [],
+          "setup": "Park in a safe quiet place, switch the engine off and check a comfortable temperature. Secure doors against unexpected movement, choose an open retreat, and have rewards ready at a comfortable viewing distance."
         },
         {
           "id": "CAR-2",
@@ -2074,7 +2196,8 @@
               "CAR-1",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the parked engine-off car cool and the door secured open. Prepare stable non-slip footing or a suitable ramp and a clear immediate exit, with rewards accessible both inside and outside."
         },
         {
           "id": "CAR-3",
@@ -2087,7 +2210,8 @@
               "CAR-2",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar travel restraint in the comfortable parked car with a trusted adult beside the dog. Keep doors under human control and the exit clear; engine noise and driving are not part of this setup."
         }
       ]
     },
@@ -2107,7 +2231,8 @@
           "teach": "Stay well outside the doorway and let the empty elevator open and close while you reward comfortable observation. Move away after each brief look. Begin far enough back that sounds and people do not trap the dog. Skip crowded times and let the dog choose to leave.",
           "advance": "Comfortably observes a few quiet door cycles and approaches only by choice.",
           "easier": "Use more distance or stop at a partial view. Take another route when possible.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose a quiet authorized elevator and a roomy viewing position well outside its doorway. Arrange a helper, secure comfortable equipment, rewards and an unobstructed retreat; avoid passenger traffic."
         },
         {
           "id": "ELEVATOR-2",
@@ -2120,7 +2245,8 @@
               "ELEVATOR-1",
               3
             ]
-          ]
+          ],
+          "setup": "Arrange a helper to operate door controls according to building rules. Use an empty stationary car with non-slip footing, enough turning room and lead slack; keep all feet and equipment clear of the door tracks."
         },
         {
           "id": "ELEVATOR-3",
@@ -2133,7 +2259,8 @@
               "ELEVATOR-2",
               3
             ]
-          ]
+          ],
+          "setup": "Plan one short quiet ride after comfortable entries. Have a familiar adult beside the dog, rewards ready and a clear exit at the destination; avoid crowds and keep the lead away from door tracks."
         }
       ],
       "maintenance": false
@@ -2154,7 +2281,8 @@
           "teach": "Stand far enough to the side for an unobstructed view without triggering the doors yourself. Have a helper activate one cycle while you reward your dog for comfortable observation. Let them leave and return. Never put the dog in the opening to make the sensor respond.",
           "advance": "Comfortably observes several predictable cycles with ordinary loose movement.",
           "easier": "Watch from farther away or choose a quieter entrance. Motion comfort comes before passage.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose a quiet permitted entrance with a cooperative helper. Stand to one side outside the sensor area, with secure equipment, rewards and a broad retreat; the helper will activate the panels."
         },
         {
           "id": "AUTODOOR-2",
@@ -2167,7 +2295,8 @@
               "AUTODOOR-1",
               3
             ]
-          ]
+          ],
+          "setup": "Arrange the helper to activate the doors and verify a fully open, generous passage. Clear the approach and far-side reward area, check lead and tail clearance, and retain room to turn away before entry."
         }
       ],
       "maintenance": false
@@ -2188,7 +2317,8 @@
           "teach": "Show the harness at a comfortable distance, then give a tiny reward and put it away. Separately make the buckle click quietly at a distance and reward. Bring it nearer only while your dog remains loose and willing to approach.",
           "advance": "Comfortable with the sight and buckle sound over several short rehearsals.",
           "easier": "Use more distance or a quieter buckle sound. Do not bring the equipment toward a retreating dog.",
-          "deps": []
+          "deps": [],
+          "setup": "Have the harness unfastened in a quiet room, with rewards separate and room for your dog to move away. Check the buckle sound away from them and begin at a comfortable viewing distance."
         },
         {
           "id": "HARNESS-2",
@@ -2201,7 +2331,8 @@
               "HARNESS-1",
               3
             ]
-          ]
+          ],
+          "setup": "Open the harness fully, keep straps untangled and choose a design that suits your dog, including clip-around if needed. Sit beside them with rewards ready and no obstacle to head withdrawal or leaving."
         },
         {
           "id": "HARNESS-3",
@@ -2214,7 +2345,8 @@
               "HARNESS-2",
               3
             ]
-          ]
+          ],
+          "setup": "Check comfortable fit and smooth clip operation before starting. Use a clear indoor walking area, keep rewards accessible, and remain able to unfasten promptly without trapping legs or skin."
         }
       ]
     },
@@ -2234,7 +2366,8 @@
           "teach": "Show the muzzle at a comfortable distance, give food, and remove it. Let your dog approach or leave. Reward a glance or voluntary approach without moving it onto the face. Check fit with knowledgeable help; broad head shape makes model and sizing important.",
           "advance": "Approaches the visible muzzle willingly with loose posture across several rehearsals.",
           "easier": "Place it farther away and reward there. Do not hold it over the face or follow the dog with it.",
-          "deps": []
+          "deps": [],
+          "setup": "Prepare a suitable basket muzzle and small rewards separately. Check sizing with knowledgeable help: allow full panting, drinking and treat access. Begin in a roomy quiet area; seek individual help for guarding or head-handling fear."
         },
         {
           "id": "MUZZLE-2",
@@ -2247,7 +2380,8 @@
               "MUZZLE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Hold the familiar basket at natural nose height with straps secured out of the opening. Keep rewards available through the front and leave space for immediate withdrawal; no fastening is planned. Check full panting room before using the basket."
         },
         {
           "id": "MUZZLE-3",
@@ -2260,7 +2394,8 @@
               "MUZZLE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar basket with full pant room and accessible rewards. Keep the buckle and straps loose and reachable for separate quiet practice, with the dog free to withdraw throughout."
         },
         {
           "id": "MUZZLE-4",
@@ -2273,7 +2408,8 @@
               "MUZZLE-3",
               3
             ]
-          ]
+          ],
+          "setup": "Check fitted strap length, quick access to the buckle and full pant/drink room. Prepare rewards through the basket and a quiet supervised area; keep both hands available for prompt safe removal."
         },
         {
           "id": "MUZZLE-5",
@@ -2286,7 +2422,8 @@
               "MUZZLE-4",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a short familiar pleasant activity with water available and continuous supervision. Check secure attachment, full panting space and rubbing before use; for outdoor transfer, choose a quiet route away from triggers."
         }
       ]
     },
@@ -2306,7 +2443,8 @@
           "teach": "Hold an open palm or folded towel just below chin height, without pressing upward. Reward a voluntary approach, then a light chin contact. Toss a reset reward away and offer again. If a small lure is useful, fade it early; the dog chooses contact.",
           "advance": "Offers a light chin contact repeatedly without a hand moving into the face.",
           "easier": "Use a towel on a low support or reward a smaller approach. Get help if face handling worries the dog.",
-          "deps": []
+          "deps": [],
+          "setup": "Sit beside your dog with an empty palm or folded towel just below natural chin height. Support any towel securely, keep rewards separate, and leave room to lift the head and move away."
         },
         {
           "id": "CHIN-2",
@@ -2319,7 +2457,8 @@
               "CHIN-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar chin target at the same comfortable height. Keep your supporting hand still, rewards readily available and the route away clear; do not plan additional handling during this step."
         }
       ]
     },
@@ -2344,7 +2483,8 @@
               "CHIN-2",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a healthy comfortable shoulder area and sit beside your dog with the familiar chin target ready. Keep the other hand initially clear of the body and rewards within reach; urgent or painful care needs veterinary direction."
         },
         {
           "id": "HANDLE-2",
@@ -2357,7 +2497,8 @@
               "HANDLE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the same healthy shoulder area and freely offered chin target. Keep rewards accessible and your touching hand light and easy to withdraw; no restraint or hidden procedure is part of this turn."
         }
       ]
     },
@@ -2377,7 +2518,8 @@
           "teach": "Show a soft brush or towel at a comfortable distance, then reward. Put it away between presentations. After comfortable sighting, move it slightly near a healthy easy area without touching, reward, and remove. Do not begin with a tangle or a sensitive spot.",
           "advance": "Comfortable with the tool’s appearance and small movement in several short sessions.",
           "easier": "Use a softer tool or greater distance; ask your vet about skin discomfort.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose a soft suitable brush or towel and a quiet non-slip area. Keep the tool at a comfortable initial distance, rewards separate, and an open exit; avoid sore skin and tangled coat."
         },
         {
           "id": "BRUSH-2",
@@ -2390,7 +2532,8 @@
               "BRUSH-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar soft tool and a healthy tangle-free shoulder area. Sit beside rather than over your dog, with rewards ready and their voluntary start or free approach available; do not hold them in place."
         }
       ]
     },
@@ -2410,7 +2553,8 @@
           "teach": "With your dog free to stand or lie comfortably, briefly touch a healthy upper leg, remove the hand, and reward. Gradually work lower over separate sessions, stopping if the dog pulls away. Do not grab or hold a paw to prevent movement.",
           "advance": "Light contact near the paw remains comfortable in several observations over two sessions.",
           "easier": "Stay higher on the leg or use a shorter touch. New paw sensitivity needs veterinary assessment.",
-          "deps": []
+          "deps": [],
+          "setup": "Provide a non-slip surface where your dog can comfortably stand or lie. Choose a healthy upper leg, keep rewards ready and your hands visible; sore or newly sensitive paws need veterinary assessment first."
         },
         {
           "id": "NAIL-2",
@@ -2418,7 +2562,8 @@
           "teach": "Show the nail tool at a comfortable distance, reward, and put it away. Introduce its quiet sound separately if relevant. Bring it slightly nearer only while the dog freely remains comfortable; stop well short of paw contact. Paw-touch preparation can run separately at NAIL-1. Actual clipping or grinding needs individual instruction on anatomy, technique and comfort, rather than following automatically.",
           "advance": "Comfortable with the selected non-contact preparation in two sessions; an appropriate next-care plan is arranged.",
           "easier": "Return the tool farther away or omit its sound. Never restrain the paw to finish a training repetition.",
-          "deps": []
+          "deps": [],
+          "setup": "Prepare a nail tool for viewing only at a comfortable distance, with any sound controllable separately. Keep paws untouched, rewards ready and the dog free to leave; actual trimming requires individual instruction."
         }
       ]
     },
@@ -2438,7 +2583,8 @@
           "teach": "Let the dog see the soft brush at a comfortable distance and reward relaxed interest. Separately offer a tiny taste of veterinarian-approved pet toothpaste if suitable. Keep hands away from the mouth while building pleasant associations with the items.",
           "advance": "Comfortably sees the brush and voluntarily accepts the chosen pet-safe taste if used.",
           "easier": "Remove the paste, increase brush distance, or ask the veterinary team about discomfort or suitable materials.",
-          "deps": []
+          "deps": [],
+          "setup": "Have a soft pet brush and veterinarian-approved pet toothpaste ready separately from rewards. Use a comfortable non-slip area and obtain veterinary advice for oral pain; no human toothpaste or mouth handling is needed here."
         },
         {
           "id": "TEETH-2",
@@ -2455,7 +2601,8 @@
               "CHIN-2",
               3
             ]
-          ]
+          ],
+          "setup": "First obtain a veterinary demonstration of a suitable outer-lip approach. Prepare the familiar chin target, clean hands and rewards beside your dog, with an open exit; do not proceed with pain or guarding concerns."
         },
         {
           "id": "TEETH-3",
@@ -2468,7 +2615,8 @@
               "TEETH-2",
               3
             ]
-          ]
+          ],
+          "setup": "Following the veterinary demonstration, prepare the suitable soft pet brush and approved paste if appropriate. Use the familiar voluntary care position with rewards ready; no forced jaw opening or restraint is planned."
         }
       ]
     },
@@ -2488,7 +2636,8 @@
           "teach": "Let the dog investigate the secured scale while it is still and quiet. Reward comfortable looking or approaching from the floor. A large flat mat beside it can make the area familiar. Do not lure an uneasy dog onto a moving or slippery surface.",
           "advance": "Approaches the stable scale with loose ordinary movement and freely moves away and returns.",
           "easier": "Begin with an ordinary floor mat and ask the clinic about a broader non-slip surface.",
-          "deps": []
+          "deps": [],
+          "setup": "Secure a broad low pet scale against wobbling on a non-slip floor. Leave space around it for investigation and retreat, with rewards beside you and no need to lift the dog onto it."
         },
         {
           "id": "SCALE-2",
@@ -2501,7 +2650,8 @@
               "SCALE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same broad secured scale with clear, level on-and-off routes. Check grip and space for all four feet, keep rewards ready, and allow the dog to go around instead."
         },
         {
           "id": "SCALE-3",
@@ -2514,7 +2664,8 @@
               "SCALE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the familiar stable scale and a quiet handler position where its display can be read without crowding the dog. Keep rewards accessible and the step-off route completely clear."
         }
       ]
     },
@@ -2534,7 +2685,8 @@
           "teach": "Hold the lead far enough away for comfort, operate the clip softly, then reward. Separately bring an empty hand a little toward the attachment point, reward and withdraw. Let the dog step away whenever wanted. Keep the sound and reach separate until both are easy.",
           "advance": "Comfortable with the quiet clip sound and a short hand approach over several voluntary turns.",
           "easier": "Muffle or replace a loud clip and increase distance. Do not touch equipment while the dog avoids you.",
-          "deps": []
+          "deps": [],
+          "setup": "Start with comfortable already-worn equipment and your dog awake and free to leave. Have a quiet light clip, rewards and room for a visible hand approach; check equipment fit separately."
         },
         {
           "id": "CLIP-2",
@@ -2547,7 +2699,8 @@
               "CLIP-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar attachment point and clip in a quiet clear area. Support the loose lead so it cannot swing into legs, keep rewards accessible, and leave room for an immediate release and a few easy steps. Check comfort and fit before attaching the lead."
         }
       ],
       "maintenance": false
@@ -2568,7 +2721,8 @@
           "teach": "Say the chosen warning softly, reach only partway toward the equipment, reward and withdraw. Build toward a momentary finger contact on the outside without gripping. Keep your hand visible from the side, and let any movement away end the turn. Practice before a real need arises.",
           "advance": "Voluntarily stays loose through several predicted brief outside touches.",
           "easier": "Reach less far or use an easier body area. Skip and seek help for guarding or bite risk.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose a quiet moment with your dog awake and willing in familiar well-fitted equipment. Sit or stand to the side with visible hands, rewards ready and an open retreat; skip for guarding or bite risk."
         },
         {
           "id": "COLLAR-2",
@@ -2581,7 +2735,8 @@
               "COLLAR-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the successful comfortable side position and a safe reachable section of equipment. Keep rewards accessible and the lead slack, with room to release your fingers immediately without pressure on neck or body."
         }
       ],
       "maintenance": false
@@ -2602,7 +2757,8 @@
           "teach": "Secure the broad tray so it cannot slide or wobble. Reward looking, approaching and voluntary foot contacts with the empty surface. Invite an easy step off after each contact. Build toward comfortable standing only if all feet fit with room; never place paws into the tray yourself.",
           "advance": "Voluntarily steps into and out of the stable dry tray several times.",
           "easier": "Use a flat non-slip mat or a wider tray. Stop at any uneven movement.",
-          "deps": []
+          "deps": [],
+          "setup": "Secure a broad empty tray on a non-slip floor, with room for all feet and a dry easy exit. Check healthy paws and smooth edges; keep rewards with you and no water present."
         },
         {
           "id": "RINSE-2",
@@ -2615,7 +2771,8 @@
               "RINSE-1",
               3
             ]
-          ]
+          ],
+          "setup": "While your dog is away, dampen only a small part of the familiar secured tray with lukewarm plain water. Prepare a dry non-slip exit and rewards; avoid pouring or splashing near them. Use healthy paws only; follow veterinary advice for skin problems."
         },
         {
           "id": "RINSE-3",
@@ -2628,7 +2785,8 @@
               "RINSE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare very shallow lukewarm plain water in the familiar broad non-slip tray. Keep a dry secure exit ready, rewards accessible and supervision continuous; avoid detergents and follow veterinary advice for skin problems."
         }
       ],
       "maintenance": false
@@ -2654,7 +2812,8 @@
               "CHIN-2",
               3
             ]
-          ]
+          ],
+          "setup": "With clean hands, sit beside your dog and prepare the familiar chin target and rewards. Work only around a healthy pain-free ear with room to withdraw; odor, discharge or pain needs a vet instead."
         },
         {
           "id": "EAR-2",
@@ -2667,7 +2826,8 @@
               "EAR-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the veterinary team's demonstrated outer-flap approach, clean hands and the familiar chin start target. Keep rewards ready and all instruments away; no insertion, cleaning, flushing or medication is included. Work only with healthy, pain-free ears."
         }
       ],
       "maintenance": false
@@ -2693,7 +2853,8 @@
               "DOWN-2",
               2
             ]
-          ]
+          ],
+          "setup": "Provide a broad soft non-slip resting area and sit beside it with quiet rewards. Begin during a voluntarily offered comfortable down, leaving head and limbs free; skip for stiffness or breathing difficulty."
         },
         {
           "id": "SIDELIE-2",
@@ -2706,7 +2867,8 @@
               "SIDELIE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the familiar soft surface broad enough for a full side rest and easy rising. Sit at natural head level with rewards low and accessible, without placing hands against shoulders or legs."
         },
         {
           "id": "SIDELIE-3",
@@ -2719,7 +2881,8 @@
               "SIDELIE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same comfortable resting surface and clear exit, with your invitation hand empty and rewards separate. Choose the dog's comfortable side; no handling procedure or increased hold is planned."
         }
       ],
       "maintenance": false
@@ -2740,7 +2903,8 @@
           "teach": "Lay the secured ramp flat on level ground. Reward a voluntary approach, then one foot contact and an easy step off. Build a complete slow walk along its broad center, rewarding partway if helpful. Let the dog go around it rather than steering with the lead.",
           "advance": "Chooses relaxed complete passes in either direction on the flat secured ramp.",
           "easier": "Use a wider flat surface or reward one foot contact. Stop for slipping or worry.",
-          "deps": []
+          "deps": [],
+          "setup": "Lay a broad dog-suitable ramp flat on level non-slip ground and secure both ends. Clear side space and both exits, with rewards accessible; obtain individual advice for pain or weakness."
         },
         {
           "id": "RAMP-2",
@@ -2753,7 +2917,8 @@
               "RAMP-1",
               3
             ]
-          ]
+          ],
+          "setup": "With the dog elsewhere, secure one ramp end on a very low stable support according to its instructions. Check grip and both ends, clear the lower exit, and use a helper only to stabilize equipment. Pain or weakness needs individual mobility advice before practice."
         }
       ],
       "maintenance": false
@@ -2774,7 +2939,8 @@
           "teach": "Place the secured board nearly flat on a non-slip floor. Reward voluntary front-foot contact or a small paw movement on it, then reset off the board. Keep food above the surface or in your hand after marking; do not hide food underneath to provoke frantic digging.",
           "advance": "Offers a small voluntary front-paw movement on the stable board without chewing or frustration.",
           "easier": "Use a plain nonabrasive target first or reward a weight shift. Skip for sore pads or unwillingness.",
-          "deps": []
+          "deps": [],
+          "setup": "Secure a broad board nearly flat on a non-slip floor. Use a mild safe surface chosen with your veterinary or grooming team, without staples or loose grit; keep rewards above the board and check healthy paws."
         },
         {
           "id": "SCRATCH-2",
@@ -2787,7 +2953,8 @@
               "SCRATCH-1",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the familiar secured board and clear step-off space. Keep rewards separate and hands free to inspect paws afterward; use the agreed mild surface, with only one or two gentle actions planned."
         }
       ],
       "maintenance": false
@@ -2813,7 +2980,8 @@
               "BUTTON-3",
               3
             ]
-          ]
+          ],
+          "setup": "Place a separate large quiet low-force break button on a non-slip base within easy reach. Prepare an open route to sniffing or rest and an easy familiar activity; every ordinary withdrawal still ends the turn."
         },
         {
           "id": "BREAKBUTTON-2",
@@ -2826,7 +2994,8 @@
               "BREAKBUTTON-1",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the familiar break button safely reachable beside an easy activity, with your hands neutral and the route away open. Plan to stop immediately for any request or ordinary disengagement; no frustration test is needed."
         }
       ],
       "maintenance": false
@@ -2847,7 +3016,8 @@
           "teach": "Hold the object still at an easy height. Mark a sniff initially, then reward a tiny open-mouth contact or gentle grip. Remove it between attempts. Keep criteria small enough for frequent success and never put the object into the mouth yourself.",
           "advance": "Voluntarily makes a gentle grip on most easy presentations without chewing or avoidance.",
           "easier": "Try a different texture or lighter object; reward smaller mouth movements. Avoid food deprivation or forced holds.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose a light dog-safe object too large to swallow, without loose parts or a history of guarding. Sit beside your dog with rewards separate and the object at natural mouth height; skip for mouth pain."
         },
         {
           "id": "TAKE-2",
@@ -2860,7 +3030,8 @@
               "TAKE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar safe object at its successful height, with rewards out of sight and an easy trade ready. Leave open floor for any dropped object rather than arranging a carry route yet."
         }
       ]
     },
@@ -2889,7 +3060,8 @@
               "DROP-2",
               3
             ]
-          ]
+          ],
+          "setup": "Choose the familiar light safe toy and a quiet non-slip area. Sit at a comfortable mouth height with room to support the toy lightly, rewards ready and an easy voluntary release available."
         },
         {
           "id": "HOLD-2",
@@ -2902,7 +3074,8 @@
               "HOLD-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same light object and comfortable presentation position. Keep a receiving palm close beneath it and rewards accessible, with clear floor for a dropped item and no tension against the grip."
         }
       ]
     },
@@ -2931,7 +3104,8 @@
               "DROP-2",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the familiar light toy, small rewards and an empty receiving palm just below its natural holding height. Sit beside your dog in a quiet area without crowding the mouth."
         },
         {
           "id": "GIVE-2",
@@ -2944,7 +3118,8 @@
               "GIVE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the familiar object and receiving palm nearby at the successful height, with rewards out of sight. Leave enough hand space for a comfortable release without reaching into the mouth."
         }
       ]
     },
@@ -2973,7 +3148,8 @@
               "GIVE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Clear one slow backward step on non-slip flooring. Prepare the familiar light object, a receiving palm near its holding height and rewards with you; make sure your own retreat is unobstructed."
         },
         {
           "id": "CARRY-2",
@@ -2986,7 +3162,8 @@
               "CARRY-1",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a short straight, boring non-slip path of up to three steps. Use the familiar light object and receiving-hand finish, with rewards ready and no other dogs or tempting toys nearby."
         }
       ]
     },
@@ -3011,7 +3188,8 @@
               "GIVE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar grippable toy and a non-slip floor. Sit where you can support it at progressively lower heights without crowding your dog, with a receiving hand and rewards ready."
         },
         {
           "id": "FETCH-2",
@@ -3028,7 +3206,8 @@
               "CARRY-2",
               3
             ]
-          ]
+          ],
+          "setup": "Clear a short straight area and place the familiar toy close in front of you on non-slip flooring. Prepare your receiving-hand finish and rewards; no throw or fast chase is needed."
         }
       ]
     },
@@ -3053,7 +3232,8 @@
               "GIVE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Secure a low wide basket beneath your receiving-hand position. Have one familiar large safe toy and rewards ready, with other animals separated and a clear view of the opening."
         },
         {
           "id": "BOX-2",
@@ -3070,7 +3250,8 @@
               "FETCH-2",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the familiar basket stable on non-slip flooring and place one safe toy about a step away. Clear the short route to its opening and have rewards accessible beside the basket."
         }
       ]
     },
@@ -3090,7 +3271,8 @@
           "teach": "Let your dog watch you place a few pieces of normal food on a flat towel or in open shallow containers. Say “search” and let them investigate freely. Help by revealing food if needed. Keep the first game easy enough to finish quickly.",
           "advance": "Readily searches the simple layout without frustration, guarding, or trying to eat the materials.",
           "easier": "Use food directly on a clean floor with no container. Keep other animals separate.",
-          "deps": []
+          "deps": [],
+          "setup": "Separate other animals and choose a small clean search area. Prepare a suitable food portion on a flat towel or open shallow containers that cannot be swallowed; keep packaging and unsafe puzzles out of reach."
         },
         {
           "id": "SEARCH-2",
@@ -3103,7 +3285,8 @@
               "SEARCH-1",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a tiny clear search area with one stable harmless object. Prepare a single easy food hide partly in view, with other animals separated and immediate access to reveal it if needed."
         }
       ]
     },
@@ -3128,7 +3311,8 @@
               "DROP-2",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a suitable large intact tug toy and a level non-slip area. Keep the toy at comfortable neck height and rewards ready for an easy trade; skip for pain, guarding or rising tension."
         },
         {
           "id": "TUG-2",
@@ -3141,7 +3325,8 @@
               "TUG-1",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the familiar toy and rewarding release, plus a ready quiet activity or resting place. Have a safe place to put the toy after release and keep play space clear of jumping or suspended pulling. Keep play low and gentle; skip for mouth or neck discomfort."
         }
       ]
     },
@@ -3161,7 +3346,8 @@
           "teach": "At nose height, slowly guide a treat a little toward one shoulder. Reward a small turn, then return to neutral. Build a quarter circle, half circle, and a comfortable complete circle over short sessions. Keep feet on the floor and avoid tight pivots.",
           "advance": "Can follow a wide comfortable circle without slipping or tension.",
           "easier": "Use only a quarter turn or skip this trick if movement is uncomfortable.",
-          "deps": []
+          "deps": [],
+          "setup": "Clear a broad turning space on a non-slip floor and have a small reward ready at nose height. Begin with the dog comfortably standing; skip for pain, dizziness or mobility concerns."
         },
         {
           "id": "SPIN-2",
@@ -3174,7 +3360,8 @@
               "SPIN-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same broad clear turning space, with the guiding hand empty and rewards separate. Choose the familiar direction first and enough room to reset to a natural stand. Skip if turning is uncomfortable."
         }
       ]
     },
@@ -3194,7 +3381,8 @@
           "teach": "Offer a low open palm beside a front paw without touching it. Reward a natural weight shift or small paw lift. Over brief repetitions reward a lift toward your hand, then light voluntary contact. Do not squeeze a paw or hold food in a fist to provoke scratching.",
           "advance": "Offers light paw contact on most easy presentations with comfortable balance.",
           "easier": "Reward a smaller lift or practice a nose target instead if paw work is uncomfortable.",
-          "deps": []
+          "deps": [],
+          "setup": "Use a non-slip floor and a comfortable balanced starting position. Keep a low open palm beside one front paw and rewards separate; no food-filled fist or physical paw placement is needed."
         },
         {
           "id": "PAW-2",
@@ -3207,7 +3395,8 @@
               "PAW-1",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the familiar low palm target below the dog's elbow, with non-slip footing and rewards ready. Leave space to lower your hand promptly and for the foot to return freely to the floor."
         }
       ]
     },
@@ -3236,7 +3425,8 @@
               "DROP-2",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a large intact rope handle without loops that could catch feet or neck. Sit at comfortable mouth height with rewards and an easy drop trade ready; supervise and remove the rope afterward."
         },
         {
           "id": "PULL-2",
@@ -3249,7 +3439,8 @@
               "PULL-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same safe rope handle on non-slip footing, with room for one tiny backward weight shift. Hold it lightly and prepare a release reward; do not attach it to resistance yet. Skip for mouth or neck pain or item guarding."
         },
         {
           "id": "PULL-3",
@@ -3262,7 +3453,8 @@
               "PULL-2",
               3
             ]
-          ]
+          ],
+          "setup": "Secure the handle to a lightweight stable training hinge or board that moves very easily. Check that its swing cannot strike the dog, clear pinch points, and prepare rewards; avoid unstable furniture. Skip for mouth or neck pain or item guarding."
         }
       ]
     },
@@ -3287,7 +3479,8 @@
               "NAME-2",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a second quiet familiar room, clear of competing activity. Begin close to your dog with rewards accessible beside you and only a small comfortable angle away."
         },
         {
           "id": "NAMECTX-2",
@@ -3300,7 +3493,8 @@
               "NAMECTX-1",
               3
             ]
-          ]
+          ],
+          "setup": "Select a quiet fenced yard or check a comfortable secure harness/lead setup. Start nearby with generous rewards and an easy sniffing break available, away from traffic or trigger activity."
         },
         {
           "id": "NAMECTX-3",
@@ -3313,7 +3507,8 @@
               "NAMECTX-2",
               3
             ]
-          ]
+          ],
+          "setup": "Recreate the successful setting and choose one mild controllable distraction, such as a familiar adult moving far away. Agree on a stop signal and keep distance, rewards and retreat ready."
         }
       ]
     },
@@ -3338,7 +3533,8 @@
               "RECALL-2",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a secure enclosure or a slack long line on a comfortable fitted harness, never the neck. Clear snag hazards, keep line away from hands and legs, and start close with generous rewards."
         },
         {
           "id": "RECALLCTX-2",
@@ -3351,7 +3547,8 @@
               "RECALLCTX-1",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the successful enclosure or safely managed long-line setup. Select either a slightly longer clear approach or a mild ordinary sniffing opportunity, with the other feature easy and no road, wildlife or frightening trigger nearby."
         }
       ]
     },
@@ -3376,7 +3573,8 @@
               "MAT-2",
               3
             ]
-          ]
+          ],
+          "setup": "Lay the familiar mat on a non-slip floor in another quiet room. Start beside it with rewards ready and space for an easy approach and exit, without a long stay planned."
         },
         {
           "id": "MATCTX-2",
@@ -3393,7 +3591,8 @@
               "SETTLE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Place the familiar mat in the successful new quiet spot and sit nearby with quiet rewards. Keep an open exit; prepare only a small ordinary household movement if the restful interval is already comfortable."
         }
       ]
     },
@@ -3418,7 +3617,8 @@
               "LOOSE-3",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a quiet nearby place such as the yard edge, with broad footing and a clear exit. Check comfortable secure equipment and rewards at your side; keep a sniff-break area available."
         },
         {
           "id": "WALKCTX-2",
@@ -3431,7 +3631,8 @@
               "WALKCTX-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the successful short route and identify one modest change in step count or ordinary activity. Check secure equipment and your exit route, with rewards ready and real triggers outside the exercise."
         }
       ]
     },
@@ -3451,7 +3652,8 @@
           "teach": "Choose one familiar useful skill and one optional fun activity in an easy setting. Reward generously and finish after a few good repetitions. Alternate activities across days if desired. Mark known skills consistent after an easy confirmation rather than retraining all steps unnecessarily.",
           "advance": "A manageable refresher routine is recorded and remains enjoyable; no mandatory daily quota.",
           "easier": "Use a single easy success and rest. More repetitions are not automatically better.",
-          "deps": []
+          "deps": [],
+          "setup": "Select one familiar useful skill and an optional enjoyable activity. Prepare only their usual safe equipment in an easy setting, with rewards ready and enough time for a brief relaxed session."
         },
         {
           "id": "KEEP-2",
@@ -3464,7 +3666,8 @@
               "KEEP-1",
               3
             ]
-          ]
+          ],
+          "setup": "Have your session log and comparable earlier observations open. Identify the same trigger and setting before reviewing; no new exposure or obedience test is needed, and unknown measurements can stay blank."
         }
       ]
     },
@@ -3484,7 +3687,8 @@
           "teach": "Watch during an ordinary relaxed transition from rest. If the dog naturally stretches their front end down with the rear up, quietly mark the shape and offer a reward as they stand again. Never push the chest down or hold the back end up.",
           "advance": "You can reward several naturally offered comfortable bows without interrupting rest.",
           "easier": "Skip this trick if the movement is rare or uncomfortable. Do not wake or repeatedly provoke stretching.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose an ordinary relaxed transition from rest on non-slip flooring. Keep a reward quietly accessible and enough space around your dog for a natural stretch; do not wake or provoke them."
         },
         {
           "id": "BOW-2",
@@ -3497,7 +3701,8 @@
               "BOW-1",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare a broad non-slip patch during a comfortable playful moment. Sit or stand where your empty hand can signal without touching the body, with rewards separate and room to stand again."
         },
         {
           "id": "BOW-3",
@@ -3510,7 +3715,8 @@
               "BOW-2",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same comfortable non-slip area and familiar empty-hand gesture. Have rewards ready and plan only a few brief turns; skip for stiffness, imbalance or reluctance rather than preparing a held stretch."
         }
       ]
     },
@@ -3535,7 +3741,8 @@
               "TOUCH-2",
               2
             ]
-          ]
+          ],
+          "setup": "Check that your steady wide stance leaves generous clearance for the dog's whole body. Clear a straight non-slip route through and beyond your legs, with an empty target hand and rewards ready; use cones if clearance is inadequate."
         },
         {
           "id": "MIDDLE-2",
@@ -3548,7 +3755,8 @@
               "MIDDLE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar roomy stance with your feet still and a clear forward exit. Keep rewards accessible at natural forward head height; neither participant should need to balance awkwardly or close the gap."
         }
       ]
     },
@@ -3573,7 +3781,8 @@
               "MIDDLE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use a steady wide stance on non-slip footing with generous space around one leg. Have the familiar target hand and separate rewards ready; use a cone instead if body clearance is tight."
         },
         {
           "id": "WEAVE-2",
@@ -3586,7 +3795,8 @@
               "MIDDLE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Clear an equally broad arc around the other leg, with your feet steady. Prepare the other empty target hand and accessible rewards without arranging a faster linked sequence yet."
         },
         {
           "id": "WEAVE-3",
@@ -3603,7 +3813,8 @@
               "WEAVE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare both familiar broad loops on non-slip flooring, with ample exit space and still feet. Keep both target hands available and rewards accessible for a halfway reward if needed."
         }
       ]
     },
@@ -3623,7 +3834,8 @@
           "teach": "Hold the large ball still just below natural nose height. Mark a voluntary nose touch and reward from your other hand. Keep the ball steady and reward gentle contact rather than grabbing. If the dog prefers to bite it, choose a larger ball or another game.",
           "advance": "Offers gentle nose contacts in 4 of 5 comfortable presentations.",
           "easier": "Use a familiar target on the ball’s near side or reward a glance. Stop if the ball worries them.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose a light smooth ball far too large to swallow and a clear non-slip area. Hold it still just below natural nose height, with rewards separate; avoid hard balls or small detachable parts."
         },
         {
           "id": "NOSEBALL-2",
@@ -3636,7 +3848,8 @@
               "NOSEBALL-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar oversized light ball on flat non-slip flooring. Position your foot to prevent an uncontrolled roll, clear a small space ahead and have rewards ready for a tiny nudge."
         },
         {
           "id": "NOSEBALL-3",
@@ -3649,7 +3862,8 @@
               "NOSEBALL-2",
               3
             ]
-          ]
+          ],
+          "setup": "Clear a short flat non-slip rolling lane and use the familiar oversized ball. Keep rewards nearby and a safe way to stop and reset the ball yourself; no chase or fast play is planned."
         }
       ]
     },
@@ -3674,7 +3888,8 @@
               "NOSEBALL-3",
               3
             ]
-          ]
+          ],
+          "setup": "Place one soft quiet-falling pin just beyond the familiar oversized ball on a straight non-slip lane. Remove chewable fragments and clear space for you to reset equipment, with rewards ready."
         },
         {
           "id": "BOWL-2",
@@ -3687,7 +3902,8 @@
               "BOWL-1",
               3
             ]
-          ]
+          ],
+          "setup": "Arrange two or three familiar soft quiet pins in a close wide cluster beyond a short straight ball lane. Check all pieces are too large to swallow and have rewards accessible for each reset."
         }
       ]
     },
@@ -3712,7 +3928,8 @@
               "NOSEBALL-3",
               3
             ]
-          ]
+          ],
+          "setup": "Place two soft stable markers widely apart just beyond the familiar oversized ball. Clear a short non-slip lane and the far side; leave out nets, cords or entangling equipment and have rewards ready."
         },
         {
           "id": "GOAL-2",
@@ -3725,7 +3942,8 @@
               "GOAL-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same close wide goal and clear rolling lane, with rewards accessible. Keep the start position familiar initially; prepare only a small offset if the established game is comfortable."
         }
       ]
     },
@@ -3750,7 +3968,8 @@
               "PAW-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use comfortable balanced footing and the familiar paw starting position. Keep an empty palm upright but below elbow height, with rewards separate and space for the paw to return freely."
         },
         {
           "id": "HIGHFIVE-2",
@@ -3763,7 +3982,8 @@
               "HIGHFIVE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the familiar low upright palm target and non-slip footing. Keep rewards ready and the target hand easy to lower immediately; no high lift or held paw is planned."
         }
       ]
     },
@@ -3788,7 +4008,8 @@
               "PAW-1",
               3
             ]
-          ]
+          ],
+          "setup": "Begin on non-slip flooring in a comfortable balanced position with a familiar small paw offer. Prepare a low empty palm and separate rewards; a finished high five is not required."
         },
         {
           "id": "WAVE-2",
@@ -3801,7 +4022,8 @@
               "WAVE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same stable surface and comfortable low invitation, with rewards accessible. Leave space between hand and paw without prompting an overreach; one small lift is enough for a turn."
         }
       ]
     },
@@ -3821,7 +4043,8 @@
           "teach": "Invite a comfortable familiar sit or stand. Mark a brief still moment and reward before your dog needs to move. Hold the phone down at first and reward comfort with it being present. Keep looking at your dog rather than repeatedly rearranging them.",
           "advance": "Offers one or two comfortable still seconds with the ordinary phone present.",
           "easier": "Use stand instead of sit, keep the phone farther away, or reward any comfortable pause.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose a familiar comfortable sit or stand area with non-slip footing. Hold the phone down, disable flash and startling sounds, and keep rewards ready; leave costumes and props out."
         },
         {
           "id": "POSE-2",
@@ -3834,7 +4057,8 @@
               "POSE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar pose area and check the camera is silent with flash off. Keep phone movements small, rewards accessible and an open release route; prepare just one brief photo opportunity."
         }
       ]
     },
@@ -3854,7 +4078,8 @@
           "teach": "Choose one short label for the favorite toy. Say it once as you present the toy for a brief game the dog already enjoys. Repeat on separate playful occasions, not in a long naming drill. Keep other toys out of these initial pairings.",
           "advance": "The dog enjoys repeated brief label-and-toy play pairings without frustration.",
           "easier": "Use ordinary unnamed play. Object labels are difficult for many dogs, and this is entirely optional.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose one safe familiar toy and a short distinct label in advance. Put other toys away and prepare a quiet open play area and the reward or game your dog already enjoys."
         },
         {
           "id": "TOYNAME-2",
@@ -3867,7 +4092,8 @@
               "TOYNAME-1",
               3
             ]
-          ]
+          ],
+          "setup": "Place only the familiar named toy on a clear nearby floor patch. Keep rewards ready and your pickup invitation available, with no extra objects or hidden location changes."
         }
       ]
     },
@@ -3887,7 +4113,8 @@
           "teach": "Use a second distinct safe toy and its own short label during enjoyable brief play, just as for the first. Practice each toy separately in varied easy positions. Keep sessions playful and stop if the dog appears to be guessing repeatedly or becoming frustrated.",
           "advance": "The second toy has enjoyable label pairings and easy single-toy approach or retrieve practice.",
           "easier": "Continue ordinary toy play with either object. There is no deadline for learning labels.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose the second safe distinct toy and its own short label. Put the first toy away, clear a small play area, and prepare a familiar enjoyable game; each association is practiced separately initially."
         },
         {
           "id": "TWOOBJECT-2",
@@ -3904,7 +4131,8 @@
               "TWOOBJECT-1",
               3
             ]
-          ]
+          ],
+          "setup": "Place the two familiar safe toys a short equal distance from a central handler position on a clear floor. Keep rewards hidden and hands still; avoid leaning or looking toward the intended answer."
         },
         {
           "id": "TWOOBJECT-3",
@@ -3917,7 +4145,8 @@
               "TWOOBJECT-2",
               3
             ]
-          ]
+          ],
+          "setup": "Arrange a helper to swap the two familiar toys at equal distances while you stay centered. Have a simple choice record ready, rewards hidden and a mixed request order without a predictable side pattern."
         }
       ]
     },
@@ -3937,7 +4166,8 @@
           "teach": "Show a large simple circle card briefly, then give the familiar cue for a comfortable known sit or stand. Reward the action and put the card away. After several easy pairings, pause briefly after showing it to see whether the action is offered before the old cue.",
           "advance": "The first card begins to prompt its paired known action without repeated verbal requests.",
           "easier": "Keep the usual verbal cue or stop the experiment. Never physically position the dog.",
-          "deps": []
+          "deps": [],
+          "setup": "Prepare one large simple circle card and the familiar comfortable sit or stand cue. Choose a quiet non-slip area, hold the card still at an easy viewing height, and keep rewards separate."
         },
         {
           "id": "CARDS-2",
@@ -3950,7 +4180,8 @@
               "TOUCH-2",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare a large clearly different striped card and the familiar nose-touch invitation. Use the same quiet area with rewards accessible; put the first card aside during these separate pairings."
         },
         {
           "id": "CARDS-3",
@@ -3967,7 +4198,8 @@
               "CARDS-2",
               3
             ]
-          ]
+          ],
+          "setup": "Have both familiar cards ready for one-at-a-time presentation in the same central position. Prepare a mixed order, still hands and neutral voice/posture, with rewards separate; this is visual cue learning, not reading."
         }
       ]
     },
@@ -3996,7 +4228,8 @@
               "PAW-1",
               3
             ]
-          ]
+          ],
+          "setup": "Provide a broad soft non-slip surface and wait for a comfortable voluntary down. Keep an empty receiving hand low near one front paw and rewards separate; skip for shoulder, elbow or wrist discomfort."
         },
         {
           "id": "CROSSPAW-2",
@@ -4009,7 +4242,8 @@
               "CROSSPAW-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar soft surface and small inward invitation, with space for both forelegs to move freely. Keep rewards accessible and the receiving hand easy to lower; no limb is held or positioned. Skip for shoulder, elbow or wrist discomfort."
         }
       ],
       "maintenance": false
@@ -4030,7 +4264,8 @@
           "teach": "During ordinary friendly interaction, watch for a naturally offered small head tilt. Quietly mark it and reward while the dog returns to neutral. Pause rather than trying to repeat noises until the dog tilts. A few occasional captured moments across days are enough to explore the game.",
           "advance": "Several comfortable naturally offered tilts can be rewarded without provoking worry.",
           "easier": "Choose another trick if tilts are rare. Persistent new or one-sided head tilting needs veterinary assessment.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose a quiet familiar moment of ordinary friendly interaction, with a reward readily available. Leave the head free and avoid unusual repeated sounds; no tilt needs to be produced for the session."
         },
         {
           "id": "TILT-2",
@@ -4043,7 +4278,8 @@
               "TILT-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar comfortable interaction where a small tilt has occurred naturally. Keep rewards accessible and your posture neutral, with no props, startling sounds or expectation of a larger held angle."
         }
       ],
       "maintenance": false
@@ -4064,7 +4300,8 @@
           "teach": "Notice a naturally occurring shake after an ordinary comfortable transition, such as getting up after rest. Quietly mark after the motion and reward. Keep your distance so you do not interrupt the movement. Record only easy opportunities rather than provoking repeated shakes during one session.",
           "advance": "You can reward several ordinary shakes without changing the dog’s comfort or daily routine.",
           "easier": "Skip the game if there are no natural opportunities. Frequent unexplained shaking or scratching needs a health check.",
-          "deps": []
+          "deps": [],
+          "setup": "Keep a reward available during an ordinary comfortable transition from rest. Leave enough room around your dog for free whole-body movement; do not add water, restraint or irritating props."
         },
         {
           "id": "SHAKEOFF-2",
@@ -4077,7 +4314,8 @@
               "SHAKEOFF-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same naturally predictable comfortable context, with a reward ready and space to move. No wetting, stress or repeated prompts are part of the setup; the cue is optional if no shake follows."
         }
       ],
       "maintenance": false
@@ -4103,7 +4341,8 @@
               "TOUCH-2",
               3
             ]
-          ]
+          ],
+          "setup": "Stand steadily or sit in a stable chair with broad non-slip space around you. Clear the first half-loop of obstacles, keep target hands empty and rewards accessible, and leave feet still."
         },
         {
           "id": "CIRCLEME-2",
@@ -4116,7 +4355,8 @@
               "CIRCLEME-1",
               3
             ]
-          ]
+          ],
+          "setup": "Clear the whole broad route around your steady body or chair, including the finish away from your feet. Prepare both familiar target hands and rewards for a halfway delivery if useful."
         }
       ],
       "maintenance": false
@@ -4142,7 +4382,8 @@
               "OTARGET-2",
               3
             ]
-          ]
+          ],
+          "setup": "On non-slip flooring, secure most of a lightweight mat flat and loosely roll only a few inches at the front. Prepare the familiar large nose target and separate rewards; remove straps and skip fabric chewers."
         },
         {
           "id": "UNROLL-2",
@@ -4155,7 +4396,8 @@
               "UNROLL-1",
               3
             ]
-          ]
+          ],
+          "setup": "Set up the same short, very loose roll with secure footing and clear hands. Have the familiar pad available to reduce gradually, rewards separate, and somewhere to remove the mat after one or two nudges. Skip if the dog chews fabric."
         }
       ],
       "maintenance": false
@@ -4181,7 +4423,8 @@
               "MAT-2",
               3
             ]
-          ]
+          ],
+          "setup": "Place one familiar flat mat a comfortable step to your dog's left from a consistent forward-facing start. Put the right target away and keep rewards accessible without leaning toward the mat."
         },
         {
           "id": "LEFTRIGHT-2",
@@ -4194,7 +4437,8 @@
               "MAT-2",
               3
             ]
-          ]
+          ],
+          "setup": "Put the left mat away and place one familiar flat target a step to the dog's right. Keep the same forward-facing starting orientation and rewards separate; this pairing can be practiced independently."
         },
         {
           "id": "LEFTRIGHT-3",
@@ -4211,7 +4455,8 @@
               "LEFTRIGHT-2",
               3
             ]
-          ]
+          ],
+          "setup": "Place two identical broad flat targets at equal short distances either side of the usual forward-facing start. Stand centered with neutral hands and gaze, rewards hidden and a simple response record ready."
         }
       ],
       "maintenance": false
@@ -4237,7 +4482,8 @@
               "OTARGET-2",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the familiar broad safe nose target and rewards separate. Stand at natural head height in a quiet area, with room for a second target position only slightly lower; skip neck stiffness."
         },
         {
           "id": "NOD-2",
@@ -4250,7 +4496,8 @@
               "NOD-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar target and the same tiny lower-to-neutral range. Keep rewards accessible and plan one or two brief turns, with no head pressure or equipment that could restrict movement. Skip for neck stiffness."
         }
       ],
       "maintenance": false
@@ -4276,7 +4523,8 @@
               "MAT-2",
               3
             ]
-          ]
+          ],
+          "setup": "Place one familiar broad flat mat a step away in a quiet room. Stand where your arm gesture is comfortably visible without leaning over the dog, with rewards separate and a clear approach."
         },
         {
           "id": "POINT-2",
@@ -4289,7 +4537,8 @@
               "POINT-1",
               3
             ]
-          ]
+          ],
+          "setup": "Place two identical flat mats equally near on non-slip flooring. Prepare a central starting position, still feet and neutral gaze, with rewards accessible and space for one clear pointing gesture."
         }
       ],
       "maintenance": false
@@ -4310,7 +4559,8 @@
           "teach": "Begin with the dog standing comfortably in open space. After an ordinary reward, watch for a voluntary small backward weight shift or foot movement as they reset. Mark it immediately and deliver the next reward where they can remain balanced. Stay still rather than stepping into them.",
           "advance": "Offers several small backward foot movements without sitting, scrambling, or being crowded.",
           "easier": "Reward a weight shift first, keep sessions very short, or skip if the dog cannot find a comfortable movement.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose an open non-slip patch with clear space behind your comfortably standing dog. Stand still without crowding them and keep rewards ready at natural head height; no wall, narrow chute or lead pressure is needed."
         },
         {
           "id": "BACK-2",
@@ -4323,7 +4573,8 @@
               "BACK-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same level open area with at least one comfortable footstep of clear space behind the dog. Keep your own feet still and rewards accessible without leaning into their route."
         },
         {
           "id": "BACK-3",
@@ -4336,7 +4587,8 @@
               "BACK-2",
               3
             ]
-          ]
+          ],
+          "setup": "Check a level non-slip route behind your dog for several slow steps, well away from edges or furniture. Stand still with rewards ready; keep the area open rather than creating a narrow backward channel."
         }
       ]
     },
@@ -4361,7 +4613,8 @@
               "TOUCH-2",
               2
             ]
-          ]
+          ],
+          "setup": "Place one stable soft cone in open non-slip space a short distance away. Clear a broad walking arc around it, prepare the familiar empty hand target and keep rewards at the far side accessible."
         },
         {
           "id": "CONE-2",
@@ -4374,7 +4627,8 @@
               "CONE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same nearby stable cone and roomy loop, with no obstacles at the finish. Keep your guiding hand empty and rewards ready for an easy halfway delivery if needed."
         }
       ]
     },
@@ -4399,7 +4653,8 @@
               "CONE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Place two familiar soft stable markers far apart on non-slip flooring, allowing broad ordinary walking curves. Keep the target hand and rewards ready, with space to pause between separate loops."
         },
         {
           "id": "CONEEIGHT-2",
@@ -4412,7 +4667,8 @@
               "CONEEIGHT-1",
               3
             ]
-          ]
+          ],
+          "setup": "Recreate the two broad familiar loops and clear the center route between them. Have rewards accessible at the center and both hand invitations available; no tight weaving or faster pace is planned."
         }
       ]
     },
@@ -4432,7 +4688,8 @@
           "teach": "Lay the mat flat in an open room and let the dog investigate. Mark any voluntary front-paw contact and deliver a reward while the paw is still there if comfortable. Release or toss a nearby reset reward so the dog can choose another approach.",
           "advance": "Voluntarily places at least one front paw on the mat on several approaches.",
           "easier": "Use a larger mat or reward approaching it. Never lift a paw or pull the dog onto it.",
-          "deps": []
+          "deps": [],
+          "setup": "Lay a broad non-slip mat flat in an open room. Leave room for voluntary approaches and a small reset away, with rewards ready and no raised edge or wobbling equipment."
         },
         {
           "id": "FEET-2",
@@ -4445,7 +4702,8 @@
               "FEET-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same broad floor-level mat with enough width for both front paws. Keep rewards accessible at natural head height and clear floor around the rear feet and exit."
         },
         {
           "id": "FEET-3",
@@ -4458,7 +4716,8 @@
               "FEET-2",
               3
             ]
-          ]
+          ],
+          "setup": "Place the familiar mat flat in its successful location. Keep the invitation hand empty and rewards separate, with a clear approach and release route; no raised or unstable surface is included."
         }
       ]
     },
@@ -4478,7 +4737,8 @@
           "teach": "Keep the hoop still with its bottom on the floor and plenty of room to go around it. Reward a glance or approach. If comfortable, offer a known hand target or a small reward invitation through the center and reward one voluntary step through. Never move the hoop over the dog.",
           "advance": "Walks through the large opening comfortably while it stays stationary on the floor.",
           "easier": "Use a wider opening or stop at looking. Avoid hoops if tags, equipment, or body shape could snag.",
-          "deps": []
+          "deps": [],
+          "setup": "Hold a very wide smooth hoop stationary with its bottom on the floor. Clear the route through and around it, check that equipment or tags cannot snag, and prepare the familiar target and rewards."
         },
         {
           "id": "HOOP-2",
@@ -4491,7 +4751,8 @@
               "HOOP-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar wide stationary hoop at floor level with clear approach and exit space. Keep any guiding hand empty and rewards ready beyond the opening; no jumping, narrowing or raised height is planned. Check tags and equipment cannot snag."
         }
       ]
     },
@@ -4511,7 +4772,8 @@
           "teach": "Set the tunnel where the dog can investigate and walk away. Reward looking or approaching the entrance, with rewards placed outside first. Keep the interior bright and the far end visible. If the dog avoids it, simply give more space and finish there.",
           "advance": "Approaches the entrance with ordinary loose movement and freely leaves and returns.",
           "easier": "Use a large open arch instead. Do not lure an uneasy dog inside or block the exit.",
-          "deps": []
+          "deps": [],
+          "setup": "Secure a wide rigid open-ended tunnel against rolling, using its shortest or fully open form. Keep the interior bright and far end visible, with rewards outside and plenty of room to walk away."
         },
         {
           "id": "TUNNEL-2",
@@ -4524,7 +4786,8 @@
               "TUNNEL-1",
               3
             ]
-          ]
+          ],
+          "setup": "Set the familiar tunnel to its shortest bright straight opening and check both ends are clear. Keep a reward hand visible just beyond the exit; a helper may steady equipment without touching the dog."
         },
         {
           "id": "TUNNEL-3",
@@ -4537,7 +4800,8 @@
               "TUNNEL-2",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same stable bright straight tunnel and obvious exits. Keep rewards accessible beyond the far end and any extra length minimal; avoid dark, curved, long or collapsible fabric arrangements."
         }
       ]
     },
@@ -4557,7 +4821,8 @@
           "teach": "Lay a broad flat mat across an open walking route. Let the dog stroll forward over it, marking when a rear foot reaches the mat. Reward at a natural head height while the rear feet are still on the surface if possible. Keep walking routes roomy and avoid sudden stops.",
           "advance": "Offers several relaxed passes with reward timed to rear-foot contact.",
           "easier": "Use a longer mat and slower approach. Do not move a paw or block forward escape.",
-          "deps": []
+          "deps": [],
+          "setup": "Lay a long broad non-slip mat flat across an open walking route. Clear the approach and forward exit, with rewards ready at natural head height; no paw placement or rearward pushing is needed."
         },
         {
           "id": "REAR-2",
@@ -4570,7 +4835,8 @@
               "REAR-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use a floor-level mat long enough for comfortable rear-foot contact after front feet move beyond it. Check balanced footing and a clear forward exit, with rewards accessible without stretching the dog."
         },
         {
           "id": "REAR-3",
@@ -4583,7 +4849,8 @@
               "REAR-2",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the familiar long mat flat on a straight roomy route. Prepare the known slow approach and nearby reward position, with an open forward release; no raised perch or balance equipment is included."
         }
       ],
       "maintenance": false
@@ -4604,7 +4871,8 @@
           "teach": "Stand at an angle beside your comfortable standing dog, leaving generous space. Watch for a small sideways foot adjustment during an ordinary reset, mark and reward. A small reward invitation across the front can help, but do not walk into the dog or twist the head sharply.",
           "advance": "Offers several small lateral foot adjustments with balanced ordinary movement.",
           "easier": "Reward a tiny weight shift or try another day. Do not create the movement by crowding or pushing.",
-          "deps": []
+          "deps": [],
+          "setup": "Stand at an angle beside your comfortably standing dog on a broad non-slip floor. Leave generous space on both sides and keep rewards accessible without stepping into the dog or twisting their head."
         },
         {
           "id": "SIDESTEP-2",
@@ -4617,7 +4885,8 @@
               "SIDESTEP-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same open non-slip area and choose one comfortable direction for this turn. Keep your feet still, rewards ready and room for both front and rear feet to adjust freely."
         }
       ],
       "maintenance": false
@@ -4643,7 +4912,8 @@
               "FEET-3",
               3
             ]
-          ]
+          ],
+          "setup": "Lay a broad familiar front-foot target flat on non-slip flooring. Clear generous space around the rear feet and keep rewards at natural head height, with an open route off the mat."
         },
         {
           "id": "PIVOT-2",
@@ -4656,7 +4926,8 @@
               "PIVOT-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same broad flat target and clear rear-foot arc, with rewards accessible near natural head height. Prepare only one or two small steps and an easy release, without tight rotation or a full circle."
         }
       ],
       "maintenance": false
@@ -4677,7 +4948,8 @@
           "teach": "Stand beside a broad high table or arch and reward a voluntary look toward the open path beneath. Place an easy reward invitation just inside, then outside again. Keep both ends clear and allow the dog to go around. Never lower the structure over the dog or lure them into a cramped space.",
           "advance": "Comfortably takes voluntary steps beneath the roomy open structure and exits freely.",
           "easier": "Use a higher wider opening or stay at the edge. No crawling or crouching is needed.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose a stable high table or broad arch with generous head and body clearance. Remove dangling items and clear both ends and the route around it, with rewards accessible; no crawling or dead end is involved."
         },
         {
           "id": "UNDER-2",
@@ -4690,7 +4962,8 @@
               "UNDER-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar high stable opening and clear a straight natural-height walking path. Keep the invitation hand empty and rewards ready beyond the exit, with room to reset away from the structure."
         }
       ],
       "maintenance": false
@@ -4711,7 +4984,8 @@
           "teach": "Secure one visible pole flat on the ground. Walk beside it first, then invite a slow voluntary step across, rewarding beyond it. Let the dog inspect or walk around instead. Choose a pole and approach angle that allow normal walking without hopping, snagging toes or pulling on equipment.",
           "advance": "Comfortably walks over the single ground pole in either direction over several turns.",
           "easier": "Use a flat contrasting strip instead or remove the obstacle. Stop for tripping or uneven movement.",
-          "deps": []
+          "deps": [],
+          "setup": "Secure one broad visible pole flat on level non-slip ground so it cannot roll. Clear a gentle approach and far-side reward space; use a flat strip instead if normal walking clearance is difficult."
         },
         {
           "id": "POLES-2",
@@ -4724,7 +4998,8 @@
               "POLES-1",
               3
             ]
-          ]
+          ],
+          "setup": "Secure two familiar poles flat on non-slip ground with several natural steps between them. Check spacing for this dog and a clear finish; a third is optional only without changing ordinary gait."
         }
       ],
       "maintenance": false
@@ -4745,7 +5020,8 @@
           "teach": "Lay a small secured texture beside familiar flooring. Reward looking or approaching from the familiar side, then voluntary foot contact. Offer an easy reward back on the original surface so moving away remains part of the game. Never place the dog onto it or trap the exit.",
           "advance": "Freely chooses single-foot contacts and returns after easy breaks.",
           "easier": "Use a smaller or more familiar texture. Reward interest without expecting contact.",
-          "deps": []
+          "deps": [],
+          "setup": "Secure a small clean non-slip texture beside familiar flooring, checking for heat, sharp edges, noise or wobble. Leave the familiar side open, with rewards available for both interest and an easy retreat."
         },
         {
           "id": "SURFACE-2",
@@ -4758,7 +5034,8 @@
               "SURFACE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare a short broad patch of the already familiar secured texture with clear familiar flooring beyond it. Keep rewards at the exit and a route around; introduce a different texture separately from the easiest arrangement."
         }
       ],
       "maintenance": false
@@ -4779,7 +5056,8 @@
           "teach": "Without any pulling task, stand at a comfortable distance from the closed fridge. Open it a tiny amount, then feed your dog and close gently. Separately pair any light/compressor sounds that matter. Allow retreat. Do not train pulling while door movement itself worries the dog.",
           "advance": "Comfortable with gentle opening, light, and sound in several observations across two sessions.",
           "easier": "Use smaller movement or more distance. Continue with a human-opened retrieval if the appliance is unsuitable.",
-          "deps": []
+          "deps": [],
+          "setup": "Clear reachable food, provide non-slip footing and begin at a comfortable distance from the closed fridge. The handler controls a tiny opening and closure; no rope or pulling task is needed yet."
         },
         {
           "id": "OPEN-2",
@@ -4796,7 +5074,8 @@
               "PULL-3",
               3
             ]
-          ]
+          ],
+          "setup": "Attach the familiar safe rope handle where it cannot catch feet or neck, and start with the fridge door ajar. Clear reachable food and the swing path, keep footing secure, and be ready to control the door."
         },
         {
           "id": "OPEN-3",
@@ -4809,7 +5088,8 @@
               "OPEN-2",
               3
             ]
-          ]
+          ],
+          "setup": "Use the approved fridge and familiar safe handle on non-slip flooring, with the swing controlled by an adult. Check the seal releases gently before any closed start; otherwise prepare a human-opened version and remove rope afterward. Clear reachable food before starting."
         }
       ]
     },
@@ -4834,7 +5114,8 @@
               "OTARGET-2",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare a broad secure target pad and an approved lightweight door held stationary. Place the pad at natural nose height, clear paws and tail from pinch points, and keep rewards accessible."
         },
         {
           "id": "CLOSE-2",
@@ -4847,7 +5128,8 @@
               "CLOSE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Set the familiar lightweight door almost closed with the pad secure at nose height. Keep your hand controlling its movement, clear paws and tail from the swing, and have rewards ready for a tiny soft push."
         },
         {
           "id": "CLOSE-3",
@@ -4864,7 +5146,8 @@
               "OPEN-1",
               3
             ]
-          ]
+          ],
+          "setup": "Clear the approved fridge opening and set its door almost closed under human control. Secure the familiar pad at nose height, protect paws and tail, and keep rewards ready; the adult checks the final seal."
         }
       ]
     },
@@ -4889,7 +5172,8 @@
               "GIVE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Inspect a robust suitable carrier with a safe grasping handle and a lightweight sealed water bottle inside. Keep rewards and a receiving palm ready; use no glass, bare can or alcohol access and skip chewing or guarding concerns."
         },
         {
           "id": "SHELF-2",
@@ -4906,7 +5190,8 @@
               "FETCH-2",
               3
             ]
-          ]
+          ],
+          "setup": "Place the familiar carrier on a stable low mock shelf at natural mouth height beside you. Clear the edge and short delivery route, with all paws remaining on the floor and rewards ready. Use sealed water inside its robust carrier, never glass or a bare can."
         },
         {
           "id": "SHELF-3",
@@ -4923,7 +5208,8 @@
               "OPEN-1",
               3
             ]
-          ]
+          ],
+          "setup": "Have an adult control the fridge door open. Remove other reachable food and put only the familiar safe carrier on a shallow reachable shelf, with non-slip footing, a clear exit and rewards ready. Use sealed water inside its robust carrier, never glass or a bare can."
         }
       ]
     },
@@ -4948,7 +5234,8 @@
               "OTARGET-2",
               2
             ]
-          ]
+          ],
+          "setup": "Secure a large inert or muted low-force pad at comfortable nose height. Keep cables, batteries and small parts inaccessible, rewards separate and room to withdraw; the target must be too large to swallow."
         },
         {
           "id": "BUTTON-2",
@@ -4961,7 +5248,8 @@
               "BUTTON-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar stable muted pad and check that it depresses with very light pressure. Keep footing secure and rewards in the other hand; choose a more sensitive pad rather than adding resistance."
         },
         {
           "id": "BUTTON-3",
@@ -4974,7 +5262,8 @@
               "BUTTON-2",
               3
             ]
-          ]
+          ],
+          "setup": "Place the familiar muted button in its usual stable position with rewards ready and no accessible electronics. Keep the pointing hand empty; sound or request consequences are separate lessons."
         }
       ]
     },
@@ -4999,7 +5288,8 @@
               "GIVE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Choose one clean light oversized slipper without loose parts and keep other shoes away. Have rewards and a receiving hand ready; use a safe toy instead for fabric shredders, swallowers or item guarding."
         },
         {
           "id": "SLIPPERS-2",
@@ -5016,7 +5306,8 @@
               "FETCH-2",
               3
             ]
-          ]
+          ],
+          "setup": "Place the same designated safe slipper close to your feet on a clear non-slip floor. Keep the receiving hand and rewards ready, with other footwear out of reach and no long carry path yet. Skip for shredding, fabric swallowing or guarding."
         },
         {
           "id": "SLIPPERS-3",
@@ -5029,7 +5320,8 @@
               "SLIPPERS-2",
               3
             ]
-          ]
+          ],
+          "setup": "Put the familiar designated slipper on an obvious low mat a few clear steps away. Remove other footwear, prepare a short non-slip return route and keep rewards accessible for the hand delivery. Skip for shredding, fabric swallowing or guarding."
         }
       ]
     },
@@ -5054,7 +5346,8 @@
               "GIVE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Inspect a soft oversized empty pouch with a broad safe grip. Remove head-catching straps and avoid gripping zips, buckles or cords; sit at a comfortable presentation height with rewards and a receiving palm ready."
         },
         {
           "id": "POUCH-2",
@@ -5071,7 +5364,8 @@
               "CARRY-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar empty pouch and clear a short straight non-slip carry route. Keep the safe grip at comfortable mouth height, a receiving hand close and rewards ready; no added load is needed."
         },
         {
           "id": "POUCH-3",
@@ -5084,7 +5378,8 @@
               "POUCH-2",
               3
             ]
-          ]
+          ],
+          "setup": "Only use a pouch designed to stay closed with a dog that does not shred it. Secure one protected paper note without staples or clips inside, check the safe grip, and keep the familiar short route clear."
         }
       ]
     },
@@ -5109,7 +5404,8 @@
               "GIVE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Arrange a trusted adult close beside you with an open low receiving palm and rewards. Use the familiar safe carry prop in a quiet non-slip area; no departure or stranger approach is planned."
         },
         {
           "id": "MESSENGER-2",
@@ -5126,7 +5422,8 @@
               "CARRY-1",
               3
             ]
-          ]
+          ],
+          "setup": "Keep both familiar adults visible about one clear step apart. Prepare the safe prop, the helper's low receiving hand and rewards, with no obstacles or other animals on the delivery route."
         },
         {
           "id": "MESSENGER-3",
@@ -5139,7 +5436,8 @@
               "MESSENGER-2",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same familiar visible receiver, safe prop and successful short route. Have rewards at the receiving end and a quiet break ready; no unfamiliar person or forced approach is included."
         }
       ]
     },
@@ -5164,7 +5462,8 @@
               "BOX-1",
               3
             ]
-          ]
+          ],
+          "setup": "Secure a broad low basket and choose one large clean designated cloth without strings or loose parts. Have rewards ready near the rim; use a toy instead for fabric chewers and keep detergent and real laundry away."
         },
         {
           "id": "LAUNDRY-2",
@@ -5181,7 +5480,8 @@
               "FETCH-2",
               3
             ]
-          ]
+          ],
+          "setup": "Place the familiar safe cloth beside the stable basket's outer edge on a clear non-slip floor. Keep the opening broad, rewards accessible and the short pickup route free of other laundry. Skip for fabric chewing or swallowing."
         },
         {
           "id": "LAUNDRY-3",
@@ -5194,7 +5494,8 @@
               "LAUNDRY-2",
               3
             ]
-          ]
+          ],
+          "setup": "Set two familiar designated safe cloths a little apart near the secured low basket. Clear short visible routes and have rewards ready for separate deposits; block appliance access and keep all laundry products away. Skip for fabric chewing or swallowing."
         }
       ]
     },
@@ -5223,7 +5524,8 @@
           "replaces": [
             "SORT-1",
             "SORT-2"
-          ]
+          ],
+          "setup": "Put away the second pair. Secure the first broad low basket on its distinct large marker and prepare only its familiar safe toy, with a short non-slip approach and rewards ready."
         },
         {
           "id": "SORT-B",
@@ -5240,7 +5542,8 @@
           "replaces": [
             "SORT-3",
             "SORT-4"
-          ]
+          ],
+          "setup": "Put away the first pair. Prepare only the second safe toy and its broad low basket on a clearly different large marker, with a clear short route and accessible rewards."
         },
         {
           "id": "SORT-C",
@@ -5264,7 +5567,8 @@
             "SORT-7",
             "SORT-8",
             "SORT-9"
-          ]
+          ],
+          "setup": "Place both familiar marked baskets in clear view on non-slip flooring and offer one familiar toy at a time. Keep markers attached to their destinations, rewards hidden and your gaze neutral."
         },
         {
           "id": "SORT-D",
@@ -5282,7 +5586,8 @@
             "SORT-10",
             "SORT-11",
             "SORT-12"
-          ]
+          ],
+          "setup": "Set both marked baskets securely and place the two familiar toys apart on a clear floor. Leave short unobstructed carry routes and keep rewards ready; no lids, small labels or extra objects are needed."
         }
       ]
     },
@@ -5320,7 +5625,8 @@
             "POST-1",
             "POST-2",
             "POST-3"
-          ]
+          ],
+          "setup": "Put the familiar empty oversized pouch on a stable low open tray beside the sender. Seat the trusted receiver nearby in clear view, with a non-slip delivery route and rewards at the receiving hand."
         },
         {
           "id": "POST-B",
@@ -5337,7 +5643,8 @@
           "replaces": [
             "POST-4",
             "POST-5"
-          ]
+          ],
+          "setup": "Put the pouch aside and place the sender's familiar flat mat close to the receiver. Keep both adults visible, the return route open and rewards ready at the mat; no delivery is needed in this turn."
         },
         {
           "id": "POST-C",
@@ -5358,7 +5665,8 @@
           "replaces": [
             "POST-6",
             "POST-7"
-          ]
+          ],
+          "setup": "Prepare the familiar tray and empty pouch at the sender, the visible nearby receiver and the sender's return mat. Clear the short non-slip round-trip route and place rewards at both ends."
         },
         {
           "id": "POST-D",
@@ -5378,7 +5686,8 @@
             "POST-10",
             "POST-11",
             "POST-12"
-          ]
+          ],
+          "setup": "Choose only one small change in route, receiver position or familiar adult roles. Keep tray, mat and safe pouch ready, with both people visible; any note stays protected inside without staples, clips or extra load."
         }
       ]
     },
@@ -5403,7 +5712,8 @@
               "BOX-2",
               3
             ]
-          ]
+          ],
+          "setup": "Put the first two baskets away. Secure the third broad low basket on its own large marker and prepare only its safe familiar toy, with a short clear approach and rewards ready."
         },
         {
           "id": "THIRDBIN-2",
@@ -5420,7 +5730,8 @@
               "SORT-C",
               3
             ]
-          ]
+          ],
+          "setup": "Set all three familiar marked baskets securely with roomy routes, starting close to the third destination. Use only the separately taught safe toys, keep rewards accessible and your pointing hand neutral. Check every toy still suits this dog without shredding or swallowing."
         },
         {
           "id": "THIRDBIN-3",
@@ -5433,7 +5744,8 @@
               "THIRDBIN-2",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare one additional safe example at a time with only its matching basket visible. Check each ball, stuffed toy or rope for swallowing and shredding risk; keep other examples out until separately taught."
         }
       ]
     },
@@ -5453,7 +5765,8 @@
           "teach": "With only the first familiar adult nearby, say their name once before an ordinary voluntary approach and reward there. The adult stays still and welcoming. Change their easy standing spot between short turns, using a normal invitation if needed before fading it.",
           "advance": "Comfortably approaches the first familiar adult after their name in several easy positions.",
           "easier": "Have the adult closer and fully visible; skip approaches the dog does not choose.",
-          "deps": []
+          "deps": [],
+          "setup": "In a quiet enclosed room, arrange only the first familiar willing adult nearby. Keep a short clear approach, rewards at that adult and still welcoming hands; no restraint or forced social contact is needed."
         },
         {
           "id": "PERSON-2",
@@ -5461,7 +5774,8 @@
           "teach": "Practice separately with the second familiar adult and a distinct spoken name. Pair the name with a comfortable short approach and reward while the first adult is out of the choice area. Vary easy positions and avoid making a particular side part of the cue.",
           "advance": "Comfortably approaches the second familiar adult after their name in several easy positions.",
           "easier": "Keep only that adult visible and use the familiar approach invitation.",
-          "deps": []
+          "deps": [],
+          "setup": "Practice with only the second familiar willing adult in the choice area, using a distinct name. Clear a short approach, keep rewards there and put the first adult out of view for this pairing."
         },
         {
           "id": "PERSON-3",
@@ -5478,7 +5792,8 @@
               "PERSON-2",
               3
             ]
-          ]
+          ],
+          "setup": "Place both familiar adults equally close in a quiet enclosed area. Agree on still hands and no beckoning, prepare rewards at each location and a mixed request order, with room for voluntary approaches."
         },
         {
           "id": "PERSON-4",
@@ -5491,7 +5806,8 @@
               "PERSON-3",
               3
             ]
-          ]
+          ],
+          "setup": "Keep both familiar adults visible and prepare a small difference in their distances, with clear approaches to each. Agree on neutral hands and no competing food displays, and keep an easy equal-distance reset available."
         }
       ]
     },
@@ -5520,7 +5836,8 @@
               "GIVE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Inspect a large robust empty carrier with a safe grasp handle and no loose loops. Keep walking equipment put away, rewards and a receiving hand ready; skip for shredding or unsafe gripping."
         },
         {
           "id": "EQUIP-2",
@@ -5537,7 +5854,8 @@
               "FETCH-2",
               3
             ]
-          ]
+          ],
+          "setup": "Place the familiar empty carrier at one designated low open station or clear floor spot. Clear a short non-slip return route, with rewards ready and all leads, clips and straps out of reach."
         },
         {
           "id": "EQUIP-3",
@@ -5550,7 +5868,8 @@
               "EQUIP-2",
               3
             ]
-          ]
+          ],
+          "setup": "A human checks that a suitable light walk kit is securely protected inside the familiar carrier, with no trailing straps or mouth-accessible metal. Keep the successful low station and short clear delivery route unchanged."
         }
       ]
     },
@@ -5575,7 +5894,8 @@
               "BUTTON-3",
               3
             ]
-          ]
+          ],
+          "setup": "Secure the familiar large quiet low-force button near the usual toilet exit at comfortable nose height, with electronics inaccessible. Prepare an ordinary supervised trip and rewards at the toilet spot; urgent access never depends on pressing."
         },
         {
           "id": "TOILETBELL-2",
@@ -5588,7 +5908,8 @@
               "TOILETBELL-1",
               3
             ]
-          ]
+          ],
+          "setup": "At a normal likely toilet time, keep the familiar button reachable and the safe exit route ready for an immediate accompanied trip. Have outdoor equipment accessible and your hands neutral; offer access even without a request."
         },
         {
           "id": "TOILETBELL-3",
@@ -5601,7 +5922,8 @@
               "TOILETBELL-2",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the button in its familiar accessible place and arrange prompt adult responses during supervised periods. Have the usual safe route, regular toilet schedule and a simple request log ready; other request signals remain valid."
         }
       ],
       "maintenance": false
@@ -5622,7 +5944,8 @@
           "teach": "Let a helper turn the lamp on and off with the dog at a comfortable distance. Reward a noticed mild change, then take a break. Keep the room otherwise lit so switching does not plunge the dog into darkness. Teach this comfort separately from pressing the control pad.",
           "advance": "Comfortable with several gentle lamp changes and free movement away.",
           "easier": "Use a dimmer familiar lamp or more distance. Stop for light sensitivity or startle.",
-          "deps": []
+          "deps": [],
+          "setup": "Have a human inspect and operate a safe lamp while the room stays otherwise lit. Begin at a comfortable viewing distance with rewards ready; secure wiring and controls away from the dog's mouth."
         },
         {
           "id": "LIGHTPAD-2",
@@ -5635,7 +5958,8 @@
               "BUTTON-3",
               3
             ]
-          ]
+          ],
+          "setup": "Have a human disconnect the lamp from the approved low-voltage or wireless pad. Secure the pad at natural nose height near the familiar target position, with batteries and wires inaccessible and rewards separate."
         },
         {
           "id": "LIGHTPAD-3",
@@ -5652,7 +5976,8 @@
               "LIGHTPAD-2",
               3
             ]
-          ]
+          ],
+          "setup": "After separate light and press comfort, have a human enable the inspected lamp control. Secure electronics out of reach, keep the room otherwise lit and rewards ready, and plan human resets between single presses."
         }
       ],
       "maintenance": false
@@ -5678,7 +6003,8 @@
               "PULL-2",
               3
             ]
-          ]
+          ],
+          "setup": "Loosely support a lightweight blanket on a low stable chair with a broad safe edge at natural mouth height. Clear all feet and neck from fabric, have a release reward ready, and skip fabric eaters."
         },
         {
           "id": "BLANKET-2",
@@ -5691,7 +6017,8 @@
               "BLANKET-1",
               3
             ]
-          ]
+          ],
+          "setup": "Seat a consenting adult steadily with the light blanket loose over their knees. Keep a free broad edge away from hands and feet, clear non-slip footing and rewards ready; the adult can help the fabric slide."
         },
         {
           "id": "BLANKET-3",
@@ -5704,7 +6031,8 @@
               "BLANKET-2",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar seated adult and freely sliding light blanket, with the safe edge accessible and no snagged material. Prepare rewards for one small adjustment; the adult will finish positioning and remove fabric after practice."
         }
       ],
       "maintenance": false
@@ -5725,7 +6053,8 @@
           "teach": "Place a reward visibly in one shallow open box while the dog watches from nearby. Let them approach and eat it without needing a sit or nose hold. Repeat with easy placements and allow the dog to leave. The box is an invitation, not a barrier.",
           "advance": "Comfortably approaches the box and finds the obvious food without chewing the container or climbing in.",
           "easier": "Use a plate or floor scatter instead if boxes cause concern or chewing.",
-          "deps": []
+          "deps": [],
+          "setup": "Place one broad shallow open box on a clean non-slip floor. Remove staples and loose pieces, separate other animals and prepare a visible suitable reward; choose a plate instead for paper eaters."
         },
         {
           "id": "BOXFIND-2",
@@ -5738,7 +6067,8 @@
               "BOXFIND-1",
               3
             ]
-          ]
+          ],
+          "setup": "Arrange two familiar shallow open boxes with clear walking space around each. Check intact edges, keep other animals separate, and have one suitable reward ready where the dog can watch its placement."
         },
         {
           "id": "BOXFIND-3",
@@ -5751,7 +6081,8 @@
               "BOXFIND-2",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare three familiar safe open boxes in a tiny clear area and a small suitable reward. Keep the dog comfortably nearby during placement and leave every container easy to reach and reveal."
         }
       ]
     },
@@ -5771,7 +6102,8 @@
           "teach": "Lay a clean towel flat on a non-slip floor and place a few rewards on top where they are easy to see. Let the dog sniff and eat while you supervise. Remove the towel if chewing starts; no pulling, tying, or rolling is needed.",
           "advance": "Eats the easy visible food with relaxed sniffing and no fabric chewing.",
           "easier": "Use a suitable food mat or ordinary floor search instead.",
-          "deps": []
+          "deps": [],
+          "setup": "Lay a clean towel completely flat on a non-slip floor and prepare a few suitable visible food pieces on top. Supervise one dog and skip if fabric is chewed, swallowed or guarded."
         },
         {
           "id": "TOWEL-2",
@@ -5784,7 +6116,8 @@
               "TOWEL-1",
               3
             ]
-          ]
+          ],
+          "setup": "Keep most of the familiar towel flat and arrange one very loose edge fold over a partly visible reward. Leave a broad open route to the food and be ready to reveal it; no knots or tight rolls."
         }
       ]
     },
@@ -5804,7 +6137,8 @@
           "teach": "Let the dog see you place their familiar toy beside a clear floor marker. Invite them to find it and enjoy a short familiar play or give-and-reward game. Move the marker a little between attempts so the toy remains obvious and accessible.",
           "advance": "Willingly locates the visible toy and enjoys the reward or play afterward.",
           "easier": "Keep the toy at your feet or use ordinary fetch. Do not force a wait while hiding it.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose the familiar safe favorite toy and a clear floor marker in an uncluttered room. Keep the dog freely nearby, an easy play or delivery reward ready, and all placements at floor level."
         },
         {
           "id": "LOSTTOY-2",
@@ -5817,7 +6151,8 @@
               "LOSTTOY-1",
               3
             ]
-          ]
+          ],
+          "setup": "Place the familiar toy partly behind a broad stable harmless object, leaving most visible and the access route open. Prepare the familiar play reward and room to reveal the toy promptly; no forced wait is needed."
         }
       ]
     },
@@ -5837,7 +6172,8 @@
           "teach": "Place a few suitable rewards a short paw-step apart on safe ground while the dog watches. Invite them to investigate the first and let them find the rest at their own pace. Walk alongside without steering their nose or pulling on equipment.",
           "advance": "Follows the short visible line with comfortable sniffing and no frantic searching.",
           "easier": "Use fewer rewards closer together, or choose an indoor floor search.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose clean safe ground with no other animals competing. Prepare a few suitable food pieces about a short paw-step apart, with a clear route beside them and comfortable equipment if needed."
         },
         {
           "id": "TRAIL-2",
@@ -5850,7 +6186,8 @@
               "TRAIL-1",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the same small food trail with one broad easy bend and an accessible finish on checked safe ground. Keep reward spacing close, other dogs away and any lead loose without snag hazards."
         }
       ]
     },
@@ -5870,7 +6207,8 @@
           "teach": "Have the familiar helper stand a few steps away, quietly invite the dog over once, and reward the approach. Begin with both people visible. Let the dog move voluntarily; this is a cheerful person-finding game, not a restraint-and-release recall drill.",
           "advance": "Comfortably approaches the visible helper and enjoys their reward or play.",
           "easier": "Keep the people closer. Stop if leaving either person causes worry.",
-          "deps": []
+          "deps": [],
+          "setup": "Arrange two familiar cooperative adults a few clear steps apart in a quiet space, both visible. Keep rewards at the helper and no restraint; skip if moving away from either person causes distress."
         },
         {
           "id": "HIDESEEK-2",
@@ -5883,7 +6221,8 @@
               "HIDESEEK-1",
               3
             ]
-          ]
+          ],
+          "setup": "Choose a broad open doorway with a clear route and a familiar helper who remains mostly visible behind its edge. Keep the other adult with the dog, rewards at the helper and an immediate reunion available."
         },
         {
           "id": "HIDESEEK-3",
@@ -5896,7 +6235,8 @@
               "HIDESEEK-2",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same open doorway and a familiar helper just behind it, with a short clear route and no closed door. Keep the other adult beside the dog and arrange an immediate gentle voice clue or reunion if needed."
         }
       ]
     },
@@ -5934,7 +6274,8 @@
             "NAMEDFIND-1",
             "NAMEDFIND-2",
             "NAMEDFIND-6"
-          ]
+          ],
+          "setup": "Place both familiar named toys fully visible on a clear nearby non-slip floor. Keep your hands and gaze neutral, rewards ready for a familiar give and a mixed label order planned."
         },
         {
           "id": "NAMEDFIND-B",
@@ -5960,7 +6301,8 @@
             "NAMEDFIND-3",
             "NAMEDFIND-4",
             "NAMEDFIND-5"
-          ]
+          ],
+          "setup": "Put one familiar toy aside and prepare an easy floor-level hiding spot beside a broad stable object. Keep the remaining toy mostly visible, the dog freely nearby and a clear delivery route to your receiving hand."
         },
         {
           "id": "NAMEDFIND-C",
@@ -5981,7 +6323,8 @@
           "replaces": [
             "NAMEDFIND-7",
             "NAMEDFIND-8"
-          ]
+          ],
+          "setup": "Prepare two easy accessible search spots for the familiar named toys, with at least one toy fully visible initially. Keep routes clear, rewards ready and your cues neutral; avoid tight, high or inaccessible hides."
         },
         {
           "id": "NAMEDFIND-D",
@@ -6000,7 +6343,8 @@
             "NAMEDFIND-10",
             "NAMEDFIND-11",
             "NAMEDFIND-12"
-          ]
+          ],
+          "setup": "Arrange a familiar helper to change only one easy floor-level placement while you remain neutral beside the dog. Keep new positions visible at first, the receiving hand and rewards ready, and a clear finished cue planned."
         }
       ]
     },
@@ -6020,7 +6364,8 @@
           "teach": "Let a familiar adult handle a clean cotton sample, then secure it inside a large vented container the dog cannot open or mouth. Present the container still and reward a voluntary sniff nearby from your hand. Put it away between turns. Keep rewards outside so scent and food are not stored together.",
           "advance": "Comfortably investigates the safe container during several brief rewarding presentations.",
           "easier": "Use a larger secured container or reward looking first. Stop for biting or frustrated pawing.",
-          "deps": []
+          "deps": [],
+          "setup": "Have a willing familiar adult handle clean cotton, then secure it inside a large ventilated container the dog cannot open or mouth. Keep rewards outside the container, with no oils, chemicals or loose samples accessible."
         },
         {
           "id": "SCENTMATCH-2",
@@ -6033,7 +6378,8 @@
               "SCENTMATCH-1",
               3
             ]
-          ]
+          ],
+          "setup": "Using clean tools, prepare two identical secured vented containers: one familiar-adult cotton sample and one untouched sample. Place them equally near, keep food separate and other dogs away, and avoid differing handling odors."
         },
         {
           "id": "SCENTMATCH-3",
@@ -6046,7 +6392,8 @@
               "SCENTMATCH-2",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare fresh matched cotton samples and a separate secured reference from the same familiar adult. Arrange a helper to swap identical containers, keep food outside them, and have a simple choice record ready."
         }
       ],
       "maintenance": false
@@ -6067,7 +6414,8 @@
           "teach": "Have a familiar adult walk a straight route of a few metres across clear safe ground and wait in view. Invite the dog to investigate from the start and follow at their pace, rewarding at the adult. Record the route beforehand. This visible introduction builds enjoyment rather than establishing tracking ability.",
           "advance": "Comfortably investigates along the tiny route and enjoys the reward at the familiar adult.",
           "easier": "Keep the adult closer or walk together. Skip if even brief distance causes distress.",
-          "deps": []
+          "deps": [],
+          "setup": "Choose clear safe ground away from roads and two familiar adults, with one waiting visibly a few metres away. Use comfortable equipment if needed, note the short straight route and keep food only at the finish."
         },
         {
           "id": "TRACKPERSON-2",
@@ -6084,7 +6432,8 @@
               "SCENTMATCH-1",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the dog comfortably with you while the familiar helper lays a fresh short straight route to a safe broad screen. Prepare their cotton sample in a secured container at the start, clean equipment and an easily revealed endpoint. Keep the route away from roads."
         },
         {
           "id": "TRACKPERSON-3",
@@ -6097,7 +6446,8 @@
               "TRACKPERSON-2",
               3
             ]
-          ]
+          ],
+          "setup": "Arrange a fresh five-to-ten-metre route with one broad bend on safe ground while the dog comfortably stays with you. Mark it for the humans, prepare the helper's secured scent sample and an easy finish with rewards, away from roads."
         }
       ],
       "maintenance": false
@@ -6118,7 +6468,8 @@
           "teach": "Present the familiar secured scent container at an easy natural height. Mark the first brief nose investigation before licking, pawing or grabbing starts, reward away and reset. Keep turns short and reward early. The container stays fixed rather than being pushed into the dog’s face.",
           "advance": "Offers gentle brief investigation without mouthing or pawing in several easy turns.",
           "easier": "Reward a glance or approach from farther away. Remove the prop if chewing or frustration starts.",
-          "deps": []
+          "deps": [],
+          "setup": "Secure the familiar human-cotton scent sample in a large ventilated container at natural head height. Fix it against movement, keep rewards separate and leave room to reset away; no oils or loose samples are accessible."
         },
         {
           "id": "SCENTINDICATE-2",
@@ -6131,7 +6482,8 @@
               "SCENTINDICATE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same fixed scent container at comfortable natural head height, with rewards accessible away from it. Keep the dog's head free and turns brief; no nose pressure or prolonged hold is planned."
         }
       ],
       "maintenance": false
@@ -6157,7 +6509,8 @@
               "SCENTMATCH-1",
               3
             ]
-          ]
+          ],
+          "setup": "Place the familiar secured human-scent container visibly on a clear floor, with food rewards separate in your hand. Keep samples, oils and container contents inaccessible, and leave space to investigate without pickup."
         },
         {
           "id": "ARTICLE-2",
@@ -6170,7 +6523,8 @@
               "ARTICLE-1",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare a tiny search area and a broad stable object partly screening the familiar secured container. Leave the access route open and rewards outside it, with the dog comfortably nearby and no climbing or cavities."
         }
       ],
       "maintenance": false
@@ -6191,7 +6545,8 @@
           "teach": "Show the clean shallow patch and let the dog investigate freely. If they offer one comfortable paw scrape, say “dig here,” reward beside the patch and let them explore again. Use an obvious safe favorite toy on the surface if helpful, without burying food or provoking frantic digging.",
           "advance": "Comfortably explores and offers a little voluntary digging in the patch.",
           "easier": "Accept sniffing or ordinary play instead. Some dogs do not enjoy digging; do not move their paws.",
-          "deps": []
+          "deps": [],
+          "setup": "Inspect a clean broad shallow patch of soft suitable material for sharp pieces. Separate other dogs, keep rewards beside the patch and an optional safe toy visible on its surface; leave an open exit and no buried food."
         },
         {
           "id": "DIG-2",
@@ -6204,7 +6559,8 @@
               "DIG-1",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the familiar checked digging patch, rewards and a pleasant next activity. Have a safe cover or barrier ready for afterward, keep other dogs separate and supervise for sore paws, grit or swallowing material."
         }
       ],
       "maintenance": false
@@ -6230,7 +6586,8 @@
               "SHELF-3",
               3
             ]
-          ]
+          ],
+          "setup": "Have an adult control the approved fridge door open, clear other reachable food and place the familiar safe carrier on its easy shelf. Check non-slip footing, a one-step delivery route and generous rewards at your receiving hand. Use sealed water inside the robust carrier, never glass or bare cans."
         },
         {
           "id": "DRINK-2",
@@ -6251,7 +6608,8 @@
               "PULL-3",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the approved easy-opening fridge, familiar safe rope handle and reachable carrier shelf with other food cleared. Check the door swing, non-slip route and component reward access; an adult remains ready to control motion. Use sealed water inside the robust carrier, never glass or bare cans."
         },
         {
           "id": "DRINK-3",
@@ -6264,7 +6622,8 @@
               "DRINK-2",
               3
             ]
-          ]
+          ],
+          "setup": "Choose human closure unless the dog-closure component is already comfortable. Prepare a human-opened fridge with clear return and swing paths, the familiar secure nose pad if used, and rewards at the receiving hand and door. Use sealed water inside the robust carrier, never glass or bare cans."
         },
         {
           "id": "DRINK-4",
@@ -6277,7 +6636,8 @@
               "DRINK-3",
               3
             ]
-          ]
+          ],
+          "setup": "Inspect the safe carrier, protected contents, reachable shelf and easy-opening approved fridge. Clear the whole short route and swing, prepare component cues and rewards, and arrange rope removal and blocked access afterward. Use sealed water inside the robust carrier, never glass or bare cans."
         }
       ],
       "project": {
@@ -6330,7 +6690,8 @@
               "THIRDBIN-2",
               3
             ]
-          ]
+          ],
+          "setup": "Secure the three familiar low marked baskets and place one separately taught safe toy for each on a clear non-slip floor. Keep routes equally easy and rewards accessible, with your hands neutral after the invitation."
         },
         {
           "id": "SORTALL-2",
@@ -6347,7 +6708,8 @@
               "THIRDBIN-3",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the marked baskets in their familiar positions and add only one separately taught second example initially. Check every toy for chewing or swallowing risk, clear short routes and prepare rewards for each deposit."
         },
         {
           "id": "SORTALL-3",
@@ -6360,7 +6722,8 @@
               "SORTALL-2",
               3
             ]
-          ]
+          ],
+          "setup": "With the dog away, move each familiar basket together with its large marker and shorten the approach routes. Use the same taught safe objects and keep your hands neutral, with rewards ready for deposits."
         },
         {
           "id": "SORTALL-4",
@@ -6373,7 +6736,8 @@
               "SORTALL-3",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare a small set of taught safe objects, familiar marked baskets and clear non-slip routes. Have component cues and rewards ready, with a definite end and prop removal after the last deposit."
         }
       ],
       "project": {
@@ -6421,7 +6785,8 @@
               "POST-D",
               3
             ]
-          ]
+          ],
+          "setup": "Arrange both familiar recipients equally close and still, with an empty safe pouch and a clear route back to the sender's mat. Keep rewards at the ends, hands neutral and no pointing or beckoning planned."
         },
         {
           "id": "COURIER-2",
@@ -6434,7 +6799,8 @@
               "COURIER-1",
               3
             ]
-          ]
+          ],
+          "setup": "Keep both familiar recipients visible with clear approaches, changing only a small distance difference. Agree that receiving hands appear after arrival, with no competing food displays or reaching for the pouch, and rewards ready."
         },
         {
           "id": "COURIER-3",
@@ -6447,7 +6813,8 @@
               "COURIER-2",
               3
             ]
-          ]
+          ],
+          "setup": "Place the familiar safe pouch with one light protected note on the low tray beside the sender's mat. Keep both named recipients visible and neutral, routes clear and rewards at handover and return; no loose ingestible contents."
         },
         {
           "id": "COURIER-4",
@@ -6460,7 +6827,8 @@
               "COURIER-3",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the familiar low tray, safe pouch, sender mat and short clear routes to both visible willing recipients. Check protected contents and rewards at both ends, with component cues available and a break after one round."
         }
       ],
       "project": {
@@ -6508,7 +6876,8 @@
               "HARNESS-3",
               3
             ]
-          ]
+          ],
+          "setup": "In a secure indoor area, prepare the familiar protected walk-kit carrier and comfortable fitting equipment. Have rewards accessible and space for the dog to leave fitting; the human will unpack and remove equipment during rehearsal."
         },
         {
           "id": "WALKREADY-2",
@@ -6521,7 +6890,8 @@
               "WALKREADY-1",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the familiar kit and a clear indoor fitting area, with clips and straps accessible to the human. Have rewards ready for the dog's comfortable chosen posture and room to withdraw rather than any restraint."
         },
         {
           "id": "WALKREADY-3",
@@ -6542,7 +6912,8 @@
               "LOOSE-1",
               2
             ]
-          ]
+          ],
+          "setup": "Fit and check comfortable equipment, with the adult securely holding the lead. Choose a closed indoor practice door behind a second secure boundary, clear its swing and keep rewards ready for a brief pause."
         },
         {
           "id": "WALKREADY-4",
@@ -6555,7 +6926,8 @@
               "WALKREADY-3",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the designated protected kit station, voluntary fitting area and closed practice door with a second boundary. Check the whole indoor route, human access to clips and doors, and rewards for useful pauses; an indoor finish is sufficient."
         }
       ],
       "project": {
@@ -6607,7 +6979,8 @@
               "STAND-1",
               3
             ]
-          ]
+          ],
+          "setup": "Place one clear human-readable station card a few easy steps away in an enclosed non-slip area. Clear the heel approach and stand/release space, with rewards accessible; the dog does not need to read the card."
         },
         {
           "id": "RALLY-2",
@@ -6624,7 +6997,8 @@
               "CONE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Add a familiar soft cone after the first station with generous walking clearance and a broad loop. Keep the connecting route open and rewards accessible at each finish, with distinct component cues ready."
         },
         {
           "id": "RALLY-3",
@@ -6637,7 +7011,8 @@
               "RALLY-2",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare three familiar stations ending in a comfortable stand and release, linked by broad non-slip walking routes. Keep rewards ready between stations and remove speed, competition precision or tight-turn demands."
         }
       ],
       "maintenance": false,
@@ -6686,7 +7061,8 @@
               "TUNNEL-2",
               3
             ]
-          ]
+          ],
+          "setup": "Secure the familiar wide hoop on the floor and the shortest bright open tunnel far apart on non-slip ground. Clear a straight walking connection and easy bypasses, check snag-free equipment, and have rewards at each exit."
         },
         {
           "id": "CIRCUIT-2",
@@ -6703,7 +7079,8 @@
               "POLES-2",
               3
             ]
-          ]
+          ],
+          "setup": "Keep the familiar hoop/tunnel arrangement and add widely spaced secured ground poles beyond it with generous straight clearance. Check ordinary stride spacing and all bypasses, with rewards accessible after each separate piece."
         },
         {
           "id": "CIRCUIT-3",
@@ -6716,7 +7093,8 @@
               "CIRCUIT-2",
               3
             ]
-          ]
+          ],
+          "setup": "Check the familiar floor-level hoop, short secured open tunnel and widely spaced ground poles in an open non-slip area. Preserve broad connections and bypasses, prepare component cues and rewards, and plan only one easy route."
         }
       ],
       "maintenance": false,
@@ -6763,7 +7141,8 @@
               "SCENTINDICATE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Fix the familiar secured human-scent container in a fully visible nearby floor-level spot. Keep food outside it and accessible beside the find, with room for a soft nose hover and no loose samples or oils."
         },
         {
           "id": "SCENTREPORT-2",
@@ -6780,7 +7159,8 @@
               "TOUCH-2",
               3
             ]
-          ]
+          ],
+          "setup": "Use the same visible fixed container and stand only a clear step away. Keep your target hand empty and rewards accessible both beside the find and at your hand, with an unobstructed return route."
         },
         {
           "id": "SCENTREPORT-3",
@@ -6793,7 +7173,8 @@
               "SCENTREPORT-2",
               3
             ]
-          ]
+          ],
+          "setup": "Partly screen the familiar secured container behind a broad stable object in the tiny known search area. Keep all access open, stand nearby with an empty target hand, and have rewards and component cues ready."
         }
       ],
       "maintenance": false,
@@ -6842,7 +7223,8 @@
               "CIRCLEME-2",
               3
             ]
-          ]
+          ],
+          "setup": "Choose an enclosed non-slip area with a steady handler and generous space for a natural brief bow and broad circle. Keep rewards accessible and clear room for a full stand reset between actions; no speed or audience is needed."
         },
         {
           "id": "ROUTINE-2",
@@ -6859,7 +7241,8 @@
               "POSE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Use the familiar broad circle route and a comfortable pose spot with secure footing. Keep rewards ready and the camera put away, with space for a pause and a clear finished cue afterward."
         },
         {
           "id": "ROUTINE-3",
@@ -6872,7 +7255,8 @@
               "ROUTINE-2",
               3
             ]
-          ]
+          ],
+          "setup": "Prepare the familiar comfortable bow, broad circle and brief pose in one open non-slip space. Have individual cues and rewards available between pieces, with an honest break ready after one supported routine."
         }
       ],
       "maintenance": false,
@@ -8581,5 +8965,6 @@
         }
       ]
     }
-  ]
+  ],
+  "setupRevision": 1
 }
