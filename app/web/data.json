@@ -1,6 +1,6 @@
 {
-  "version": 7,
-  "updated": "2026-10-26",
+  "version": 8,
+  "updated": "2026-10-28",
   "name": "Good Ground",
   "skills": [
     {
@@ -259,16 +259,16 @@
       "code": "LEAVE",
       "title": "Leave an item alone",
       "sheet": "Foundations",
-      "goal": "Turn away from an accessible-looking practice item before taking it.",
+      "goal": "Turn away from a protected harmless item, on a cue or by a reinforced choice in practiced situations.",
       "cue": "Leave",
-      "setup": "Safe boring item behind a transparent container or otherwise out of reach.",
+      "setup": "Harmless low-interest practice items secured out of reach, better rewards and room to move away. For guarding, use individual professional help rather than approach-and-remove exercises.",
       "sources": "P12",
       "priority": "Core",
       "steps": [
         {
           "id": "LEAVE-1",
           "title": "Reward turning away",
-          "teach": "Place a boring safe practice item where the dog can see but cannot grab it. Stay nearby with better rewards. Mark even a brief look away and feed away from the item. Reset with an easy approach. Do not use a valuable object that creates prolonged frustration.",
+          "teach": "Place a harmless low-interest item where the dog can see but cannot reach it. Begin far enough away for an easy brief look away. Mark that look away and promptly feed away from the item. Reset with space or a break. If attention sticks, increase distance or use a less interesting item; do not wait through frustration or provoke guarding.",
           "advance": "Readily turns away from the protected item for a reward in 4 of 5 easy opportunities.",
           "easier": "Make the item less interesting or start farther away; shorten the waiting time.",
           "deps": [],
@@ -276,17 +276,49 @@
         },
         {
           "id": "LEAVE-2",
-          "title": "Add the cue, then remove the barrier gradually",
-          "teach": "Say “leave” just before the familiar look-away opportunity and reward from you, away from the item. Set a safe boring item on the floor behind a secure barrier or under a clear sturdy cover so it cannot be taken. Gradually reduce your gesture, then vary the item slightly. Keep protection in place until easy. A comfortable leash setup is optional; never pull the dog away or test with hazards.",
+          "title": "Name the familiar turn away",
+          "teach": "Say “leave” once just before the familiar turn-away opportunity. Mark the turn and promptly reward from you, away from the item. Use one harmless floor item behind a secure barrier or under a sturdy clear cover. Fade your gesture before varying the item. Keep protection in place; never pull the dog away or test with hazards. This cue is useful communication, not a guarantee when you are absent.",
           "advance": "Turns away on one cue from the selected safe floor item on 4 of 5 attempts in two sessions.",
-          "easier": "Replace the barrier or increase distance. Do not rehearse with toxic food or rely on this cue as your only safety measure.",
+          "easier": "Increase distance or reduce item interest. Keep food, medicines, rubbish and other hazards inaccessible, including whenever nobody is supervising.",
           "deps": [
             [
               "LEAVE-1",
               3
             ]
           ],
-          "setup": "Prepare one harmless practice item under a sturdy clear cover or behind a secure barrier. Keep the floor around it clear and better rewards with you; protection stays in place during early cue practice."
+          "setup": "Prepare one harmless practice item under a sturdy clear cover or behind a secure barrier. Keep the floor clear, better rewards with you and enough distance for an easy turn; protection stays in place."
+        },
+        {
+          "id": "LEAVE-3",
+          "title": "Reward offered choices in another easy setup",
+          "teach": "Return to the easiest protected item. Without saying “leave,” mark a spontaneous look or step away and reward away from it. On another short practice, change only the harmless item OR its location and make the distance easier again. Mix these offered choices with separate familiar cued turns. Invited food-search games remain separate activities; this is not a rule that all food on the floor must be ignored.",
+          "advance": "Offers easy disengagement with more than one harmless protected item or placement across separate short practices; no prolonged staring or frustration.",
+          "easier": "Return to the original item and greater distance. If unprompted disengagement is not easy, help by ending the view rather than repeating tests.",
+          "setup": "Prepare a familiar protected harmless item and one similarly boring alternative. Keep both inaccessible and present only one at a time; set rewards away from the item and leave room to retreat.",
+          "deps": [
+            [
+              "LEAVE-1",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "LEAVE-4",
+          "title": "Try a little distance while you stay present",
+          "teach": "With the easiest protected setup, stand half a step farther away while remaining in the room and able to supervise. Reward an easy offered turn or use the familiar cue and reward that response. Record which occurred. Return closer between attempts. Change only handler distance; do not add absence, accessible hazards or more tempting items. Put items safely away after practice.",
+          "advance": "Comfortably disengages at the selected small handler distance in separate short practices; records distinguish cued responses from offered choices.",
+          "easier": "Return beside the dog or make the item less interesting. For times you cannot supervise, use secure storage and barriers rather than an unattended training test.",
+          "setup": "Use the familiar secured harmless item in a clear room with better rewards ready. Choose a tiny increase in your distance that still permits active supervision; nobody leaves the room.",
+          "deps": [
+            [
+              "LEAVE-2",
+              3
+            ],
+            [
+              "LEAVE-3",
+              3
+            ]
+          ]
         }
       ]
     },
@@ -297,13 +329,13 @@
       "goal": "Pause briefly before moving through a doorway together.",
       "cue": "Wait / free",
       "setup": "An interior door, open floor space, and no escape to outdoors.",
-      "sources": "P16; P18",
+      "sources": "P16; V112",
       "priority": "Core",
       "steps": [
         {
           "id": "WAIT-1",
           "title": "Reward a pause beside the doorway",
-          "teach": "At an open interior doorway, reward your dog for standing or sitting beside you for one second. Say “free” and move through together. Repeat until the pause is easy. Teach this beside a harmless doorway before involving an exterior door.",
+          "teach": "At an open interior doorway, reward your dog for standing or sitting beside you for one second. Say “free” and move through together. Repeat until the pause is easy. Teach this beside a harmless doorway before involving an exterior door. As this becomes familiar, reward a pause the dog offers when you approach together, then release through the safe interior doorway. Do not require a fixed posture.",
           "advance": "Offers a one-second pause with you in 4 of 5 easy repetitions.",
           "easier": "Move farther from the doorway and shorten the pause. Avoid blocking the dog with your body.",
           "deps": [
@@ -317,7 +349,7 @@
         {
           "id": "WAIT-2",
           "title": "Add gentle door movement",
-          "teach": "Say “wait,” move the interior door only an inch, and reward the pause before releasing. Build opening width in small changes, keeping the pause short. If your dog moves, calmly reset farther back and use a smaller door movement; never swing it into them.",
+          "teach": "Say “wait,” move the interior door only an inch, and reward the pause before releasing. Build opening width in small changes, keeping the pause short. If your dog moves, calmly reset farther back and use a smaller door movement; never swing it into them. Keep waiting time short while changing opening width. A learned pause does not replace physical security at exits.",
           "advance": "Can pause for a gentle full opening, then pass on release on 4 of 5 attempts in two sessions.",
           "easier": "Use a smaller opening or no door movement. Continue using a leash/barrier at exterior doors regardless of training.",
           "deps": [
@@ -337,7 +369,7 @@
       "goal": "Use a predictable comfortable toilet location and tell you when needed.",
       "cue": "Choose a toilet cue if useful",
       "setup": "Regular access; investigate new accidents medically.",
-      "sources": "R01",
+      "sources": "R01; V058",
       "priority": "Optional basics",
       "steps": [
         {
@@ -594,7 +626,7 @@
         {
           "id": "FOODWAIT-1",
           "title": "A tiny pause before placement",
-          "teach": "Hold the bowl at a comfortable height while your dog stands freely nearby. Reward a moment with all paws on the floor, say “eat,” and place the bowl down within easy reach. Begin with almost no delay. Never repeatedly lift a bowl away as the dog approaches.",
+          "teach": "Hold the bowl at a comfortable height while your dog stands freely nearby. Reward a moment with all paws on the floor, say “eat,” and place the bowl down within easy reach. Begin with almost no delay. Never repeatedly lift a bowl away as the dog approaches. This is optional bowl placement practice, not a condition for receiving meals. Feed promptly without a wait if it causes frustration; guarding calls for individual help, not bowl removal.",
           "advance": "Comfortably pauses a moment and approaches the placed bowl after the invitation.",
           "easier": "Feed the meal normally. Practice with a nearly empty bowl and a separate tiny reward another time.",
           "deps": [],
@@ -743,7 +775,7 @@
       "goal": "Practice small absences without distress; not a full panic-treatment program.",
       "cue": "No cue needed",
       "setup": "Camera; a familiar safe area; skip to individual help if absences already cause panic.",
-      "sources": "P24",
+      "sources": "P24; V086",
       "priority": "Optional anxiety",
       "steps": [
         {
@@ -771,17 +803,12 @@
         },
         {
           "id": "ALONE-3",
-          "title": "Separate departure cues from duration",
-          "teach": "If a tiny absence is comfortable, practice one departure action, such as touching keys, without leaving. On another occasion, repeat the easy absence without extra cues. Only combine them after both are comfortable. Long actual departures need their own supported plan.",
-          "advance": "The selected departure action and tiny absence are both comfortable; a longer plan is set to the individual dog.",
-          "easier": "Drop the departure action or shorten the absence. Persistent pacing, escape attempts, or distress means pause and seek individualized care.",
-          "deps": [
-            [
-              "ALONE-2",
-              3
-            ]
-          ],
-          "setup": "Prepare the same camera and easy absence arrangement. Choose one quiet departure prop, such as keys, and keep it within reach; avoid combining several new departure signals."
+          "title": "Make one departure action comfortable",
+          "teach": "Choose one departure action, such as touching keys. Start with a smaller or quieter version that your dog notices comfortably, then offer something they enjoy and remain at home. Repeat only a few easy times with breaks; do not rehearse worry. This can run alongside in-view movement practice. Tiny absences stay at the level comfortable in ALONE-2 and are combined with this action only after both are easy. Longer departures need an individual supported plan.",
+          "advance": "The selected departure action can occur without vigilance or distress across separate short practices. This does not certify any duration alone.",
+          "easier": "Choose a smaller action or put the prop away. Manage necessary absences to avoid distress while arranging individualized veterinary or qualified behavior support.",
+          "deps": [],
+          "setup": "Keep your dog in their comfortable familiar area with a camera available to observe their whole body. Choose one quiet departure action and suitable rewards; this exercise includes no departure."
         }
       ]
     },
@@ -1308,7 +1335,7 @@
           "easier": "Shorten the pretend crossing or practice loose steps separately. No leash pressure to keep pace.",
           "deps": [
             [
-              "CURB-2",
+              "CURB-1",
               3
             ],
             [
@@ -1327,6 +1354,10 @@
           "deps": [
             [
               "CROSS-1",
+              3
+            ],
+            [
+              "CURB-2",
               3
             ]
           ],
@@ -1425,7 +1456,7 @@
         {
           "id": "DOG-1",
           "title": "Find a comfortable viewing setup",
-          "teach": "Choose a wide quiet area where you can retreat without passing the other dog. Begin farther away than you think necessary. Allow one brief distant sighting, then leave the view. Record distance and body language without approaching to find the breaking point. Both dogs and handlers need to be comfortable.",
+          "teach": "Choose a wide quiet area where you can retreat without passing the other dog. Begin farther away than you think necessary. Allow one brief distant sighting, then leave the view. Record distance and body language without approaching to find the breaking point. Both dogs and handlers need to be comfortable. Promptly offer desired food when the helper is comfortably noticed; no obedience is needed. This is a brief supported observation, not a test of how long the dog can tolerate a view.",
           "advance": "Can notice the helper dog with loose movement and ordinary interest, then return to baseline when the view ends.",
           "easier": "Start farther away or use a partial visual barrier. If no comfortable setup is available, use management and individual professional help.",
           "deps": [],
@@ -1514,7 +1545,7 @@
         {
           "id": "PARALLEL-1",
           "title": "Add parallel movement",
-          "teach": "After a comfortable stationary sighting, have both handlers walk in the same direction at the established wide separation. Keep the dogs from converging. Walk only a few steps, reward comfortable observation or check-ins, then curve farther apart for a break.",
+          "teach": "After a comfortable stationary sighting, have both handlers walk in the same direction at the established wide separation. Keep the dogs from converging. Walk only a few steps, promptly offer desired food when the helper is noticed comfortably, with extra rewards for freely offered check-ins, then curve farther apart for a break.",
           "advance": "Both dogs remain comfortable through several short parallel stretches and recover normally after breaks.",
           "easier": "Increase separation and shorten the stretch, or return to stationary sightings. Do not walk directly toward each other.",
           "deps": [
@@ -1847,12 +1878,12 @@
         {
           "id": "VISITOR-4",
           "title": "Add one visitor action",
-          "teach": "At the successful separated/viewing arrangement, ask the adult to say one quiet word or shift slightly, then stop. Pair the event with food. On separate visits, try standing partway or leaving. Return to the easier arrangement with each new person.",
+          "teach": "At the successful fully separated arrangement, ask the seated adult to say one quiet word, then stop; pair the noticed sound promptly with desired food. No view is required. If you choose visible movements, first use the safe comfortable viewing setup in VISITOR-3. Change only one action per practice and keep the barrier and retreat. Rebuild with each new person.",
           "advance": "Comfortable observations of the selected action over two visits; no pressure to approach or remove the barrier.",
           "easier": "Use a smaller action, greater separation, or no view. Escalation or bite concerns require an individual plan.",
           "deps": [
             [
-              "VISITOR-3",
+              "VISITOR-2",
               3
             ]
           ],
@@ -1952,7 +1983,7 @@
       "goal": "Build a positive association with one adjustable sound.",
       "cue": "No cue",
       "setup": "One chosen sound; controllable speaker; quiet home; stop playback immediately if needed.",
-      "sources": "P05; P26; P29",
+      "sources": "P05; R06; P27; P29",
       "priority": "Core",
       "steps": [
         {
@@ -2068,9 +2099,9 @@
         },
         {
           "id": "STORM-2",
-          "title": "Use the plan during the real event",
-          "teach": "Before expected noise, bring your dog inside and use the familiar quiet setup. Stay available; offer food or play if wanted, and calm contact if sought. Do not require a posture or formal training. Afterward record observations and recovery; review poor outcomes with your vet before the next event.",
-          "advance": "The support plan has been used and reviewed. Marking this step complete means the plan is ready, not that noise fear is cured.",
+          "title": "Prepare to use and review the plan",
+          "teach": "On a quiet day, write when you will bring your dog inside, secure exits and prepare the familiar refuge. Check that trusted support and any veterinarian-prescribed plan are available. During an actual event, offer food, play or contact if wanted without requiring a posture. Afterward record comfort and recovery and review poor outcomes with your vet before the next event. Do not create a noise event to complete this step.",
+          "advance": "The practical support plan is written and ready. Review it after real events when they occur; completing this step does not mean noise fear is cured.",
           "easier": "Increase protection and trusted support; do not test louder exposure. Panic or persistent distress calls for veterinary reassessment.",
           "deps": [
             [
@@ -2078,7 +2109,7 @@
               3
             ]
           ],
-          "setup": "Before the expected event, bring your dog inside, secure escape routes and prepare the rehearsed refuge. Keep water, optional food or play and trusted company available, following the existing veterinary plan without adding a training test."
+          "setup": "On a quiet day, have your refuge checklist, support contacts and any existing veterinary instructions ready. Rehearse ordinary preparations without noise exposure; no storm or fireworks event is needed."
         }
       ]
     },
@@ -2095,7 +2126,7 @@
         {
           "id": "OBJECT-1",
           "title": "Start with the object still and off",
-          "teach": "Put the object far enough away that your dog can notice it comfortably. Reward looking or calm exploration from you, without luring closer. Let them retreat. If the object is already frightening merely at sight, use more distance or only a partial view.",
+          "teach": "Place the stationary switched-off object far enough away for your dog to notice comfortably. Promptly offer desired food from you when it is noticed; no approach or posture is required. Let the dog retreat. If sight alone is worrying, use more distance or a partial view. Do not lure toward the object or withhold support while waiting for exploration.",
           "advance": "Several brief comfortable views across two sessions; the dog can choose ordinary movement and retreat.",
           "easier": "Increase distance or show less of the object. Do not place food on it to force approach.",
           "deps": [],
@@ -2118,15 +2149,10 @@
         {
           "id": "OBJECT-3",
           "title": "Introduce sound separately",
-          "teach": "For an appliance, begin a very faint brief recording or run it behind a distant closed door while the dog remains comfortable. Pair the noticed sound with food, then stop. Rebuild sight and sound separately before combining them at an easier level.",
-          "advance": "Separate sound and motion versions are comfortable; any first combination remains easy over two sessions.",
+          "teach": "Begin with a very faint brief recording or a helper running the appliance behind a distant closed door, while the dog has a clear retreat. Pair the comfortably noticed sound promptly with desired food, then stop. No visible object or movement is needed. Rebuild sound and visible movement separately; only after each is comfortable should any combination begin at an easier level.",
+          "advance": "Several brief sound-only presentations remain comfortable in separate short practices, with ordinary behavior and recovery. Combining sound and movement is not required.",
           "easier": "Return to one component only or arrange for the dog to stay elsewhere during actual use.",
-          "deps": [
-            [
-              "OBJECT-2",
-              3
-            ]
-          ],
+          "deps": [],
           "setup": "Prepare a faint recording or a helper controlling the appliance behind a distant closed door. Keep the dog in a comfortable separate area with rewards and an immediate sound cutoff; do not add visible motion yet."
         }
       ]
@@ -2237,7 +2263,7 @@
         {
           "id": "ELEVATOR-2",
           "title": "Enter and exit while stationary",
-          "teach": "With a helper safely using the door controls according to building rules, invite a voluntary step into the stationary empty car. Reward and exit promptly together. Build toward a full brief entry with enough room to turn. Keep the lead slack and all feet clear of the moving-door zone.",
+          "teach": "With a helper safely using the door controls according to building rules, invite a voluntary step into the stationary empty car. Reward and exit promptly together. Build toward a full brief entry with enough room to turn. Keep the lead slack and all feet clear of the moving-door zone. Use an ordinary short non-retractable leash with slack. Handler and dog enter and exit together; never let the doors separate them or close on the leash.",
           "advance": "Chooses full entry and a calm immediate exit in several stationary rehearsals.",
           "easier": "Reward approaching from outside. Never lure a worried dog past a closing door.",
           "deps": [
@@ -2287,7 +2313,7 @@
         {
           "id": "AUTODOOR-2",
           "title": "One generous walking pass",
-          "teach": "Have the helper safely activate the doors and confirm they are fully open. Invite your dog to walk beside you through the broad opening, reward beyond it, then take a break. Keep the lead and tail clear and walk at a natural pace, with room to abort before entry.",
+          "teach": "Have the helper safely activate the doors and confirm they are fully open. Invite your dog to walk beside you through the broad opening, reward beyond it, then take a break. Keep the lead and tail clear and walk at a natural pace, with room to abort before entry. Use an ordinary short non-retractable leash with slack and pass through together. Never depend on the sensor detecting the dog or leash.",
           "advance": "Walks through a fully open doorway comfortably in two short visits.",
           "easier": "Return to observation or use a manual alternative. Never hurry a hesitant dog through narrowing panels.",
           "deps": [
@@ -2449,7 +2475,7 @@
         {
           "id": "CHIN-2",
           "title": "Add a short hold and an exit",
-          "teach": "Reward a half-second of voluntary chin contact, then invite a break. Build to one or two seconds with easier attempts mixed in. Add “chin” just before offering the familiar target. Lifting the chin ends the attempt; never hold it down or block withdrawal.",
+          "teach": "Reward a half-second of voluntary chin contact, then invite a break. Build to one or two seconds with easier attempts mixed in. Add “chin” just before offering the familiar target. Lifting the chin ends the attempt; never hold it down or block withdrawal. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Offers and briefly holds the target on the chosen cue/signal in 4 of 5 comfortable attempts across two sessions.",
           "easier": "Shorten the hold and reward sooner. This posture alone is not proof that handling feels safe.",
           "deps": [
@@ -2475,7 +2501,7 @@
         {
           "id": "HANDLE-1",
           "title": "Make one small hand movement comfortable",
-          "teach": "With the dog free to leave, offer the known chin target. Move your other hand slightly toward a comfortable shoulder, then stop and reward. End hand movement immediately if the chin lifts. Wait for a voluntary new start; do not keep repositioning the dog.",
+          "teach": "With the dog free to leave, offer the known chin target. Move your other hand slightly toward a comfortable shoulder, then stop and reward. End hand movement immediately if the chin lifts. Wait for a voluntary new start; do not keep repositioning the dog. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Several small hand movements are comfortable and the handler consistently honors withdrawal.",
           "easier": "Make the hand motion smaller or omit the chin signal until the dog is comfortable with the setup.",
           "deps": [
@@ -2489,7 +2515,7 @@
         {
           "id": "HANDLE-2",
           "title": "Add a moment of gentle touch",
-          "teach": "After a voluntary start, touch the healthy shoulder lightly for less than a second, remove the hand, and reward. Build one feature at a time—brief duration OR a nearby body area—while continuing to stop at withdrawal. Do not use food to conceal a difficult procedure.",
+          "teach": "After a voluntary start, touch the healthy shoulder lightly for less than a second, remove the hand, and reward. Build one feature at a time—brief duration OR a nearby body area—while continuing to stop at withdrawal. Do not use food to conceal a difficult procedure. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Several brief touches in two sessions are comfortable, with easy re-initiation and no avoidance after the break.",
           "easier": "Use a shorter/lighter touch. Stop and consult the vet for new sensitivity or possible pain.",
           "deps": [
@@ -2515,7 +2541,7 @@
         {
           "id": "BRUSH-1",
           "title": "Introduce the tool separately",
-          "teach": "Show a soft brush or towel at a comfortable distance, then reward. Put it away between presentations. After comfortable sighting, move it slightly near a healthy easy area without touching, reward, and remove. Do not begin with a tangle or a sensitive spot.",
+          "teach": "Show a soft brush or towel at a comfortable distance, then reward. Put it away between presentations. After comfortable sighting, move it slightly near a healthy easy area without touching, reward, and remove. Do not begin with a tangle or a sensitive spot. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Comfortable with the tool’s appearance and small movement in several short sessions.",
           "easier": "Use a softer tool or greater distance; ask your vet about skin discomfort.",
           "deps": [],
@@ -2524,7 +2550,7 @@
         {
           "id": "BRUSH-2",
           "title": "Try one gentle stroke",
-          "teach": "After a voluntary start signal or relaxed approach, give one light short stroke on a comfortable shoulder, then stop and reward. Wait for the dog to choose another turn. Gradually try two strokes, mixing single easy ones in. End at any withdrawal.",
+          "teach": "After a voluntary start signal or relaxed approach, give one light short stroke on a comfortable shoulder, then stop and reward. Wait for the dog to choose another turn. Gradually try two strokes, mixing single easy ones in. End at any withdrawal. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Repeated short grooming turns are comfortable across two sessions, with no avoidance afterward.",
           "easier": "Reduce pressure or use only a momentary towel touch. Painful matting or necessary grooming needs an individualized care plan.",
           "deps": [
@@ -2550,7 +2576,7 @@
         {
           "id": "NAIL-1",
           "title": "Start above the paw",
-          "teach": "With your dog free to stand or lie comfortably, briefly touch a healthy upper leg, remove the hand, and reward. Gradually work lower over separate sessions, stopping if the dog pulls away. Do not grab or hold a paw to prevent movement.",
+          "teach": "With your dog free to stand or lie comfortably, briefly touch a healthy upper leg, remove the hand, and reward. Gradually work lower over separate sessions, stopping if the dog pulls away. Do not grab or hold a paw to prevent movement. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Light contact near the paw remains comfortable in several observations over two sessions.",
           "easier": "Stay higher on the leg or use a shorter touch. New paw sensitivity needs veterinary assessment.",
           "deps": [],
@@ -2559,7 +2585,7 @@
         {
           "id": "NAIL-2",
           "title": "Separate tool appearance from contact",
-          "teach": "Show the nail tool at a comfortable distance, reward, and put it away. Introduce its quiet sound separately if relevant. Bring it slightly nearer only while the dog freely remains comfortable; stop well short of paw contact. Paw-touch preparation can run separately at NAIL-1. Actual clipping or grinding needs individual instruction on anatomy, technique and comfort, rather than following automatically.",
+          "teach": "Show the nail tool at a comfortable distance, reward, and put it away. Introduce its quiet sound separately if relevant. Bring it slightly nearer only while the dog freely remains comfortable; stop well short of paw contact. Paw-touch preparation can run separately at NAIL-1. Actual clipping or grinding needs individual instruction on anatomy, technique and comfort, rather than following automatically. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Comfortable with the selected non-contact preparation in two sessions; an appropriate next-care plan is arranged.",
           "easier": "Return the tool farther away or omit its sound. Never restrain the paw to finish a training repetition.",
           "deps": [],
@@ -2580,7 +2606,7 @@
         {
           "id": "TEETH-1",
           "title": "Comfort with the care items",
-          "teach": "Let the dog see the soft brush at a comfortable distance and reward relaxed interest. Separately offer a tiny taste of veterinarian-approved pet toothpaste if suitable. Keep hands away from the mouth while building pleasant associations with the items.",
+          "teach": "Let the dog see the soft brush at a comfortable distance and reward relaxed interest. Separately offer a tiny taste of veterinarian-approved pet toothpaste if suitable. Keep hands away from the mouth while building pleasant associations with the items. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Comfortably sees the brush and voluntarily accepts the chosen pet-safe taste if used.",
           "easier": "Remove the paste, increase brush distance, or ask the veterinary team about discomfort or suitable materials.",
           "deps": [],
@@ -2589,7 +2615,7 @@
         {
           "id": "TEETH-2",
           "title": "Invite a tiny lip touch",
-          "teach": "Ask your veterinary team to demonstrate a suitable safe approach. When the dog voluntarily offers their familiar chin rest, briefly touch the outer lip area as demonstrated, remove your hand, and reward. Stop immediately if the dog withdraws.",
+          "teach": "Ask your veterinary team to demonstrate a suitable safe approach. When the dog voluntarily offers their familiar chin rest, briefly touch the outer lip area as demonstrated, remove your hand, and reward. Stop immediately if the dog withdraws. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Freely offers repeated start signals and stays comfortable with a momentary gentle lip-area touch.",
           "easier": "Return to hand movement at a distance. Pain, guarding, or resistance calls for individual help, not holding the head.",
           "deps": [
@@ -2607,7 +2633,7 @@
         {
           "id": "TEETH-3",
           "title": "One gentle outside-tooth stroke",
-          "teach": "Following the veterinary demonstration and only after comfortable lip-area work, use the soft pet brush for one gentle brief stroke on an accessible outer tooth surface. Stop, reward, and offer a break. Add tiny amounts of brushing only while participation remains voluntary.",
+          "teach": "Following the veterinary demonstration and only after comfortable lip-area work, use the soft pet brush for one gentle brief stroke on an accessible outer tooth surface. Stop, reward, and offer a break. Add tiny amounts of brushing only while participation remains voluntary. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Comfortably accepts one gentle demonstrated stroke and willingly returns for another invitation. Full brushing is built gradually with veterinary guidance.",
           "easier": "Return to brush presence or lip-area work. Stop for pain, bleeding, tension, avoidance, or any need for restraint.",
           "deps": [
@@ -2682,7 +2708,7 @@
         {
           "id": "CLIP-1",
           "title": "Clip sound and hand approach",
-          "teach": "Hold the lead far enough away for comfort, operate the clip softly, then reward. Separately bring an empty hand a little toward the attachment point, reward and withdraw. Let the dog step away whenever wanted. Keep the sound and reach separate until both are easy.",
+          "teach": "Hold the lead far enough away for comfort, operate the clip softly, then reward. Separately bring an empty hand a little toward the attachment point, reward and withdraw. Let the dog step away whenever wanted. Keep the sound and reach separate until both are easy. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Comfortable with the quiet clip sound and a short hand approach over several voluntary turns.",
           "easier": "Muffle or replace a loud clip and increase distance. Do not touch equipment while the dog avoids you.",
           "deps": [],
@@ -2691,7 +2717,7 @@
         {
           "id": "CLIP-2",
           "title": "Attach, reward, remove",
-          "teach": "Invite the dog near, briefly touch the familiar attachment area, reward and withdraw. After easy touches, attach the clip, reward, then remove it immediately. Keep the line supported so it does not swing into legs. Slowly add a few comfortable steps only when attachment itself is unremarkable.",
+          "teach": "Invite the dog near, briefly touch the familiar attachment area, reward and withdraw. After easy touches, attach the clip, reward, then remove it immediately. Keep the line supported so it does not swing into legs. Slowly add a few comfortable steps only when attachment itself is unremarkable. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Freely approaches for clipping and unclipping and moves comfortably afterward in two sessions.",
           "easier": "Return to the hand approach or equipment comfort. Clipping is not permission to restrain a worried dog.",
           "deps": [
@@ -2718,7 +2744,7 @@
         {
           "id": "COLLAR-1",
           "title": "Predict a brief touch",
-          "teach": "Say the chosen warning softly, reach only partway toward the equipment, reward and withdraw. Build toward a momentary finger contact on the outside without gripping. Keep your hand visible from the side, and let any movement away end the turn. Practice before a real need arises.",
+          "teach": "Say the chosen warning softly, reach only partway toward the equipment, reward and withdraw. Build toward a momentary finger contact on the outside without gripping. Keep your hand visible from the side, and let any movement away end the turn. Practice before a real need arises. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Voluntarily stays loose through several predicted brief outside touches.",
           "easier": "Reach less far or use an easier body area. Skip and seek help for guarding or bite risk.",
           "deps": [],
@@ -2727,7 +2753,7 @@
         {
           "id": "COLLAR-2",
           "title": "A loose momentary hold",
-          "teach": "After easy contact, briefly place fingers around a safe section of equipment with no pressure on the neck or body. Reward and release immediately. Mix contact-only turns with this tiny hold. Never use a treat to conceal a grab or keep holding until the dog stops resisting.",
+          "teach": "After easy contact, briefly place fingers around a safe section of equipment with no pressure on the neck or body. Reward and release immediately. Mix contact-only turns with this tiny hold. Never use a treat to conceal a grab or keep holding until the dog stops resisting. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Freely returns for predicted momentary no-pressure holds across two easy sessions.",
           "easier": "Return to a touch. This does not make grabbing, lifting by equipment or restraint during fear safe.",
           "deps": [
@@ -2754,7 +2780,7 @@
         {
           "id": "RINSE-1",
           "title": "Explore the dry tray",
-          "teach": "Secure the broad tray so it cannot slide or wobble. Reward looking, approaching and voluntary foot contacts with the empty surface. Invite an easy step off after each contact. Build toward comfortable standing only if all feet fit with room; never place paws into the tray yourself.",
+          "teach": "Secure the broad tray so it cannot slide or wobble. Reward looking, approaching and voluntary foot contacts with the empty surface. Invite an easy step off after each contact. Build toward comfortable standing only if all feet fit with room; never place paws into the tray yourself. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Voluntarily steps into and out of the stable dry tray several times.",
           "easier": "Use a flat non-slip mat or a wider tray. Stop at any uneven movement.",
           "deps": [],
@@ -2763,7 +2789,7 @@
         {
           "id": "RINSE-2",
           "title": "A trace of water",
-          "teach": "Add only enough plain water to dampen a small area while the dog is away. Let them inspect and reward a voluntary single foot contact, then offer an immediate exit. Increase coverage only across comfortable turns. Keep water still, without pouring or splashing near the dog.",
+          "teach": "Add only enough plain water to dampen a small area while the dog is away. Let them inspect and reward a voluntary single foot contact, then offer an immediate exit. Increase coverage only across comfortable turns. Keep water still, without pouring or splashing near the dog. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Chooses to place feet on the wet surface and freely returns after a break.",
           "easier": "Use less water or return to a dry tray. Do not hold a foot in place.",
           "deps": [
@@ -2777,7 +2803,7 @@
         {
           "id": "RINSE-3",
           "title": "A short rinse pause",
-          "teach": "Invite the familiar tray entry with the chosen cue. Reward a brief comfortable stand in very shallow water, then invite an exit onto a dry non-slip surface. Any later wiping is a separate invitation. Empty the tray after use rather than leaving standing water accessible.",
+          "teach": "Invite the familiar tray entry with the chosen cue. Reward a brief comfortable stand in very shallow water, then invite an exit onto a dry non-slip surface. Any later wiping is a separate invitation. Empty the tray after use rather than leaving standing water accessible. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Enters on invitation, pauses comfortably and exits in two short sessions.",
           "easier": "Rinse one willing foot briefly or use another vet-advised cleaning method. Stop for skin irritation or discomfort.",
           "deps": [
@@ -2804,7 +2830,7 @@
         {
           "id": "EAR-1",
           "title": "Hand movement toward the ear",
-          "teach": "Offer the familiar chin target. While the dog chooses contact, move your other hand a little toward the outside of one healthy ear, stop and reward. End immediately if the chin lifts. Build only the comfortable hand approach, keeping fingers out of the canal.",
+          "teach": "Offer the familiar chin target. While the dog chooses contact, move your other hand a little toward the outside of one healthy ear, stop and reward. End immediately if the chin lifts. Build only the comfortable hand approach, keeping fingers out of the canal. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Freely restarts and stays comfortable through the small hand approach in several turns.",
           "easier": "Return to shoulder-level hand movement or the chin lesson. Do not investigate a painful ear through training.",
           "deps": [
@@ -2818,7 +2844,7 @@
         {
           "id": "EAR-2",
           "title": "A momentary outer-flap view",
-          "teach": "After a voluntary start, touch only the outer flap lightly as demonstrated by your veterinary team, then withdraw and reward. If appropriate, briefly lift just enough for an outside visual look without stretching. Let a lifted chin end contact. Practice the other side separately from the easiest level.",
+          "teach": "After a voluntary start, touch only the outer flap lightly as demonstrated by your veterinary team, then withdraw and reward. If appropriate, briefly lift just enough for an outside visual look without stretching. Let a lifted chin end contact. Practice the other side separately from the easiest level. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Voluntarily permits a momentary healthy outer-ear view on each side across two easy sessions.",
           "easier": "Return to approach or one light touch. No cotton buds, instruments or treatment without veterinary instruction.",
           "deps": [
@@ -2845,7 +2871,7 @@
         {
           "id": "SIDELIE-1",
           "title": "Reward a natural hip roll",
-          "teach": "While your dog chooses a comfortable down, quietly reward a natural hip shift or brief roll toward one side. Feed where the head can remain neutral rather than twisting the neck. Invite a break after one reward. Capture the movement without pushing shoulders or pulling legs.",
+          "teach": "While your dog chooses a comfortable down, quietly reward a natural hip shift or brief roll toward one side. Feed where the head can remain neutral rather than twisting the neck. Invite a break after one reward. Capture the movement without pushing shoulders or pulling legs. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Offers a comfortable hip roll toward side-lying during several voluntary turns.",
           "easier": "Reward a smaller hip shift or simply watch for a natural side rest. Do not manipulate the body.",
           "deps": [
@@ -2859,7 +2885,7 @@
         {
           "id": "SIDELIE-2",
           "title": "Brief full side rest",
-          "teach": "From the familiar hip roll, reward a little more voluntary shoulder lowering until the dog chooses to rest on one side. Mark the brief posture and reward low, then allow them to get up. Work in tiny pieces and keep all limbs free.",
+          "teach": "From the familiar hip roll, reward a little more voluntary shoulder lowering until the dog chooses to rest on one side. Mark the brief posture and reward low, then allow them to get up. Work in tiny pieces and keep all limbs free. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Chooses a brief full side rest and rises comfortably across two short sessions.",
           "easier": "Return to a hip shift or stop. Do not continue if rising looks difficult.",
           "deps": [
@@ -2873,7 +2899,7 @@
         {
           "id": "SIDELIE-3",
           "title": "Name the offered position",
-          "teach": "Say “side” just before the familiar comfortable movement or small empty-hand invitation. Reward a moment in position and release. Gradually use less help without adding duration or touch. Teach either comfortable side separately; a single willing side is sufficient for this optional cue.",
+          "teach": "Say “side” just before the familiar comfortable movement or small empty-hand invitation. Reward a moment in position and release. Gradually use less help without adding duration or touch. Teach either comfortable side separately; a single willing side is sufficient for this optional cue. Stop for tension, freezing or avoidance even if the start posture is held. Pause hands and tools immediately when the dog withdraws; never hold them in the start position.",
           "advance": "Offers a brief side rest from the cue and small invitation in two sessions.",
           "easier": "Keep capturing naturally offered rests. Any handling while side-lying needs a separate voluntary start and exit agreement.",
           "deps": [
@@ -3013,7 +3039,7 @@
         {
           "id": "TAKE-1",
           "title": "Shape gentle mouth contact",
-          "teach": "Hold the object still at an easy height. Mark a sniff initially, then reward a tiny open-mouth contact or gentle grip. Remove it between attempts. Keep criteria small enough for frequent success and never put the object into the mouth yourself.",
+          "teach": "Hold the object still at an easy height. Initially mark a voluntary sniff and promptly reward. On later easy turns, mark a tiny open-mouth contact or gentle grip and promptly offer the reward, accepting release to eat or trade. Never put the object in the mouth or pull it out. Keep the criterion small enough for frequent success and put it aside only after willing release.",
           "advance": "Voluntarily makes a gentle grip on most easy presentations without chewing or avoidance.",
           "easier": "Try a different texture or lighter object; reward smaller mouth movements. Avoid food deprivation or forced holds.",
           "deps": [],
@@ -3022,7 +3048,7 @@
         {
           "id": "TAKE-2",
           "title": "Add take before the offer",
-          "teach": "Say “take,” then present the object. Mark as the dog grips and reward after a voluntary release/trade. Begin supporting less of the weight for a moment. Finish before chewing begins. This stage is pickup, not carrying it across the room.",
+          "teach": "Say “take,” then present the object. Mark the gentle grip and promptly offer the reward, accepting voluntary release to eat or trade. Begin supporting less of the weight for a moment before marking. Finish before chewing begins. Do not pull the object from the mouth. This stage is pickup, not carrying across the room.",
           "advance": "Takes the object on one cue on 4 of 5 presentations across two sessions, without a visible food lure.",
           "easier": "Offer at a more comfortable height and shorten the grip; practice the release separately.",
           "deps": [
@@ -3413,7 +3439,7 @@
         {
           "id": "PULL-1",
           "title": "Take the rope handle",
-          "teach": "Offer a large intact rope handle at comfortable mouth height. Use the familiar take and drop cues and reward. Mark a gentle grip; no chewing, jumping, or hard tug is needed. Use a handle that cannot catch feet or neck.",
+          "teach": "Offer a large intact rope handle at comfortable mouth height. Mark a gentle voluntary grip and promptly offer the reward, allowing the dog to release to eat. On separate easy turns rehearse the known drop and reward it. No chewing, jumping or hard tug is needed. Use a handle that cannot catch feet or neck.",
           "advance": "Willingly takes and releases this handle without chewing or tension.",
           "easier": "Try a softer suitable handle and shorter grips. If teeth or neck appear uncomfortable, skip pulling.",
           "deps": [
@@ -3431,7 +3457,7 @@
         {
           "id": "PULL-2",
           "title": "Reward tiny backward tension",
-          "teach": "Hold the handle very lightly. As the dog grips, allow a tiny backward weight shift to create almost no resistance; mark that pull and then request a release and reward. Do not yank against the dog or require a forceful neck movement.",
+          "teach": "Hold the handle very lightly. As the dog grips, allow a tiny backward weight shift to create almost no resistance. Mark that small pull and promptly offer the reward, accepting release to eat. Rehearse the known drop separately if helpful. Do not yank against the dog or require a forceful neck movement.",
           "advance": "Makes a small gentle pull and releases on 4 of 5 easy attempts.",
           "easier": "Reward a smaller weight shift and remove all resistance.",
           "deps": [
@@ -3649,7 +3675,7 @@
         {
           "id": "KEEP-1",
           "title": "Plan short enjoyable refreshers",
-          "teach": "Choose one familiar useful skill and one optional fun activity in an easy setting. Reward generously and finish after a few good repetitions. Alternate activities across days if desired. Mark known skills consistent after an easy confirmation rather than retraining all steps unnecessarily.",
+          "teach": "Choose one familiar useful skill and one optional fun activity in an easy setting. Reward generously and finish after a few good repetitions. Alternate activities across days if desired. Record only the exact step and setting you observed meeting its criterion; a successful refresher is not evidence for unobserved stages or harder contexts. There is no need to retrain demonstrated components unnecessarily.",
           "advance": "A manageable refresher routine is recorded and remains enjoyable; no mandatory daily quota.",
           "easier": "Use a single easy success and rest. More repetitions are not automatically better.",
           "deps": [],
@@ -4049,7 +4075,7 @@
         {
           "id": "POSE-2",
           "title": "Pair a quiet photo with a cue",
-          "teach": "Say “pose” before the familiar position signal. Reward a brief pause, then take one silent no-flash photo and release. On later attempts reward immediately after the photo. Keep the phone’s motion small and give the dog a choice to finish.",
+          "teach": "Say “pose” before the familiar position signal. While the already easy brief pause is happening, take one silent no-flash photo, then mark and reward immediately and release. Do not extend the pause for a better picture. Keep the phone motion small; if the dog shifts or opts out, lower it and use an easier attempt next time.",
           "advance": "Comfortably pauses for one quick no-flash photo in several easy attempts.",
           "easier": "Return to phone presence without taking a picture. A photo is never worth extending discomfort.",
           "deps": [
@@ -4154,25 +4180,25 @@
       "code": "CARDS",
       "title": "Respond to picture cue cards",
       "sheet": "Clever companions",
-      "goal": "Explore two visual symbols as cues for already known actions.",
+      "goal": "Explore whether two simple visual symbols can cue two different familiar actions.",
       "cue": "Two bold distinct picture cards",
-      "setup": "Large cards held still; two comfortable known actions such as sit and nose touch. This is visual cue learning, not reading language.",
+      "setup": "Two large distinct cards, a comfortable known sit or stand, and a known nose touch. Hold the card in one hand and keep the other empty target palm available in exactly the same position for both symbols; use a comfortable reset between trials.",
       "sources": "A03; P11; P17",
       "priority": "Optional trick",
       "steps": [
         {
           "id": "CARDS-1",
           "title": "Pair one symbol with one known action",
-          "teach": "Show a large simple circle card briefly, then give the familiar cue for a comfortable known sit or stand. Reward the action and put the card away. After several easy pairings, pause briefly after showing it to see whether the action is offered before the old cue.",
+          "teach": "Choose a comfortable known sit or stand as the circle action. Hold the circle card in one hand while the other empty target palm stays still at an easy touch height; use this same palm position for both symbols. Show the card, briefly pause, then give the known position cue if needed. Reward the action, put the card away and reset to a comfortable free position. Never repeat cues after errors.",
           "advance": "The first card begins to prompt its paired known action without repeated verbal requests.",
           "easier": "Keep the usual verbal cue or stop the experiment. Never physically position the dog.",
           "deps": [],
-          "setup": "Prepare one large simple circle card and the familiar comfortable sit or stand cue. Choose a quiet non-slip area, hold the card still at an easy viewing height, and keep rewards separate."
+          "setup": "Two large distinct cards, a comfortable known sit or stand, and a known nose touch. Hold the card in one hand and keep the other empty target palm available in exactly the same position for both symbols; use a comfortable reset between trials."
         },
         {
           "id": "CARDS-2",
           "title": "Pair the other symbol separately",
-          "teach": "On separate easy repetitions show a very different symbol, such as thick stripes, before a familiar nose-touch cue. Reward the known touch and remove the card. Keep the picture-to-action pairing consistent; do not add novelty, distance, or distracting settings yet.",
+          "teach": "In separate easy turns, show the striped card with the other empty target palm already available at exactly the same position used for the circle. Briefly pause, then give the familiar touch cue if needed. Reward the touch, remove the card and reset to a comfortable free position. Keep your posture unchanged; do not move the palm toward the dog to reveal the answer.",
           "advance": "The second symbol begins to prompt its separate familiar action in a comfortable easy setup.",
           "easier": "Use more distinct large symbols or return to ordinary cues. Avoid piling up unsuccessful guesses.",
           "deps": [
@@ -4181,12 +4207,12 @@
               3
             ]
           ],
-          "setup": "Prepare a large clearly different striped card and the familiar nose-touch invitation. Use the same quiet area with rewards accessible; put the first card aside during these separate pairings."
+          "setup": "Two large distinct cards, a comfortable known sit or stand, and a known nose touch. Hold the card in one hand and keep the other empty target palm available in exactly the same position for both symbols; use a comfortable reset between trials."
         },
         {
           "id": "CARDS-3",
           "title": "Alternate without hidden help",
-          "teach": "Present one card at a time in the same central position and a mixed order. Keep voice, posture, and hand position neutral until the dog responds. Reward the paired action. If the old cues are still doing the work, keep practicing or choose a simpler trick.",
+          "teach": "Present one card at a time in the same central position and a mixed order. Keep the empty target palm available at the same position for both cards, with matched posture and gaze. Begin each turn from a comfortable free reset. Reward the paired action; note responses before any old action cue. If gestures or old cues still guide choices, return to pairings or enjoy a simpler game. No literacy or intelligence claim follows.",
           "advance": "Usually offers the paired action for each card across two brief mixed-order sessions. This is not evidence of literacy.",
           "easier": "Re-pair each symbol separately. Any enjoyable learning is sufficient; no tests under pressure.",
           "deps": [
@@ -4199,7 +4225,7 @@
               3
             ]
           ],
-          "setup": "Have both familiar cards ready for one-at-a-time presentation in the same central position. Prepare a mixed order, still hands and neutral voice/posture, with rewards separate; this is visual cue learning, not reading."
+          "setup": "Two large distinct cards, a comfortable known sit or stand, and a known nose touch. Hold the card in one hand and keep the other empty target palm available in exactly the same position for both symbols; use a comfortable reset between trials."
         }
       ]
     },
@@ -4234,7 +4260,7 @@
         {
           "id": "CROSSPAW-2",
           "title": "Fade the receiving hand",
-          "teach": "Offer the same small inward invitation but lower your hand before contact so the dog can place the paw lightly across the other foreleg if comfortable. Mark the brief placement and release. Add “cross paws” before the invitation, fading the hand only across easy balanced turns.",
+          "teach": "Offer the same small inward invitation but lower your hand before contact so the dog can place the paw lightly across the other foreleg if comfortable. Mark the brief placement, promptly reward and allow the dog to uncross and move freely. Add “cross paws” before the invitation, fading the hand only across easy balanced turns.",
           "advance": "Offers a brief voluntary light crossing from a cue and small signal across two sessions.",
           "easier": "Reward the smaller reach again or skip the trick. A stretched, trapped or held leg is outside the goal.",
           "deps": [
@@ -4743,7 +4769,7 @@
         {
           "id": "HOOP-2",
           "title": "Name the walking pass",
-          "teach": "Say “through” before the familiar familiar invitation. Reward after the dog walks fully through. Gradually reduce your hand movement and hide any reward until after the pass while the hoop remains on the floor. Reset away from it so each pass is voluntary rather than a repetitive obstacle circuit.",
+          "teach": "Say “through” before the familiar invitation. Reward after the dog walks fully through. Gradually reduce your hand movement and hide any reward until after the pass while the hoop remains on the floor. Reset away from it so each pass is voluntary rather than a repetitive obstacle circuit.",
           "advance": "Makes a relaxed walking pass on cue in 4 of 5 attempts across two short sessions.",
           "easier": "Use the target again or end. This lesson does not add height, jumping, or narrow openings.",
           "deps": [
@@ -5042,71 +5068,71 @@
     },
     {
       "code": "OPEN",
-      "title": "Open this refrigerator",
+      "title": "Open a lightweight training prop",
       "sheet": "Useful little jobs",
-      "goal": "Open one approved refrigerator gently, under supervision.",
+      "goal": "Open a purpose-built easy practice door with a gentle pull, during supervised play.",
       "cue": "Open",
-      "setup": "Clear food access, non-slip footing, reachable handle; remove rope outside sessions. Skip a stiff seal.",
+      "setup": "A stable lightweight purpose-built practice cabinet with rounded edges, guarded hinge gaps and no latch or seal. A human controls its easy door travel. Use a non-slip floor and remove the prop and handle after supervised practice. Never use an electrical or food-storage appliance.",
       "sources": "P05; P22",
       "priority": "Optional advanced",
       "steps": [
         {
-          "id": "OPEN-1",
-          "title": "Make refrigerator movement comfortable",
-          "teach": "Without any pulling task, stand at a comfortable distance from the closed fridge. Open it a tiny amount, then feed your dog and close gently. Separately pair any light/compressor sounds that matter. Allow retreat. Do not train pulling while door movement itself worries the dog.",
-          "advance": "Comfortable with gentle opening, light, and sound in several observations across two sessions.",
-          "easier": "Use smaller movement or more distance. Continue with a human-opened retrieval if the appliance is unsuitable.",
-          "deps": [],
-          "setup": "Clear reachable food, provide non-slip footing and begin at a comfortable distance from the closed fridge. The handler controls a tiny opening and closure; no rope or pulling task is needed yet."
+          "id": "OPEN-4",
+          "title": "Make the practice door movement comfortable",
+          "teach": "Without a pulling task, let the dog notice the stable practice cabinet from a comfortable distance. Move its lightweight door a tiny amount with your hand, then promptly offer desired food. Stop the movement and allow retreat. Keep all paws, tail and face clear of travel and guarded hinges. No latch, seal or appliance is used.",
+          "advance": "Several small door movements remain comfortable across separate brief practices, with free retreat and ordinary recovery.",
+          "easier": "Use a smaller movement or greater distance, or skip the opening component and have a human present the retrieve prop.",
+          "setup": "A stable lightweight purpose-built practice cabinet with rounded edges, guarded hinge gaps and no latch or seal. A human controls its easy door travel. Use a non-slip floor and remove the prop and handle after supervised practice. Never use an electrical or food-storage appliance.",
+          "deps": []
         },
         {
-          "id": "OPEN-2",
-          "title": "Use the rope with the door already ajar",
-          "teach": "Attach the familiar handle securely where it cannot catch the dog. Begin with the fridge door a little ajar so almost no force is needed. Cue pull; reward the smallest useful opening and a release. Stand ready to control the door’s swing without trapping the dog.",
-          "advance": "Can open the ajar door gently and release the rope on 4 of 5 attempts across two sessions.",
-          "easier": "Increase the starting gap or return to the lightweight prop. Do not reward hard jerks or chewing.",
+          "id": "OPEN-5",
+          "title": "Pull the easy door a tiny amount",
+          "teach": "Attach the familiar safe handle to the lightweight practice door, clear of feet and neck. A human controls the swing. Begin partly open, with almost no resistance. Cue the known gentle pull, mark a tiny opening and promptly reward, accepting release to eat. Stop for pawing, chewing or strain. Remove the handle after practice.",
+          "advance": "Gently moves the partly open practice door and releases without strain in most easy turns across separate short practices.",
+          "easier": "Have a human open it, use a smaller motion or return to the standalone gentle pull; do not increase resistance.",
+          "setup": "A stable lightweight purpose-built practice cabinet with rounded edges, guarded hinge gaps and no latch or seal. A human controls its easy door travel. Use a non-slip floor and remove the prop and handle after supervised practice. Never use an electrical or food-storage appliance. Prepare the familiar intact handle with no loop around the dog.",
           "deps": [
             [
-              "OPEN-1",
+              "OPEN-4",
               3
             ],
             [
               "PULL-3",
               3
             ]
-          ],
-          "setup": "Attach the familiar safe rope handle where it cannot catch feet or neck, and start with the fridge door ajar. Clear reachable food and the swing path, keep footing secure, and be ready to control the door."
+          ]
         },
         {
-          "id": "OPEN-3",
-          "title": "Reduce the starting gap carefully",
-          "teach": "Decrease the initial gap slightly on an easy repetition, keeping the pull gentle. Alternate with ajar starts. Attempt the actual closed seal only if it releases easily with this gentle motion; otherwise stop at a human-opened door. Add “open” before the known pull when predictable.",
-          "advance": "Opens this approved easy door from the chosen start on 4 of 5 attempts in two sessions, without strain.",
-          "easier": "Restore an ajar start or have the human open it. This does not authorize opening other household doors.",
+          "id": "OPEN-6",
+          "title": "Name the small supervised opening",
+          "teach": "Say “open” just before the familiar gentle pull on the practice door. Start from the easy gap, reward the small useful opening and accept release. Vary the starting gap only slightly on another practice; the door always moves freely without a catch. Keep the human controlling travel. Put the training prop away when finished; this does not authorize opening household cabinets.",
+          "advance": "Opens this freely moving practice door on the chosen cue from the practiced gap in most comfortable turns on separate practices.",
+          "easier": "Use the easier gap or a human-opened retrieve. Never add a seal, latch, heavy door or appliance.",
+          "setup": "A stable lightweight purpose-built practice cabinet with rounded edges, guarded hinge gaps and no latch or seal. A human controls its easy door travel. Use a non-slip floor and remove the prop and handle after supervised practice. Never use an electrical or food-storage appliance. Use the same familiar handle and starting gap.",
           "deps": [
             [
-              "OPEN-2",
+              "OPEN-5",
               3
             ]
-          ],
-          "setup": "Use the approved fridge and familiar safe handle on non-slip flooring, with the swing controlled by an adult. Check the seal releases gently before any closed start; otherwise prepare a human-opened version and remove rope afterward. Clear reachable food before starting."
+          ]
         }
       ]
     },
     {
       "code": "CLOSE",
-      "title": "Nose-push a door closed",
+      "title": "Nudge a lightweight training door",
       "sheet": "Useful little jobs",
-      "goal": "Gently push an approved door using a nose target.",
+      "goal": "Gently nudge a human-controlled practice door during supervised play.",
       "cue": "Close",
-      "setup": "A secure large target; no mouth pulling, pinching, slamming, or jumping.",
+      "setup": "A stable lightweight purpose-built practice cabinet with rounded edges, guarded hinge gaps and no latch or seal. A human controls its easy door travel. Use a non-slip floor and remove the prop and handle after supervised practice. Never use an electrical or food-storage appliance.",
       "sources": "P11; P22",
       "priority": "Optional advanced",
       "steps": [
         {
           "id": "CLOSE-1",
           "title": "Transfer a nose target to a large pad",
-          "teach": "Present the familiar broad target pad near a stationary approved lightweight door. Reward gentle nose contact while you hold it still. Attach the pad securely at a comfortable nose height, then reward the same touch without moving the door. Keep paws and tail clear; door motion is a separate next step.",
+          "teach": "Present the familiar broad target pad near a stationary lightweight practice door. Reward gentle nose contact while you hold it still. Attach the pad securely at a comfortable nose height, then reward the same touch without moving the door. Keep paws and tail clear; door motion is a separate next step. Use a purpose-built prop with guarded hinges, no latch and no food or electrical appliance.",
           "advance": "Touches the pad gently on 4 of 5 presentations across two sessions.",
           "easier": "Show the pad next to the hand again or reward a small nose approach.",
           "deps": [
@@ -5115,12 +5141,12 @@
               3
             ]
           ],
-          "setup": "Prepare a broad secure target pad and an approved lightweight door held stationary. Place the pad at natural nose height, clear paws and tail from pinch points, and keep rewards accessible."
+          "setup": "A stable lightweight purpose-built practice cabinet with rounded edges, guarded hinge gaps and no latch or seal. A human controls its easy door travel. Use a non-slip floor and remove the prop and handle after supervised practice. Never use an electrical or food-storage appliance. Prepare the familiar broad secure target pad at comfortable nose height."
         },
         {
           "id": "CLOSE-2",
           "title": "Add a tiny moving-door push",
-          "teach": "Put the secure target at nose height on an easy lightweight door, with your hand controlling motion. Start almost closed. Reward a nose touch that moves it only an inch; protect paws and tail. Gradually ask for just enough push to close softly.",
+          "teach": "Put the secure target at nose height on an easy lightweight door, with your hand controlling motion. Start almost closed. Reward a nose touch that moves it only an inch; protect paws and tail. Gradually ask for just enough push to close softly. Use only the purpose-built practice prop; no latch, seal, heavy door or appliance.",
           "advance": "Can gently close the lightweight practice door on most attempts without pawing or slamming.",
           "easier": "Reduce the gap and support the door more. Stop if motion or sound is worrying.",
           "deps": [
@@ -5129,42 +5155,38 @@
               3
             ]
           ],
-          "setup": "Set the familiar lightweight door almost closed with the pad secure at nose height. Keep your hand controlling its movement, clear paws and tail from the swing, and have rewards ready for a tiny soft push."
+          "setup": "A stable lightweight purpose-built practice cabinet with rounded edges, guarded hinge gaps and no latch or seal. A human controls its easy door travel. Use a non-slip floor and remove the prop and handle after supervised practice. Never use an electrical or food-storage appliance. Place the secure broad nose target where the dog can touch without reaching into the gap."
         },
         {
-          "id": "CLOSE-3",
-          "title": "Transfer to this fridge and fade the pad",
-          "teach": "On the approved fridge, start almost closed and use the same secure nose target with your hand controlling the swing. Reward soft closure. Add “close” before the touch, then make the pad smaller across sessions if safe. Check the seal yourself; never put the dog inside or between door and cabinet.",
-          "advance": "Softly closes this fridge from the chosen small gap on 4 of 5 attempts in two sessions; a human confirms closure.",
-          "easier": "Keep the larger target or smaller gap. Human closure is a valid simpler alternative.",
+          "id": "CLOSE-4",
+          "title": "Name a gentle practice-door nudge",
+          "teach": "With the same lightweight guarded practice door almost closed, say “close” before the known gentle nose target. Mark a small useful nudge and promptly reward. Keep your hand controlling the door so it cannot slam or pinch. The target may stay. Human handling completes closure; never apply this exercise to a refrigerator or other appliance.",
+          "advance": "Gently nudges the practice door on the chosen cue in most comfortable turns across separate practices, without pawing or slamming.",
+          "easier": "Keep the larger target, reduce movement or leave all closure to the human.",
+          "setup": "A stable lightweight purpose-built practice cabinet with rounded edges, guarded hinge gaps and no latch or seal. A human controls its easy door travel. Use a non-slip floor and remove the prop and handle after supervised practice. Never use an electrical or food-storage appliance. Keep the familiar broad target secure and the starting gap tiny.",
           "deps": [
             [
               "CLOSE-2",
               3
-            ],
-            [
-              "OPEN-1",
-              3
             ]
-          ],
-          "setup": "Clear the approved fridge opening and set its door almost closed under human control. Secure the familiar pad at nose height, protect paws and tail, and keep rewards ready; the adult checks the final seal."
+          ]
         }
       ]
     },
     {
       "code": "SHELF",
-      "title": "Retrieve a drink carrier from a shelf",
+      "title": "Retrieve from a low practice shelf",
       "sheet": "Useful little jobs",
-      "goal": "Retrieve a lightweight sealed prop by a suitable carry handle.",
+      "goal": "Pick up an empty safe carrier from a reachable practice shelf and deliver it gently.",
       "cue": "Drink / fetch",
-      "setup": "Sealed water bottle in a robust suitable carrier; never glass or a bare can in the mouth. No alcohol ingestion.",
+      "setup": "An empty robust lightweight dog-safe carrier with a broad safe grip, and a stable low open practice shelf at natural mouth height. No contents, bottles, cans, small closures, food-storage cabinet or appliance; all feet remain on the floor.",
       "sources": "P20; P25",
       "priority": "Optional advanced",
       "steps": [
         {
           "id": "SHELF-1",
-          "title": "Practice the actual carrier near you",
-          "teach": "Use a lightweight sealed water-bottle prop inside a robust suitable carrier with a safe grasping handle. Ask for the known take, brief hold, and give, rewarding each delivery. Inspect for chewing or punctures. A beer-style routine uses the same action; the dog never opens or drinks the contents.",
+          "title": "Practice an empty carrier near you",
+          "teach": "Present an empty robust lightweight carrier with a broad dog-safe grip and no loose parts. Use the familiar take, momentary hold and give, marking delivery and promptly rewarding. Inspect it between turns and stop for chewing or damage. Keep it empty; no bottles, cans, caps or food are needed. This is a gentle hand-delivery component, not an appliance task.",
           "advance": "Takes and delivers the protected prop gently on most easy attempts; no chewing or damage.",
           "easier": "Use an empty lighter carrier or ordinary toy. If the dog crushes, punctures, or guards it, skip this module.",
           "deps": [
@@ -5173,12 +5195,12 @@
               3
             ]
           ],
-          "setup": "Inspect a robust suitable carrier with a safe grasping handle and a lightweight sealed water bottle inside. Keep rewards and a receiving palm ready; use no glass, bare can or alcohol access and skip chewing or guarding concerns."
+          "setup": "Prepare an empty robust lightweight carrier with a broad safe grip and no detachable pieces. Inspect it for damage; sit or stand close on a clear non-slip floor with rewards ready."
         },
         {
           "id": "SHELF-2",
           "title": "Pick up from an easy mock shelf",
-          "teach": "Place the carrier on a stable low surface at a natural mouth height, directly next to you. Cue fetch, receive with give, and reward. Gradually add a step of carrying. The dog keeps all paws on the floor; no jumping, climbing, or stretching into a deep shelf.",
+          "teach": "Place the same empty safe carrier on a stable low surface at a natural mouth height, directly next to you. Cue fetch, receive with give, and reward. Gradually add a step of carrying. The dog keeps all paws on the floor; no jumping, climbing, or stretching into a deep shelf.",
           "advance": "Picks up from this reachable surface and delivers gently on 4 of 5 attempts in two sessions.",
           "easier": "Move the carrier nearer the shelf edge or use a lower stable surface.",
           "deps": [
@@ -5191,25 +5213,25 @@
               3
             ]
           ],
-          "setup": "Place the familiar carrier on a stable low mock shelf at natural mouth height beside you. Clear the edge and short delivery route, with all paws remaining on the floor and rewards ready. Use sealed water inside its robust carrier, never glass or a bare can."
+          "setup": "Set the familiar empty safe carrier on a stable low open practice shelf at natural mouth height. Clear a short non-slip delivery route; all paws stay on the floor, with no appliance or deep reach."
         },
         {
-          "id": "SHELF-3",
-          "title": "Transfer to the already-open fridge",
-          "teach": "Have a human hold the fridge door safely open. Remove other reachable food and place only the carrier on an easy reachable shelf. Stand close, cue the known pickup, receive, and reward. Add a few delivery steps gradually; keep opening and closing out of this lesson.",
-          "advance": "Retrieves from the open approved fridge and delivers gently on 4 of 5 attempts in two sessions.",
-          "easier": "Return to the mock shelf or an empty carrier. Use supervision and prevent unsupervised appliance access.",
+          "id": "SHELF-4",
+          "title": "Retrieve through the open practice doorway",
+          "teach": "Have a human hold the lightweight practice door safely open. Place the same empty safe carrier at the very front of a reachable low shelf, with no need to put the head or body inside the cabinet. Cue the known pickup and give, then mark delivery and reward. Add only a small delivery distance on later turns. Opening and closing stay separate.",
+          "advance": "Comfortably picks up the empty carrier from the open practice prop and delivers gently across separate short practices, with all paws on the floor.",
+          "easier": "Use an ordinary open shelf or present the carrier near you. Skip any arrangement requiring reaching into a confined gap.",
+          "setup": "A stable lightweight purpose-built practice cabinet with rounded edges, guarded hinge gaps and no latch or seal. A human controls its easy door travel. Use a non-slip floor and remove the prop and handle after supervised practice. Never use an electrical or food-storage appliance. Secure a reachable low shelf and place the familiar empty carrier at its front edge.",
           "deps": [
             [
               "SHELF-2",
               3
             ],
             [
-              "OPEN-1",
+              "OPEN-4",
               3
             ]
-          ],
-          "setup": "Have an adult control the fridge door open. Remove other reachable food and put only the familiar safe carrier on a shallow reachable shelf, with non-slip footing, a clear exit and rewards ready. Use sealed water inside its robust carrier, never glass or a bare can."
+          ]
         }
       ]
     },
@@ -5338,7 +5360,7 @@
         {
           "id": "POUCH-1",
           "title": "Take and return the empty pouch",
-          "teach": "Offer the familiar safe grip area and cue a known take. Mark a gentle hold, then ask for give and reward. Keep the pouch empty while introducing its feel. The dog should not need to grip a zipper, buckle, or narrow cord.",
+          "teach": "Offer the familiar safe grip area and cue a known take. Allow a momentary gentle hold, then use the known give; mark delivery and promptly reward. If you mark an earlier grip, reward immediately and allow release instead of requiring another action first. Keep the pouch empty. The dog should not grip a zipper, buckle or narrow cord.",
           "advance": "Takes, gently holds, and gives the empty pouch with no chewing or worry.",
           "easier": "Use an ordinary safe retrieve toy. Remove straps or choose a different prop.",
           "deps": [
@@ -6350,12 +6372,12 @@
     },
     {
       "code": "SCENTMATCH",
-      "title": "Choose a familiar human scent",
+      "title": "Find one familiar person’s scent",
       "sheet": "Scent adventures",
-      "goal": "Explore matching a familiar adult’s scent across safe inaccessible samples.",
-      "cue": "Find this scent",
+      "goal": "Explore a learned choice between one familiar human-scent sample and a blank; not general matching to a new reference odor.",
+      "cue": "Find scent",
       "setup": "One willing familiar adult, large identical ventilated containers with secured lids, clean cotton samples and clean handling tools. No essential oils, chemicals or ingestible loose samples. One dog at a time; this is a game, not detection certification.",
-      "sources": "A13; P32; P11; R01",
+      "sources": "P32; V109; V133",
       "priority": "Enrichment",
       "steps": [
         {
@@ -6370,7 +6392,7 @@
         {
           "id": "SCENTMATCH-2",
           "title": "Introduce a clean comparison",
-          "teach": "Using clean tools, prepare one identical container with an untouched cotton sample and one with the familiar adult’s sample. Present them close and equally accessible. Reward investigation of the familiar sample; move it between positions and reset errors to one easy target presentation without correction.",
+          "teach": "Prepare matched cotton samples and identical safe vented containers using clean tools. One sample is handled by the chosen familiar adult; the comparison has no intentional sample from that person. Match other handling and keep food away from both. Reward a voluntary sniff at the familiar-person sample. Vary sides with neutral body language; after errors, make the next presentation easier without correction. A blank still has background odors.",
           "advance": "Comfortably chooses to investigate the familiar sample more often than a fixed side across easy mixed positions.",
           "easier": "Return to one container, use fresher samples and check accidental food odors or handling differences.",
           "deps": [
@@ -6383,8 +6405,8 @@
         },
         {
           "id": "SCENTMATCH-3",
-          "title": "Refresh the samples fairly",
-          "teach": "Prepare fresh matched cotton samples and swap container positions with a helper while you stay neutral. Briefly offer a separate secured reference sample from the same adult, then invite the close choice. Reward the matching sample and record choices before making claims about scent understanding.",
+          "title": "Try fresh samples of the same familiar odor",
+          "teach": "Prepare fresh matched samples and containers using the same careful handling. A helper changes their positions while you avoid pointing or watching the target. Give the familiar trained cue and reward a voluntary choice of the same familiar person’s sample. Keep comparison handling and containers balanced and record first choices. This explores one learned odor versus a blank; it does not establish matching a new person to a reference sample.",
           "advance": "Most choices follow the familiar adult’s fresh sample across two short mixed-position sets with neutral human cues.",
           "easier": "Keep the one-sample sniff game. A small household exercise does not establish operational detection or general matching ability.",
           "deps": [
@@ -6393,7 +6415,7 @@
               3
             ]
           ],
-          "setup": "Prepare fresh matched cotton samples and a separate secured reference from the same familiar adult. Arrange a helper to swap identical containers, keep food outside them, and have a simple choice record ready."
+          "setup": "Prepare fresh matched cotton samples and identical secured vented containers, with clean tools and a helper. Use the same familiar adult as before, keep food away from samples, balance other handling and plan mixed positions."
         }
       ],
       "maintenance": false
@@ -6402,7 +6424,7 @@
       "code": "TRACKPERSON",
       "title": "Follow a short human trail",
       "sheet": "Scent adventures",
-      "goal": "Follow a short fresh route laid by a familiar adult, using investigation rather than seeing their departure.",
+      "goal": "Enjoy following a short fresh familiar-person route; this recreational game does not certify tracking or identification.",
       "cue": "Track",
       "setup": "Two familiar adults, a safe open low-distraction area, a secured familiar-human cotton scent sample and comfortable equipment if needed. Food stays at the finish, not along the route. No roads, forced separation or real missing-person searches.",
       "sources": "A13; P32; P11; R01; A15",
@@ -6420,16 +6442,12 @@
         {
           "id": "TRACKPERSON-2",
           "title": "Start a fresh unobserved trail",
-          "teach": "Let the dog remain comfortably with you while the other adult walks a fresh short straight route out of their view and waits just behind a broad safe screen. Offer a secured scent sample handled by that adult at the start, then say “track.” Follow relaxed investigation without pointing or steering; reveal the endpoint before frustration.",
+          "teach": "Let the dog remain comfortably with you while the familiar adult walks a fresh short straight route out of view and waits just behind a broad safe screen. Start where the route begins, say “track” and follow relaxed investigation without steering. Reveal the endpoint before frustration. A comfortably familiar secured scent sample may be offered, but it does not establish reference matching or prove which cues guide the dog.",
           "advance": "Investigates from the start and follows the short freshly laid route toward the hidden endpoint on several easy turns.",
           "easier": "Restore a visible finish or shorten the route. Do not hold the dog back, drag along the route or keep a helper hidden while distress develops.",
           "deps": [
             [
               "TRACKPERSON-1",
-              3
-            ],
-            [
-              "SCENTMATCH-1",
               3
             ]
           ],
@@ -6438,7 +6456,7 @@
         {
           "id": "TRACKPERSON-3",
           "title": "One fresh broad bend",
-          "teach": "Have the adult lay a fresh route of roughly five to ten metres with one broad bend while the dog cannot see the departure. Mark the route for the humans and keep the finish easy. Invite from the scent sample at the start, follow without directional help and reward at the adult. If the dog takes a direct shortcut, simplify rather than counting it as route-following.",
+          "teach": "Have the adult lay a fresh route of roughly five to ten metres with one broad bend while the dog cannot see the departure. Mark the route for the humans and keep the finish easy. Invite from the scent sample at the start, follow without directional help and reward at the adult. If the dog takes a direct shortcut, simplify rather than counting it as route-following. A scent sample can be omitted. Ground disturbance, airborne odor and other cues may contribute; this is not a test of person-specific tracking.",
           "advance": "Across two short sessions, willingly follows the approximate fresh route including its bend to the hidden adult. This is a small practiced trail, not evidence of operational tracking ability.",
           "easier": "Return to a shorter straight trail or a visible finish. Keep trails fresh and easy; no aged tracks, unknown people or prolonged searches.",
           "deps": [
@@ -6456,7 +6474,7 @@
       "code": "SCENTINDICATE",
       "title": "Show a find with a quiet nose hover",
       "sheet": "Scent adventures",
-      "goal": "Offer a brief nose hover beside a safe secured scent container instead of grabbing it.",
+      "goal": "Offer a brief nose hover beside a safe secured scent container instead of grabbing it. This recreational routine does not establish identification of an unknown odor or operational detection ability.",
       "cue": "Show me",
       "setup": "A large secured vented container with a familiar human cotton scent sample inside. No oils or loose samples. Comfortable natural head height, no prolonged breath holding or sustained nose pressure.",
       "sources": "A13; P32; P11; R01",
@@ -6492,7 +6510,7 @@
       "code": "ARTICLE",
       "title": "Find a familiar scented article",
       "sheet": "Scent adventures",
-      "goal": "Locate a safe familiar-human-scented container in a small accessible area without retrieving it.",
+      "goal": "Locate a safe familiar-human-scented container in a small accessible area without retrieving it. This recreational routine does not establish identification of an unknown odor or operational detection ability.",
       "cue": "Find the article",
       "setup": "A large secured vented container holding clean cotton handled by one familiar adult, safe open hiding places and no accessible samples, oils or food inside. This is recreational searching.",
       "sources": "A13; P32; P11; R01",
@@ -6567,77 +6585,77 @@
     },
     {
       "code": "DRINK",
-      "title": "Getting a drink from the fridge",
+      "title": "Retrieve from a training prop",
       "sheet": "Brainiacs",
-      "goal": "Open an approved easy door, retrieve a protected drink carrier, deliver it, and finish with human or dog closure.",
-      "cue": "Fetch a drink (or your chosen word)",
-      "setup": "All components comfortable and consistent in this setting; fully supervised.",
+      "goal": "Combine a gentle practice-door opening, empty-carrier retrieval and delivery in a supervised enrichment game.",
+      "cue": "Fetch the carrier",
+      "setup": "A stable lightweight purpose-built practice cabinet with rounded edges, guarded hinge gaps and no latch or seal. A human controls its easy door travel. Use a non-slip floor and remove the prop and handle after supervised practice. Never use an electrical or food-storage appliance. Use the familiar empty safe carrier on its reachable front shelf.",
       "sources": "P20; P22; P25",
       "priority": "Optional advanced",
       "steps": [
         {
-          "id": "DRINK-1",
-          "title": "Start with the easy ending",
-          "teach": "Rehearse an easy delivery from the open fridge with you one step away. Reward the give generously. On separate repetitions have the dog give a carrier already held near you. This keeps the final delivery fluent and rewarding before adding earlier links.",
-          "advance": "Easy deliveries remain reliable and enjoyable with gentle handling on 4 of 5 repetitions.",
-          "easier": "Shorten the carry and return to isolated give; do not add opening while delivery is uncertain.",
+          "id": "DRINK-5",
+          "title": "Rehearse the easy delivery ending",
+          "teach": "With the human holding the practice door open, rehearse the easy empty-carrier pickup and give while you stand close. Mark delivery and reward generously. On other easy turns present the carrier near you for a familiar take and give. Keep the ending fluent and enjoyable before adding earlier links.",
+          "advance": "Easy deliveries from the open practice prop remain comfortable and gentle across separate short practices.",
+          "easier": "Present the carrier near you or use a simple open-shelf retrieve; do not add opening yet.",
+          "setup": "A stable lightweight purpose-built practice cabinet with rounded edges, guarded hinge gaps and no latch or seal. A human controls its easy door travel. Use a non-slip floor and remove the prop and handle after supervised practice. Never use an electrical or food-storage appliance. Use the familiar empty safe carrier on its reachable front shelf.",
           "deps": [
             [
-              "SHELF-3",
+              "SHELF-4",
               3
             ]
-          ],
-          "setup": "Have an adult control the approved fridge door open, clear other reachable food and place the familiar safe carrier on its easy shelf. Check non-slip footing, a one-step delivery route and generous rewards at your receiving hand. Use sealed water inside the robust carrier, never glass or bare cans."
+          ]
         },
         {
-          "id": "DRINK-2",
-          "title": "Add opening before pickup",
-          "teach": "Begin beside the approved fridge. Cue open, then the familiar pickup from its shelf, then give. Initially reward the opening component and the final delivery; over sessions reduce the intermediate food while continuing to cue and generously reward the complete easy chain.",
-          "advance": "Open → shelf pickup → delivery works gently with the familiar component cues on 4 of 5 attempts across two sessions.",
-          "easier": "Practice the broken link alone, then rejoin an easier two-link sequence. Avoid withholding all rewards to force a full chain.",
+          "id": "DRINK-6",
+          "title": "Add the learned prop opening",
+          "teach": "Begin beside the familiar practice cabinet with its freely moving door at the easy starting gap. Cue the known opening and reward it; accept release to eat. Then cue the familiar shelf pickup and give and reward delivery. As the short sequence becomes easy, gradually use fewer intermediate rewards while keeping final delivery worthwhile. A terminal marker always receives its promised reward.",
+          "advance": "Opening, empty-carrier pickup and delivery work comfortably with familiar component cues in most easy turns across separate practices.",
+          "easier": "Split the components again or let a human open the prop. Restore intermediate rewards when a link becomes hesitant.",
+          "setup": "A stable lightweight purpose-built practice cabinet with rounded edges, guarded hinge gaps and no latch or seal. A human controls its easy door travel. Use a non-slip floor and remove the prop and handle after supervised practice. Never use an electrical or food-storage appliance. Use the familiar empty safe carrier on its reachable front shelf. Place rewards ready for both the opening and the delivery.",
           "deps": [
             [
-              "DRINK-1",
+              "DRINK-5",
               3
             ],
             [
-              "OPEN-3",
+              "OPEN-6",
               3
             ],
             [
               "PULL-3",
               3
             ]
-          ],
-          "setup": "Prepare the approved easy-opening fridge, familiar safe rope handle and reachable carrier shelf with other food cleared. Check the door swing, non-slip route and component reward access; an adult remains ready to control motion. Use sealed water inside the robust carrier, never glass or bare cans."
+          ]
         },
         {
-          "id": "DRINK-3",
-          "title": "Add the optional return and close",
-          "teach": "For dog closure, first complete CLOSE-3; otherwise choose human closure and keep that as your final routine. After give, reward, then cue return → close and reward at the door. Rehearse this ending with a human-opened fridge before joining it to retrieval. Always check the seal yourself.",
-          "advance": "The chosen full sequence, with or without dog closure, is comfortable and reliable in two sessions.",
-          "easier": "Have a human close, or practice return/close separately. Keep your body clear of the dog’s path.",
+          "id": "DRINK-7",
+          "title": "Choose a human or dog closing finish",
+          "teach": "Human closure is a complete ending. If choosing an extra dog nudge, first complete CLOSE-4. Rehearse that ending separately with a human-opened empty practice prop: invite a short return to its target, reward the gentle nudge and finish. Then add it after an easy retrieve, rewarding delivery before the optional return. Keep your hand controlling door travel.",
+          "advance": "The chosen ending is comfortable across separate short practices. Dog closure is optional and used only after its own learned component.",
+          "easier": "Have the human close the prop or leave it safely open until the dog has moved away.",
+          "setup": "A stable lightweight purpose-built practice cabinet with rounded edges, guarded hinge gaps and no latch or seal. A human controls its easy door travel. Use a non-slip floor and remove the prop and handle after supervised practice. Never use an electrical or food-storage appliance. Use the familiar empty safe carrier on its reachable front shelf. Decide the ending in advance; dog nudging uses the familiar secure target.",
           "deps": [
             [
-              "DRINK-2",
+              "DRINK-6",
               3
             ]
-          ],
-          "setup": "Choose human closure unless the dog-closure component is already comfortable. Prepare a human-opened fridge with clear return and swing paths, the familiar secure nose pad if used, and rewards at the receiving hand and door. Use sealed water inside the robust carrier, never glass or bare cans."
+          ]
         },
         {
-          "id": "DRINK-4",
-          "title": "Introduce one final request",
-          "teach": "Say the final request just before the familiar sequence, then provide component cues as needed. Across successful repetitions pause briefly before each extra cue so the next action can occur on its own. Fade one prompt at a time; reward completion and supervise. Remove rope and block access afterward.",
-          "advance": "Completes the chosen safe sequence on the final request with little or no extra prompting on 4 of 5 attempts in two sessions.",
-          "easier": "Restore the component cue at the difficult link, shorten starting distance, or omit closing. Keep contents protected and inspect the carrier each use.",
+          "id": "DRINK-8",
+          "title": "Introduce one request for the small routine",
+          "teach": "Say the final request just before the familiar easy prop sequence and supply the known component cues as needed. Across successful short practices, pause briefly before one extra cue so the next learned action can occur. Fade only that prompt; keep all movements and distance easy. Reward delivery and any separately chosen closing action. Finish and remove the prop and handle yourself.",
+          "advance": "Enjoys the selected short prop routine after the chosen request with little extra prompting across separate practices; finishes comfortably.",
+          "easier": "Restore a component cue or return to a shorter human-opened retrieve. No unattended practice, appliance transfer or useful-service certification is implied.",
+          "setup": "A stable lightweight purpose-built practice cabinet with rounded edges, guarded hinge gaps and no latch or seal. A human controls its easy door travel. Use a non-slip floor and remove the prop and handle after supervised practice. Never use an electrical or food-storage appliance. Use the familiar empty safe carrier on its reachable front shelf.",
           "deps": [
             [
-              "DRINK-3",
+              "DRINK-7",
               3
             ]
-          ],
-          "setup": "Inspect the safe carrier, protected contents, reachable shelf and easy-opening approved fridge. Clear the whole short route and swing, prepare component cues and rewards, and arrange rope removal and blocked access afterward. Use sealed water inside the robust carrier, never glass or bare cans."
+          ]
         }
       ],
       "project": {
@@ -6662,7 +6680,7 @@
           "GIVE",
           "OTARGET"
         ],
-        "parallel": "Opening, shelf retrieval and gentle closing are separate skills. Practice their ready steps in any order. Rope pulling is required before door pulling; human closure is a complete, valid ending."
+        "parallel": "Practice prop-door comfort, gentle pulling, empty-carrier retrieval and optional nudging separately. Combine only the exact learned components. Human opening or closing is always a valid simpler game. This project never uses a refrigerator or other appliance."
       }
     },
     {
@@ -7120,7 +7138,7 @@
       "code": "SCENTREPORT",
       "title": "Find, show and report a scent",
       "sheet": "Brainiacs",
-      "goal": "Find the familiar scent container, indicate it briefly, then return to touch the handler’s hand.",
+      "goal": "Find the familiar scent container, indicate it briefly, then return to touch the handler’s hand. This recreational routine does not establish identification of an unknown odor or operational detection ability.",
       "cue": "Report",
       "setup": "One secured familiar human-scent container, easy accessible placements and an uncluttered room. No oils, operational searches or prolonged indication.",
       "sources": "A10; P11; P22; R01",
@@ -7134,7 +7152,7 @@
           "easier": "Reward discovery without the hover or rehearse the indication alone. Keep the task easy enough to avoid repeated prompting.",
           "deps": [
             [
-              "ARTICLE-2",
+              "ARTICLE-1",
               3
             ],
             [
@@ -7171,6 +7189,10 @@
           "deps": [
             [
               "SCENTREPORT-2",
+              3
+            ],
+            [
+              "ARTICLE-2",
               3
             ]
           ],
@@ -7287,7 +7309,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Original professional teaching guide",
       "url": "https://www.dogstrust.org.uk/dog-advice/training/outdoors/muzzle-training",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Introduces a basket muzzle through voluntary participation, then duration, straps, and activities.",
       "limits": "A teaching guide, not an efficacy trial. Fit and individual handling sensitivity need assessment.",
       "use": "Muzzle comfort program; freedom to withdraw; pant/drink fit."
@@ -7299,7 +7321,7 @@
       "year": "Updated 2026-06-26",
       "type": "Original professional teaching guide",
       "url": "https://www.battersea.org.uk/pet-advice/dog-advice/my-dog-wont-settle-teaching-your-dog-be-calm-and-relaxed",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Builds mat approach, comfortable lying, duration, then distance and distractions.",
       "limits": "Lying still alone does not demonstrate emotional relaxation; do not adopt unsupported neurotransmitter claims from the page.",
       "use": "Separate mat targeting from voluntary relaxation and later generalization."
@@ -7311,7 +7333,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Original professional teaching guide",
       "url": "https://www.dogstrust.org.uk/dog-advice/training/home/visitor-training",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Separates quiet knock practice, bed training, and visitor arrivals, with management of unexpected knocking.",
       "limits": "General visitor advice is insufficient for bite-risk cases. Workbook adapts fear exposure to use immediate reward pairing without requiring quiet first.",
       "use": "Separate knock feelings, knock-to-station chain, and visitor practice."
@@ -7323,7 +7345,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Professional behavior guidance",
       "url": "https://www.dogstrust.org.uk/dog-advice/training/unwanted-behaviours/reactive-dog",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Reactivity may involve fear, frustration, pain, or excitement. Distance, choice, management, and individual support matter.",
       "limits": "An educational overview, not a diagnosis or a single validated protocol.",
       "use": "Trigger tracking, exits, management, and realistic dog-neutrality goals."
@@ -7335,7 +7357,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Veterinary teaching guidance",
       "url": "https://vcahospitals.com/know-your-pet/desensitization-and-counterconditioning",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Explains graded exposure and pairing feared events with desirable outcomes.",
       "limits": "Clinical teaching guidance, not one controlled trial.",
       "use": "General framework for original trigger protocols."
@@ -7347,7 +7369,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Professional behavior guidance",
       "url": "https://www.dogstrust.org.uk/dog-advice/understanding-your-dog/body-language",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Interpret posture, facial tension, movement, and context together rather than relying on one sign.",
       "limits": "Behavior varies individually; observation is not a diagnosis.",
       "use": "Comfort/recovery observations; distinguish freezing from relaxation."
@@ -7359,7 +7381,7 @@
       "year": "2020",
       "type": "Veterinary behavior guidance",
       "url": "https://vet.tufts.edu/news-events/news/managing-mask-phobia-dogs",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Pairs distant unfamiliar appearances with rewards and reduces difficulty if distress appears.",
       "limits": "Specific example, not a controlled comparison. Greeting at close distance need not be the owner's goal.",
       "use": "Stranger appearance and movement stages; separate generalization."
@@ -7371,7 +7393,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Veterinary behavior guidance",
       "url": "https://vcahospitals.com/know-your-pet/fears-and-phobias-in-dogs-animals-and-people",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Use medical assessment, controlled gradients, and retreat rather than forced proximity or feeding.",
       "limits": "Individual diagnosis and bite-risk planning require direct assessment.",
       "use": "Strangers and other dogs; handler supplies rewards without luring toward the trigger."
@@ -7383,7 +7405,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Original professional teaching guide",
       "url": "https://www.dogstrust.org.uk/dog-advice/training/techniques/introducing-a-marker",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "A consistent signal followed by a reward can identify the action being reinforced.",
       "limits": "Does not demonstrate clickers are superior to food-only teaching.",
       "use": "Simple marker setup; use a soft word for sound-sensitive dogs."
@@ -7395,7 +7417,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Original professional teaching guide",
       "url": "https://www.dogstrust.org.uk/dog-advice/training/basics/focus-training",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Builds a positive response to the dog's name and handler attention.",
       "limits": "Responding around triggers is a separate contextual challenge.",
       "use": "A short two-stage name guide; avoid unnecessary subdivisions."
@@ -7407,7 +7429,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Original professional teaching guide",
       "url": "https://www.dogstrust.org.uk/dog-advice/training/tips-tricks/target-training",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Teaches voluntary nose or paw targeting using gradual reinforcement.",
       "limits": "Practical guide rather than a clinical anxiety-treatment trial.",
       "use": "Hand target and object target foundations."
@@ -7419,7 +7441,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Original professional teaching guide",
       "url": "https://www.dogstrust.org.uk/dog-advice/training/basics/leave-training",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Distinguishes trading an item already held from leaving an item before taking it.",
       "limits": "Generic exercises do not treat established resource guarding safely on their own.",
       "use": "Separate leave and drop skills; reward away from the practice object."
@@ -7431,7 +7453,7 @@
       "year": "Updated 2026-06-25",
       "type": "Professional behavior guidance",
       "url": "https://www.battersea.org.uk/pet-advice/dog-advice/dealing-resource-guarding",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Avoid confrontation and punishment; give space and use safe management/exchanges. Seek help for serious concerns.",
       "limits": "Do not use approach-to-bowl advice as a generic home treatment for a dog already guarding.",
       "use": "Guarding boundary for food, toys, retrieval, and equipment work."
@@ -7443,7 +7465,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Original professional teaching guide",
       "url": "https://www.dogstrust.org.uk/dog-advice/training/outdoors/walking-nicely-training",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Reward proximity and build movement gradually in easy settings.",
       "limits": "Standing still during pulling is not appropriate if a fearful dog needs to escape a trigger.",
       "use": "Loose-leash acquisition; use escape instead during anxiety incidents."
@@ -7455,7 +7477,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Original professional teaching guide",
       "url": "https://www.dogstrust.org.uk/dog-advice/training/basics/recall-training",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Make returning rewarding; use secure environments or a long line on a harness during practice.",
       "limits": "No recall is a replacement for physical management around roads, animals, or known triggers.",
       "use": "Recall foundation and later separate practice elsewhere."
@@ -7467,7 +7489,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Original professional teaching guide",
       "url": "https://www.dogstrust.org.uk/dog-advice/training/basics/stay-training",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Build brief duration and handler movement with rewards delivered in position.",
       "limits": "A stay is an operant posture task and does not by itself change fear.",
       "use": "Separate duration and distance from the initial sit/down skill."
@@ -7479,7 +7501,7 @@
       "year": "Updated 2026-07-09",
       "type": "Original professional teaching guide",
       "url": "https://www.battersea.org.uk/pet-advice/dog-advice/how-teach-your-dog-sit",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Uses food guidance, an empty hand signal, and then a verbal cue.",
       "limits": "Avoid physically positioning the dog; discomfort may require a different posture and vet review.",
       "use": "Compact sit acquisition with lure fading."
@@ -7491,7 +7513,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Original professional teaching guide",
       "url": "https://www.dogstrust.org.uk/dog-advice/training/outdoors/harness-training",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Choose comfortable equipment and introduce it gradually with rewards.",
       "limits": "A harness is management, not a cure for pulling or fear; individual fit matters.",
       "use": "Equipment comfort; strong-dog handling based on fit and control."
@@ -7503,7 +7525,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Professional teaching and behavior guide",
       "url": "https://www.dogstrust.org.uk/dog-advice/training/unwanted-behaviours/jumping-up-training",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Reward an alternative greeting behavior for happy greeters; fear-related jumping needs emotional support first.",
       "limits": "Do not force a greeting or wait out a frightened dog near a person.",
       "use": "Four-paws greeting only with already-comfortable familiar people."
@@ -7515,7 +7537,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Original professional teaching guide",
       "url": "https://www.akc.org/expert-advice/training/teach-your-dog-to-fetch/",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Breaks retrieval into object interest, gentle holding, pickup, and gradual movement/distance.",
       "limits": "Practical guidance, not proof that a retrieval task treats anxiety. Page contains affiliate links, which are not recommendations here.",
       "use": "Original take/hold/carry/give progression and task chains."
@@ -7527,7 +7549,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Original professional teaching guide",
       "url": "https://www.dogstrust.org.uk/dog-advice/training/tips-tricks/tidying-up",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Combines picking up, holding, dropping, and a destination target.",
       "limits": "Multi-part task requires component fluency; timeline varies.",
       "use": "Toy cleanup chain with individual teachable steps."
@@ -7539,7 +7561,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Original professional teaching guide",
       "url": "https://shop.clickertraining.com/en-ca/blogs/news/how-to-teach-your-pet-to-target",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Target placement can transfer learned touches into useful movements and household tasks.",
       "limits": "Commercial training publisher; procedural guidance, not an anxiety trial.",
       "use": "Door-closing target and original household task adaptations."
@@ -7551,7 +7573,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Original professional teaching guide",
       "url": "https://www.akc.org/expert-advice/training/teach-dog-chin-rest/",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "A chin target can provide a voluntary stationary position for gentle handling practice.",
       "limits": "Do not infer calm merely from the posture or continue after withdrawal. Workbook explicitly stops handling when the chin lifts.",
       "use": "Chin rest acquisition and a separate handling program."
@@ -7563,7 +7585,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Professional behavior guidance",
       "url": "https://www.aspca.org/pet-care/dog-care/common-dog-behavior-issues/separation-anxiety",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Graduated absences should stay shorter than the onset of distress; severe cases need individual support.",
       "limits": "A food toy or crate is not a sufficient treatment for panic. A learned stay is not evidence of comfort alone.",
       "use": "Optional very-short absence foundations; camera monitoring, no cry-it-out."
@@ -7575,7 +7597,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Veterinary toxicology guidance",
       "url": "https://www.aspca.org/pet-care/aspca-poison-control/people-foods-avoid-feeding-your-pets",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Alcohol is toxic to pets, as are several common foods and ingredients.",
       "limits": "Toxicity depends on substance and exposure; a training plan must prevent access rather than estimate a safe ingestion amount.",
       "use": "Use a sealed water-bottle prop in a carry sleeve for the fridge chain; never offer alcohol."
@@ -7587,10 +7609,10 @@
       "year": "2022",
       "type": "Professional sound-training protocol",
       "url": "https://www.dogstrust.org.uk/downloads/sounds-scary-booklet-2022.pdf",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Uses adjustable recordings and stops/reduces the sound if fear appears.",
       "limits": "Contains older advice discouraging reassurance; that advice is rejected in favor of current guidance. Recording success does not establish readiness for real storms.",
-      "use": "Controlled sound-session design and clear stop/regress criteria."
+      "use": "Historical cross-check only. Do not adopt its instruction to withhold comfort; use R06, P27 and P28 for current noise guidance."
     },
     {
       "id": "P27",
@@ -7599,7 +7621,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Current professional behavior guidance",
       "url": "https://www.dogstrust.org.uk/dog-advice/life-with-your-dog/seasonal/fireworks",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Supports comfortable hiding, trusted company, reduced exposure, and calm comfort when sought.",
       "limits": "Educational guidance; any sound-masking product claims are not treated here as clinical proof.",
       "use": "Real-event plan; replaces older advice to withhold reassurance."
@@ -7611,7 +7633,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Veterinary behavior guidance",
       "url": "https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-information/fear-fireworks-and-thunderstorms",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Encourages a comfortable safe space and veterinary planning before severe predictable noise events.",
       "limits": "A crate is useful only if already comfortable; adjuncts need individual veterinary assessment.",
       "use": "Real-event support and professional escalation."
@@ -7623,7 +7645,7 @@
       "year": "2025",
       "type": "Professional learning-theory explanation",
       "url": "https://avsab.org/should-you-use-a-secondary-reinforcer-clicker-in-counter-conditioning/",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Separates marking an operant behavior from pairing a feared event directly with food.",
       "limits": "Some cited experimental evidence is from humans, not a direct canine clinical comparison.",
       "use": "Do not make fear-reward pairings contingent on an obedience response or a marker."
@@ -7635,7 +7657,7 @@
       "year": "2022",
       "type": "Professional case narrative",
       "url": "https://journal.iaabcfoundation.org/case-study-luna-reactivity-to-other-dogs-part-1/",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Describes adapted handling, a rewarded U-turn, barriers, and voluntary disengagement while monitoring medical issues.",
       "limits": "Single case narrative, not randomized evidence for a named game. Does not validate a universal distance or treatment success rate.",
       "use": "Practical context for original walk-escape and disengagement guides."
@@ -7647,7 +7669,7 @@
       "year": "Accessed 2026-10-20",
       "type": "Professional teaching guidance",
       "url": "https://www.dogstrust.org.uk/dog-advice/training/outdoors/car-travel",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Build comfortable participation around a stationary car, equipment, sound, and travel gradually.",
       "limits": "Training cannot rule out nausea or pain. No jurisdiction-specific legal advice is adopted.",
       "use": "Optional car-comfort guide, separate from roadside trigger work."
@@ -7659,9 +7681,9 @@
       "year": "Updated 2026-06-26",
       "type": "Original professional enrichment guide",
       "url": "https://www.battersea.org.uk/pet-advice/dog-advice/brain-games-dogs",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Offers practical food-search and puzzle activities using suitable portions of the daily diet.",
-      "limits": "Enrichment guidance is not evidence that games alone treat clinical anxiety. Puzzles are supervised and dogs are separated when resources could cause conflict.",
+      "limits": "Enrichment guidance is not evidence that games alone treat clinical anxiety.",
       "use": "Food searches and low-pressure enrichment; avoid overfeeding."
     },
     {
@@ -7671,7 +7693,7 @@
       "year": "2021; current statement checked 2026-10-20",
       "type": "Veterinary consensus",
       "url": "https://avsab.org/wp-content/uploads/2021/08/AVSAB-Humane-Dog-Training-Position-Statement-2021.pdf",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Recommends reward-based teaching and humane behavior treatment; identifies welfare risks from aversive methods.",
       "limits": "Position statement synthesizing heterogeneous studies; not a randomized anxiety-treatment trial.",
       "use": "Overall training approach; professional referral; avoid punishment and flooding."
@@ -7683,7 +7705,7 @@
       "year": "2015 guidelines; web page 2019",
       "type": "Veterinary clinical guidance",
       "url": "https://www.aaha.org/resources/2015-aaha-canine-and-feline-behavior-management-guidelines/changing-behaviors/",
-      "access": "Full text",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Management, behavior modification, and sometimes medication form an integrated plan. Exposure should be gradual; flooding can worsen distress.",
       "limits": "Older clinical guidance; some terminology/examples on the page are imprecise. Use the clinical principles rather than reproduce those examples.",
       "use": "Exposure design, prevention of overwhelming practice, management."
@@ -7695,7 +7717,7 @@
       "year": "2020",
       "type": "Observational comparative study",
       "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0225023",
-      "access": "Full text",
+      "access": "abstract_and_selected_full_text_sections; independently checked 2026-10-28",
       "finding": "Dogs in aversive-focused training schools showed more stress-related behavior and other adverse welfare measures than reward-focused groups.",
       "limits": "School choice was not randomized; welfare study, not a test of comparative training efficacy. Confounding remains possible.",
       "use": "Welfare rationale for reward-based training."
@@ -7707,7 +7729,7 @@
       "year": "2020",
       "type": "Controlled field comparison; 63 dogs",
       "url": "https://www.frontiersin.org/journals/veterinary-science/articles/10.3389/fvets.2020.00508/full",
-      "access": "Full text",
+      "access": "abstract_and_selected_full_text_sections; independently checked 2026-10-28",
       "finding": "Reward-focused training had favorable recall/sit response measures and did not require an electronic collar.",
       "limits": "Trainer approaches and seasons differed; positive-reinforcement group not randomized with the other two groups. Recall evidence does not establish a cure for anxiety or aggression.",
       "use": "Foundation training rationale; avoid claims that pain is necessary for a strong dog."
@@ -7715,11 +7737,11 @@
     {
       "id": "R05",
       "title": "Counterconditioning-based interventions for companion dog behavioural modification: A systematic review",
-      "author": "Joanna Shnookal, Deanna Tepper, Tiffani Howell, Pauleen Bennett",
+      "author": "Shnookal, Tepper, Howell and Bennett",
       "year": "2024",
       "type": "Systematic review; 14 reports",
-      "url": "https://www.sciencedirect.com/science/article/pii/S0168159124001539",
-      "access": "Publisher abstract and highlights rechecked 2026-10-20. Full paper not analyzed in this review.",
+      "url": "https://doi.org/10.1016/j.applanim.2024.106305",
+      "access": "indexed_primary_publisher_abstract_or_sections; independently checked 2026-10-28",
       "finding": "Most included reports had positive outcomes, but procedures varied between classical and operant approaches.",
       "limits": "Small samples, heterogeneous methods, and expert involvement limit precise effectiveness estimates and generalization. Not a meta-analysis proving every named exercise.",
       "use": "Distinguish changing feelings from rewarding an alternative behavior."
@@ -7731,7 +7753,7 @@
       "year": "2023",
       "type": "Evidence review",
       "url": "https://phaidra.vetmeduni.ac.at/api/object/o:2589/download",
-      "access": "Full text; university-hosted open-access article",
+      "access": "abstract_and_selected_full_text_sections; independently checked 2026-10-28",
       "finding": "Reviews environmental management, sound training, reward pairing, relaxation, and veterinary medication. Recordings cannot reproduce every feature of real noise events.",
       "limits": "Training results often come from caregiver surveys; medication trials have stronger controls. Product evidence varies.",
       "use": "Noise plans, realistic expectations, veterinary discussion, and measurement."
@@ -7743,7 +7765,7 @@
       "year": "2020",
       "type": "Owner questionnaire study",
       "url": "https://doi.org/10.1016/j.jveb.2020.04.005",
-      "access": "Full publisher-indexed abstract; DOI verified",
+      "access": "indexed_primary_publisher_abstract_or_sections; independently checked 2026-10-28",
       "finding": "Caregiver reports favored counterconditioning, relaxation, and some veterinary medications over many alternative products.",
       "limits": "Self-selection, recall, and caregiver expectations; reported percentages are not randomized treatment effects.",
       "use": "Context for noise plans; do not promise survey success rates."
@@ -7755,10 +7777,10 @@
       "year": "2022",
       "type": "Large genomic and owner-survey study",
       "url": "https://www.zoology.ubc.ca/~otto/veg/Readings/morrill2022ancestry.pdf",
-      "access": "Public manuscript summary and individual prediction results rechecked 2026-10-21.",
+      "access": "abstract_and_selected_full_text_sections; independently checked 2026-10-28",
       "finding": "Behavior varies substantially within breeds. Breed ancestry provides limited prediction of an individual dog's behavior, despite genetic and breed-associated tendencies.",
       "limits": "Survey-based factors; not a dog-bite risk assessment or a trial of anxiety treatments.",
-      "use": "Breed alone must not set a dog’s temperament, support preferences, or advancement requirements."
+      "use": "Tailor to the individual dog’s observed needs; do not infer a diagnosis from breed or appearance."
     },
     {
       "id": "R09",
@@ -7767,10 +7789,10 @@
       "year": "2020",
       "type": "Large cross-sectional owner survey",
       "url": "https://doi.org/10.1038/s41598-020-59837-z",
-      "access": "Results, discussion and limitations rechecked in the public publisher PDF on 2026-10-21.",
-      "finding": "An owner survey found breed-associated differences in reported fear and sound sensitivity.",
-      "limits": "Self-selected Finnish owners; reported traits and breed-group age differences limit interpretation. Associations neither diagnose an individual nor validate a tailored treatment.",
-      "use": "Invite an optional question for four supported breed/trait associations. Adjust only after individual owner confirmation."
+      "access": "indexed_paper_abstract; independently checked 2026-10-28",
+      "finding": "Anxiety-like traits can co-occur and differ between sampled breeds.",
+      "limits": "Convenience sample and owner reports; not an intervention trial or an individual prognosis.",
+      "use": "Track several triggers and avoid assuming all reactivity has one cause."
     },
     {
       "id": "R10",
@@ -7779,7 +7801,7 @@
       "year": "2018",
       "type": "Small retrospective clinical comparison",
       "url": "https://www.frontiersin.org/journals/veterinary-science/articles/10.3389/fvets.2018.00017/full",
-      "access": "Full text",
+      "access": "abstract_and_selected_full_text_sections; independently checked 2026-10-28",
       "finding": "Noise-sensitive dogs with musculoskeletal pain showed patterns suggesting that pain assessment can matter, including later onset and wider generalization.",
       "limits": "Small clinical sample; does not mean all fearful dogs have pain or that pain treatment alone resolves anxiety.",
       "use": "Medical review for sudden change, touch sensitivity, or late-onset sound fear."
@@ -7791,7 +7813,7 @@
       "year": "2021",
       "type": "Three controlled learning experiments",
       "url": "https://pubmed.ncbi.nlm.nih.gov/33665026/",
-      "access": "Full abstract",
+      "access": "indexed_paper_abstract; independently checked 2026-10-28",
       "finding": "Food alone, verbal markers plus food, and clicker plus food could teach behaviors; no consistent overall superiority of a clicker emerged.",
       "limits": "Specific laboratory tasks and short training periods; markers may still be convenient for timing.",
       "use": "Make a quiet verbal marker optional; do not require buying a clicker."
@@ -7803,7 +7825,7 @@
       "year": "2019",
       "type": "Small experimental enrichment study",
       "url": "https://doi.org/10.1016/j.applanim.2018.12.009",
-      "access": "Publisher-indexed abstract; old author PDF link redirected",
+      "access": "indexed_primary_publisher_abstract_or_sections; independently checked 2026-10-28",
       "finding": "After a nosework program, dogs approached an ambiguous test location faster than before; control heelwork dogs did not show that pattern.",
       "limits": "Cognitive-bias proxy and small sample; not evidence that sniffing cures reactivity or replaces treatment.",
       "use": "Optional food-search enrichment and choice."
@@ -7815,10 +7837,10 @@
       "year": "2011",
       "type": "Experimental learning study; 44 laboratory Beagles",
       "url": "https://doi.org/10.1016/j.applanim.2011.05.010",
-      "access": "Publisher-indexed abstract and conclusion snippets rechecked 2026-10-21; full paper not reviewed in this update.",
-      "finding": "For one obedience task, 44 laboratory dogs retained learning at a four-week test. Session spacing and duration affected acquisition.",
-      "limits": "One laboratory population and task. Retention at four weeks does not establish a forgetting date or an ideal refresher interval for other skills.",
-      "use": "Do not describe the weekly reminder as memory decay. Note edits never reset logged practice dates."
+      "access": "indexed_primary_publisher_abstract_or_sections; independently checked 2026-10-28",
+      "finding": "Session spacing and length affected acquisition for the studied task; more consecutive sessions were not automatically better.",
+      "limits": "One task, one laboratory population; better acquisition per session does not necessarily mean fewer calendar days. No universal ideal schedule established.",
+      "use": "Short sessions with rest; numerical session lengths in the guide are practical starting points."
     },
     {
       "id": "R14",
@@ -7827,7 +7849,7 @@
       "year": "2022",
       "type": "Specialist rehabilitation program report",
       "url": "https://www.abvp.com/wp-content/uploads/2022/08/2022-09-5-Shelter-Behavioral-rehabilitation-of-extremely-fearful-dogs.pdf",
-      "access": "Full text",
+      "access": "abstract_and_selected_full_text_sections; independently checked 2026-10-28",
       "finding": "A structured specialist program helped many selected, severely fearful shelter dogs reach adoption criteria.",
       "limits": "Intensive staffing, selected intake, multimodal care, and exclusion of several other behavior problems. Its graduation rate is not a home-training success prediction for dog-directed aggression.",
       "use": "Hope with realistic scope; explain why professional individualized care can matter."
@@ -7839,7 +7861,7 @@
       "year": "2017",
       "type": "Randomized double-blind placebo-controlled field trial; 182 dogs",
       "url": "https://pubmed.ncbi.nlm.nih.gov/28213531/",
-      "access": "Full abstract",
+      "access": "indexed_paper_abstract; independently checked 2026-10-28",
       "finding": "Owners reported better acute firework outcomes for active treatment than placebo.",
       "limits": "Specific medication, noise context, and caregiver outcomes; industry affiliations. Does not establish effects on stranger fear or specify what this dog should take.",
       "use": "Evidence for discussing veterinary help before unavoidable noise events; no dosing advice."
@@ -7851,7 +7873,7 @@
       "year": "2019",
       "type": "Randomized double-blind placebo-controlled clinical trial; 238 recruited dogs",
       "url": "https://pubmed.ncbi.nlm.nih.gov/31568622/",
-      "access": "Full abstract and conflict-of-interest section",
+      "access": "indexed_paper_abstract; independently checked 2026-10-28",
       "finding": "Imepitoin reduced caregiver-rated noise fear compared with placebo in the studied fireworks setting.",
       "limits": "Medication-specific adverse effects, including ataxia, need veterinary consideration. Manufacturer involvement; not a general training trial.",
       "use": "Veterinary discussion of multimodal care; never a prescription or home dosing guide."
@@ -7863,7 +7885,7 @@
       "year": "2019",
       "type": "Controlled veterinary-fear training study",
       "url": "https://pubmed.ncbi.nlm.nih.gov/31591343/",
-      "access": "PubMed abstract and figure descriptions",
+      "access": "indexed_paper_abstract; independently checked 2026-10-28",
       "finding": "The short program produced limited measured improvements; adherence was a substantial difficulty.",
       "limits": "Many owners did not comply; home practice and clinic handling varied. Does not show that a fixed four-week plan resolves veterinary fear.",
       "use": "Realistic cooperative-care expectations and gradual individualized plans."
@@ -7875,7 +7897,7 @@
       "year": "2022",
       "type": "Blinded semi-randomized controlled pilot",
       "url": "https://doi.org/10.1016/j.applanim.2022.105615",
-      "access": "Publisher-indexed abstract, highlights and discussion; direct fetch blocked",
+      "access": "indexed_primary_publisher_abstract_or_sections; independently checked 2026-10-28",
       "finding": "Physiological and compliance results were mixed; fewer trained dogs complied with temperature taking at the second visit.",
       "limits": "Pilot sample and procedure-specific effects. Stillness and compliance should not be equated automatically with improved welfare.",
       "use": "Teach voluntary handling as a useful skill while acknowledging limited direct efficacy evidence."
@@ -7887,7 +7909,7 @@
       "year": "2008",
       "type": "Multi-step training experiments; lab 6 dogs, home 15 dogs",
       "url": "https://cattledogpublishing.com/wp-content/uploads/2022/01/Yinetal2008TT.pdf",
-      "access": "Full text",
+      "access": "abstract_and_selected_full_text_sections; independently checked 2026-10-28",
       "finding": "Owners could implement a detailed reward-based stationing protocol and reduce measured door-arrival problem behaviors.",
       "limits": "Small samples and a specific protocol/device; not a large randomized treatment trial for severe visitor aggression. Device-related interests merit attention.",
       "use": "Detailed component teaching for a door routine; no dispenser purchase required."
@@ -7899,7 +7921,7 @@
       "year": "2026",
       "type": "Double-blind placebo-controlled crossover trial",
       "url": "https://doi.org/10.1016/j.jveb.2025.12.012",
-      "access": "Publisher-indexed abstract, highlights, conclusion and funding; direct fetch blocked",
+      "access": "indexed_primary_publisher_abstract_or_sections; independently checked 2026-10-28",
       "finding": "CBD did not reduce reported anxiety behaviors relative to placebo in this study; improvement over time occurred regardless of treatment.",
       "limits": "Caregiver outcomes, study participation effects, tested formulation/population only; sponsor involvement in design and interpretation.",
       "use": "Do not make CBD a required training purchase or promise anxiety relief."
@@ -7911,9 +7933,9 @@
       "year": "2026",
       "type": "Observational owner-report study",
       "url": "https://doi.org/10.1016/j.jveb.2025.12.005",
-      "access": "Publisher-indexed abstract and highlights; direct fetch blocked",
+      "access": "indexed_primary_publisher_abstract_or_sections; independently checked 2026-10-28",
       "finding": "Training history was associated with some reported behavior outcomes; training style was not significantly associated with outcomes in this analysis.",
-      "limits": "Association does not establish causation, and dogs may receive training because of existing problems. Not a randomized efficacy comparison.",
+      "limits": "Observational, self-reported owner survey; confounding and selection bias; null associations for many outcomes do not show training has no effect.",
       "use": "Recent-literature context; avoid claiming every study finds one training style universally superior."
     },
     {
@@ -7923,7 +7945,7 @@
       "year": "2026",
       "type": "Single clinical case report",
       "url": "https://doi.org/10.1016/j.jveb.2026.01.002",
-      "access": "Publisher-indexed abstract; direct fetch blocked",
+      "access": "indexed_primary_publisher_abstract_or_sections; independently checked 2026-10-28",
       "finding": "Describes improvement during a combined medication, dispenser, and training plan.",
       "limits": "One dog, several simultaneous interventions, no concurrent control; cannot establish superiority or a general time-to-success.",
       "use": "Illustration of individualized multimodal work; not core efficacy evidence."
@@ -7935,7 +7957,7 @@
       "year": "2021",
       "type": "Proposed study protocol; excluded from outcome evidence",
       "url": "https://pubmed.ncbi.nlm.nih.gov/33606822/",
-      "access": "Full PubMed abstract",
+      "access": "indexed_paper_abstract; independently checked 2026-10-28",
       "finding": "Describes planned allocation and assessment of military/police dogs.",
       "limits": "Future-tense methods; no completed results reported in this record.",
       "use": "Saved as an evidence-screening example; not cited as proof of comparative efficacy."
@@ -7947,7 +7969,7 @@
       "year": "2024",
       "type": "Small randomized task-training experiment",
       "url": "https://pubmed.ncbi.nlm.nih.gov/39335223/",
-      "access": "Full PubMed abstract and article metadata",
+      "access": "abstract_and_targeted_full_methods_results; independently checked 2026-10-28",
       "finding": "In this lure-chasing experiment, the shock-collar group stopped chasing during training whereas the tested non-aversive procedures did not; many collar-trained dogs resumed chasing in a novel arena.",
       "limits": "Specific predatory task, protocol, small sample, and limited generalization; not a fear-treatment study. Few observed stress behaviors cannot establish absence of broader welfare risks.",
       "use": "Important counterexample to any claim that reward-based methods outperform aversives in every experiment. Does not justify aversives for this anxiety guide."
@@ -7959,7 +7981,7 @@
       "year": "2025",
       "type": "Controlled comparison; 28 candidate detection Labradors",
       "url": "https://www.frontiersin.org/journals/veterinary-science/articles/10.3389/fvets.2025.1538452/full",
-      "access": "Full text",
+      "access": "abstract_and_selected_full_text_sections; independently checked 2026-10-28",
       "finding": "Markers aided some aspects of complex alert acquisition and precision in this detection task.",
       "limits": "Purpose-bred working dogs, ball rewards, and precise operational responses; does not contradict the absence of a universal clicker advantage on simple pet tasks.",
       "use": "Explain that a marker is useful but optional, and benefits are task-dependent."
@@ -7971,7 +7993,7 @@
       "year": "2023",
       "type": "Small randomized trick-training experiment; 17 dogs",
       "url": "https://pubmed.ncbi.nlm.nih.gov/37219081/",
-      "access": "Full publisher text reviewed during final source checks",
+      "access": "indexed_paper_abstract; independently checked 2026-10-28",
       "finding": "Found no significant difference between blocked and randomized practice of three tricks in the tested conditions.",
       "limits": "Small preliminary study; does not prove the schedules are equivalent or establish one optimal routine.",
       "use": "Parallel practice is offered for convenience and component compatibility, not as a proven superior learning schedule."
@@ -7979,13 +8001,13 @@
     {
       "id": "R27",
       "title": "Impact of variations in training schedules on dogs’ acquisition and retention of an odor detection task",
-      "author": "Jordan G. Smith, Sarah Krichbaum, Bart Rogers, Paul Waggoner, Jeffrey S. Katz, Lucia Lazarowski",
+      "author": "Smith, Krichbaum, Rogers, Waggoner, Katz, and Lazarowski",
       "year": "2025",
       "type": "Experimental learning study; 48 purpose-bred detection dogs",
       "url": "https://doi.org/10.1016/j.applanim.2024.106474",
-      "access": "Publisher-indexed abstract and highlights reviewed 2026-10-21; full paper not reviewed.",
+      "access": "indexed_primary_publisher_abstract_or_sections; independently checked 2026-10-28",
       "finding": "A detection task showed different scheduling effects from the earlier obedience study; breaks and individual traits also mattered.",
-      "limits": "Working-dog acquisition and a one-week retention test do not establish pet-dog maintenance deadlines.",
+      "limits": "48 purpose-bred detection dogs; working-dog odor task and one-week retention do not define pet-dog maintenance intervals. Publisher-indexed abstract/highlights only; full paper not reviewed.",
       "use": "Support a flexible reminder rather than a universal required practice frequency."
     },
     {
@@ -7995,22 +8017,22 @@
       "year": "Checked 2026-10-21",
       "type": "Professional welfare and training guidance",
       "url": "https://www.rspca.org.uk/adviceandwelfare/pets/dogs/training",
-      "access": "Public training guidance reviewed.",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Recommends reward-based teaching in brief, regular sessions, with patience for individual learning rates.",
-      "limits": "General guidance gives no measured forgetting interval or mandatory weekly refresher rule.",
+      "limits": "General reward-based guidance; does not define a measured forgetting interval or validate mandatory refresher frequency.",
       "use": "Keep reminders gentle, easy to dismiss, and focused on comfortable, rewarded practice."
     },
     {
       "id": "P34",
-      "title": "Why dogs get scared or frustrated and how to help them",
-      "author": "Dogs Trust behaviour team",
-      "year": "Checked 2026-10-21",
-      "type": "Professional welfare and behaviour guidance",
+      "title": "Helping Dogs Cope with Fear and Big Emotions",
+      "author": "Dogs Trust",
+      "year": "2025",
+      "type": "Charity behavior guidance",
       "url": "https://www.dogstrust.org.uk/dog-advice/understanding-your-dog/signs-your-dog-may-be-stressed",
-      "access": "Public guidance on space, choice, gradual introductions and veterinary support reviewed.",
-      "finding": "Supports comfortable conditions, voluntary retreat and individual assessment when a dog struggles.",
-      "limits": "General support guidance is not an individual treatment plan.",
-      "use": "Gentler setup notes only after owner-confirmed observations."
+      "access": "guidance_sections; independently checked 2026-10-28",
+      "finding": "Lists subtle-to-overt signs of fear/stress and recommends considering medical issues and environment.",
+      "limits": "Signs are context-dependent; no single signal diagnoses an emotional state.",
+      "use": "Body language and readiness observations."
     },
     {
       "id": "P35",
@@ -8019,22 +8041,22 @@
       "year": "Checked 2026-10-21",
       "type": "Breed-name directory; not treatment evidence",
       "url": "https://www.akc.org/dog-breeds/",
-      "access": "Public directory consulted for terminology. The app uses a convenience catalog of factual common names, not a complete registry export.",
+      "access": "Public breed-name directory only; not a dog-training evidence source.",
       "finding": "Breed names and varieties can be recorded as profile information.",
       "limits": "A breed directory does not establish this individual dog’s behaviour. Mixes, unknown and unlisted names remain valid.",
       "use": "Searchable profile labels only; directory temperament descriptions and ratings are not copied."
     },
     {
       "id": "A01",
-      "title": "AVSAB 2025 Board Statement reaffirming Humane Dog Training",
-      "author": "American Veterinary Society of Animal Behavior",
-      "year": "2025; checked 2026-10-20",
-      "type": "Professional position statement",
+      "title": "AVSAB Position Statements (2025 board statement; 2021 Humane Dog Training statement remains current)",
+      "author": "AVSAB",
+      "year": "2025",
+      "type": "Veterinary professional consensus / position statement hub",
       "url": "https://avsab.org/resources/position-statements/",
-      "access": "Full public statement",
-      "finding": "The board explicitly reaffirmed its 2021 recommendation for reward-based teaching and rejected the use of aversive training methods.",
-      "limits": "Professional guidance synthesizing evidence; this statement itself is not a controlled trial or a credentialing endorsement.",
-      "use": "Check that the app’s overall training approach remains consistent with current veterinary behavior guidance."
+      "access": "guidance_sections; independently checked 2026-10-28",
+      "finding": "AVSAB’s 2025 board statement confirms its 2021 Humane Dog Training position remains current and recommends reward-based methods for all dog training and behavior modification.",
+      "limits": "Professional consensus, not a randomized trial; hub page may change and should be paired with the linked position statement.",
+      "use": "Authoritative policy context."
     },
     {
       "id": "A02",
@@ -8043,9 +8065,9 @@
       "year": "Checked 2026-10-20",
       "type": "Original professional teaching guide",
       "url": "https://www.dogstrust.org.uk/dog-advice/training/tips-tricks/dog-bowling",
-      "access": "Full public guide",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "A nose target can be developed into a floor-ball nudge and then movement toward lightweight pins.",
-      "limits": "Practical enrichment guidance, not evidence of an anxiety treatment. Ball size, noise, ingestion risk and supervision matter.",
+      "limits": "Practical enrichment guidance, not evidence of an anxiety treatment. Ball size, noise, ingestion risk and supervision matter. Practical trick instruction, not evidence of general behavior change or anxiety treatment; keep movements comfortable and equipment/object size safe.",
       "use": "Ball pushing, bowling and goal-game adaptations."
     },
     {
@@ -8055,9 +8077,9 @@
       "year": "Checked 2026-10-20",
       "type": "Original professional trick guide; critically screened",
       "url": "https://www.dogstrust.org.uk/dog-advice/training/tips-tricks/reading",
-      "access": "Full public guide",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "The illustrated box game pairs spoken labels and gestures with going to designated boxes.",
-      "limits": "Success does not by itself demonstrate reading printed language. Location, gestures and spoken cues may control behavior.",
+      "limits": "The procedure does not isolate visual discrimination of printed words from spoken cues, gestures, location, or box identity. It is an informal trick, not evidence of reading or literacy.",
       "use": "Inspired a clearly labeled optional visual-cue experiment; no claim of literacy or language comprehension is made."
     },
     {
@@ -8067,9 +8089,9 @@
       "year": "Checked 2026-10-20",
       "type": "Original professional teaching guide",
       "url": "https://www.akc.org/expert-advice/training/teach-dog-leg-weave/",
-      "access": "Full public guide",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Separate comfortable passes around each side can be joined into a stationary figure eight, then optional walking passes.",
-      "limits": "A trick guide, not a clinical intervention or an exercise prescription. Tight turns and handler clearance need individual judgment.",
+      "limits": "A trick guide, not a clinical intervention or an exercise prescription. Tight turns and handler clearance need individual judgment. Practical trick instruction, not evidence of general behavior change or anxiety treatment; keep movements comfortable and equipment/object size safe.",
       "use": "Comfortable middle position and slow stationary weave; cone alternatives for dogs that do not fit comfortably."
     },
     {
@@ -8079,9 +8101,9 @@
       "year": "Checked 2026-10-20",
       "type": "Original professional teaching guide",
       "url": "https://www.akc.org/expert-advice/training/teach-your-dog-to-bow/",
-      "access": "Written steps reviewed; video not analyzed",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Describes building a bow, fading the food prompt and adding a cue.",
-      "limits": "Not evidence that holding a bow treats anxiety or improves health. The app favors capturing a natural comfortable stretch and avoids physical positioning.",
+      "limits": "Not evidence that holding a bow treats anxiety or improves health. The app favors capturing a natural comfortable stretch and avoids physical positioning. Practical trick instruction, not evidence of general behavior change or anxiety treatment; keep movements comfortable and equipment/object size safe.",
       "use": "Optional short bow with no forced stretching or prolonged hold."
     },
     {
@@ -8091,7 +8113,7 @@
       "year": "Checked 2026-10-20",
       "type": "Veterinary professional care and training guide",
       "url": "https://vcahospitals.com/know-your-pet/successful-toothbrushing-training-for-happy-dental-care",
-      "access": "Public written guide and dental-care advice",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Builds comfortable participation and small mouth-care components before introducing gentle brushing.",
       "limits": "Dental pain or oral disease needs a veterinary examination. Toothbrush size, pet-safe paste and technique should be selected with the veterinary team.",
       "use": "Voluntary toothbrushing preparation; no restraint, forced jaw opening, human toothpaste or dosing instructions."
@@ -8103,9 +8125,9 @@
       "year": "2023",
       "type": "Peer-reviewed experimental study",
       "url": "https://www.nature.com/articles/s41598-023-30201-1",
-      "access": "Article overview, methods and indexed findings",
+      "access": "indexed_paper_abstract; independently checked 2026-10-28",
       "finding": "Examines responses to spoken object labels while attempting to distinguish name learning from other cues.",
-      "limits": "Typical and exceptional word-learning dogs differ. Selection, prior experience and subtle human cues complicate interpretation; this does not promise that every dog can learn item names.",
+      "limits": "Twenty typical owner-nominated dogs with reported familiarity with a few labels; a group effect and only one individually reliable performer. Not literacy or evidence of a large reliable household vocabulary.",
       "use": "Optional two-object choice experiment with side swaps, neutral body language and permission to stop."
     },
     {
@@ -8115,9 +8137,9 @@
       "year": "2021",
       "type": "Peer-reviewed experimental study",
       "url": "https://www.nature.com/articles/s41598-021-81699-2",
-      "access": "Abstract and indexed methods/findings",
-      "finding": "Unusually experienced dogs learned labels in a social context; choosing a novel object by exclusion did not establish equivalent word learning.",
-      "limits": "Exceptional dogs and small samples cannot establish a training timetable or ability threshold for ordinary pet dogs.",
+      "access": "indexed_paper_abstract; independently checked 2026-10-28",
+      "finding": "Two exceptional dogs learned novel object labels after four social exposures, with short retention; 20 typical family dogs did not demonstrate comparable learning.",
+      "limits": "Peer-reviewed word-learning study in a specialized sample/task; rapid label learning in selected dogs does not establish typical pet-dog expectations.",
       "use": "Avoiding exaggerated claims about toy-name games, ‘reading’, fast mapping or dog intelligence."
     },
     {
@@ -8127,22 +8149,22 @@
       "year": "Checked 2026-10-20",
       "type": "Professional explanatory guidance",
       "url": "https://www.akc.org/expert-advice/training/how-to-avoid-trigger-stacking-in-dogs/",
-      "access": "Public guidance reviewed",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Multiple close-together stressful events may leave a dog less able to cope with the next challenge.",
-      "limits": "A practical description, not a precise hormone clock or evidence for a universal number of recovery hours.",
+      "limits": "Practical AKC explanation, not a precise physiological construct or experimentally validated recovery clock; avoid fixed “trigger stacking” thresholds.",
       "use": "Reducing demands after a difficult day, using individual baseline observations rather than fixed decompression deadlines."
     },
     {
       "id": "A10",
-      "title": "Dog training tips",
+      "title": "How to train your dog: top training tips",
       "author": "RSPCA",
-      "year": "Checked 2026-10-24",
-      "type": "Original professional guidance",
+      "year": "Checked 2026-10-21",
+      "type": "Professional welfare and training guidance",
       "url": "https://www.rspca.org.uk/adviceandwelfare/pets/dogs/training",
-      "access": "Public written guidance reviewed",
-      "finding": "Rewards, short enjoyable sessions and gradual teaching support basic cue learning.",
-      "limits": "General professional guidance; no guarantee for a particular dog or the original lesson sequences.",
-      "use": "Reward-based foundations, walking cues and optional tricks."
+      "access": "guidance_sections; independently checked 2026-10-28",
+      "finding": "Recommends reward-based teaching in brief, regular sessions, with patience for individual learning rates.",
+      "limits": "General reward-based guidance; does not define a measured forgetting interval or validate mandatory refresher frequency.",
+      "use": "Keep reminders gentle, easy to dismiss, and focused on comfortable, rewarded practice."
     },
     {
       "id": "A11",
@@ -8151,7 +8173,7 @@
       "year": "Checked 2026-10-24",
       "type": "Original professional guidance",
       "url": "https://www.pdsa.org.uk/pet-help-and-advice/looking-after-your-pet/puppies-dogs/crate-training",
-      "access": "Public written guidance reviewed",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Voluntary introductions and gradual positive steps help make a suitable crate familiar.",
       "limits": "A crate is not a treatment for separation distress. This app stops at tiny attended closures, not prolonged confinement.",
       "use": "The separate attended crate-door lesson; exits and comfort remain available."
@@ -8163,7 +8185,7 @@
       "year": "Checked 2026-10-24",
       "type": "Original professional guidance",
       "url": "https://spca.b-cdn.net/advocacy/position-statements/article/fear-free-handling",
-      "access": "Public written guidance reviewed",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Supports voluntary participation in routine care using cooperative approaches and low-stress handling.",
       "limits": "A professional position statement, not a validated protocol for each care task. Pain and actual procedures need individual veterinary guidance.",
       "use": "Start signals, stopping at withdrawal, and preparation rather than forced handling."
@@ -8175,7 +8197,7 @@
       "year": "Checked 2026-10-24",
       "type": "Original professional guidance",
       "url": "https://www.akc.org/sports/akc-scent-work/getting-started/",
-      "access": "Public written guidance reviewed",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Recreational scent work joins finding a scent with communicating the find to a handler.",
       "limits": "The app uses secured familiar-human cotton samples without essential oils. Its games are original adaptations and do not establish competition readiness or operational detection.",
       "use": "Separate scent search, indication and cooperative report components."
@@ -8187,7 +8209,7 @@
       "year": "Checked 2026-10-24",
       "type": "Original professional teaching guide",
       "url": "https://cattledogpublishing.com/blog/walking-1-2-3/",
-      "access": "Public written guidance reviewed",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Describes a predictable counting and reward pattern and credits Leslie McDevitt’s Control Unleashed pattern games.",
       "limits": "Practical teaching guidance, not a clinical trial or a guarantee that the game will make trigger exposure safe.",
       "use": "A short quiet count-and-walk adaptation with optional participation and no fear-exposure requirement."
@@ -8199,10 +8221,130 @@
       "year": "Checked 2026-10-24",
       "type": "Official sport overview",
       "url": "https://www.akc.org/sports/tracking/getting-started/",
-      "access": "Public written overview reviewed",
+      "access": "guidance_sections; independently checked 2026-10-28",
       "finding": "Distinguishes following a human-laid scent route from simply finding a visible person or article.",
       "limits": "A competition overview is not a validated training protocol. This app’s fresh tiny trails do not qualify a dog for sport or search-and-rescue work.",
       "use": "Separating a recreational human-route-following exercise from visual hide-and-seek and food trails."
+    },
+    {
+      "id": "V058",
+      "title": "Housetraining for Puppies and Dogs",
+      "author": "VCA Animal Hospitals",
+      "year": "2023",
+      "type": "Veterinary behavior guidance",
+      "url": "https://vcahospitals.com/know-your-pet/training-your-puppy",
+      "access": "guidance_sections; independently checked 2026-10-28",
+      "finding": "Explains supervision, regular opportunities, and positive reinforcement for elimination location.",
+      "limits": "Individual medical and developmental needs vary; veterinary check if behavior changes.",
+      "use": "Toileting curriculum and medical flags."
+    },
+    {
+      "id": "V086",
+      "title": "Separation Anxiety in Dogs",
+      "author": "VCA Animal Hospitals",
+      "year": "2026",
+      "type": "Veterinary behavior guidance",
+      "url": "https://vcahospitals.com/know-your-pet/dog-behavior-problems-separation-anxiety",
+      "access": "guidance_sections; independently checked 2026-10-28",
+      "finding": "Recommends camera monitoring, below-distress departures, and stopping exercises if distress occurs.",
+      "limits": "Clinical guidance; cases that show distress need individualized veterinary support.",
+      "use": "Alone-time prerequisites, monitoring, progression."
+    },
+    {
+      "id": "V112",
+      "title": "Training “stay” vs. “wait”",
+      "author": "Cornell University Riney Canine Health Center",
+      "year": "Accessed 2026-10-28",
+      "type": "Veterinary academic public guidance",
+      "url": "https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-information/training-stay-vs-wait",
+      "access": "guidance_sections; independently checked 2026-10-28",
+      "finding": "Distinguishes a maintained stay from a brief wait and discusses cueing and generalization.",
+      "limits": "Educational guidance reprinted from a newsletter, not an experiment; concerns wait/stay, not evidence about default leave-it.",
+      "use": "Clarify how practical “default wait” language differs from the leave-it research question."
+    },
+    {
+      "id": "V066",
+      "title": "Stimulus Control of Odorant Concentration: Pilot Study of Generalization and Discrimination of Odor Concentration in Canines",
+      "author": "DeChant, Bunker, and Hall",
+      "year": "2021",
+      "type": "Open-access pilot study; four detection dogs",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7912023/",
+      "access": "abstract_and_selected_full_text_sections; independently checked 2026-10-28",
+      "finding": "Dogs showed limited spontaneous generalization across odor concentrations; discrimination training changed responding in a way that depended on training arrangement.",
+      "limits": "Four dogs, specialized olfactory apparatus, and working-dog detection task; no direct household behavior application.",
+      "use": "Illustrate that generalization is not automatic and that stimulus dimensions matter."
+    },
+    {
+      "id": "V109",
+      "title": "Odour generalisation and detection dog training",
+      "author": "Caldicott et al.",
+      "year": "2024",
+      "type": "Review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11530475/",
+      "access": "abstract_and_selected_full_text_sections; independently checked 2026-10-28",
+      "finding": "Reviews how exemplar variation, discrimination, and stimulus control affect odor generalization in detection work.",
+      "limits": "Specialized working-dog review; household skill transfer is indirect.",
+      "use": "Support explicit generalization planning as a design principle, with limits stated."
+    },
+    {
+      "id": "V132",
+      "title": "Training Does Not Uniformly Increase Canine Self-Control",
+      "author": "Silver, Singer, Welch, Perry, Jones, Cates, and Furlong",
+      "year": "2025",
+      "type": "Cross-sectional comparative study",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11816069/",
+      "access": "abstract_and_selected_full_text_sections; independently checked 2026-10-28",
+      "finding": "Agility, barn-hunt, and scent-work dogs did not show a uniform advantage on the tested cylinder self-control task over pet dogs; barn-hunt dogs performed worse in this task.",
+      "limits": "Cross-sectional training groups (162 dogs) and one laboratory cylinder task; this does not test a leave-it cue or household generalization, and training is not randomized.",
+      "use": "Caution against claims that generic impulse-control practice transfers broadly."
+    },
+    {
+      "id": "V133",
+      "title": "Context specificity of inhibitory control in dogs",
+      "author": "Bray, MacLean, and Hare",
+      "year": "2014",
+      "type": "Three experimental cognition tasks",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4154138/",
+      "access": "abstract_and_selected_full_text_sections; independently checked 2026-10-28",
+      "finding": "Across three experiments, inhibitory-control scores did not correlate between tasks, indicating strong context/task dependence.",
+      "limits": "Thirty dogs across three laboratory tasks; cognitive inhibition proxies do not directly measure everyday behavior or compare leave-it protocols.",
+      "use": "Support cautious, context-specific generalization and avoid framing inhibition as a unitary learned trait."
+    },
+    {
+      "id": "V134",
+      "title": "Measures of Dogs’ Inhibitory Control Abilities Do Not Correlate across Tasks",
+      "author": "Brucks, Marshall-Pescini, Wallis, Huber, and Range",
+      "year": "2017",
+      "type": "Comparative cognition study",
+      "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2017.00849/full",
+      "access": "abstract_and_selected_full_text_sections; independently checked 2026-10-28",
+      "finding": "Performance across several inhibitory-control tasks did not show consistent cross-task correlation.",
+      "limits": "67 dogs were tested, with varying numbers completing each task; laboratory inhibition proxies do not directly measure everyday behavior or cue generalization.",
+      "use": "Second independent context-specificity source; contrast with training-specific discrimination research."
+    },
+    {
+      "id": "V138",
+      "title": "The effects of cue modality on reliability and generalization of training outcomes with domestic dog",
+      "author": "Molly A. B. Anderson, Devon K. Otero, Pepe Peruyero, and Nicole R. Dorey",
+      "year": "2023",
+      "type": "Peer-reviewed two-experiment training study",
+      "url": "https://doi.org/10.1016/j.jveb.2023.01.001",
+      "access": "indexed_primary_publisher_abstract_or_sections; independently checked 2026-10-28",
+      "finding": "Nine naive pet dogs were studied in two cue-modality experiments. Overall response comparisons were nonsignificant, while combined cues required fewer trials to generalization criterion in the tested novel conditions.",
+      "limits": "Small, specific cue-training study. Full methods inaccessible; the archive’s same-room detail is not independently confirmed here. Not a leave-it protocol comparison.",
+      "use": "Relevant evidence that compound cues may aid some transfer, while underscoring that the effect is task- and context-specific."
+    },
+    {
+      "id": "V093",
+      "title": "Owner-implemented paired-stimulus food preference assessments for companion dogs",
+      "author": "Waite and Kodak",
+      "year": "2023",
+      "type": "Methods study of owner-run preference assessment",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37414742/",
+      "access": "indexed_paper_abstract; independently checked 2026-10-28",
+      "finding": "Owners could implement a paired-food preference protocol with high integrity, and the assessment identified individual preference rankings.",
+      "limits": "Food preference ranking does not guarantee a food will reinforce every behavior under all conditions; the method was not a general reward test for all reinforcer types.",
+      "use": "Let owners identify suitable food rewards through safe, simple choice tests."
     }
   ],
   "evidence": [
@@ -8234,7 +8376,7 @@
       "topic": "Noise fears",
       "conclusion": "Use controlled faint-sound practice separately from plans for unavoidable storms or fireworks. Support comfortable hiding and reassurance when sought.",
       "limits": "An evidence review and caregiver survey support several approaches, but survey success percentages are not randomized effects. Recordings may omit meaningful real-event features. Older reassurance restrictions are not adopted.",
-      "sources": "R06; R07; P26; P27; P28"
+      "sources": "R06; R07; P27; P28"
     },
     {
       "topic": "Medical care",
@@ -8263,25 +8405,25 @@
     {
       "topic": "Relaxation and care",
       "conclusion": "Look for soft voluntary rest and honor withdrawal during handling. A chin rest or down-stay is not by itself evidence of calm.",
-      "limits": "Practical guidance offers useful skill plans, but short veterinary-fear and cooperative-care studies show limited or mixed effects. These exercises should not be sold as guaranteed clinical treatment.",
+      "limits": "A trained down or chin rest does not demonstrate a relaxed emotional state or guarantee control. Small short veterinary-fear and cooperative-care studies found limited or mixed effects; the cooperative-care study did not consistently honor the trained stop during examinations. These results neither guarantee nor disprove benefits from properly implemented individual care plans.",
       "sources": "P02; P06; P23; R17; R18"
     },
     {
       "topic": "Enrichment and advanced jobs",
       "conclusion": "Choose searches, play, tricks, and household jobs that the dog enjoys. Teach component actions before joining a chain.",
-      "limits": "A small nosework experiment is encouraging for a welfare proxy, not proof of an anxiety cure. Retrieve/fridge procedures here are original practical adaptations informed by professional guides.",
+      "limits": "Nosework findings concern a small welfare-proxy experiment, not an anxiety cure. Retrieval and training-prop chains here are original practical adaptations, not validated service-dog protocols. Current lessons exclude refrigerators and other appliances.",
       "sources": "R12; P20; P21; P22; P32"
     },
     {
       "topic": "Progress rules",
       "conclusion": "The row’s criterion is the guide to advancement. Comfort overrides the availability formula and any success percentage.",
-      "limits": "Four of five responses across two sessions is a practical planning rule, not a diagnostic cutoff. The custom response descriptions and workbook completion percentages are not clinical measures of anxiety reduction.",
+      "limits": "Numbers of repetitions, example durations and two-session checks are adjustable editorial practice targets, not research-validated mastery tests or clinical measures. Several errors, tension or slower recovery mean simplify sooner; never drill to meet a quota. A grade covers the observed step and setting only.",
       "sources": "Original planning rules; P06"
     },
     {
       "topic": "Source screening",
       "conclusion": "Study protocols without results are not outcome evidence. Access limits, conflicts, and external validity matter.",
-      "limits": "R23 was deliberately retained as an example of a proposed study, excluded from completed-results claims. Human fear-of-dogs material, unsupported blog statistics, and forced-greeting advice were not adopted. A03’s “reading” title is not treated as evidence of literacy; spoken words, gestures and place cues may explain the game.",
+      "limits": "The register identifies whether abstract, selected full text or guidance was checked. Protocol R23 is not outcome evidence. Conflicting legacy recommendations and unsupported generalizations are not adopted. The Dogs Trust A03 game uses spoken words, gestures and location; it does not isolate reading or visual-word recognition.",
       "sources": "R23; research log"
     },
     {
@@ -8294,12 +8436,12 @@
       "topic": "Owner-confirmed support preferences",
       "conclusion": "Use the owner’s observations to offer a quieter setting, more choice around novelty, or voluntary handling starts. Breed selection alone changes nothing.",
       "limits": "Only four survey-supported breed/trait pairs invite questions. These are not diagnoses or validated treatment algorithms. Adjustments do not lower comfort requirements, automatically complete steps, or prescribe additional repetitions, nutrition or medication.",
-      "sources": "R08; R09; P34; P26; R17"
+      "sources": "R08; R09; P34; R06; R17"
     },
     {
       "topic": "Clever games without inflated claims",
       "conclusion": "Treat toy names and picture cues as enjoyable optional experiments. Swap object sides and keep body language neutral. A reliable targeting or retrieve game is valuable even without label discrimination.",
-      "limits": "Object-label studies distinguish typical dogs from exceptional word learners. Their results do not guarantee a vocabulary, rapid-learning timeline, or an intelligence ranking.",
+      "limits": "Typical-dog and exceptional word-learner studies do not guarantee vocabulary, rapid learning or an intelligence ranking. For picture cues, keep the target hand and other prompts equally available in both conditions; a gesture-driven response does not establish visual discrimination.",
       "sources": "A03; A07; A08"
     },
     {
@@ -8313,6 +8455,24 @@
       "conclusion": "Build voluntary mouth-care participation in very small pieces. Use pet-safe materials and obtain a veterinary demonstration.",
       "limits": "A training guide cannot diagnose oral pain, replace dental treatment, or determine which individual dog can safely have their mouth handled. Do not restrain, force the jaw, or use human toothpaste.",
       "sources": "A06; R17; R18"
+    },
+    {
+      "topic": "Cues, offered choices and generalization",
+      "conclusion": "Teach useful cues and reinforce useful offered behavior in specific contexts. Practice transfer in easy increments and keep hazards physically inaccessible, especially without supervision.",
+      "limits": "Laboratory inhibition tasks often show weak cross-task agreement. They do not compare default versus cued leave-it, establish one global self-control ability, or show that training cannot generalize. Small cue studies do not justify an absent-handler safety guarantee.",
+      "sources": "V132; V133; V134; V138; P12; V112"
+    },
+    {
+      "topic": "Recreational scent skills",
+      "conclusion": "Describe the taught task precisely: one familiar odor versus a blank, finding a container, following an easy route, or performing an indication. Control unintended helper and handling cues.",
+      "limits": "One target versus a blank is not generalized matching to a reference odor. Fresh samples and container positions can change performance. Specialized detection research informs caution but does not validate these home games or identify which cues guided a dog on a route.",
+      "sources": "V066; V109; P32"
+    },
+    {
+      "topic": "Rewards and participation",
+      "conclusion": "Choose rewards the individual dog wants, keep food appropriate to their diet and deliver a promised marker reward promptly. Do not withhold meals, comfort or relief to obtain participation.",
+      "limits": "Preference can vary with context and does not establish a universal reward ranking. Markers are optional tools; observed improvements in a particular task do not establish universal superiority over well-timed food.",
+      "sources": "V093; R11; R25; R26; A01"
     }
   ],
   "intro": [
@@ -8322,11 +8482,11 @@
     },
     {
       "title": "Use short sessions",
-      "body": "Start with a handful of easy repetitions or roughly 1–3 minutes, then stop or rest. This is a practical starting point, not a research-proven ideal duration. Pick one useful lesson and one enjoyable activity. Keep rewards suitable and account for food used in the daily diet. Do not withhold food, contact, or relief to force participation."
+      "body": "Start with a handful of easy repetitions or roughly 1–3 minutes, then stop or rest. This is a practical starting point, not a research-proven ideal duration. Pick one useful lesson and one enjoyable activity. Keep rewards suitable and account for food used in the daily diet. Do not withhold food, contact, or relief to force participation. Reward each terminal marker promptly, even if you marked an unintended action. Do not require another behavior to earn that promised reward."
     },
     {
       "title": "Keep contexts separate",
-      "body": "Foundations covers learning the action in a quiet setting. Practice elsewhere covers transfer to specified rooms, outdoors, or mild distractions. A dog can know their name while struggling near another dog; those are different learning goals. Record the actual setting rather than claiming a skill works everywhere."
+      "body": "Foundations covers learning the action in a quiet setting. Practice elsewhere covers transfer to specified rooms, outdoors, or mild distractions. A dog can know their name while struggling near another dog; those are different learning goals. Record the actual setting rather than claiming a skill works everywhere. Reward useful offered choices in the situations where you want them, as well as teaching cues for communication. Neither implies a behavior will hold in new settings or when nobody is present; use barriers and secure storage for hazards."
     },
     {
       "title": "Change feelings",
@@ -8346,7 +8506,7 @@
     },
     {
       "title": "Optional advanced jobs",
-      "body": "Play and jobs and the optional multi-stage projects in Brainiacs are optional enrichment. The fridge chain begins with a light sealed water-bottle prop in a suitable carrier; do not let the dog carry glass or a bare can, open containers, ingest alcohol, strain against a stiff seal, or access the appliance unsupervised. A human-opened retrieve is a useful alternative."
+      "body": "Multi-stage jobs are optional supervised enrichment. Use empty safe carriers, low open shelves and lightweight purpose-built training doors. Refrigerators and other food or electrical appliances are excluded from current lessons. Put props and handles away afterward; a simple human-presented retrieve is equally valid."
     },
     {
       "title": "After a difficult day",
@@ -8355,6 +8515,10 @@
     {
       "title": "Tricks are optional",
       "body": "Choose movements and materials that suit this dog. Use a non-slip surface, safe oversized props, and brief supervised sessions. Stop at stiffness, avoidance, strain, guarding, or frustration. Food puzzles, targets, and household jobs are enrichment, not a substitute for an anxiety treatment plan. Skip anything the dog does not enjoy."
+    },
+    {
+      "title": "Choice during care",
+      "body": "A chin rest or start posture is only a trained signal. Watch the whole dog and stop hands and tools for withdrawal, freezing, tension or avoidance, even if the posture remains. Resume only after a comfortable voluntary new start. Agree on the stop signal with anyone helping. Necessary or urgent treatment needs a veterinary handling, pain-relief and medication plan; never delay care to finish an app lesson."
     }
   ],
   "triggers": [
@@ -8440,8 +8604,8 @@
     },
     {
       "name": "Other",
-      "example": "Name one specific trigger and start with its faintest comfortable version.",
-      "step": "SOUND-1"
+      "example": "Describe the specific situation, prevent overwhelming exposure and review a comfortable next step from observations; arrange individual help if the trigger or risk is unclear.",
+      "step": "KEEP-2"
     }
   ],
   "archivedSkills": [
@@ -8964,7 +9128,224 @@
           ]
         }
       ]
+    },
+    {
+      "code": "OPEN",
+      "title": "Open this refrigerator",
+      "sheet": "Useful little jobs",
+      "goal": "Open one approved refrigerator gently, under supervision.",
+      "cue": "Open",
+      "setup": "Clear food access, non-slip footing, reachable handle; remove rope outside sessions. Skip a stiff seal.",
+      "sources": "P05; P22",
+      "priority": "Optional advanced",
+      "steps": [
+        {
+          "id": "OPEN-1",
+          "title": "Make refrigerator movement comfortable",
+          "teach": "Without any pulling task, stand at a comfortable distance from the closed fridge. Open it a tiny amount, then feed your dog and close gently. Separately pair any light/compressor sounds that matter. Allow retreat. Do not train pulling while door movement itself worries the dog.",
+          "advance": "Comfortable with gentle opening, light, and sound in several observations across two sessions.",
+          "easier": "Use smaller movement or more distance. Continue with a human-opened retrieval if the appliance is unsuitable.",
+          "deps": [],
+          "setup": "Clear reachable food, provide non-slip footing and begin at a comfortable distance from the closed fridge. The handler controls a tiny opening and closure; no rope or pulling task is needed yet."
+        },
+        {
+          "id": "OPEN-2",
+          "title": "Use the rope with the door already ajar",
+          "teach": "Attach the familiar handle securely where it cannot catch the dog. Begin with the fridge door a little ajar so almost no force is needed. Cue pull; reward the smallest useful opening and a release. Stand ready to control the door’s swing without trapping the dog.",
+          "advance": "Can open the ajar door gently and release the rope on 4 of 5 attempts across two sessions.",
+          "easier": "Increase the starting gap or return to the lightweight prop. Do not reward hard jerks or chewing.",
+          "deps": [
+            [
+              "OPEN-1",
+              3
+            ],
+            [
+              "PULL-3",
+              3
+            ]
+          ],
+          "setup": "Attach the familiar safe rope handle where it cannot catch feet or neck, and start with the fridge door ajar. Clear reachable food and the swing path, keep footing secure, and be ready to control the door."
+        },
+        {
+          "id": "OPEN-3",
+          "title": "Reduce the starting gap carefully",
+          "teach": "Decrease the initial gap slightly on an easy repetition, keeping the pull gentle. Alternate with ajar starts. Attempt the actual closed seal only if it releases easily with this gentle motion; otherwise stop at a human-opened door. Add “open” before the known pull when predictable.",
+          "advance": "Opens this approved easy door from the chosen start on 4 of 5 attempts in two sessions, without strain.",
+          "easier": "Restore an ajar start or have the human open it. This does not authorize opening other household doors.",
+          "deps": [
+            [
+              "OPEN-2",
+              3
+            ]
+          ],
+          "setup": "Use the approved fridge and familiar safe handle on non-slip flooring, with the swing controlled by an adult. Check the seal releases gently before any closed start; otherwise prepare a human-opened version and remove rope afterward. Clear reachable food before starting."
+        }
+      ],
+      "retirementReason": "Retired from current recommendations: use a lightweight purpose-built training prop instead of teaching access to a refrigerator or other food appliance. Earlier records do not complete the new prop exercises."
+    },
+    {
+      "code": "CLOSE",
+      "title": "Nose-push a door closed",
+      "sheet": "Useful little jobs",
+      "goal": "Gently push an approved door using a nose target.",
+      "cue": "Close",
+      "setup": "A secure large target; no mouth pulling, pinching, slamming, or jumping.",
+      "sources": "P11; P22",
+      "priority": "Optional advanced",
+      "steps": [
+        {
+          "id": "CLOSE-3",
+          "title": "Transfer to this fridge and fade the pad",
+          "teach": "On the approved fridge, start almost closed and use the same secure nose target with your hand controlling the swing. Reward soft closure. Add “close” before the touch, then make the pad smaller across sessions if safe. Check the seal yourself; never put the dog inside or between door and cabinet.",
+          "advance": "Softly closes this fridge from the chosen small gap on 4 of 5 attempts in two sessions; a human confirms closure.",
+          "easier": "Keep the larger target or smaller gap. Human closure is a valid simpler alternative.",
+          "deps": [
+            [
+              "CLOSE-2",
+              3
+            ],
+            [
+              "OPEN-1",
+              3
+            ]
+          ],
+          "setup": "Clear the approved fridge opening and set its door almost closed under human control. Secure the familiar pad at nose height, protect paws and tail, and keep rewards ready; the adult checks the final seal."
+        }
+      ],
+      "retirementReason": "Retired from current recommendations: use a lightweight purpose-built training prop instead of teaching access to a refrigerator or other food appliance. Earlier records do not complete the new prop exercises."
+    },
+    {
+      "code": "SHELF",
+      "title": "Retrieve a drink carrier from a shelf",
+      "sheet": "Useful little jobs",
+      "goal": "Retrieve a lightweight sealed prop by a suitable carry handle.",
+      "cue": "Drink / fetch",
+      "setup": "Sealed water bottle in a robust suitable carrier; never glass or a bare can in the mouth. No alcohol ingestion.",
+      "sources": "P20; P25",
+      "priority": "Optional advanced",
+      "steps": [
+        {
+          "id": "SHELF-3",
+          "title": "Transfer to the already-open fridge",
+          "teach": "Have a human hold the fridge door safely open. Remove other reachable food and place only the carrier on an easy reachable shelf. Stand close, cue the known pickup, receive, and reward. Add a few delivery steps gradually; keep opening and closing out of this lesson.",
+          "advance": "Retrieves from the open approved fridge and delivers gently on 4 of 5 attempts in two sessions.",
+          "easier": "Return to the mock shelf or an empty carrier. Use supervision and prevent unsupervised appliance access.",
+          "deps": [
+            [
+              "SHELF-2",
+              3
+            ],
+            [
+              "OPEN-1",
+              3
+            ]
+          ],
+          "setup": "Have an adult control the fridge door open. Remove other reachable food and put only the familiar safe carrier on a shallow reachable shelf, with non-slip footing, a clear exit and rewards ready. Use sealed water inside its robust carrier, never glass or a bare can."
+        }
+      ],
+      "retirementReason": "Retired from current recommendations: use a lightweight purpose-built training prop instead of teaching access to a refrigerator or other food appliance. Earlier records do not complete the new prop exercises."
+    },
+    {
+      "code": "DRINK",
+      "title": "Getting a drink from the fridge",
+      "sheet": "Brainiacs",
+      "goal": "Open an approved easy door, retrieve a protected drink carrier, deliver it, and finish with human or dog closure.",
+      "cue": "Fetch a drink (or your chosen word)",
+      "setup": "All components comfortable and consistent in this setting; fully supervised.",
+      "sources": "P20; P22; P25",
+      "priority": "Optional advanced",
+      "steps": [
+        {
+          "id": "DRINK-1",
+          "title": "Start with the easy ending",
+          "teach": "Rehearse an easy delivery from the open fridge with you one step away. Reward the give generously. On separate repetitions have the dog give a carrier already held near you. This keeps the final delivery fluent and rewarding before adding earlier links.",
+          "advance": "Easy deliveries remain reliable and enjoyable with gentle handling on 4 of 5 repetitions.",
+          "easier": "Shorten the carry and return to isolated give; do not add opening while delivery is uncertain.",
+          "deps": [
+            [
+              "SHELF-3",
+              3
+            ]
+          ],
+          "setup": "Have an adult control the approved fridge door open, clear other reachable food and place the familiar safe carrier on its easy shelf. Check non-slip footing, a one-step delivery route and generous rewards at your receiving hand. Use sealed water inside the robust carrier, never glass or bare cans."
+        },
+        {
+          "id": "DRINK-2",
+          "title": "Add opening before pickup",
+          "teach": "Begin beside the approved fridge. Cue open, then the familiar pickup from its shelf, then give. Initially reward the opening component and the final delivery; over sessions reduce the intermediate food while continuing to cue and generously reward the complete easy chain.",
+          "advance": "Open → shelf pickup → delivery works gently with the familiar component cues on 4 of 5 attempts across two sessions.",
+          "easier": "Practice the broken link alone, then rejoin an easier two-link sequence. Avoid withholding all rewards to force a full chain.",
+          "deps": [
+            [
+              "DRINK-1",
+              3
+            ],
+            [
+              "OPEN-3",
+              3
+            ],
+            [
+              "PULL-3",
+              3
+            ]
+          ],
+          "setup": "Prepare the approved easy-opening fridge, familiar safe rope handle and reachable carrier shelf with other food cleared. Check the door swing, non-slip route and component reward access; an adult remains ready to control motion. Use sealed water inside the robust carrier, never glass or bare cans."
+        },
+        {
+          "id": "DRINK-3",
+          "title": "Add the optional return and close",
+          "teach": "For dog closure, first complete CLOSE-3; otherwise choose human closure and keep that as your final routine. After give, reward, then cue return → close and reward at the door. Rehearse this ending with a human-opened fridge before joining it to retrieval. Always check the seal yourself.",
+          "advance": "The chosen full sequence, with or without dog closure, is comfortable and reliable in two sessions.",
+          "easier": "Have a human close, or practice return/close separately. Keep your body clear of the dog’s path.",
+          "deps": [
+            [
+              "DRINK-2",
+              3
+            ]
+          ],
+          "setup": "Choose human closure unless the dog-closure component is already comfortable. Prepare a human-opened fridge with clear return and swing paths, the familiar secure nose pad if used, and rewards at the receiving hand and door. Use sealed water inside the robust carrier, never glass or bare cans."
+        },
+        {
+          "id": "DRINK-4",
+          "title": "Introduce one final request",
+          "teach": "Say the final request just before the familiar sequence, then provide component cues as needed. Across successful repetitions pause briefly before each extra cue so the next action can occur on its own. Fade one prompt at a time; reward completion and supervise. Remove rope and block access afterward.",
+          "advance": "Completes the chosen safe sequence on the final request with little or no extra prompting on 4 of 5 attempts in two sessions.",
+          "easier": "Restore the component cue at the difficult link, shorten starting distance, or omit closing. Keep contents protected and inspect the carrier each use.",
+          "deps": [
+            [
+              "DRINK-3",
+              3
+            ]
+          ],
+          "setup": "Inspect the safe carrier, protected contents, reachable shelf and easy-opening approved fridge. Clear the whole short route and swing, prepare component cues and rewards, and arrange rope removal and blocked access afterward. Use sealed water inside the robust carrier, never glass or bare cans."
+        }
+      ],
+      "project": {
+        "modules": [
+          {
+            "code": "OPEN"
+          },
+          {
+            "code": "SHELF"
+          },
+          {
+            "code": "CLOSE",
+            "optional": true
+          },
+          {
+            "code": "DRINK"
+          }
+        ],
+        "foundations": [
+          "PULL",
+          "FETCH",
+          "GIVE",
+          "OTARGET"
+        ],
+        "parallel": "Opening, shelf retrieval and gentle closing are separate skills. Practice their ready steps in any order. Rope pulling is required before door pulling; human closure is a complete, valid ending."
+      },
+      "retirementReason": "Retired from current recommendations: use a lightweight purpose-built training prop instead of teaching access to a refrigerator or other food appliance. Earlier records do not complete the new prop exercises."
     }
   ],
-  "setupRevision": 1
+  "setupRevision": 2
 }

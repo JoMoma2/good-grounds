@@ -60,7 +60,7 @@ Projects use `skill.project.modules` and `foundations` referencing ordinary skil
 
 `archivedSkills` preserves the original 1.2.0 long guides. `index().archivedSteps` is distinct from active `steps`, so summary and history do not count retired steps. `step.replaces` maps conservative consistency credit to a new ID; `creditReplacements` preserves original records, pauses and explicit replacement grades separately for every dog. `observeProgress` applies that migration before recording current counts. Archived journal links remain selectable when editing their existing sessions. Do not reuse an old step ID for a broader criterion.
 
-`research/prerequisite-baselines.json` holds exact historical graph baselines; `npm run check` runs the full audit. Every changed historical edge needs a written reason, all current references must resolve, and every retired ID must have an original page plus a replacement mapping. `research/previous-project-guides.json` is curriculum content, not disposable test data.
+`research/prerequisite-baselines.json` holds exact historical graph baselines; `npm run check` runs the full audit. Every changed historical edge needs a written reason, all current references must resolve, and every retired ID must have an original page plus either a conservative replacement mapping or an explicit no-credit retirement decision. `research/previous-project-guides.json` is curriculum content, not disposable test data.
 
 Run `npm test` for all unit suites, including immutable 1.1.1 compatibility fixtures. Keep those fixtures portable; do not depend on a local Git checkout for source-archive tests. The focused handoff suite measures real desktop audio graph output; this is not physical speaker verification. It also supports `GG_BROWSER=firefox` for local-file checks.
 
@@ -102,3 +102,36 @@ A complete source handoff includes the new web module, review JSON/script, setup
 `npm run test:package` exercises the actual packager and clean/exported trees without local archived documents or validation evidence. It verifies all runtime/native/generator/test inputs, optional public documentation, exclusion of local materials, failure for missing required sources and failure for required sources that would otherwise be filtered out. The GitHub macOS job runs this check before compilation.
 
 Historical traceability remains in local archives and active research baselines. An archived report must not be required merely to create a ZIP that intentionally excludes it. Older release notes may link to those local-only documents; current build instructions use bundled references. For publication, include all five new v1.6.0 source resources plus `tests/source-package.test.py`; keep the source directory contents at the repository root, including `.github`. Packaging never requires the Android project, an external Archives directory or an existing IPA. Compiling a fresh native IPA still requires macOS/Xcode; repackaging an existing IPA is a separate optional convenience.
+
+## Curriculum 8 / 1.7.0 correction layer
+
+`scripts/curriculum-review.py` applies the authored `research/curriculum-corrections-8.json` after historical authoring stages and before reviewed setups. Edit that layer for current corrections. `curriculum-review-8.json` fingerprints all current skill and step fields; re-review the actual instruction and preparation before updating its hashes. `scripts/audit-content-review.cjs` rejects unreviewed changes and checks source annotations, shared guidance and nine explicit retirements. `npm run check` includes this audit.
+
+The 1.6.0 fixture preserves exactly what was current before this review. Retired appliance step IDs remain historical, not aliases for new exercises. Do not add `replaces` links that credit appliance history to prop contexts. Current and archived guide pages can share a skill code; individual step IDs must stay unique. Earlier progress history is never recomputed from the revised denominator.
+
+Regenerate both data bundles with `python3 scripts/extend-content.py`, run checks and unit suites, and run all nine browser suites in Chromium and WebKit for both platforms. Current reports belong in `validation/v1.7.0`; preserve older validation. The current lesson count is 386, archived count 45, and setup revision 2. Source access scope is part of the content, not permission to claim every full paper was read. Software checks do not establish training efficacy.
+
+## Version 1.7.1 / build 12
+
+Current public-facing copy uses standard platform help and backup instructions. Keep private build tooling and signing details out of the app's user flows. The unsigned iPhone build/repackaging tools remain development artifacts and are not a signed distribution archive. No store release is performed by source packaging. Android release builds retain the existing package identity and signing key.
+
+Curriculum 8, setup revision 2 and all training-data fingerprints remain unchanged from 1.7.0. Keep current validation in `validation/v1.7.1`; preserve previous results. Run existing checks and browser coverage after modifying shared help pages.
+
+## Shared research and historical files
+
+The workspace's active evidence library is `Research/Sources and Verification`, outside the platform checkout. It is not required to regenerate the bundled curriculum: all required app research inputs remain under this project's own `research/` directory. The original workbook is historical under `Archives/Research/Original Workbook`. Older versioned validation and old generated output were moved out of the active checkout; build tools recreate their local output directories when needed. Current validation remains under `validation/v1.7.1`.
+
+## Publishing the complete iPhone 1.7.1 source
+
+The canonical repository is `https://github.com/JoMoma2/good-ground-iphone.git`, on `main`. Keep the iPhone checkout separate from the Android repository. The existing uncommitted release includes new files that must accompany the tracked changes:
+
+- `research/CURRICULUM_REVIEW_2026-10-28.md` and `research/README.md`.
+- `research/curriculum-corrections-8.json` and `research/curriculum-review-8.json`.
+- `scripts/curriculum-review.py` and `scripts/audit-content-review.cjs`.
+- `tests/content-review.test.cjs` and `tests/fixtures/1.6.0-catalog.json`.
+
+The seven code/content/test resources above are required by generation, audits, tests or packaging; the research README supplies navigation. A source export must include the whole intended project, including `.github`, rather than only files already tracked at the previous commit. `npm run test:package` checks every required new resource when missing and rejects silently filtered required resources.
+
+The removed `CI_FIX_1_5_1.md`, `previews.html`, `previews/` images and old `validation/v1.4.1`, `validation/v1.5.0` and `validation/v1.5.1` files are historical documentation/generated output, not runtime or build dependencies. Their committed originals remain in Git history and their local copies are preserved in the separate historical archive. Do not restore them merely to satisfy packaging. Optional `capture-previews.cjs` output remains local: the root preview folder and HTML index are ignored and excluded from portable source packages even when regenerated. Current CI uploads fresh test evidence as workflow artifacts.
+
+Before publishing source, run `npm run check`, `npm test`, `npm run test:package`, all nine browser suites in Chromium and WebKit, and clean-export regeneration and package checks. An unsigned development IPA is distinct from a signed App Store distribution build; native compilation and simulator validation still require macOS/Xcode. This document does not authorize staging, committing, pushing or creating a release.

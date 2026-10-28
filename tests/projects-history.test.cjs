@@ -9,8 +9,8 @@ test('new anxiety observations do not replace the three initial foundational rec
  const tailored=C.personalizedAvailable(D,s);assert.ok(tailored.some(x=>x.skill.sheet==='Other dogs'));assert.ok(tailored.some(x=>x.skill.code==='SOUND'));
  s.profile.priorities=[];s.tailoring.traits=[];assert.deepEqual(C.personalizedAvailable(D,s),[]);
 });
-test('all original fridge steps and cues survive as independent skills',()=>{
- for(const id of require('./fixtures/1.1.1-step-ids.json'))assert.ok(I.steps.has(id),id);
+test('all original steps and cues survive through active or historical guides',()=>{
+ for(const id of require('./fixtures/1.1.1-step-ids.json'))assert.ok(I.steps.has(id)||I.archivedSteps.has(id),id);
  const fridge=I.skills.get('DRINK');assert.equal(fridge.steps.length,4);assert.equal(fridge.sheet,'Brainiacs');
  assert.deepEqual(fridge.project.modules.map(c=>c.code),['OPEN','SHELF','CLOSE','DRINK']);
  assert.equal(C.projectPlan(D,C.freshState(),'DRINK').modules.flatMap(m=>m.steps).length,13);
@@ -20,8 +20,8 @@ test('all original fridge steps and cues survive as independent skills',()=>{
 test('Brainiacs is last and contains eight substantial acyclic projects tied to component skills',()=>{
  assert.equal(D.skills.at(-1).sheet,'Brainiacs');const projects=D.skills.filter(s=>s.sheet==='Brainiacs');assert.equal(projects.length,8);
  for(const skill of projects){const stages=C.projectPlan(D,C.freshState(),skill.code).modules.flatMap(m=>m.steps);assert.equal(new Set(stages.map(x=>x.step.id)).size,stages.length);assert.ok(stages.length>skill.steps.length);assert.ok(skill.steps.some(st=>st.deps.some(([id])=>I.steps.get(id).skill!==skill)));}
- assert.equal(C.availability(I.steps.get('OPEN-1').step,C.freshState()),'Ready to start');
- assert.equal(C.availability(I.steps.get('OPEN-2').step,C.freshState()),'Build prerequisite');
+ assert.equal(C.availability(I.steps.get('OPEN-4').step,C.freshState()),'Ready to start');
+ assert.equal(C.availability(I.steps.get('OPEN-5').step,C.freshState()),'Build prerequisite');
 });
 test('baseline starts at the observed date and never infers a past curve from completion timestamps',()=>{
  let s=full(C.freshState(),'NAME');s.progress['NAME-1'].completedAt='2025-01-01';s=C.observeProgress(D,s,now('2026-10-22'));

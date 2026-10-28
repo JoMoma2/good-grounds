@@ -216,6 +216,7 @@ order=['Foundations','Calm at home','Walk skills','Other dogs','People and door'
 order+=[name for name in dict.fromkeys(s['sheet'] for s in D['skills']) if name not in order and name!='Brainiacs']
 order+=['Brainiacs']
 D['skills'].sort(key=lambda s:order.index(s['sheet']))
+runpy.run_path(str(ROOT/'scripts/curriculum-review.py'))['apply'](D)
 runpy.run_path(str(ROOT/'scripts/review-setups.py'))['apply'](D)
 
 (ROOT/'app/web/data.json').write_text(json.dumps(D,ensure_ascii=False,indent=2)+'\n')

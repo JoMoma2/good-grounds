@@ -2,16 +2,16 @@ const {test}=require('node:test'),assert=require('node:assert/strict');
 const C=require('../app/web/core.js'),H=require('../app/web/history.js'),D=require('../app/web/data.json'),old=require('./fixtures/1.3.0-catalog.json'),review=require('../research/prerequisite-review.json'),I=C.index(D);
 const at=d=>new Date(d+'T12:00:00'),done=(s,...ids)=>ids.reduce((a,id)=>C.setProgress(a,id,C.STATUSES[3]),s),full=(s,code)=>done(s,...I.skills.get(code).steps.map(st=>st.id));
 const newSkills=D.skills.filter(s=>!old.skills.some(o=>o.code===s.code));
-test('exactly 50 complete distinct skills and 120 steps are added without changing existing identities',()=>{
- assert.equal(old.skills.length,104);assert.equal(newSkills.length,50);assert.equal(D.skills.length,154);assert.equal(I.steps.size,384);
+test('50 distinct skill additions remain while reviewed retirements preserve existing identities',()=>{
+ assert.equal(old.skills.length,104);assert.equal(newSkills.length,50);assert.equal(D.skills.length,154);assert.equal(I.steps.size,386);
  assert.equal(new Set(D.skills.map(s=>s.title.toLocaleLowerCase())).size,D.skills.length);
- for(const skill of old.skills){const current=I.skills.get(skill.code);assert.deepEqual(current.steps.map(s=>s.id),skill.steps.map(s=>s.id));assert.equal(current.sheet,skill.sheet);}
+ for(const skill of old.skills){const current=I.skills.get(skill.code);for(const st of skill.steps)assert.ok(I.steps.has(st.id)||I.archivedSteps.has(st.id),st.id);assert.equal(current.sheet,skill.sheet);}
  for(const s of newSkills){assert.ok(s.goal&&s.setup&&s.cue&&s.sources);assert.ok(s.steps.length>=2);for(const st of s.steps){assert.ok(st.teach.split(/\s+/).length>=25);assert.ok(st.advance.length>25&&st.easier.length>20);}}
 });
 test('every active prerequisite has an editorial decision and every branch can be reached',()=>{
  let state=C.freshState(),remaining=new Set(I.steps.keys());assert.equal(review.curriculum,D.version);
  while(remaining.size){let n=0;for(const id of remaining){const {skill,step}=I.steps.get(id);assert.deepEqual(review.skills[skill.code].steps[id].deps,step.deps);if(C.availability(step,state)==='Ready to start'){state=done(state,id);remaining.delete(id);n++;}}assert.ok(n,'No circular or unreachable branch');}
- assert.equal(C.summary(D,state).counts.complete,384);
+ assert.equal(C.summary(D,state).counts.complete,386);
 });
 test('floor leave is independent of harness and all unnecessary recorded equipment gates are removed',()=>{
  for(const id of ['LEAVE-2','TURN-2','LOOSE-1','RECALLCTX-1'])assert.ok(!I.steps.get(id).step.deps.some(([key])=>key.startsWith('HARNESS-')));
@@ -46,7 +46,7 @@ test('existing completed and paused records, notes, cues, favorites and journal 
 test('catalog expansion changes denominators without inventing completion or rewriting prior dates',()=>{
  let s=full(C.freshState(),'NAME');s=C.observeProgress(old,s,at('2026-10-23'));const prior=structuredClone(s.progressHistory[0]);s=C.observeProgress(D,s,at('2026-10-24'));
  assert.deepEqual(s.progressHistory[0],prior);assert.equal(Object.values(s.progressHistory[1].topics).reduce((n,x)=>n+x[1],0),154);
- assert.equal(Object.values(s.progressHistory[1].topics).reduce((n,x)=>n+x[0],0),1);assert.equal(C.summary(D,s).counts.total,384);
+ assert.equal(Object.values(s.progressHistory[1].topics).reduce((n,x)=>n+x[0],0),1);assert.equal(C.summary(D,s).counts.total,386);
  const changes=H.catalogChanges(s.progressHistory);assert.equal(changes.length,2);assert.ok(changes[1].changes.some(c=>c.name==='Walk skills'&&c.after-c.before===6));
 });
 test('daily queue includes only fully learned maintained skills for selected dogs, including Heel',()=>{

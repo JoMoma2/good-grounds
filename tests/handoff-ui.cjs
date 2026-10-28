@@ -127,9 +127,9 @@ async function main(){
    const s=fresh();s.cues.OPEN='Fridge please';s.cues.CLOSE='Shut';s.cues.DRINK='A drink';
    await boot(s,'#/learn');assert.equal(await page.locator('.library-topic').last().getAttribute('href'),'#/topic/Brainiacs');assert.equal(await page.locator('#learn-results .lesson-card').count(),0);
    await nav('#/topic/Fridge%20task');assert.equal(await page.getByRole('heading',{name:'Brainiacs',exact:true}).count(),1);
-   await nav('#/lesson/OPEN-1');assert.equal(await page.locator('[data-lesson-section=steps] .lesson-step-list a').count(),3);assert.equal(await page.locator('[data-cue-input]').inputValue(),'Fridge please');
+   await nav('#/lesson/OPEN-4');assert.equal(await page.locator('[data-lesson-section=steps] .lesson-step-list a').count(),3);assert.equal(await page.locator('[data-cue-input]').inputValue(),'Fridge please');
    await nav('#/lesson/CLOSE-1');assert.equal(await page.locator('[data-cue-input]').inputValue(),'Shut');await page.locator('[data-cue-input]').fill('Close gently');await page.locator('[data-cue-input]').blur();assert.equal((await snap()).cues.CLOSE,'Close gently');
-   await nav('#/lesson/DRINK-4');assert.equal(await page.locator('[data-cue-input]').inputValue(),'A drink');
+   await nav('#/lesson/DRINK-8');assert.equal(await page.locator('[data-cue-input]').inputValue(),'A drink');
    await nav('#/learn');await page.locator('#learn-search').fill('SHELF-2');assert.equal(await page.locator('#learn-results .lesson-card').first().getAttribute('href'),'#/lesson/SHELF-2');
    await nav('#/project/DRINK');assert.equal(await page.locator('[data-module]').count(),4);await page.locator('[data-module=OPEN] summary').click();assert.equal(await page.locator('[data-module=OPEN] a').count(),3);
    await nav('#/topic/Play%20and%20jobs');assert.equal(await page.getByRole('heading',{name:'Tug a rope handle',exact:true}).count(),1);

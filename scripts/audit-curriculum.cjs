@@ -2,6 +2,7 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),C=require(root+'/app/web/core.js'),D=require(root+'/app/web/data.json'),I=C.index(D),baselines=require(root+'/research/prerequisite-baselines.json');
 const review=require(root+'/research/prerequisite-review.json'),reasons=review.historicalReasons;
+const retired=require(root+'/research/curriculum-review-8.json').retiredSteps;
 assert.equal(review.curriculum,D.version,'Review the current curriculum');
 assert.deepEqual(Object.keys(review.skills).sort(),D.skills.map(s=>s.code).sort(),'Every skill needs an explicit editorial decision');
 for(const skill of D.skills){
@@ -12,7 +13,7 @@ for(const skill of D.skills){
 const original=require(root+'/tests/fixtures/1.3.0-catalog.json'),newSkills=D.skills.filter(s=>!original.skills.some(o=>o.code===s.code));
 assert.equal(newSkills.length,50,'Exactly 50 distinct additions to the 104-skill catalog');
 assert.equal(D.skills.length,original.skills.length+50);
-for(const skill of original.skills){assert.ok(I.skills.has(skill.code),'Existing skill lost '+skill.code);for(const st of skill.steps)assert.ok(I.steps.has(st.id),'Existing active step retired '+st.id);}
+for(const skill of original.skills){assert.ok(I.skills.has(skill.code),'Existing skill lost '+skill.code);for(const st of skill.steps)assert.ok(I.steps.has(st.id)||(I.archivedSteps.has(st.id)&&retired[st.id]),'Existing step lost without reviewed retirement '+st.id);}
 
 const result={curriculum:D.version,skills:D.skills.length,activeSteps:I.steps.size,archivedSteps:I.archivedSteps.size,baselines:{},newProjects:[]};
 const replacement=new Map();for(const s of D.skills)for(const st of s.steps)for(const id of st.replaces||[]){assert.ok(!replacement.has(id),'Duplicate replacement '+id);replacement.set(id,st.id);}
@@ -20,7 +21,7 @@ for(const [version,old] of Object.entries(baselines)){
  const changes=[],missing=[];let unchanged=0;
  for(const s of old.skills)for(const st of s.steps){
   const current=I.steps.get(st.id);
-  if(!current){assert.ok(I.archivedSteps.has(st.id)&&replacement.has(st.id),'Lost original step '+st.id);missing.push({id:st.id,disposition:'Original guide and records retained',replacement:replacement.get(st.id)});continue;}
+  if(!current){assert.ok(I.archivedSteps.has(st.id)&&(replacement.has(st.id)||retired[st.id]),'Lost original step '+st.id);missing.push({id:st.id,disposition:retired[st.id]?'Retired from recommendations; original guide and records retained; no automatic credit':'Original guide and records retained',replacement:replacement.get(st.id)||null,reason:retired[st.id]?.reason});continue;}
   if(JSON.stringify(st.deps)===JSON.stringify(current.step.deps)){unchanged++;continue;}
   assert.ok(reasons[st.id],'Unreviewed prerequisite change: '+st.id);
   changes.push({id:st.id,before:st.deps,after:current.step.deps,reason:reasons[st.id]});
@@ -46,7 +47,7 @@ for(const s of D.skills.filter(s=>s.project)){
 }
 const md=['# Full prerequisite audit — curriculum '+D.version,'',`Reviewed ${D.skills.length} current skills, ${I.steps.size} active teaching steps and ${I.archivedSteps.size} preserved earlier steps against versions 1.1.0, 1.1.1, 1.2.0 and 1.3.0. Active dependencies resolve and are acyclic. Every historical step has an active or preserved earlier page. No undocumented historical edge change is allowed by the audit script.`,'','## Historical changes',''];
 for(const [v,r] of Object.entries(result.baselines)){
- md.push('### Compared with '+v,'',r.unchanged+' steps keep identical prerequisites; '+r.changes.length+' have reviewed changes; '+r.archived.length+' retain their original guides with explicit replacement links.','', '| Step | Before | Now | Decision |','| --- | --- | --- | --- |');
+ md.push('### Compared with '+v,'',r.unchanged+' steps keep identical prerequisites; '+r.changes.length+' have reviewed changes; '+r.archived.length+' retain their original guides with reviewed replacement or retirement decisions.','', '| Step | Before | Now | Decision |','| --- | --- | --- | --- |');
  for(const c of r.changes)md.push(`| ${c.id} | ${JSON.stringify(c.before)} | ${JSON.stringify(c.after)} | ${c.reason} |`);
  md.push('');
 }

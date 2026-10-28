@@ -18,7 +18,7 @@ def apply(data):
             assert hashlib.sha256(json.dumps(original,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()).hexdigest()==row['reviewedStepSHA256'],row['id']+' criteria/prerequisites changed: review setup'
             step['setup']=row['setup']
             count+=1
-    assert len(skills)==154 and count==384
+    assert len(skills)==154 and count==386
     data['setupRevision']=review['schema']
     data['updated']=review['reviewedOn']
     return data
@@ -26,4 +26,4 @@ if __name__=='__main__':
     path=ROOT/'app/web/data.json';data=apply(json.loads(path.read_text()))
     path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
     (ROOT/'app/web/data.js').write_text('window.GOOD_GROUND_DATA = '+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n')
-    print('Applied 384 individually reviewed setups across 154 skills; teaching and prerequisite IDs unchanged.')
+    print('Applied 386 reviewed setups across 154 skills; retired original IDs remain in earlier guides.')

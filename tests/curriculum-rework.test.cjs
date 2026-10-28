@@ -4,20 +4,20 @@ const step=id=>I.steps.get(id).step,done=(s,...ids)=>ids.reduce((a,id)=>C.setPro
 test('every 1.2.0 step retains its instructions and record identity or remains active',()=>{
  const original=old.skills.flatMap(s=>s.steps);
  for(const st of original)assert.ok(I.steps.has(st.id)||I.archivedSteps.has(st.id),st.id);
- for(const skill of D.archivedSkills)assert.deepEqual(skill,old.skills.find(s=>s.code===skill.code));
- assert.equal(I.archivedSteps.size,36);
+ for(const skill of D.archivedSkills.filter(s=>!s.retirementReason))assert.deepEqual(skill,old.skills.find(s=>s.code===skill.code));
+ assert.equal(I.archivedSteps.size,45);
 });
-test('fridge is a four-step assembly of independent opening, retrieval and optional closing skills',()=>{
+test('training prop is a four-step assembly of independent opening, retrieval and optional closing skills',()=>{
  const p=C.projectPlan(D,C.freshState(),'DRINK');assert.equal(p.modules.flatMap(m=>m.steps).length,13);assert.equal(p.total,10);
  assert.equal(I.skills.get('OPEN').steps.length,3);assert.equal(I.skills.get('SHELF').steps.length,3);assert.equal(p.modules.find(m=>m.code==='CLOSE').optional,true);
- let s=done(C.freshState(),'FETCH-2','GIVE-2','OTARGET-2');assert.equal(ready(s,'SHELF-1'),'Ready to start');assert.equal(ready(s,'CLOSE-1'),'Ready to start');assert.equal(ready(s,'OPEN-1'),'Ready to start');
- s=done(s,'OPEN-1');assert.equal(ready(s,'OPEN-2'),'Build prerequisite');s=done(s,'PULL-3');assert.equal(ready(s,'OPEN-2'),'Ready to start');
- assert.ok(step('DRINK-2').deps.some(([id])=>id==='PULL-3'));
+ let s=done(C.freshState(),'FETCH-2','GIVE-2','OTARGET-2');assert.equal(ready(s,'SHELF-1'),'Ready to start');assert.equal(ready(s,'CLOSE-1'),'Ready to start');assert.equal(ready(s,'OPEN-4'),'Ready to start');
+ s=done(s,'OPEN-4');assert.equal(ready(s,'OPEN-5'),'Build prerequisite');s=done(s,'PULL-3');assert.equal(ready(s,'OPEN-5'),'Ready to start');
+ assert.ok(step('DRINK-6').deps.some(([id])=>id==='PULL-3'));
 });
-test('the first fridge assembly ending does not gate retrieval behind door pulling',()=>{
- let s=done(C.freshState(),'SHELF-3');assert.equal(ready(s,'DRINK-1'),'Ready to start');s=done(s,'DRINK-1');assert.equal(ready(s,'DRINK-2'),'Build prerequisite');
- s=done(s,'OPEN-3');assert.equal(ready(s,'DRINK-2'),'Build prerequisite');s=done(s,'PULL-3');assert.equal(ready(s,'DRINK-2'),'Ready to start');
- s=done(s,'DRINK-2');assert.equal(ready(s,'DRINK-3'),'Ready to start','Human closure needs no dog-closing grade');
+test('the first training prop assembly ending does not gate retrieval behind door pulling',()=>{
+ let s=done(C.freshState(),'SHELF-4');assert.equal(ready(s,'DRINK-5'),'Ready to start');s=done(s,'DRINK-5');assert.equal(ready(s,'DRINK-6'),'Build prerequisite');
+ s=done(s,'OPEN-6');assert.equal(ready(s,'DRINK-6'),'Build prerequisite');s=done(s,'PULL-3');assert.equal(ready(s,'DRINK-6'),'Ready to start');
+ s=done(s,'DRINK-6');assert.equal(ready(s,'DRINK-7'),'Ready to start','Human closure needs no dog-closing grade');
 });
 test('separate loops and symbol pairings run in parallel but their combinations need both pieces',()=>{
  let s=done(C.freshState(),'MIDDLE-1','TOUCH-2');for(const id of ['WEAVE-1','WEAVE-2','CARDS-1','CARDS-2'])assert.equal(ready(s,id),'Ready to start',id);

@@ -18,7 +18,7 @@
     'Shetland Sheepdog':{trait:'novelty',topic:'fearfulness'}
   };
   const traits=[
-    {id:'noise',sources:['P34','P26'],label:'Everyday sounds can feel worrying',title:'A quieter starting point',steps:['SAFE-1','SOUND-1'],advice:'Choose a quiet setting and use a soft spoken marker if sounds startle them. Planned sound work begins faintly, with retreat available; simplify or stop at early worry.'},
+    {id:'noise',sources:['P34','R06'],label:'Everyday sounds can feel worrying',title:'A quieter starting point',steps:['SAFE-1','SOUND-1'],advice:'Choose a quiet setting and use a soft spoken marker if sounds startle them. Planned sound work begins faintly, with retreat available; simplify or stop at early worry.'},
     {id:'novelty',sources:['P34'],label:'Unfamiliar things need extra space',title:'Familiar first, then one small change',steps:['SAFE-1','OBJECT-1'],advice:'Begin in a familiar place. Let them investigate or leave freely, and reward comfortable choices. Add one small change at a time; avoid forced approaches or overwhelming exposure.'},
     {id:'handling',sources:['P34','R17'],label:'Handling needs extra choice',title:'Choice before handling',steps:['CHIN-1','HARNESS-1'],advice:'Use voluntary starts and brief, comfortable contact. Stop when they withdraw. Ask your veterinarian about pain or a sudden change before adding handling challenges.'}
   ];

@@ -1,14 +1,14 @@
 {
   "name": "good-ground-local",
-  "version": "1.6.0",
+  "version": "1.7.1",
   "private": true,
   "description": "Offline dog training companion, packaged for iPhone",
   "scripts": {
-    "test": "node tests/core.test.cjs && node tests/updates.test.cjs && node tests/marker.test.cjs && node tests/projects-history.test.cjs && node tests/curriculum-rework.test.cjs && node tests/expansion-practice.test.cjs && node tests/lesson-display.test.cjs && node tests/setup-review.test.cjs",
+    "test": "node tests/core.test.cjs && node tests/updates.test.cjs && node tests/marker.test.cjs && node tests/projects-history.test.cjs && node tests/curriculum-rework.test.cjs && node tests/expansion-practice.test.cjs && node tests/lesson-display.test.cjs && node tests/setup-review.test.cjs && node tests/content-review.test.cjs",
     "test:package": "python3 tests/source-package.test.py",
     "test:ui": "node tests/ui.cjs",
     "preview": "python3 -m http.server 8765 --bind 127.0.0.1 --directory app/web",
-    "check": "node scripts/check.cjs && node scripts/audit-curriculum.cjs",
+    "check": "node scripts/check.cjs && node scripts/audit-curriculum.cjs && node scripts/audit-content-review.cjs",
     "test:bridge": "node tests/native-bridge.cjs",
     "test:updates": "node tests/updates-ui.cjs",
     "test:edges": "node tests/edge-ui.cjs",

@@ -1,7 +1,0 @@
-PASS Lessons opens 14 compact topics with no 154-skill list, and keeps search and tools available
-PASS every one of 154 skills is reachable once through its topic in pages of at most 12
-PASS search ranks titles and handles punctuation, multiple words, custom cues and exact current/archived IDs
-PASS filters and topic selection narrow results; query/filter changes reset pagination and empty search recovers
-PASS topic search stays inside its category and ordinary lesson/project/back routes work
-PASS learned filtering respects each selected dog and browsing does not alter their progress
-PASS directory, compact results and pagination fit narrow/large-text screens and pass accessibility checks

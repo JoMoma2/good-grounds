@@ -1,13 +1,13 @@
-# Good Ground 1.6.0 validation — October 26, 2026
+# Good Ground 1.7.1 validation
 
-The complete current setup audit covers 154 skills and all 384 active steps. Fingerprints and baseline comparisons verify that original cues, teaching, criteria, prerequisites, IDs and 36 earlier guides remain unchanged. Both content bundles regenerate byte-for-byte through the full generator.
+Current results are in `validation/v1.7.1`; earlier reports are retained.
 
-- 98 unit tests per platform, including retired-setting migration, household/backup preservation and every setup fingerprint; bundled-resource and full prerequisite/curriculum checks pass.
-- All nine interface suites pass in both Chromium and WebKit on both active projects: 117 grouped checks per engine/platform. The new suite renders all 384 preparations; checks exact section order, collapsed supporting information, old-setting neutrality, filtered topic counts/reflow, a single tutorial entry point, real save acknowledgement/delay/failure/timeout/retry and browser storage failure. Existing practice/history, progress, cues, multi-dog notes, sources, archived pages, backup and feedback tests are retained.
-- Floating and docked geometry is checked at 390 × 844, 320 × 568 and 844 × 390, normal/large text, 0/34 px bottom safe area and clicker shown/hidden: 24 cases per engine. There is one control group, above navigation, with reachable targets and full-width progress when the marker is hidden. Automated WCAG 2 A/AA checks and 320 px / 200% history layouts also pass.
-- Android debug/release builds and lint pass. A fresh disposable Android 15 emulator checks native storage, process restart, hardware Back, actual marker audio signal, practice/history compatibility, acknowledged Save and Exit and persisted clicker preference. A real native smoke check caught the new script missing from Android's resource allowlist; that is corrected and now covered by the bundled-resource build check. Native reports are retained alongside browser results.
-- Final installer/source checksums, exact runtime asset matching, Android signing/alignment/version and unchanged iPhone native executable are verified during packaging. Reports and selected screenshots are in `validation/v1.6.0`.
+- 104 existing unit tests pass per platform. Complete curriculum, source, prerequisite and historical-record audits pass.
+- The training-data bundles and shared state/backup logic are byte-identical to 1.7.0, and generation reproduces them exactly.
+- All nine existing browser suites pass in Chromium and WebKit on each platform: 36 suite runs, with 118 grouped checks per engine/platform. About reports 1.7.1; About and Backup have no container or alternate-installation advice. Screenshots of both pages were captured; the iPhone pages were visually checked.
+- Current app web assets, native strings and current user documentation pass the distribution-workaround wording scan.
+- Android's seven mocked transport checks pass. Release build and lint pass; build 12/version 1.7.1, all bundled web files and the unchanged signing certificate are verified.
+- The iPhone package retains its previous native executable and verifies every updated bundled file. It remains unsigned; no fresh Xcode build or App Store signing is claimed on this Linux host.
+- Five iPhone portable-source integration tests pass. Clean extracted source packages are also checked for deterministic generation and local/private-file exclusions.
 
-Initial obsolete test interactions were updated to open the new Extra Information section, use the filtered topic grid and recognize tutorial version 6. Assertions for original notes, records, source navigation and recovery remain; no tests are disabled. Fresh deep-linked documents avoid WebKit throttling hundreds of artificial hash changes. Route completion is awaited before count assertions.
-
-Physical iPhone/Android, VoiceOver/TalkBack and speaker/Bluetooth behavior remain device checks. The iPhone IPA is unsigned and reuses its native executable; Xcode compilation/Apple simulator execution require macOS or the next GitHub Actions run. Feedback provider submissions are mocked, never sent live by tests. No personal-device records, account settings, remote deployment, commit or push was performed. Earlier validation stays preserved in docs/archive and versioned validation folders.
+No native emulator, physical phone or assistive-technology run was repeated for this wording/version update. No personal-device records were accessed or reset, live feedback sent, store submission made, or app published.

@@ -1,6 +1,6 @@
 {
-  "curriculum": 7,
-  "basis": "Editorial review of all active and preserved prerequisite edges. A dependency is a taught component or a necessary comfort gradient, not an equipment grade or thematic association. Existing cautious staged dog/visitor programs retain their supported gradients. Historical guides and records remain intact.",
+  "curriculum": 8,
+  "basis": "Independent source review and every current skill/step, including setup, teaching, criterion, easier option, dependencies and claim scope. Exact sequences are editorial adaptations, not clinically validated protocols.",
   "historicalReasons": {
     "LEAVE-2": "A protected floor item can be taught behind a barrier; wearing a harness is a setup option, not a learning component.",
     "LAUNDRY-1": "A close cloth deposit needs basket release, not a completed outward retrieve.",
@@ -50,11 +50,19 @@
     "FETCH-1": "A stationary pickup from a lower surface uses known take/hold/give, covered by hand delivery; traveling carries are not used until the next step.",
     "FETCH-2": "The short outward retrieve now explicitly requires carrying at the step that introduces travel.",
     "PASS-1": "The first pass uses a stationary comfortable helper and a rehearsed exit; completed parallel moving-dog walks and sniff interruptions are unnecessary gates.",
-    "PASS-2": "The moving-helper pass now explicitly needs comfortable dog movement at the step that introduces it."
+    "PASS-2": "The moving-helper pass now explicitly needs comfortable dog movement at the step that introduces it.",
+    "ALONE-3": "Departure actions can be conditioned independently; they must not be gated behind out-of-view absences or treated as proof of absence tolerance.",
+    "CROSS-1": "Indoor route rehearsal needs the flat-line pause, not completed exposure at a real curb.",
+    "CROSS-2": "Real crossing adds the actual curb context only when that context is introduced.",
+    "VISITOR-4": "An optional view must not become a gate for nonvisual visitor practice.",
+    "OBJECT-3": "Sound conditioning can begin independently of visible movement; combinations require both components to be comfortable.",
+    "TRACKPERSON-2": "Offering a sample does not teach its meaning. Route following can use visual, ground-disturbance or airborne cues.",
+    "SCENTREPORT-1": "Visible find-and-indicate chaining needs the visible article approach; partly concealed searching is not yet used.",
+    "SCENTREPORT-3": "The partly concealed search component becomes necessary only when this step introduces partial concealment."
   },
   "skills": {
     "NAME": {
-      "rationale": "Name-reward pairing precedes the offered head turn; neither requires a sit or eye contact.",
+      "rationale": "Attention to a name is taught before distraction; a name is not assumed to be a recall or evidence of emotional comfort.",
       "steps": {
         "NAME-1": {
           "deps": [],
@@ -72,7 +80,7 @@
       }
     },
     "MARK": {
-      "rationale": "A marker can be paired directly with reward and must not become a universal training gate.",
+      "rationale": "Pair the chosen gentle signal with prompt reward; markers are optional and no later action is required after a terminal marker.",
       "steps": {
         "MARK-1": {
           "deps": [],
@@ -81,7 +89,7 @@
       }
     },
     "TOUCH": {
-      "rationale": "Voluntary palm contact precedes naming and small placement changes.",
+      "rationale": "Voluntary empty-hand nose targeting transfers only after the basic contact; do not push a hand into the face.",
       "steps": {
         "TOUCH-1": {
           "deps": [],
@@ -99,7 +107,7 @@
       }
     },
     "SIT": {
-      "rationale": "Comfortable sit acquisition precedes fading food and adding the cue; down and stand are independent.",
+      "rationale": "Comfortable voluntary sitting and early lure fading are appropriate; sitting is not mandatory for safety or proof of calm.",
       "steps": {
         "SIT-1": {
           "deps": [],
@@ -117,7 +125,7 @@
       }
     },
     "DOWN": {
-      "rationale": "Unforced down acquisition precedes cue transfer; a completed sit is unnecessary.",
+      "rationale": "Reward comfortable voluntary lowering without restraint; posture is distinct from relaxation.",
       "steps": {
         "DOWN-1": {
           "deps": [],
@@ -135,7 +143,7 @@
       }
     },
     "STAND": {
-      "rationale": "The dog may already offer a comfortable sit or rise naturally; a recorded sit grade is unnecessary.",
+      "rationale": "A comfortable stationary stand is useful independently of a down; avoid repeatedly luring the dog to walk forward.",
       "steps": {
         "STAND-1": {
           "deps": [],
@@ -144,7 +152,7 @@
       }
     },
     "FREE": {
-      "rationale": "Release can be paired from any offered comfortable position, then separated from in-position rewards.",
+      "rationale": "A release can be taught from any comfortable position; a completed sit is an unnecessary prerequisite.",
       "steps": {
         "FREE-1": {
           "deps": [],
@@ -162,7 +170,7 @@
       }
     },
     "DROP": {
-      "rationale": "Easy voluntary trades precede cue-before-reward release, with no retrieve requirement.",
+      "rationale": "Trade willingly without chasing or prying; prevention and guarding assessment are distinct from a generic exchange exercise.",
       "steps": {
         "DROP-1": {
           "deps": [],
@@ -180,11 +188,11 @@
       }
     },
     "LEAVE": {
-      "rationale": "Protected-item disengagement precedes the cue; barriers keep floor practice independent of harness training.",
+      "rationale": "Retain the cue, separately reinforce offered disengagement, teach modest context transfer, and keep hazards inaccessible without supervision.",
       "steps": {
         "LEAVE-1": {
           "deps": [],
-          "reason": "Protected-item disengagement precedes the cue; barriers keep floor practice independent of harness training."
+          "reason": "Keep the first offered disengagement easy; prevent frustration and avoid implying that staring must continue until a cue."
         },
         "LEAVE-2": {
           "deps": [
@@ -193,12 +201,34 @@
               3
             ]
           ],
-          "reason": "A protected floor item can be taught behind a barrier; wearing a harness is a setup option, not a learning component."
+          "reason": "A cue can be useful without claiming unsupervised protection. The old title contradicted the protected setup."
+        },
+        "LEAVE-3": {
+          "deps": [
+            [
+              "LEAVE-1",
+              3
+            ]
+          ],
+          "reason": "New context transfer needs its own record; it is not implied by learning the spoken cue."
+        },
+        "LEAVE-4": {
+          "deps": [
+            [
+              "LEAVE-2",
+              3
+            ],
+            [
+              "LEAVE-3",
+              3
+            ]
+          ],
+          "reason": "Handler-distance transfer is new learning. No absent-handler or household-wide safety claim is made."
         }
       }
     },
     "WAIT": {
-      "rationale": "This pause explicitly uses the familiar release; doorway movement follows the easy pause.",
+      "rationale": "A short safe interior-door pause can be offered or cued; release and physical exit security remain explicit.",
       "steps": {
         "WAIT-1": {
           "deps": [
@@ -207,7 +237,7 @@
               2
             ]
           ],
-          "reason": "This pause explicitly uses the familiar release; doorway movement follows the easy pause."
+          "reason": "Offered doorway pauses are compatible with a release cue; reinforcement can include access through a safe interior doorway."
         },
         "WAIT-2": {
           "deps": [
@@ -216,12 +246,12 @@
               3
             ]
           ],
-          "reason": "This pause explicitly uses the familiar release; doorway movement follows the easy pause."
+          "reason": "Door movement, waiting time and context are separate difficulty dimensions."
         }
       }
     },
     "TOILET": {
-      "rationale": "Access routines precede cue pairing. Toilet access must never depend on obedience.",
+      "rationale": "Supervision, frequent individual opportunities and rewarding location are appropriate; medical changes are not disobedience.",
       "steps": {
         "TOILET-1": {
           "deps": [],
@@ -239,7 +269,7 @@
       }
     },
     "RECALL": {
-      "rationale": "Recall words directly predict approach; a name response is helpful but not required.",
+      "rationale": "Teach a distinct inviting approach directly, then transfer gradually; do not assume reliability around hazards or punish arrival.",
       "steps": {
         "RECALL-1": {
           "deps": [],
@@ -257,7 +287,7 @@
       }
     },
     "OTARGET": {
-      "rationale": "Direct nose contact is acquired before the object-target cue and placement changes.",
+      "rationale": "Teach broad stationary nose contact before placement or motion; this is a reusable contact action, not emotional treatment.",
       "steps": {
         "OTARGET-1": {
           "deps": [],
@@ -275,7 +305,7 @@
       }
     },
     "STAY": {
-      "rationale": "The release is an actual end signal; short duration precedes movement and small independent changes.",
+      "rationale": "Increase short duration, distance and distraction separately; release and comfort matter more than a posture quota.",
       "steps": {
         "STAY-1": {
           "deps": [
@@ -307,7 +337,7 @@
       }
     },
     "STOP": {
-      "rationale": "A familiar stand supports stopping slow movement, then reduced handler prompting and a tiny distance change.",
+      "rationale": "Reward a modest stationary pause in protected settings; this does not authorize traffic or off-leash safety tests.",
       "steps": {
         "STOP-1": {
           "deps": [
@@ -339,7 +369,7 @@
       }
     },
     "FRONT": {
-      "rationale": "A broad comfortable approach directly teaches the front position; no completed recall or sit is necessary.",
+      "rationale": "A comfortable arrival position is optional and distinct from a safety recall; do not crowd or physically align the dog.",
       "steps": {
         "FRONT-1": {
           "deps": [],
@@ -357,11 +387,11 @@
       }
     },
     "FOODWAIT": {
-      "rationale": "A momentary pause is paired directly with bowl access; meals and urgent access never depend on a grade.",
+      "rationale": "Keep bowl placement very brief and optional; never make meals conditional, repeatedly remove bowls, or treat guarding through compliance.",
       "steps": {
         "FOODWAIT-1": {
           "deps": [],
-          "reason": "A momentary pause is paired directly with bowl access; meals and urgent access never depend on a grade."
+          "reason": "Bowl manners are optional; essential nutrition and guarding treatment must not depend on compliance."
         },
         "FOODWAIT-2": {
           "deps": [
@@ -375,7 +405,7 @@
       }
     },
     "MAT": {
-      "rationale": "Approach and full-foot arrival precede adding the mat cue; settling and staying are separate behaviors.",
+      "rationale": "Teach voluntary stationing and release separately from relaxed rest; a mat is not an enforced place to endure fear.",
       "steps": {
         "MAT-1": {
           "deps": [],
@@ -393,7 +423,7 @@
       }
     },
     "SETTLE": {
-      "rationale": "Voluntary rest is captured directly; go-to-mat is an optional aid rather than a gate.",
+      "rationale": "Capture comfortable rest independently of cued stationing; a down, food-taking or immobility alone does not establish relaxation.",
       "steps": {
         "SETTLE-1": {
           "deps": [],
@@ -420,7 +450,7 @@
       }
     },
     "SAFE": {
-      "rationale": "Refuge exploration precedes attended management rehearsals. There is no requirement to be left alone.",
+      "rationale": "A refuge requires actual comfort, escape management and trusted support; confinement or isolation is not automatically soothing.",
       "steps": {
         "SAFE-1": {
           "deps": [],
@@ -438,7 +468,7 @@
       }
     },
     "ALONE": {
-      "rationale": "Comfortable tiny within-room movements precede tiny absences and departure-action combinations.",
+      "rationale": "Camera-guided below-distress movement, tiny absences and departure-action comfort are distinct components; no crying-out or duration guarantee.",
       "steps": {
         "ALONE-1": {
           "deps": [],
@@ -454,18 +484,13 @@
           "reason": "Comfortable tiny within-room movements precede tiny absences and departure-action combinations."
         },
         "ALONE-3": {
-          "deps": [
-            [
-              "ALONE-2",
-              3
-            ]
-          ],
-          "reason": "Comfortable tiny within-room movements precede tiny absences and departure-action combinations."
+          "deps": [],
+          "reason": "Departure actions can be conditioned independently; they must not be gated behind out-of-view absences or treated as proof of absence tolerance."
         }
       }
     },
     "RESTHEAD": {
-      "rationale": "Cushion contact is shaped directly; a hand chin rest is an optional prompt rather than a prerequisite.",
+      "rationale": "Voluntary cushion contact can be taught directly; do not press the head down or infer calm solely from the trained posture.",
       "steps": {
         "RESTHEAD-1": {
           "deps": [],
@@ -483,7 +508,7 @@
       }
     },
     "CRATE": {
-      "rationale": "Voluntary entry precedes door motion, then tiny attended closure. Open refuge, absences and travel remain distinct.",
+      "rationale": "Introduce an optional crate with voluntary entry and gradual comfortable closure; it is unsuitable as compulsory panic management.",
       "steps": {
         "CRATE-1": {
           "deps": [],
@@ -510,7 +535,7 @@
       }
     },
     "VACATE": {
-      "rationale": "A voluntary route to a safe low landing precedes cue transfer; no pressure or high jump.",
+      "rationale": "Reward moving to an inviting alternative without crowding, intimidation or grabbing; existing guarding requires an individual plan.",
       "steps": {
         "VACATE-1": {
           "deps": [],
@@ -528,7 +553,7 @@
       }
     },
     "ALLDONE": {
-      "rationale": "A predictable pleasant transition acquires the end cue directly before transfer to another activity.",
+      "rationale": "Pair a predictable end signal with a comfortable transition; it is not punishment or enforced loss of needed interaction.",
       "steps": {
         "ALLDONE-1": {
           "deps": [],
@@ -546,7 +571,7 @@
       }
     },
     "CHECK": {
-      "rationale": "Offered orientation is rewarded directly before incorporating ordinary walking.",
+      "rationale": "Reinforce offered check-ins and gradual transfer; do not demand prolonged eye contact or make food pairing contingent on it.",
       "steps": {
         "CHECK-1": {
           "deps": [],
@@ -564,7 +589,7 @@
       }
     },
     "LOOSE": {
-      "rationale": "Slack-leash movement is taught directly; secure comfortable equipment is checked in the setup, without requiring a harness grade.",
+      "rationale": "Teach slack-lead walking on comfortable equipment in small increments; equipment fit is a safety check rather than an obedience grade.",
       "steps": {
         "LOOSE-1": {
           "deps": [],
@@ -591,7 +616,7 @@
       }
     },
     "TURN": {
-      "rationale": "A trigger-free turn cue precedes travel and easy sniff interruptions; equipment comfort is a setup condition.",
+      "rationale": "Rehearse an inviting turn before mild distraction, without leash corrections; a retreat remains valid regardless of cue response.",
       "steps": {
         "TURN-1": {
           "deps": [],
@@ -618,7 +643,7 @@
       }
     },
     "FIND": {
-      "rationale": "A visible food scatter acquires its own cue before the ground surface changes.",
+      "rationale": "Invited food search on known safe ground is compatible with leave-it training; avoid competition, ingestion hazards or overwhelming triggers.",
       "steps": {
         "FIND-1": {
           "deps": [],
@@ -636,7 +661,7 @@
       }
     },
     "SIDE": {
-      "rationale": "The hand target actually guides the broad route; the far-side cue follows this action.",
+      "rationale": "Reward a comfortable side position without physical placement; this optional alignment does not replace free movement and sniffing.",
       "steps": {
         "SIDE-1": {
           "deps": [
@@ -659,7 +684,7 @@
       }
     },
     "HEEL": {
-      "rationale": "Entry position is independently trainable; brief movement precedes turns and a learned release at the step that uses its discrimination.",
+      "rationale": "Short precise positioning is optional, with early lure fading and releases; it is not the standard for an entire ordinary walk.",
       "steps": {
         "HEEL-1": {
           "deps": [],
@@ -699,7 +724,7 @@
       }
     },
     "RHYTHM": {
-      "rationale": "Predictable stationary count-reward pairings precede a few optional walking cycles; exact heel position and trigger exposure are not part of this game.",
+      "rationale": "Predictable short walking patterns can help communication; no claim that a pattern cures fear or overrides the need for distance.",
       "steps": {
         "RHYTHM-1": {
           "deps": [],
@@ -717,7 +742,7 @@
       }
     },
     "CURB": {
-      "rationale": "A harmless floor line teaches the pause before quiet real-edge transfer; no claim that dogs judge traffic.",
+      "rationale": "Start at harmless flat lines, then a protected real curb with human traffic decisions; no automatic road-safety claim.",
       "steps": {
         "CURB-1": {
           "deps": [],
@@ -735,12 +760,12 @@
       }
     },
     "CROSS": {
-      "rationale": "The practiced curb pause and loose steps are actual components of a human-controlled crossing.",
+      "rationale": "Indoor rehearsal follows flat-line preparation; the actual curb prerequisite moves to the real crossing, where humans decide safety.",
       "steps": {
         "CROSS-1": {
           "deps": [
             [
-              "CURB-2",
+              "CURB-1",
               3
             ],
             [
@@ -748,21 +773,25 @@
               3
             ]
           ],
-          "reason": "The practiced curb pause and loose steps are actual components of a human-controlled crossing."
+          "reason": "Indoor route rehearsal needs the flat-line pause, not completed exposure at a real curb."
         },
         "CROSS-2": {
           "deps": [
             [
               "CROSS-1",
               3
+            ],
+            [
+              "CURB-2",
+              3
             ]
           ],
-          "reason": "The practiced curb pause and loose steps are actual components of a human-controlled crossing."
+          "reason": "Real crossing adds the actual curb context only when that context is introduced."
         }
       }
     },
     "SLOW": {
-      "rationale": "Known slack-leash steps support a small pace change, then a few slower steps.",
+      "rationale": "Reward modest changes to walking pace without force; exercise and pace must suit individual health and normal movement.",
       "steps": {
         "SLOW-1": {
           "deps": [
@@ -785,7 +814,7 @@
       }
     },
     "WALKPAUSE": {
-      "rationale": "A direct short pause beside a stopped human precedes a brief ordinary hand movement; formal heel is unnecessary.",
+      "rationale": "Practice brief comfortable pauses and release rather than prolonged suppression of exploration or distress.",
       "steps": {
         "WALKPAUSE-1": {
           "deps": [],
@@ -803,11 +832,11 @@
       }
     },
     "DOG": {
-      "rationale": "An individually comfortable sighting precedes positive pairings, then small controlled movement changes.",
+      "rationale": "Brief supported sightings and prompt trigger-food pairing begin at a comfortable distance; no obedience or threshold testing is required.",
       "steps": {
         "DOG-1": {
           "deps": [],
-          "reason": "An individually comfortable sighting precedes positive pairings, then small controlled movement changes."
+          "reason": "Assessment should not withhold support until a later lesson."
         },
         "DOG-2": {
           "deps": [
@@ -830,7 +859,7 @@
       }
     },
     "DISENGAGE": {
-      "rationale": "Easy sight-food pairing supports comfortable observation before rewarding offered look-aways; no required stare or obedience pose.",
+      "rationale": "Teach an offered attention shift at an easy distance, distinct from counterconditioning; never wait through escalating fixation.",
       "steps": {
         "DISENGAGE-1": {
           "deps": [
@@ -853,7 +882,7 @@
       }
     },
     "PARALLEL": {
-      "rationale": "Comfort with a moving helper dog and a rehearsed turn support controlled walking and safe exits.",
+      "rationale": "Both dogs need comfortable wide movement and retreat; trigger-food support need not wait for a check-in or eventual greeting.",
       "steps": {
         "PARALLEL-1": {
           "deps": [
@@ -866,7 +895,7 @@
               3
             ]
           ],
-          "reason": "Comfort with a moving helper dog and a rehearsed turn support controlled walking and safe exits."
+          "reason": "Maintain trigger-food pairing during comfortable movement; check-ins are separately reinforced rather than a condition of support."
         },
         "PARALLEL-2": {
           "deps": [
@@ -880,7 +909,7 @@
       }
     },
     "PASS": {
-      "rationale": "Stationary dog comfort and a rehearsed exit support the first pass; moving-dog comfort is required only when the helper starts moving. Parallel walking is independent.",
+      "rationale": "The first stationary-helper pass needs dog comfort and a turn; moving-helper competence is introduced only for a moving pass.",
       "steps": {
         "PASS-1": {
           "deps": [
@@ -911,7 +940,7 @@
       }
     },
     "STRANGER": {
-      "rationale": "Comfortable stationary distant sightings precede tiny adult movements and separate generalization to another person.",
+      "rationale": "Use a distant neutral adult with optional retreat, no food lure toward touch and no obligatory greeting.",
       "steps": {
         "STRANGER-1": {
           "deps": [],
@@ -938,7 +967,7 @@
       }
     },
     "KNOCK": {
-      "rationale": "A faint harmless tap precedes transfer to the entryway and small changes of count or intensity.",
+      "rationale": "Separate a faint controllable tap from mat behavior and the real arrival chain; do not repeat overwhelming knocks waiting for quiet.",
       "steps": {
         "KNOCK-1": {
           "deps": [],
@@ -965,7 +994,7 @@
       }
     },
     "BELL": {
-      "rationale": "A faint recording precedes a controllable real bell. An unmodifiable frightening bell needs management, not forced advancement.",
+      "rationale": "Faint recording and physical bell are separate contexts; pair the noticed sound without requiring silence or a station first.",
       "steps": {
         "BELL-1": {
           "deps": [],
@@ -983,7 +1012,7 @@
       }
     },
     "DOOR": {
-      "rationale": "The comfortable practical knock, mat arrival and release are actual links in this cue chain; handler door movement follows it.",
+      "rationale": "Combine fluent arrival components under controlled rehearsal; an entry-management plan remains necessary for unplanned arrivals.",
       "steps": {
         "DOOR-1": {
           "deps": [
@@ -1023,7 +1052,7 @@
       }
     },
     "VISITOR": {
-      "rationale": "Comfortable refuge management precedes actual arrivals; distant viewing explicitly uses the familiar stranger-comfort work.",
+      "rationale": "A fully separated comfortable visit is a valid endpoint; optional distant viewing must not block nonvisual visitor-action practice.",
       "steps": {
         "VISITOR-1": {
           "deps": [
@@ -1059,16 +1088,16 @@
         "VISITOR-4": {
           "deps": [
             [
-              "VISITOR-3",
+              "VISITOR-2",
               3
             ]
           ],
-          "reason": "Comfortable refuge management precedes actual arrivals; distant viewing explicitly uses the familiar stranger-comfort work."
+          "reason": "An optional view must not become a gate for nonvisual visitor practice."
         }
       }
     },
     "GREET": {
-      "rationale": "Four-paw comfort during an easy approach precedes optional voluntary contact; sitting is not required.",
+      "rationale": "Greeting is voluntary and unnecessary for successful coexistence; approach for food is not permission to touch.",
       "steps": {
         "GREET-1": {
           "deps": [],
@@ -1086,7 +1115,7 @@
       }
     },
     "HANDOFF": {
-      "rationale": "Comfort with both familiar adults precedes a stationary controlled lead transfer and only then a few steps.",
+      "rationale": "Use a familiar consenting helper and reversible small changes; transferred equipment does not justify restraint or separation distress.",
       "steps": {
         "HANDOFF-1": {
           "deps": [],
@@ -1113,7 +1142,7 @@
       }
     },
     "SOUND": {
-      "rationale": "One comfortable low-intensity pairing precedes one-variable changes and source transfer.",
+      "rationale": "Controlled brief sound-food pairing changes one dimension at a time; replace historical no-comfort guidance and avoid recording-to-real-event guarantees.",
       "steps": {
         "SOUND-1": {
           "deps": [],
@@ -1140,7 +1169,7 @@
       }
     },
     "OUTSIDE": {
-      "rationale": "Management and easy event pairings precede adding the already learned turn away at the action that uses it.",
+      "rationale": "Different mild outdoor sights and sounds need separately controlled starts; visual and auditory presentations are not interchangeable certification.",
       "steps": {
         "OUTSIDE-1": {
           "deps": [],
@@ -1171,7 +1200,7 @@
       }
     },
     "STORM": {
-      "rationale": "Protective management is available immediately. Its first step rehearses a refuge directly; no prior training grade can block support.",
+      "rationale": "Rehearse protection and support before real events; plan readiness can be recorded without inducing noise or claiming fear is cured.",
       "steps": {
         "STORM-1": {
           "deps": [],
@@ -1184,16 +1213,16 @@
               3
             ]
           ],
-          "reason": "Protective management is available immediately. Its first step rehearses a refuge directly; no prior training grade can block support."
+          "reason": "A support plan can be ready before an unavoidable event occurs. Completion must not require manufactured exposure or imply a cure."
         }
       }
     },
     "OBJECT": {
-      "rationale": "Comfortable sight precedes small object movement, then separately introduced appliance sound.",
+      "rationale": "Still sight, motion and sound can be conditioned separately; food does not require exploration, and combinations await comfortable components.",
       "steps": {
         "OBJECT-1": {
           "deps": [],
-          "reason": "Comfortable sight precedes small object movement, then separately introduced appliance sound."
+          "reason": "Counterconditioning does not require approach, calm exploration or obedience before food."
         },
         "OBJECT-2": {
           "deps": [
@@ -1205,18 +1234,13 @@
           "reason": "Comfortable sight precedes small object movement, then separately introduced appliance sound."
         },
         "OBJECT-3": {
-          "deps": [
-            [
-              "OBJECT-2",
-              3
-            ]
-          ],
-          "reason": "Comfortable sight precedes small object movement, then separately introduced appliance sound."
+          "deps": [],
+          "reason": "Sound conditioning can begin independently of visible movement; combinations require both components to be comfortable."
         }
       }
     },
     "MOTION": {
-      "rationale": "Comfortable distant slow movement precedes a tiny speed or duration change; no approach or chase.",
+      "rationale": "Start well away from traffic or controlled moving helpers with retreat; use physical security and avoid motion-based flooding.",
       "steps": {
         "MOTION-1": {
           "deps": [],
@@ -1234,7 +1258,7 @@
       }
     },
     "CAR": {
-      "rationale": "Comfortable observation precedes voluntary entry, then stationary restraint and door-closure preparation.",
+      "rationale": "Stationary-car comfort precedes travel; use appropriate transport restraint and veterinary assessment of motion sickness or severe distress.",
       "steps": {
         "CAR-1": {
           "deps": [],
@@ -1261,7 +1285,7 @@
       }
     },
     "ELEVATOR": {
-      "rationale": "Door-cycle observation precedes stationary voluntary entry before a tiny attended ride.",
+      "rationale": "Introduce empty-car sounds, voluntary entry and a short ride separately; keep dog and handler together with no leash through closing doors.",
       "steps": {
         "ELEVATOR-1": {
           "deps": [],
@@ -1274,7 +1298,7 @@
               3
             ]
           ],
-          "reason": "Door-cycle observation precedes stationary voluntary entry before a tiny attended ride."
+          "reason": "Prevent a line crossing a closing elevator door; enter and exit together with ordinary short equipment."
         },
         "ELEVATOR-3": {
           "deps": [
@@ -1288,7 +1312,7 @@
       }
     },
     "AUTODOOR": {
-      "rationale": "Comfortable panel observation precedes a fully human-checked wide passage; a trained hoop pass is unrelated.",
+      "rationale": "Observe safely before a controlled broad passage; never rely on a sensor detecting a dog or put the dog in the opening to activate it.",
       "steps": {
         "AUTODOOR-1": {
           "deps": [],
@@ -1301,12 +1325,12 @@
               3
             ]
           ],
-          "reason": "Comfortable panel observation precedes a fully human-checked wide passage; a trained hoop pass is unrelated."
+          "reason": "Keep handler and dog together, and ordinary leash clear of automatic doors."
         }
       }
     },
     "HARNESS": {
-      "rationale": "Appearance and buckle comfort precede voluntary placement, then fastening and a few steps.",
+      "rationale": "Voluntary approach, head passage and comfortable fitting are separate; fit, movement and withdrawal matter more than a completed grade.",
       "steps": {
         "HARNESS-1": {
           "deps": [],
@@ -1333,7 +1357,7 @@
       }
     },
     "MUZZLE": {
-      "rationale": "Appearance precedes voluntary entry, tiny duration, straps, then comfortable movement; none certifies exposure safety.",
+      "rationale": "Use a properly fitted basket allowing full panting and drinking, voluntary entry and gradual straps; no unattended wear or exposure beyond comfort.",
       "steps": {
         "MUZZLE-1": {
           "deps": [],
@@ -1378,7 +1402,7 @@
       }
     },
     "CHIN": {
-      "rationale": "Direct voluntary contact precedes a short freely ended start signal.",
+      "rationale": "A voluntary start and immediate withdrawal are trained communication, not proof of calm or permission to hold the dog through discomfort.",
       "steps": {
         "CHIN-1": {
           "deps": [],
@@ -1391,12 +1415,12 @@
               3
             ]
           ],
-          "reason": "Direct voluntary contact precedes a short freely ended start signal."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         }
       }
     },
     "HANDLE": {
-      "rationale": "The specific chin-start behavior is an actual participation component; hand approach precedes tiny contact and ends at withdrawal.",
+      "rationale": "Healthy shoulder movement and momentary touch precede small changes; stop for whole-body discomfort even if the chin remains in position.",
       "steps": {
         "HANDLE-1": {
           "deps": [
@@ -1405,7 +1429,7 @@
               3
             ]
           ],
-          "reason": "The specific chin-start behavior is an actual participation component; hand approach precedes tiny contact and ends at withdrawal."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         },
         "HANDLE-2": {
           "deps": [
@@ -1414,16 +1438,16 @@
               3
             ]
           ],
-          "reason": "The specific chin-start behavior is an actual participation component; hand approach precedes tiny contact and ends at withdrawal."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         }
       }
     },
     "BRUSH": {
-      "rationale": "Item appearance and approach precede a voluntarily accepted stroke; no particular chin signal is mandatory.",
+      "rationale": "Separate tool presence, tiny strokes and small area/duration changes; mats, pain and forced grooming need an individual professional plan.",
       "steps": {
         "BRUSH-1": {
           "deps": [],
-          "reason": "Item appearance and approach precede a voluntarily accepted stroke; no particular chin signal is mandatory."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         },
         "BRUSH-2": {
           "deps": [
@@ -1432,29 +1456,29 @@
               3
             ]
           ],
-          "reason": "Item appearance and approach precede a voluntarily accepted stroke; no particular chin signal is mandatory."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         }
       }
     },
     "NAIL": {
-      "rationale": "Paw-touch preparation and tool appearance/sound now run independently; neither automatically authorizes clipping.",
+      "rationale": "Paw handling and tool presence can be learned separately; no app completion authorizes clipping anatomy or restraining a paw.",
       "steps": {
         "NAIL-1": {
           "deps": [],
-          "reason": "Paw-touch preparation and tool appearance/sound now run independently; neither automatically authorizes clipping."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         },
         "NAIL-2": {
           "deps": [],
-          "reason": "Tool sight and sound can be conditioned separately from paw touch; this step stops before contact or clipping."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         }
       }
     },
     "TEETH": {
-      "rationale": "Item comfort is independent; actual mouth-area touch uses the established voluntary chin start before a vet-demonstrated tiny stroke.",
+      "rationale": "Use veterinary demonstration, pain assessment and pet-safe materials; tiny voluntary lip and outer-tooth work do not replace dental care.",
       "steps": {
         "TEETH-1": {
           "deps": [],
-          "reason": "Item comfort is independent; actual mouth-area touch uses the established voluntary chin start before a vet-demonstrated tiny stroke."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         },
         "TEETH-2": {
           "deps": [
@@ -1467,7 +1491,7 @@
               3
             ]
           ],
-          "reason": "Item comfort is independent; actual mouth-area touch uses the established voluntary chin start before a vet-demonstrated tiny stroke."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         },
         "TEETH-3": {
           "deps": [
@@ -1476,12 +1500,12 @@
               3
             ]
           ],
-          "reason": "Item comfort is independent; actual mouth-area touch uses the established voluntary chin start before a vet-demonstrated tiny stroke."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         }
       }
     },
     "SCALE": {
-      "rationale": "Surface comfort precedes voluntary entry, then a short supported weigh-in pause.",
+      "rationale": "Secure low non-slip surfaces and voluntary steps precede a reading pause; avoid lifting paws or slippery elevated equipment.",
       "steps": {
         "SCALE-1": {
           "deps": [],
@@ -1508,11 +1532,11 @@
       }
     },
     "CLIP": {
-      "rationale": "Clip sound and hand reach are separately paired before brief attachment; a harness grade is not required.",
+      "rationale": "Tiny sound and approach precede clip contact; equipment operation and whole-body comfort remain separate checks.",
       "steps": {
         "CLIP-1": {
           "deps": [],
-          "reason": "Clip sound and hand reach are separately paired before brief attachment; a harness grade is not required."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         },
         "CLIP-2": {
           "deps": [
@@ -1521,16 +1545,16 @@
               3
             ]
           ],
-          "reason": "Clip sound and hand reach are separately paired before brief attachment; a harness grade is not required."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         }
       }
     },
     "COLLAR": {
-      "rationale": "Predicted approach and outside contact precede a no-pressure momentary equipment hold, never restraint tolerance.",
+      "rationale": "Reward gentle voluntary collar contact without grabbing or coercion; stop for avoidance rather than relying solely on a start posture.",
       "steps": {
         "COLLAR-1": {
           "deps": [],
-          "reason": "Predicted approach and outside contact precede a no-pressure momentary equipment hold, never restraint tolerance."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         },
         "COLLAR-2": {
           "deps": [
@@ -1539,16 +1563,16 @@
               3
             ]
           ],
-          "reason": "Predicted approach and outside contact precede a no-pressure momentary equipment hold, never restraint tolerance."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         }
       }
     },
     "RINSE": {
-      "rationale": "Voluntary dry-tray entry precedes trace water and a brief shallow pause; object targeting is optional.",
+      "rationale": "Sound, tiny water exposure and comfortable body areas are separate; temperature, footing and freedom to stop remain essential.",
       "steps": {
         "RINSE-1": {
           "deps": [],
-          "reason": "Voluntary dry-tray entry precedes trace water and a brief shallow pause; object targeting is optional."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         },
         "RINSE-2": {
           "deps": [
@@ -1557,7 +1581,7 @@
               3
             ]
           ],
-          "reason": "Voluntary dry-tray entry precedes trace water and a brief shallow pause; object targeting is optional."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         },
         "RINSE-3": {
           "deps": [
@@ -1566,12 +1590,12 @@
               3
             ]
           ],
-          "reason": "Voluntary dry-tray entry precedes trace water and a brief shallow pause; object targeting is optional."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         }
       }
     },
     "EAR": {
-      "rationale": "The known chin-start explicitly controls hand approach and momentary healthy outer-ear observation; no procedures are taught.",
+      "rationale": "Veterinary guidance and healthy external-ear touch precede limited care; no insertion or treatment decision follows from training alone.",
       "steps": {
         "EAR-1": {
           "deps": [
@@ -1580,7 +1604,7 @@
               3
             ]
           ],
-          "reason": "The known chin-start explicitly controls hand approach and momentary healthy outer-ear observation; no procedures are taught."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         },
         "EAR-2": {
           "deps": [
@@ -1589,12 +1613,12 @@
               3
             ]
           ],
-          "reason": "The known chin-start explicitly controls hand approach and momentary healthy outer-ear observation; no procedures are taught."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         }
       }
     },
     "SIDELIE": {
-      "rationale": "A comfortable down supports voluntary hip roll, shoulder lowering and a named side rest; no physical rolling.",
+      "rationale": "An optional voluntary floor posture uses tiny comfortable changes; it is neither an alpha roll nor permission to immobilize for care.",
       "steps": {
         "SIDELIE-1": {
           "deps": [
@@ -1603,7 +1627,7 @@
               2
             ]
           ],
-          "reason": "A comfortable down supports voluntary hip roll, shoulder lowering and a named side rest; no physical rolling."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         },
         "SIDELIE-2": {
           "deps": [
@@ -1612,7 +1636,7 @@
               3
             ]
           ],
-          "reason": "A comfortable down supports voluntary hip roll, shoulder lowering and a named side rest; no physical rolling."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         },
         "SIDELIE-3": {
           "deps": [
@@ -1621,12 +1645,12 @@
               3
             ]
           ],
-          "reason": "A comfortable down supports voluntary hip roll, shoulder lowering and a named side rest; no physical rolling."
+          "reason": "Voluntary participation includes whole-body comfort and a real stop, not only maintaining a trained posture."
         }
       }
     },
     "RAMP": {
-      "rationale": "A flat secured pass precedes a tiny supported slope; a scale or raised-platform grade is unrelated.",
+      "rationale": "Begin flat and stable, then very low with traction; no jumping, elevation prescription or assumed suitability for pain or injury.",
       "steps": {
         "RAMP-1": {
           "deps": [],
@@ -1644,7 +1668,7 @@
       }
     },
     "SCRATCH": {
-      "rationale": "Direct foot movement on a stable board precedes naming one tiny scrape; nail contact and clipping are separate.",
+      "rationale": "A secured safe scratch surface can be enrichment; nail health and tool suitability need individual assessment, not forced paw placement.",
       "steps": {
         "SCRATCH-1": {
           "deps": [],
@@ -1662,7 +1686,7 @@
       }
     },
     "BREAKBUTTON": {
-      "rationale": "A known button press is immediately honored as a break before offered requests; ordinary withdrawal always remains valid.",
+      "rationale": "Give a simple trained break signal an actual pause; a button press is not required before respecting avoidance or withdrawal.",
       "steps": {
         "BREAKBUTTON-1": {
           "deps": [
@@ -1685,11 +1709,11 @@
       }
     },
     "TAKE": {
-      "rationale": "Gentle grip acquisition precedes a cued supported pickup; delivery is unnecessary for the first grip.",
+      "rationale": "Shape voluntary gentle pickup and reward each marker promptly; reset only after willing release or trade, without mouth insertion.",
       "steps": {
         "TAKE-1": {
           "deps": [],
-          "reason": "Gentle grip acquisition precedes a cued supported pickup; delivery is unnecessary for the first grip."
+          "reason": "Reinforce one small criterion at a time and reset only after voluntary release or trade; avoid taking objects forcibly."
         },
         "TAKE-2": {
           "deps": [
@@ -1698,12 +1722,12 @@
               3
             ]
           ],
-          "reason": "Gentle grip acquisition precedes a cued supported pickup; delivery is unnecessary for the first grip."
+          "reason": "A grip marker earns prompt reward; release to eat is accepted without an additional obedience demand."
         }
       }
     },
     "HOLD": {
-      "rationale": "Known take and release support safe brief holds, then unsupported weight and slightly longer duration.",
+      "rationale": "Build momentary gentle supported grip before carrying; accept release to eat and never close the jaw or add neck resistance.",
       "steps": {
         "HOLD-1": {
           "deps": [
@@ -1730,7 +1754,7 @@
       }
     },
     "GIVE": {
-      "rationale": "A short comfortable hold and release are actual components of hand delivery, which is then named separately.",
+      "rationale": "A gentle hand delivery uses known object handling, without prying; receiving the item is separately reinforced before travel.",
       "steps": {
         "GIVE-1": {
           "deps": [
@@ -1757,7 +1781,7 @@
       }
     },
     "CARRY": {
-      "rationale": "Comfortable unsupported hold and hand delivery precede a few inches of travel, then a few steps.",
+      "rationale": "Add very short transport after a comfortable grip and delivery; mark the completed action rather than ending a carry prematurely.",
       "steps": {
         "CARRY-1": {
           "deps": [
@@ -1784,7 +1808,7 @@
       }
     },
     "FETCH": {
-      "rationale": "Known hand delivery supports stationary low pickup independently of travel; carrying is required at the outward retrieve-and-return step.",
+      "rationale": "Stationary pickup needs hand delivery; outward travel adds carrying at the step that uses it, with safe reachable props.",
       "steps": {
         "FETCH-1": {
           "deps": [
@@ -1811,7 +1835,7 @@
       }
     },
     "BOX": {
-      "rationale": "Hand delivery transfers to a basket release independently; adding floor pickup and travel explicitly requires retrieve.",
+      "rationale": "Basket release can start from hand delivery; floor collection adds the retrieve only where it is needed.",
       "steps": {
         "BOX-1": {
           "deps": [
@@ -1838,7 +1862,7 @@
       }
     },
     "SEARCH": {
-      "rationale": "Visible food investigation precedes tiny partly hidden searches; no wait or target is necessary.",
+      "rationale": "Simple safe visible food placements precede mild concealment; this is enjoyable exploration, not a clinical anxiety intervention.",
       "steps": {
         "SEARCH-1": {
           "deps": [],
@@ -1856,7 +1880,7 @@
       }
     },
     "TUG": {
-      "rationale": "A rewarded release is used to end gentle play safely, followed by the short game-ending routine.",
+      "rationale": "Mutual low-force play and willing release are appropriate for dogs that enjoy them; avoid forced grip, high movement or guarding tests.",
       "steps": {
         "TUG-1": {
           "deps": [
@@ -1879,7 +1903,7 @@
       }
     },
     "SPIN": {
-      "rationale": "A comfortable broad turn precedes fading the lure; reverse direction is optional and separate.",
+      "rationale": "Use a broad comfortable floor turn and fade lures; skip repetitive or tight turns for dogs with discomfort.",
       "steps": {
         "SPIN-1": {
           "deps": [],
@@ -1897,7 +1921,7 @@
       }
     },
     "PAW": {
-      "rationale": "A voluntary low paw offer precedes cue transfer; no restraint or forced limb placement.",
+      "rationale": "A low voluntary offer does not authorize paw restraint for care; maintain balance, brief contact and prompt reward.",
       "steps": {
         "PAW-1": {
           "deps": [],
@@ -1915,7 +1939,7 @@
       }
     },
     "PULL": {
-      "rationale": "Take and drop support gentle rope grip, tiny resistance and easy board movement; the refrigerator is a later independent transfer.",
+      "rationale": "Use an intact safe handle, negligible resistance and prompt reward after marking; do not add a release demand before the promised reward.",
       "steps": {
         "PULL-1": {
           "deps": [
@@ -1928,7 +1952,7 @@
               3
             ]
           ],
-          "reason": "Take and drop support gentle rope grip, tiny resistance and easy board movement; the refrigerator is a later independent transfer."
+          "reason": "A terminal marker promises prompt reward without an extra release command as a hidden requirement."
         },
         "PULL-2": {
           "deps": [
@@ -1937,7 +1961,7 @@
               3
             ]
           ],
-          "reason": "Take and drop support gentle rope grip, tiny resistance and easy board movement; the refrigerator is a later independent transfer."
+          "reason": "Do not mark the pull and then require another response before delivering the promised reward."
         },
         "PULL-3": {
           "deps": [
@@ -1951,7 +1975,7 @@
       }
     },
     "NAMECTX": {
-      "rationale": "The original name turn transfers to another quiet room, outdoors and then a mild ordinary distraction.",
+      "rationale": "Rebuild name response in specified easy new settings; a response in one context does not certify attention around fear or high distraction.",
       "steps": {
         "NAMECTX-1": {
           "deps": [
@@ -1983,7 +2007,7 @@
       }
     },
     "RECALLCTX": {
-      "rationale": "A fluent indoor recall is the learned component; safe enclosure or comfortable line equipment is checked directly.",
+      "rationale": "Use enclosure or a safely managed line on suitable body equipment; increase context difficulty without reeling in or hard stops.",
       "steps": {
         "RECALLCTX-1": {
           "deps": [
@@ -2006,7 +2030,7 @@
       }
     },
     "MATCTX": {
-      "rationale": "Mat arrival transfers first; voluntary rest is required only when the next step actually transfers resting.",
+      "rationale": "Transfer stationing to a new room before adding quiet rest; the rest prerequisite belongs at the step that uses it.",
       "steps": {
         "MATCTX-1": {
           "deps": [
@@ -2033,7 +2057,7 @@
       }
     },
     "WALKCTX": {
-      "rationale": "Loose walking transfers directly to an easy new setting; a turn-away remains an optional exit aid.",
+      "rationale": "Transfer the learned slack-lead action in easier new settings; equipment and optional exits do not become unrelated grade gates.",
       "steps": {
         "WALKCTX-1": {
           "deps": [
@@ -2056,11 +2080,11 @@
       }
     },
     "KEEP": {
-      "rationale": "A maintenance routine precedes a supported review of comparable journal records; no all-catalog completion gate.",
+      "rationale": "Refresh only observed exact criteria and contexts; absent logs do not establish forgetting, and changed fear calls for assessment rather than drilling.",
       "steps": {
         "KEEP-1": {
           "deps": [],
-          "reason": "A maintenance routine precedes a supported review of comparable journal records; no all-catalog completion gate."
+          "reason": "A refresher does not justify promoting every stage or broader context without observing its criterion."
         },
         "KEEP-2": {
           "deps": [
@@ -2074,7 +2098,7 @@
       }
     },
     "BOW": {
-      "rationale": "Natural comfortable stretch capture precedes shaping a small offered dip, then naming; no forced positioning.",
+      "rationale": "An optional brief comfortable shape is not a stretch prescription; no pushing, prolonged holding or training through stiffness.",
       "steps": {
         "BOW-1": {
           "deps": [],
@@ -2101,7 +2125,7 @@
       }
     },
     "MIDDLE": {
-      "rationale": "The actual guiding hand target supports comfortable passage, then a brief middle position.",
+      "rationale": "Reward a voluntary comfortable position between still legs with an open exit; no squeezing or body blocking.",
       "steps": {
         "MIDDLE-1": {
           "deps": [
@@ -2124,7 +2148,7 @@
       }
     },
     "WEAVE": {
-      "rationale": "Each loop can start from the same comfortable pass independently; joining the eight requires both loops.",
+      "rationale": "Each separate leg-loop can be taught in parallel; joining them needs both and enough room for broad comfortable movement.",
       "steps": {
         "WEAVE-1": {
           "deps": [
@@ -2160,7 +2184,7 @@
       }
     },
     "NOSEBALL": {
-      "rationale": "Ball contact precedes a gentle movable nudge, then a named short roll; generic object targeting is optional.",
+      "rationale": "Nose contact precedes a small slow floor roll; use an oversized safe ball without frantic chasing or ingestion risk.",
       "steps": {
         "NOSEBALL-1": {
           "deps": [],
@@ -2187,7 +2211,7 @@
       }
     },
     "BOWL": {
-      "rationale": "The known cued ball roll is transferred to one soft pin before a small cluster.",
+      "rationale": "Use a broad slow ball nudge toward lightweight pins; keep noise and movement easy and avoid any athletic or anxiety-treatment claim.",
       "steps": {
         "BOWL-1": {
           "deps": [
@@ -2210,7 +2234,7 @@
       }
     },
     "GOAL": {
-      "rationale": "The known ball roll is directed through an easy broad goal, then named separately.",
+      "rationale": "Target and direction changes are taught gradually with a safe large ball; goal success is a specific game, not general intelligence.",
       "steps": {
         "GOAL-1": {
           "deps": [
@@ -2233,7 +2257,7 @@
       }
     },
     "HIGHFIVE": {
-      "rationale": "A voluntary paw offer is the action transferred to a low upright palm.",
+      "rationale": "Adapt a known low paw offer without stretching, impact or holding the limb; skip if balance or scratching is a concern.",
       "steps": {
         "HIGHFIVE-1": {
           "deps": [
@@ -2256,7 +2280,7 @@
       }
     },
     "WAVE": {
-      "rationale": "A small paw offer is sufficient; a completed high-five detour is unnecessary.",
+      "rationale": "A small offered paw lift is sufficient before naming; a completed high-five is an unnecessary detour and height is not the goal.",
       "steps": {
         "WAVE-1": {
           "deps": [
@@ -2279,7 +2303,7 @@
       }
     },
     "POSE": {
-      "rationale": "A comfortable offered position and phone presence precede naming the pose and one silent photograph.",
+      "rationale": "Teach phone comfort separately; take the quick silent photo before the terminal marker and promptly reward without extending the hold.",
       "steps": {
         "POSE-1": {
           "deps": [],
@@ -2292,12 +2316,12 @@
               3
             ]
           ],
-          "reason": "A comfortable offered position and phone presence precede naming the pose and one silent photograph."
+          "reason": "The photograph precedes the terminal marker so continued stillness is not required after a promised reward."
         }
       }
     },
     "TOYNAME": {
-      "rationale": "Playful label pairing is independent of retrieval; a clear approach is an accepted response.",
+      "rationale": "Pair one toy label through enjoyable interaction; ordinary targeting remains valid without reliable object-name learning.",
       "steps": {
         "TOYNAME-1": {
           "deps": [],
@@ -2315,7 +2339,7 @@
       }
     },
     "TWOOBJECT": {
-      "rationale": "Second-toy pairing is independent; mixed choices require both familiar label associations before cue-control checks.",
+      "rationale": "Teach each familiar toy association before mixed choices, with swapped locations and neutral humans; avoid vocabulary or intelligence guarantees.",
       "steps": {
         "TWOOBJECT-1": {
           "deps": [],
@@ -2346,11 +2370,11 @@
       }
     },
     "CARDS": {
-      "rationale": "A first card uses any already comfortable pose; the second uses known touch independently; mixed choices require both pairings.",
+      "rationale": "Keep the target hand available in both symbol conditions and reset between turns; otherwise gestures or opportunity confound visual cue claims.",
       "steps": {
         "CARDS-1": {
           "deps": [],
-          "reason": "A first card uses any already comfortable pose; the second uses known touch independently; mixed choices require both pairings."
+          "reason": "Hold the target hand and posture constant across both symbols; otherwise hand presentation can be the actual cue."
         },
         "CARDS-2": {
           "deps": [
@@ -2359,7 +2383,7 @@
               3
             ]
           ],
-          "reason": "A first card uses any already comfortable pose; the second uses known touch independently; mixed choices require both pairings."
+          "reason": "The nose-touch opportunity must be available in both conditions, not only when the stripe card appears."
         },
         "CARDS-3": {
           "deps": [
@@ -2372,12 +2396,12 @@
               3
             ]
           ],
-          "reason": "A first card uses any already comfortable pose; the second uses known touch independently; mixed choices require both pairings."
+          "reason": "Only transfer from the old action cues under comparable conditions supports a visual-discrimination interpretation."
         }
       }
     },
     "CROSSPAW": {
-      "rationale": "Comfortable down and a low paw offer are the actual positioning components of a tiny voluntary crossing.",
+      "rationale": "Offer only a tiny comfortable placement without limb manipulation; optional appearance does not justify strain or a prolonged posture.",
       "steps": {
         "CROSSPAW-1": {
           "deps": [
@@ -2399,12 +2423,12 @@
               3
             ]
           ],
-          "reason": "Comfortable down and a low paw offer are the actual positioning components of a tiny voluntary crossing."
+          "reason": "Make the reward explicit and accept movement after marking rather than extending a strained pose."
         }
       }
     },
     "TILT": {
-      "rationale": "Naturally offered comfortable movement is captured and then named; no noise or posture prerequisite.",
+      "rationale": "Capture only a naturally comfortable small head movement; avoid inducing repeated neck strain or interpreting a tilt as comprehension.",
       "steps": {
         "TILT-1": {
           "deps": [],
@@ -2422,7 +2446,7 @@
       }
     },
     "SHAKEOFF": {
-      "rationale": "Natural ordinary shakes are captured before naming; stress must never be manufactured to elicit them.",
+      "rationale": "Capture ordinary spontaneous shaking without provoking stress, wetting or restraint; it is not a guaranteed emotional reset.",
       "steps": {
         "SHAKEOFF-1": {
           "deps": [],
@@ -2440,7 +2464,7 @@
       }
     },
     "CIRCLEME": {
-      "rationale": "The known hand target guides broad independent halves before joining the loop around a stationary person.",
+      "rationale": "Use a broad floor route around a stationary handler and fade guidance; avoid tripping, tight turns or pulling.",
       "steps": {
         "CIRCLEME-1": {
           "deps": [
@@ -2463,7 +2487,7 @@
       }
     },
     "UNROLL": {
-      "rationale": "Known object nose targeting transfers to a loose roll, then one or two gentle nudges; ball pushing is unnecessary.",
+      "rationale": "Keep the towel light, clean and flat with accessible rewards; no wrapping, chewing fabric or forced crawling.",
       "steps": {
         "UNROLL-1": {
           "deps": [
@@ -2486,7 +2510,7 @@
       }
     },
     "LEFTRIGHT": {
-      "rationale": "Each target-direction pairing uses known mat arrival independently; mixed choices require both, with fixed start orientation.",
+      "rationale": "Teach each easy direction separately, then mixed neutral requests; changing handler position or viewpoint requires new practice.",
       "steps": {
         "LEFTRIGHT-1": {
           "deps": [
@@ -2522,7 +2546,7 @@
       }
     },
     "NOD": {
-      "rationale": "Known object targeting guides two very close natural head heights before a small cue transfer.",
+      "rationale": "Capture a tiny comfortable head motion without pressing or stretching; this is an optional trained movement, not yes/no comprehension.",
       "steps": {
         "NOD-1": {
           "deps": [
@@ -2545,7 +2569,7 @@
       }
     },
     "POINT": {
-      "rationale": "Known mat arrival transfers to a gesture with one target before two-target mixed choices; directional words are independent.",
+      "rationale": "Use clear target positions and neutral body language; trained directional choices do not establish understanding of arbitrary human intentions.",
       "steps": {
         "POINT-1": {
           "deps": [
@@ -2568,7 +2592,7 @@
       }
     },
     "BACK": {
-      "rationale": "A voluntary backward weight shift precedes one named step and then two or three; no body pressure.",
+      "rationale": "Reward a small voluntary weight shift and step with an open route; no body pressure, narrow trapping channel or backward distance quota.",
       "steps": {
         "BACK-1": {
           "deps": [],
@@ -2595,7 +2619,7 @@
       }
     },
     "CONE": {
-      "rationale": "The known hand target actually guides a broad arc before naming and joining the loop.",
+      "rationale": "A wide stationary floor marker supports gentle direction learning; safety depends on footing and comfortable turning rather than speed.",
       "steps": {
         "CONE-1": {
           "deps": [
@@ -2618,7 +2642,7 @@
       }
     },
     "CONEEIGHT": {
-      "rationale": "Known separate cone loops precede their broad connection; no leg weave is required.",
+      "rationale": "Teach individual broad loops before combining them; keep distance and turns comfortable without repetitive athletic demands.",
       "steps": {
         "CONEEIGHT-1": {
           "deps": [
@@ -2641,7 +2665,7 @@
       }
     },
     "FEET": {
-      "rationale": "Direct front-foot contact precedes two-front-foot targeting, then the cue, all at floor level.",
+      "rationale": "A flat secured mat teaches front-paw placement; elevation or unstable equipment is deliberately outside this sequence.",
       "steps": {
         "FEET-1": {
           "deps": [],
@@ -2668,7 +2692,7 @@
       }
     },
     "HOOP": {
-      "rationale": "Open-shape exploration and an optional reward invitation can acquire the pass directly; a recorded hand target is unnecessary.",
+      "rationale": "Use a broad floor-level opening with optional guidance, not jumping; remove duplicate wording without changing the criterion.",
       "steps": {
         "HOOP-1": {
           "deps": [],
@@ -2681,12 +2705,12 @@
               3
             ]
           ],
-          "reason": "Open-shape exploration and an optional reward invitation can acquire the pass directly; a recorded hand target is unnecessary."
+          "reason": "Remove duplicated wording without changing the exercise."
         }
       }
     },
     "TUNNEL": {
-      "rationale": "Open entrance comfort precedes a tiny straight pass and its cue; no hoop or jumping prerequisite.",
+      "rationale": "An open broad short floor-level passage is voluntary; never trap or push the dog through, and skip if confinement is uncomfortable.",
       "steps": {
         "TUNNEL-1": {
           "deps": [],
@@ -2713,7 +2737,7 @@
       }
     },
     "REAR": {
-      "rationale": "Forward passes directly shape rear-foot contact before pausing and naming a flat target position.",
+      "rationale": "Tiny voluntary rear-foot awareness on flat targets is optional; avoid lifting limbs or claiming rehabilitation benefits.",
       "steps": {
         "REAR-1": {
           "deps": [],
@@ -2740,7 +2764,7 @@
       }
     },
     "SIDESTEP": {
-      "rationale": "A voluntary lateral foot shift is shaped into a short side step without crowding or requiring backward walking.",
+      "rationale": "Reward small lateral weight changes without crowding; stop for awkward movement or strain rather than demanding precise footwork.",
       "steps": {
         "SIDESTEP-1": {
           "deps": [],
@@ -2758,7 +2782,7 @@
       }
     },
     "PIVOT": {
-      "rationale": "The front-feet target is the actual fixed component while small rear-foot adjustments form a short arc.",
+      "rationale": "Use broad tiny comfortable alignment changes on safe low or flat support; no pressure, speed or exercise prescription.",
       "steps": {
         "PIVOT-1": {
           "deps": [
@@ -2781,7 +2805,7 @@
       }
     },
     "UNDER": {
-      "rationale": "Open overhead-space exploration directly precedes a roomy walking pass; a tunnel is a different task.",
+      "rationale": "Begin with a wide high stationary opening and free exits; avoid squeezing, ducking pressure or handler movement over the dog.",
       "steps": {
         "UNDER-1": {
           "deps": [],
@@ -2799,7 +2823,7 @@
       }
     },
     "POLES": {
-      "rationale": "One secured ground-pole crossing precedes a very short naturally spaced line, without raised obstacles.",
+      "rationale": "Widely spaced floor markers support slow comfortable routes; this is not agility weave-pole conditioning.",
       "steps": {
         "POLES-1": {
           "deps": [],
@@ -2817,7 +2841,7 @@
       }
     },
     "SURFACE": {
-      "rationale": "Voluntary single-foot contact precedes crossing a small stable texture and separately introducing another.",
+      "rationale": "Introduce stable non-slip flat textures voluntarily; avoid unstable balance challenges or physical forcing.",
       "steps": {
         "SURFACE-1": {
           "deps": [],
@@ -2835,16 +2859,16 @@
       }
     },
     "OPEN": {
-      "rationale": "Appliance comfort is independent of rope work; actual opening explicitly needs the reusable gentle rope pull.",
+      "rationale": "Retire refrigerator exposure and pulling; new IDs teach a human-controlled freely moving purpose-built practice door without a seal or latch.",
       "steps": {
-        "OPEN-1": {
+        "OPEN-4": {
           "deps": [],
-          "reason": "Appliance comfort is independent of rope work; actual opening explicitly needs the reusable gentle rope pull."
+          "reason": "New prop context replaces appliance exposure without assuming historical refrigerator comfort transfers."
         },
-        "OPEN-2": {
+        "OPEN-5": {
           "deps": [
             [
-              "OPEN-1",
+              "OPEN-4",
               3
             ],
             [
@@ -2852,21 +2876,21 @@
               3
             ]
           ],
-          "reason": "Appliance comfort is independent of rope work; actual opening explicitly needs the reusable gentle rope pull."
+          "reason": "Pulling uses both door comfort and a learned gentle prop pull, without an appliance seal."
         },
-        "OPEN-3": {
+        "OPEN-6": {
           "deps": [
             [
-              "OPEN-2",
+              "OPEN-5",
               3
             ]
           ],
-          "reason": "Appliance comfort is independent of rope work; actual opening explicitly needs the reusable gentle rope pull."
+          "reason": "Cue transfer and modest starting-gap variation stay within the same low-force training prop."
         }
       }
     },
     "CLOSE": {
-      "rationale": "Object targeting transfers to a door pad, then motion; this refrigerator’s motion comfort is required only at appliance transfer.",
+      "rationale": "Keep gentle target and low-force prop contact, retire refrigerator closure and teach a new prop-only nudge cue without assumed historical credit.",
       "steps": {
         "CLOSE-1": {
           "deps": [
@@ -2875,7 +2899,7 @@
               3
             ]
           ],
-          "reason": "Object targeting transfers to a door pad, then motion; this refrigerator’s motion comfort is required only at appliance transfer."
+          "reason": "Define the lightweight door as a guarded practice prop, not a household appliance."
         },
         "CLOSE-2": {
           "deps": [
@@ -2884,25 +2908,21 @@
               3
             ]
           ],
-          "reason": "Object targeting transfers to a door pad, then motion; this refrigerator’s motion comfort is required only at appliance transfer."
+          "reason": "Closing remains a low-force prop exercise with controlled travel, rather than an appliance job."
         },
-        "CLOSE-3": {
+        "CLOSE-4": {
           "deps": [
             [
               "CLOSE-2",
               3
-            ],
-            [
-              "OPEN-1",
-              3
             ]
           ],
-          "reason": "Object targeting transfers to a door pad, then motion; this refrigerator’s motion comfort is required only at appliance transfer."
+          "reason": "A new prop-only cue record replaces refrigerator closure; completion does not certify an appliance seal."
         }
       }
     },
     "SHELF": {
-      "rationale": "Carrier take/give is independent of door opening; shelf pickup uses retrieve, and refrigerator transfer uses appliance comfort.",
+      "rationale": "Keep hand delivery and reachable-surface pickup with an empty safe carrier; replace appliance access with a human-opened practice prop.",
       "steps": {
         "SHELF-1": {
           "deps": [
@@ -2911,7 +2931,7 @@
               3
             ]
           ],
-          "reason": "Carrier take/give is independent of door opening; shelf pickup uses retrieve, and refrigerator transfer uses appliance comfort."
+          "reason": "The hand-delivery component needs no beverage or edible contents."
         },
         "SHELF-2": {
           "deps": [
@@ -2924,25 +2944,25 @@
               3
             ]
           ],
-          "reason": "Carrier take/give is independent of door opening; shelf pickup uses retrieve, and refrigerator transfer uses appliance comfort."
+          "reason": "Keep the existing reachable-surface pickup while making the empty training object explicit."
         },
-        "SHELF-3": {
+        "SHELF-4": {
           "deps": [
             [
               "SHELF-2",
               3
             ],
             [
-              "OPEN-1",
+              "OPEN-4",
               3
             ]
           ],
-          "reason": "Carrier take/give is independent of door opening; shelf pickup uses retrieve, and refrigerator transfer uses appliance comfort."
+          "reason": "A new safe prop context replaces access to an open refrigerator, without automatic historical credit."
         }
       }
     },
     "BUTTON": {
-      "rationale": "Known gentle object contact transfers to a low-force pad, then depression and a separate button cue.",
+      "rationale": "A large secured device can cue a learned action without a small-part or electrical hazard; no language or need-reading claim follows.",
       "steps": {
         "BUTTON-1": {
           "deps": [
@@ -2974,7 +2994,7 @@
       }
     },
     "SLIPPERS": {
-      "rationale": "Hand take/give can begin before outward retrieving; floor pickup explicitly adds the retrieve component.",
+      "rationale": "Use safe dedicated props rather than small wearable parts; hand delivery precedes the floor pickup and its retrieve prerequisite.",
       "steps": {
         "SLIPPERS-1": {
           "deps": [
@@ -3010,7 +3030,7 @@
       }
     },
     "POUCH": {
-      "rationale": "Stationary handover uses give; travel adds the carrying component only when used.",
+      "rationale": "Use an empty robust safe grip first; mark delivery at the end of a hold-and-give chain, not before an extra hidden requirement.",
       "steps": {
         "POUCH-1": {
           "deps": [
@@ -3019,7 +3039,7 @@
               3
             ]
           ],
-          "reason": "Stationary handover uses give; travel adds the carrying component only when used."
+          "reason": "Mark the end of the hold-and-give sequence rather than marking a hold then delaying reward for another required action."
         },
         "POUCH-2": {
           "deps": [
@@ -3046,7 +3066,7 @@
       }
     },
     "MESSENGER": {
-      "rationale": "Giving to a second familiar adult is independent; moving to them then requires known carrying.",
+      "rationale": "Familiar-person hand delivery precedes short travel; carrying is needed at the travel step, without enforced separation.",
       "steps": {
         "MESSENGER-1": {
           "deps": [
@@ -3082,7 +3102,7 @@
       }
     },
     "LAUNDRY": {
-      "rationale": "The close basket-release component comes first; actual floor collection adds retrieve.",
+      "rationale": "Use dedicated safe light fabric and human-managed baskets; hand delivery precedes floor retrieval and no swallowing or machine access is taught.",
       "steps": {
         "LAUNDRY-1": {
           "deps": [
@@ -3118,7 +3138,7 @@
       }
     },
     "SORT": {
-      "rationale": "Two toy-destination pairs can be learned in parallel; mixed choices require both before gathering a set.",
+      "rationale": "Teach independent toy-destination pairings before mixed choices; swap marked baskets and avoid claims of abstract material categorization.",
       "steps": {
         "SORT-A": {
           "deps": [
@@ -3163,7 +3183,7 @@
       }
     },
     "POST": {
-      "rationale": "Collection/delivery and the empty mat return can be learned separately; joining requires both, then transfer.",
+      "rationale": "Practice collection, familiar-person delivery and return as components; the original longer guide remains historical without overwriting notes.",
       "steps": {
         "POST-A": {
           "deps": [
@@ -3216,7 +3236,7 @@
       }
     },
     "THIRDBIN": {
-      "rationale": "The third assignment is independently teachable; mixed choices add the existing two-bin discrimination before more exemplars.",
+      "rationale": "Teach the third toy-destination pairing independently, then combine all familiar examples with positions varied; new examples require teaching.",
       "steps": {
         "THIRDBIN-1": {
           "deps": [
@@ -3252,7 +3272,7 @@
       }
     },
     "PERSON": {
-      "rationale": "Both name-person pairings are independent; equal choices require both before changing relative distance.",
+      "rationale": "Learn each familiar adult name independently, then vary positions and distances so proximity, pointing or the helper calling do not choose the recipient.",
       "steps": {
         "PERSON-1": {
           "deps": [],
@@ -3287,7 +3307,7 @@
       }
     },
     "EQUIP": {
-      "rationale": "A carrier handover uses take/give; station pickup adds retrieve before protected equipment is loaded.",
+      "rationale": "Retrieve only safe dedicated oversized equipment props; the human alone handles attachment, fit and exit decisions.",
       "steps": {
         "EQUIP-1": {
           "deps": [
@@ -3327,7 +3347,7 @@
       }
     },
     "TOILETBELL": {
-      "rationale": "A familiar pad press is connected to immediate access, then spontaneous requests; toilet needs override training.",
+      "rationale": "Reward a clear low safe signal and promptly offer an elimination opportunity; the signal is not a guarantee or reason to delay routine outings.",
       "steps": {
         "TOILETBELL-1": {
           "deps": [
@@ -3359,7 +3379,7 @@
       }
     },
     "LIGHTPAD": {
-      "rationale": "Lamp-change comfort and disconnected pad pressing run independently; their combination requires both.",
+      "rationale": "Use a large safe disconnected training pad before an adult-controlled action; no mains switch, cord access or unsupervised device use.",
       "steps": {
         "LIGHTPAD-1": {
           "deps": [],
@@ -3390,7 +3410,7 @@
       }
     },
     "BLANKET": {
-      "rationale": "The gentle rope-pull component transfers to freely sliding fabric before a tiny lap adjustment and cue.",
+      "rationale": "Move a light suitable training blanket on the floor without entanglement or swallowing; this does not establish temperature self-management.",
       "steps": {
         "BLANKET-1": {
           "deps": [
@@ -3422,7 +3442,7 @@
       }
     },
     "BOXFIND": {
-      "rationale": "One obvious open-box find teaches its own investigation before adding containers and a tiny hidden choice.",
+      "rationale": "An obvious accessible reward in one safe open box teaches its own exploration before additional boxes; no unrelated search prerequisite.",
       "steps": {
         "BOXFIND-1": {
           "deps": [],
@@ -3449,7 +3469,7 @@
       }
     },
     "TOWEL": {
-      "rationale": "Visible food on a safe open towel precedes one loose fold; no unrelated search or retrieve is required.",
+      "rationale": "Voluntary comfortable contact with a flat towel precedes wiping; do not cover the face, restrain or assume tolerance of wet grooming.",
       "steps": {
         "TOWEL-1": {
           "deps": [],
@@ -3467,7 +3487,7 @@
       }
     },
     "LOSTTOY": {
-      "rationale": "A visible accessible favorite toy precedes partial concealment; finding need not include delivery.",
+      "rationale": "Visible familiar-toy placement precedes partial concealment and short transfer; no forced wait or unreachable hide is necessary.",
       "steps": {
         "LOSTTOY-1": {
           "deps": [],
@@ -3485,7 +3505,7 @@
       }
     },
     "TRAIL": {
-      "rationale": "A visible food line precedes one broad bend; it makes no claim to human-scent tracking.",
+      "rationale": "Short safe food trails are enrichment with dog-chosen pace; following visible food is not evidence of operational scent tracking.",
       "steps": {
         "TRAIL-1": {
           "deps": [],
@@ -3503,7 +3523,7 @@
       }
     },
     "HIDESEEK": {
-      "rationale": "A visible trusted helper precedes partial and tiny complete hiding, with no forced wait or separation test.",
+      "rationale": "Two familiar adults progress from visible to a tiny nearby hide; no prolonged separation or restraint to create excitement.",
       "steps": {
         "HIDESEEK-1": {
           "deps": [],
@@ -3530,7 +3550,7 @@
       }
     },
     "NAMEDFIND": {
-      "rationale": "Named visible delivery and unnamed hidden delivery run independently; their combination requires both before helper placements.",
+      "rationale": "Use independent label choices and search components before a broader named-search chain; old partial choices must not credit broader unobserved ability.",
       "steps": {
         "NAMEDFIND-A": {
           "deps": [
@@ -3591,7 +3611,7 @@
       }
     },
     "SCENTMATCH": {
-      "rationale": "A safe familiar-human sample acquires rewarding investigation before clean comparisons and fresh-sample checks; no oils or operational claims.",
+      "rationale": "Rename the actual familiar-person odor-versus-blank discrimination; remove the unsupported general reference-matching implication and control handling cues.",
       "steps": {
         "SCENTMATCH-1": {
           "deps": [],
@@ -3604,7 +3624,7 @@
               3
             ]
           ],
-          "reason": "A safe familiar-human sample acquires rewarding investigation before clean comparisons and fresh-sample checks; no oils or operational claims."
+          "reason": "A nominal blank is not odorless. Match materials and handling and avoid food or helper cues."
         },
         "SCENTMATCH-3": {
           "deps": [
@@ -3613,12 +3633,12 @@
               3
             ]
           ],
-          "reason": "A safe familiar-human sample acquires rewarding investigation before clean comparisons and fresh-sample checks; no oils or operational claims."
+          "reason": "One learned target versus a blank is discrimination, not generalized matching-to-sample; remove the misleading reference-sample procedure."
         }
       }
     },
     "TRACKPERSON": {
-      "rationale": "A visible fresh-route introduction precedes an unobserved straight trail using a known scent sample, then one broad bend; visual hide-and-seek and food trails remain separate.",
+      "rationale": "Fresh easy route following may use multiple cues; a sniffed sample does not establish matching, and operational identification is not certified.",
       "steps": {
         "TRACKPERSON-1": {
           "deps": [],
@@ -3629,13 +3649,9 @@
             [
               "TRACKPERSON-1",
               3
-            ],
-            [
-              "SCENTMATCH-1",
-              3
             ]
           ],
-          "reason": "A visible fresh-route introduction precedes an unobserved straight trail using a known scent sample, then one broad bend; visual hide-and-seek and food trails remain separate."
+          "reason": "Offering a sample does not teach its meaning. Route following can use visual, ground-disturbance or airborne cues."
         },
         "TRACKPERSON-3": {
           "deps": [
@@ -3644,12 +3660,12 @@
               3
             ]
           ],
-          "reason": "A visible fresh-route introduction precedes an unobserved straight trail using a known scent sample, then one broad bend; visual hide-and-seek and food trails remain separate."
+          "reason": "Keep recreational route following distinct from person-specific operational scent tracking."
         }
       }
     },
     "SCENTINDICATE": {
-      "rationale": "Gentle investigation is shaped directly into a brief relaxed hover; scent discrimination is independently learnable.",
+      "rationale": "Shape a brief voluntary nose hover without pawing, pressure or grabbing; an indication is a trained action, not proof of target identification.",
       "steps": {
         "SCENTINDICATE-1": {
           "deps": [],
@@ -3667,7 +3683,7 @@
       }
     },
     "ARTICLE": {
-      "rationale": "Familiar sample investigation supports visible location before a tiny concealment; retrieving and formal indication remain separate.",
+      "rationale": "Finding a familiar container in easy placements can use visual and odor cues; do not label it validated person-scent identification.",
       "steps": {
         "ARTICLE-1": {
           "deps": [
@@ -3690,7 +3706,7 @@
       }
     },
     "DIG": {
-      "rationale": "A designated safe patch directly acquires a short optional digging invitation and supported finish.",
+      "rationale": "Use a designated safe accessible digging medium with supervision; no ingestion, competition or inappropriate location testing.",
       "steps": {
         "DIG-1": {
           "deps": [],
@@ -3708,25 +3724,25 @@
       }
     },
     "DRINK": {
-      "rationale": "Retrieval ending is independent of rope work; adding opening explicitly needs open/pull. Dog closure is optional and human closure preserves a valid completion path.",
+      "rationale": "Retire all refrigerator assembly steps without automatic credit; new IDs combine an empty-carrier practice-prop retrieve with optional gentle nudging.",
       "steps": {
-        "DRINK-1": {
+        "DRINK-5": {
           "deps": [
             [
-              "SHELF-3",
+              "SHELF-4",
               3
             ]
           ],
-          "reason": "Retrieval ending is independent of rope work; adding opening explicitly needs open/pull. Dog closure is optional and human closure preserves a valid completion path."
+          "reason": "The new prop chain begins with the learned delivery ending rather than a long novel sequence."
         },
-        "DRINK-2": {
+        "DRINK-6": {
           "deps": [
             [
-              "DRINK-1",
+              "DRINK-5",
               3
             ],
             [
-              "OPEN-3",
+              "OPEN-6",
               3
             ],
             [
@@ -3734,30 +3750,30 @@
               3
             ]
           ],
-          "reason": "Retrieval ending is independent of rope work; adding opening explicitly needs open/pull. Dog closure is optional and human closure preserves a valid completion path."
+          "reason": "Joining fluent components does not require withholding a marked reward or increasing pull force."
         },
-        "DRINK-3": {
+        "DRINK-7": {
           "deps": [
             [
-              "DRINK-2",
+              "DRINK-6",
               3
             ]
           ],
-          "reason": "Retrieval ending is independent of rope work; adding opening explicitly needs open/pull. Dog closure is optional and human closure preserves a valid completion path."
+          "reason": "An optional nudge is not a mandatory gate; dog closure still needs its exact component before use."
         },
-        "DRINK-4": {
+        "DRINK-8": {
           "deps": [
             [
-              "DRINK-3",
+              "DRINK-7",
               3
             ]
           ],
-          "reason": "Retrieval ending is independent of rope work; adding opening explicitly needs open/pull. Dog closure is optional and human closure preserves a valid completion path."
+          "reason": "A chain cue is introduced after the supported routine, with management and prompt fading kept separate."
         }
       }
     },
     "SORTALL": {
-      "rationale": "Known two-bin sorting and third-bin choice precede the whole set; new exemplars are required when introduced, before layout changes.",
+      "rationale": "Combine individually taught object-destination assignments and new examples gradually; success on six familiar props is not abstract sorting competence.",
       "steps": {
         "SORTALL-1": {
           "deps": [
@@ -3806,7 +3822,7 @@
       }
     },
     "COURIER": {
-      "rationale": "Known person-name discrimination and the reusable delivery round are actual components; recipient choice, collection and cue fading follow.",
+      "rationale": "Join recipient discrimination, pouch collection and return only after their components; vary helper positions without pressure or sensitive contents.",
       "steps": {
         "COURIER-1": {
           "deps": [
@@ -3851,7 +3867,7 @@
       }
     },
     "WALKREADY": {
-      "rationale": "Equipment retrieval and voluntary harness fitting are actual components of this specific project; doorway wait and short loose walking enter only when used.",
+      "rationale": "Retrieve a dedicated safe prop, voluntarily fit equipment and pause at a secured exit as separate components; humans decide readiness and traffic safety.",
       "steps": {
         "WALKREADY-1": {
           "deps": [
@@ -3904,7 +3920,7 @@
       }
     },
     "RALLY": {
-      "rationale": "Short heel and stand form the first station; the independent cone loop is required only when that station joins.",
+      "rationale": "A short floor-level sequence combines fluent components with generous reward and releases; no competition or orthopedic fitness claim.",
       "steps": {
         "RALLY-1": {
           "deps": [
@@ -3944,7 +3960,7 @@
       }
     },
     "CIRCUIT": {
-      "rationale": "Known voluntary hoop and short tunnel passes link first; ground poles are required only at the step introducing them.",
+      "rationale": "Combine enjoyable floor-level obstacles with clear exits and comfortable movement; no speed, jumping or physical-conditioning quota.",
       "steps": {
         "CIRCUIT-1": {
           "deps": [
@@ -3984,12 +4000,12 @@
       }
     },
     "SCENTREPORT": {
-      "rationale": "Known search and brief indication join first; the separate hand target is required only when adding the report.",
+      "rationale": "Find, brief indication and return-touch form a learned recreational chain; this does not validate odor identification or search-and-rescue reporting.",
       "steps": {
         "SCENTREPORT-1": {
           "deps": [
             [
-              "ARTICLE-2",
+              "ARTICLE-1",
               3
             ],
             [
@@ -3997,7 +4013,7 @@
               3
             ]
           ],
-          "reason": "Known search and brief indication join first; the separate hand target is required only when adding the report."
+          "reason": "Visible find-and-indicate chaining needs the visible article approach; partly concealed searching is not yet used."
         },
         "SCENTREPORT-2": {
           "deps": [
@@ -4017,14 +4033,18 @@
             [
               "SCENTREPORT-2",
               3
+            ],
+            [
+              "ARTICLE-2",
+              3
             ]
           ],
-          "reason": "Known search and brief indication join first; the separate hand target is required only when adding the report."
+          "reason": "The partly concealed search component becomes necessary only when this step introduces partial concealment."
         }
       }
     },
     "ROUTINE": {
-      "rationale": "Known bow and broad circle join with pauses; the independent pose is required only at the final-pose step.",
+      "rationale": "Combine a few comfortable familiar optional movements; short duration and willingness outweigh polish or an imposed performance target.",
       "steps": {
         "ROUTINE-1": {
           "deps": [

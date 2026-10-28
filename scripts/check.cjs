@@ -6,7 +6,7 @@ assert.equal(JSON.stringify(sandbox.window.GOOD_GROUND_DATA),JSON.stringify(D),'
 const sources=new Set(D.sources.map(s=>s.id));assert.equal(sources.size,D.sources.length);
 for(const s of D.skills){
   for(const key of ['code','title','sheet','goal','cue','setup','sources','priority'])assert.ok(typeof s[key]==='string'&&s[key].trim(),s.code+' '+key);
-  for(const id of s.sources.match(/\b[RPNA]\d+\b/g)||[])assert.ok(sources.has(id),s.code+' missing source '+id);
+  for(const id of s.sources.split(';').map(x=>x.trim()).filter(Boolean))assert.ok(sources.has(id),s.code+' missing source '+id);
   for(const st of s.steps){
     assert.ok(typeof st.setup==='string'&&st.setup.trim().split(/\s+/).length>=12,st.id+' lacks reviewed preparation');
     assert.ok(st.teach.trim().split(/\s+/).length>=25,st.id+' is not a teaching guide');

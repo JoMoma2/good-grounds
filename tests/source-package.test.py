@@ -13,7 +13,11 @@ ROOT = Path(__file__).resolve().parents[1]
 PREFIX = 'GoodGround-iPhone/'
 NEW_SOURCES = ('app/web/lesson-controls.js', 'research/SETUP_REVIEW.md',
                'research/step-setups.json', 'scripts/review-setups.py',
-               'tests/setup-review.test.cjs', 'tests/source-package.test.py')
+               'tests/setup-review.test.cjs', 'tests/source-package.test.py',
+               'scripts/curriculum-review.py', 'scripts/audit-content-review.cjs',
+               'research/curriculum-corrections-8.json', 'research/curriculum-review-8.json',
+               'research/CURRICULUM_REVIEW_2026-10-28.md', 'tests/content-review.test.cjs',
+               'tests/fixtures/1.6.0-catalog.json')
 
 class SourcePackageTests(unittest.TestCase):
     def setUp(self):
@@ -63,7 +67,7 @@ class SourcePackageTests(unittest.TestCase):
                 self.assertIn(PREFIX + relative, names)
             data = json.loads(package.read(PREFIX + 'app/web/data.json'))
             self.assertEqual(len(data['skills']), 154)
-            self.assertEqual(sum(len(s['steps']) for s in data['skills']), 384)
+            self.assertEqual(sum(len(s['steps']) for s in data['skills']), 386)
             self.assertIn('lesson-controls.js', package.read(PREFIX + 'app/web/index.html').decode())
 
     def test_clean_checkout_needs_no_archives_and_exports_repackage_without_git(self):
@@ -85,6 +89,7 @@ class SourcePackageTests(unittest.TestCase):
         for relative in ('docs/archive/DEVELOPMENT_REPORT_1.4.0.md', 'validation/local.log',
                          'build/private-record.json', 'test-results/local.json',
                          'node_modules/local.js', '.git/local', '.signing/private.p12',
+                         'previews/local.png', 'previews.html',
                          '.~lock.FEEDBACK_SETUP.md#'):
             file = clean / relative
             file.parent.mkdir(parents=True, exist_ok=True)
@@ -98,11 +103,12 @@ class SourcePackageTests(unittest.TestCase):
                 self.assertNotIn(sentinel, package.read(name), name)
                 self.assertFalse(name.startswith(PREFIX + 'docs/archive/'), name)
                 self.assertFalse(name.startswith(PREFIX + 'validation/'), name)
+                self.assertFalse(name.startswith(PREFIX + 'previews/'), name)
+                self.assertNotEqual(name, PREFIX + 'previews.html')
 
     def test_missing_new_required_sources_are_rejected(self):
         clean = self.clean_tree()
-        for relative in ('app/web/lesson-controls.js', 'research/step-setups.json',
-                         'scripts/review-setups.py', 'tests/setup-review.test.cjs'):
+        for relative in NEW_SOURCES:
             with self.subTest(relative=relative):
                 file = clean / relative
                 original = file.read_bytes()

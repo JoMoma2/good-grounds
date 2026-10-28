@@ -1,14 +1,16 @@
-> **1.6.0:** One consistent lesson layout, individually reviewed Setup for all 384 steps, floating/docked training controls, collapsed Extra Information, category-grid filtering and acknowledged Save and Exit. Training records stay local. See [UPDATE_NOTES.md](UPDATE_NOTES.md) and [the complete setup review](research/SETUP_REVIEW.md).
+> **1.7.1:** Standard platform help and backup guidance, with container-specific and development-installation instructions removed from the current user documentation. Curriculum 8 remains unchanged.
+
+> **Curriculum review, 1.7.0:** All 154 existing skills and all 384 previous active steps were reviewed for teaching accuracy, progression, welfare and evidence scope. Current curriculum: 386 steps, 45 historical steps and 87 source records. See [the complete review](research/CURRICULUM_REVIEW_2026-10-28.md).
 
 # Good Ground for iPhone
 
-A personal, offline dog-training companion. Version **1.6.0** includes **154 skills, 384 active teaching steps and 77 research/reference records**. Training is for individual dogs of any breed or mix.
+A personal, offline dog-training companion. Version **1.7.1** includes **154 skills, 386 active teaching steps and 87 research/reference records**. Training is for individual dogs of any breed or mix.
 
-The release provides an updated unsigned `GoodGround-unsigned.ipa` alongside this source archive. The interface was updated inside the existing iPhone shell; the native executable and Swift source are unchanged. Install through the existing SideStore or LiveContainer setup. The source folder itself is not an IPA. A fresh native build remains available through the supplied macOS workflow.
+The source includes the iPhone app, bundled curriculum and macOS build workflow. Distribution builds require the appropriate signing and release process. See [DEVELOPING.md](DEVELOPING.md) for build details and [INSTALL.md](INSTALL.md) for app use and backups.
 
-Read [UPDATE_NOTES.md](UPDATE_NOTES.md) for this release and [INSTALL.md](INSTALL.md) for installation. Both active platform projects were updated together for 1.6.0.
+Read [UPDATE_NOTES.md](UPDATE_NOTES.md) for this release and [INSTALL.md](INSTALL.md) for installation. Both active platform projects were updated together for 1.7.1.
 
-Current behavior and the complete preparation audit are described in [UPDATE_NOTES.md](UPDATE_NOTES.md) and [SETUP_REVIEW.md](research/SETUP_REVIEW.md). A separate unsigned preview is available at `build/GoodGround-1.6.0-unsigned.ipa`; it reuses the unchanged native executable. No release has been published.
+Current behavior and the complete preparation audit are described in [UPDATE_NOTES.md](UPDATE_NOTES.md) and [SETUP_REVIEW.md](research/SETUP_REVIEW.md). Version 1.7.1 uses standard iPhone help and backup instructions. Local build artifacts do not imply an App Store release.
 
 Lessons now opens with 14 topics, global search and filters. All lessons and Ready / practicing use the same topic cards; opened topics, searches and Saved/Learned results use compact skill rows with at most 12 per page. Search within a topic, by a custom cue, or by an exact Step ID. Read [UPDATE_NOTES.md](UPDATE_NOTES.md) for this release and [the prerequisite audit](research/PREREQUISITE_AUDIT.md) for component relationships.
 
@@ -40,7 +42,7 @@ The Trends page adds daily observed category completion history alongside the cu
 
 The installed app loads bundled files, with no accounts, analytics, advertising, remote fonts, backend or automatic uploads. Original reference sites need a connection only when you open them. The clicker synthesizes its own sounds and needs no recordings or network access.
 
-The iPhone shell stores atomic JSON records in Application Support, keeps a previous local save for recovery and reports save failures persistently. The progress directory is excluded from automatic iCloud backup. Export through **More → Settings → Backup & restore**, particularly before replacing the app or changing a LiveContainer data container. Keep using the same container for updates.
+The iPhone shell stores atomic JSON records in Application Support, keeps a previous local save for recovery and reports save failures persistently. The progress directory is excluded from automatic iCloud backup. Export through **More → Settings → Backup & restore**, particularly before removing the app or changing phones. Install updates over the existing app to retain local records.
 
 Version 1 saves/backups migrate to the household format. New exports use backup version 3, which retains every dog even if only one is selected. Older app versions reject that backup format. New local saves also carry a compatibility guard so an older app cannot silently rewrite them and drop extra dogs or progress history; reopen with this app version to continue. Keep your old backup before updating. Imported files are validated and previewed before replacing anything.
 
@@ -54,7 +56,7 @@ Open [app/web/index.html](app/web/index.html) in a modern browser, or run:
 python3 -m http.server 8765 --bind 127.0.0.1 --directory app/web
 ```
 
-Then open `http://127.0.0.1:8765`. The local preview does not upload records. See [previews.html](previews.html) for screenshots.
+Then open `http://127.0.0.1:8765`. The local preview does not upload records. Current validation screenshots are in `validation/v1.7.1`. Earlier generated previews are preserved in the central iPhone archive.
 
 [DEVELOPING.md](DEVELOPING.md) explains the editable tour, household ownership rules, sounds, support preferences and curriculum generation. Key checks:
 
@@ -79,6 +81,12 @@ Original code, icon, synthesized sounds and instructional writing are under [LIC
 
 ## Portable source release
 
-Run `npm run test:package` to verify packaging, then `python3 scripts/package-source.py /tmp/GoodGround-1.6.0-Source.zip` to make a ZIP and SHA-256 sidecar. The same commands work from a clean checkout with the complete intended source files, or from an extracted source ZIP. The iOS build copies the whole bundled `app/web` directory, including `lesson-controls.js`.
+Run `npm run test:package` to verify packaging, then `python3 scripts/package-source.py /tmp/GoodGround-1.7.1-Source.zip` to make a ZIP and SHA-256 sidecar. The same commands work from a clean checkout with the complete intended source files, or from an extracted source ZIP. The iOS build copies the whole bundled `app/web` directory, including `lesson-controls.js`.
 
 `docs/archive/` is optional local history and is excluded from both publication and the portable ZIP. Generated `validation/`, `build/`, `test-results/`, dependencies, Git internals, local `.signing/` material and office lock files are excluded too. Existing tracked validation artifacts are not deleted by the ignore rules. Other public documentation may be included when present without becoming a required dependency. Keep `research/` baselines and `tests/fixtures/`: they are active generator/test inputs despite their historical names.
+
+## Workspace organization
+
+In the complete Good Ground workspace, shared evidence and independent verification live in `Research/Sources and Verification` at the workspace root; start with its `Research/README.md`. The current shared handoff is under `Documentation/`. Historical releases, earlier validation and old generated files belong under `Archives/`.
+
+This project's `research/` directory contains required local generator inputs and review ledgers. Keep it with the project when building or distributing the portable source ZIP. Current local validation remains in `validation/v1.7.1`; older reports were moved into the platform archive. The active Git repository, platform build files, signing configuration and app records were not relocated.

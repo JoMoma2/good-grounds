@@ -6,6 +6,10 @@ build/
 test-results/
 __pycache__/
 
+# Optional capture-previews output is local, not application source.
+/previews/
+/previews.html
+
 # LibreOffice / OpenOffice temporary document locks
 .~lock.*#
 
